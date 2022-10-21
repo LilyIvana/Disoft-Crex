@@ -30,7 +30,7 @@
           <Property Name="mbuact" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Detalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Detalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Detalle">
           <Key>
             <PropertyRef Name="obnumi" />
@@ -47,7 +47,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Detalle' no tiene definid
           <Property Name="obcampo2" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.DetalleBackup' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.DetalleBackup' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="DetalleBackup">
           <Key>
             <PropertyRef Name="obnumi" />
@@ -124,7 +124,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.DetalleBackup' no tiene d
           <Property Name="bauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TC0001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0001">
           <Key>
             <PropertyRef Name="cccfrecvisita" />
@@ -183,7 +183,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0001' no tiene definida
           <Property Name="cacampo3" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TC0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0011">
           <Key>
             <PropertyRef Name="cicod" />
@@ -195,7 +195,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0011' no tiene definida
           <Property Name="ciest" Type="bit" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TC0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0012">
           <Key>
             <PropertyRef Name="cpnumi" />
@@ -300,7 +300,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0012' no tiene definida
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TC0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0041">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -332,7 +332,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0041' no tiene definida
           <Property Name="cpcat" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC004A1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TC004A1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC004A1">
           <Key>
             <PropertyRef Name="ccaanumi" />
@@ -342,7 +342,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC004A1' no tiene definid
           <Property Name="ccaandia" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC004A2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TC004A2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC004A2">
           <Key>
             <PropertyRef Name="ccabnumi" />
@@ -416,7 +416,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC004A2' no tiene definid
           <Property Name="cfuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TC0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC0091">
           <Key>
             <PropertyRef Name="cllin" />
@@ -451,7 +451,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC0091' no tiene definida
           <Property Name="cosal2" Type="nvarchar" MaxLength="5" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TC012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TC012">
           <Key>
             <PropertyRef Name="cenumi" />
@@ -519,7 +519,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TC012' no tiene definida 
           <Property Name="cabtca1numi" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TCA00121' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TCA00121' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCA00121">
           <Key>
             <PropertyRef Name="tdnumi" />
@@ -538,7 +538,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TCA00121' no tiene defini
           <Property Name="tduact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TCP0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TCP0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TCP0011">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -643,7 +643,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TCP0011' no tiene definid
           <Property Name="iccant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TI003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TI003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TI003">
           <Key>
             <PropertyRef Name="idcli" />
@@ -746,7 +746,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TI003' no tiene definida 
           <Property Name="lblongi" Type="decimal" Precision="18" Scale="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TM001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TM001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM001">
           <Key>
             <PropertyRef Name="ibid" />
@@ -767,7 +767,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TM001' no tiene definida 
           <Property Name="AlmacenDestino" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TM0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TM0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0011">
           <Key>
             <PropertyRef Name="icid" />
@@ -780,7 +780,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TM0011' no tiene definida
           <Property Name="cantidadAutoVenta" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TM0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TM0012' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0012">
           <Key>
             <PropertyRef Name="ieid" />
@@ -790,7 +790,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TM0012' no tiene definida
           <Property Name="ieest" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TM0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TM0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TM0013">
           <Key>
             <PropertyRef Name="idnumi" />
@@ -820,7 +820,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TM0013' no tiene definida
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO0011' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0011">
           <Key>
             <PropertyRef Name="obnumi" />
@@ -837,7 +837,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0011' no tiene definida
           <Property Name="obcampo2" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0014' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO0014' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0014">
           <Key>
             <PropertyRef Name="ofnumi" />
@@ -854,7 +854,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0014' no tiene definida
           <Property Name="ofuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO001A' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO001A' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO001A">
           <Key>
             <PropertyRef Name="oaanumi" />
@@ -893,7 +893,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO001A' no tiene definida
           <Property Name="oadusuario" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO002">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -910,7 +910,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO002' no tiene definida 
           <Property Name="oduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0021' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO0021' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0021">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -926,7 +926,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0021' no tiene definida
           <Property Name="oetipo" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0022' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO0022' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0022">
           <Key>
             <PropertyRef Name="ofid" />
@@ -942,7 +942,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0022' no tiene definida
           <Property Name="ofid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0023' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO0023' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0023">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -960,7 +960,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0023' no tiene definida
           <Property Name="ojuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO003">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -989,7 +989,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO003' no tiene definida 
           <Property Name="ohuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO0041' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0041">
           <Key>
             <PropertyRef Name="oinumi" />
@@ -1002,7 +1002,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0041' no tiene definida
           <Property Name="oicant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0042' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO0042' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0042">
           <Key>
             <PropertyRef Name="ojnumi" />
@@ -1017,7 +1017,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0042' no tiene definida
           <Property Name="ojdesc" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0043' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TO0043' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TO0043">
           <Key>
             <PropertyRef Name="oknumi" />
@@ -1073,7 +1073,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TO0043' no tiene definida
           <Property Name="onMonto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TP001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP001">
           <Key>
             <PropertyRef Name="panumi" />
@@ -1090,7 +1090,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP001' no tiene definida 
           <Property Name="pauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TP002' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP002">
           <Key>
             <PropertyRef Name="pbnumi" />
@@ -1104,7 +1104,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP002' no tiene definida 
           <Property Name="pbuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TP003' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP003">
           <Key>
             <PropertyRef Name="pdnumi" />
@@ -1117,7 +1117,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP003' no tiene definida 
           <Property Name="pduact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP004' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TP004' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP004">
           <Key>
             <PropertyRef Name="penumi" />
@@ -1132,7 +1132,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP004' no tiene definida 
           <Property Name="peuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP006' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TP006' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP006">
           <Key>
             <PropertyRef Name="pgnumi" />
@@ -1150,7 +1150,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP006' no tiene definida 
           <Property Name="pguact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP0061' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TP0061' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP0061">
           <Key>
             <PropertyRef Name="phnumi" />
@@ -1215,7 +1215,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP0061' no tiene definida
           <Property Name="pmuact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TP0091' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TP0091">
           <Key>
             <PropertyRef Name="pnnumi" />
@@ -1250,7 +1250,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TP0091' no tiene definida
           <Property Name="aanumiasiento" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TS001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TS001' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TS001">
           <Key>
             <PropertyRef Name="sanumi" />
@@ -1320,7 +1320,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TS001' no tiene definida 
           <Property Name="Cajaid" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TV0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TV0013' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="TV0013">
           <Key>
             <PropertyRef Name="tenumi" />
@@ -1372,7 +1372,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.TV0013' no tiene definida
           <Property Name="ycdel" Type="bit" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.App_Listado_CobrosPendientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.App_Listado_CobrosPendientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="App_Listado_CobrosPendientes">
           <Key>
             <PropertyRef Name="PedidoId" />
@@ -1387,7 +1387,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.App_Listado_CobrosPendien
           <Property Name="pendiente" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Reporte_ExistenciaProductos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Reporte_ExistenciaProductos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Reporte_ExistenciaProductos">
           <Key>
             <PropertyRef Name="unidad" />
@@ -1402,7 +1402,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Reporte_ExistenciaProduct
           <Property Name="PreciosFamilia" Type="varchar" MaxLength="22" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Reporte_KardexGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Reporte_KardexGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Reporte_KardexGeneral">
           <Key>
             <PropertyRef Name="canumi" />
@@ -1422,7 +1422,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Reporte_KardexGeneral' no
           <Property Name="SaldoFinal" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Reporte_VendedorZonas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Reporte_VendedorZonas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Reporte_VendedorZonas">
           <Key>
             <PropertyRef Name="Id" />
@@ -1432,7 +1432,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Reporte_VendedorZonas' no
           <Property Name="Vendedor" Type="nvarchar(max)" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.V_StockDisp' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.V_StockDisp' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="V_StockDisp">
           <Key>
             <PropertyRef Name="iacprod" />
@@ -1447,7 +1447,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.V_StockDisp' no tiene def
           <Property Name="iaalm" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.v_VentasDetalleDespacho' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.v_VentasDetalleDespacho' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="v_VentasDetalleDespacho">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1474,9 +1474,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.v_VentasDetalleDespacho' 
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
           <Property Name="oaanumiprev" Type="int" />
           <Property Name="vendedor" Type="nvarchar" MaxLength="50" />
+          <Property Name="oaobs" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vista_promconsumo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.vista_promconsumo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vista_promconsumo">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1491,7 +1492,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vista_promconsumo' no tie
           <Property Name="fTentativa" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vista_transacciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.vista_transacciones' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vista_transacciones">
           <Key>
             <PropertyRef Name="numi" />
@@ -1506,7 +1507,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vista_transacciones' no t
           <Property Name="tipo" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_CajaDetalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_CajaDetalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_CajaDetalle">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1529,7 +1530,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_CajaDetalle' no tiene 
           <Property Name="estado" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1547,7 +1548,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Clientes' no tiene def
           <Property Name="ccest" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_ClientesPendientesNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_ClientesPendientesNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ClientesPendientesNota">
           <Key>
             <PropertyRef Name="ped" />
@@ -1565,7 +1566,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_ClientesPendientesNota
           <Property Name="cacat" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Vr_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Conciliacion">
           <Key>
             <PropertyRef Name="Fecha" />
@@ -1576,7 +1577,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Conciliacion' no tiene
           <Property Name="Cant" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_CuentasPagar_PagosRealizados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_CuentasPagar_PagosRealizados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_CuentasPagar_PagosRealizados">
           <Key>
             <PropertyRef Name="cpblin" />
@@ -1595,7 +1596,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_CuentasPagar_PagosReal
           <Property Name="mora" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_EntregaPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_EntregaPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_EntregaPedidos">
           <Key>
             <PropertyRef Name="oenumi" />
@@ -1614,7 +1615,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_EntregaPedidos' no tie
           <Property Name="cadesc2" Type="nvarchar" MaxLength="15" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_EstadoCuentasClientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_EstadoCuentasClientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_EstadoCuentasClientes">
           <Key>
             <PropertyRef Name="numiDoc" />
@@ -1634,7 +1635,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_EstadoCuentasClientes'
           <Property Name="fecha1" Type="nvarchar" MaxLength="4000" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_Facturas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Facturas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1670,7 +1671,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Facturas' no tiene def
           <Property Name="fvbnumi2" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_FacturasChacaltaya' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_FacturasChacaltaya' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_FacturasChacaltaya">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -1684,7 +1685,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_FacturasChacaltaya' no
           <Property Name="oeefec" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_CajaGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_CajaGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_CajaGeneral">
           <Key>
             <PropertyRef Name="IdCaja" />
@@ -1702,7 +1703,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_CajaGeneral' no tie
           <Property Name="Diferencia" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vr_go_comprobanteSalidaItems' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.vr_go_comprobanteSalidaItems' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_comprobanteSalidaItems">
           <Key>
             <PropertyRef Name="id" />
@@ -1722,7 +1723,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vr_go_comprobanteSalidaIt
           <Property Name="cantidad" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vr_go_comprobanteVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.vr_go_comprobanteVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_comprobanteVenta">
           <Key>
             <PropertyRef Name="codigo" />
@@ -1745,7 +1746,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vr_go_comprobanteVenta' n
           <Property Name="ojobs" Type="nvarchar" MaxLength="60" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DespachoNotaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_DespachoNotaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoNotaVenta">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -1779,7 +1780,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DespachoNotaVenta' 
           <Property Name="cedesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DespachoXCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_DespachoXCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoXCliente">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1809,7 +1810,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DespachoXCliente' n
           <Property Name="cbdesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DespachoXProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_DespachoXProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoXProducto">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1831,9 +1832,11 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DespachoXProducto' 
           <Property Name="Total" Type="decimal" Precision="38" Scale="2" />
           <Property Name="Conv" Type="decimal" Precision="18" Scale="2" />
           <Property Name="PesoKg" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="cagr1" Type="int" />
+          <Property Name="cmdesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DespachoXProducto2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_DespachoXProducto2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DespachoXProducto2">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -1856,7 +1859,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DespachoXProducto2'
           <Property Name="PesoKg" Type="decimal" Precision="38" Scale="6" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DiferenciaPedidoNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_DiferenciaPedidoNota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_DiferenciaPedidoNota">
           <Key>
             <PropertyRef Name="numi" />
@@ -1876,7 +1879,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_DiferenciaPedidoNot
           <Property Name="usuario" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_EquipoPrestadoVsUltimaVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_EquipoPrestadoVsUltimaVenta">
           <Key>
             <PropertyRef Name="numi" />
@@ -1895,7 +1898,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_EquipoPrestadoVsUlt
           <Property Name="zona" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_EquiposPrestadoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_EquiposPrestadoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_EquiposPrestadoCliente">
           <Key>
             <PropertyRef Name="codbd" />
@@ -1909,7 +1912,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_EquiposPrestadoClie
           <Property Name="direccion" Type="nvarchar" MaxLength="200" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_Factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_Factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_Factura">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -1946,7 +1949,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_Factura' no tiene d
           <Property Name="oazona" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_FacturaVsVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_FacturaVsVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_FacturaVsVenta">
           <Key>
             <PropertyRef Name="tipo" />
@@ -1963,7 +1966,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_FacturaVsVenta' no 
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_FacturaVsVenta2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_FacturaVsVenta2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_FacturaVsVenta2">
           <Key>
             <PropertyRef Name="ncli" />
@@ -1982,7 +1985,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_FacturaVsVenta2' no
           <Property Name="tipo" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_ListarZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_ListarZona' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_ListarZona">
           <Key>
             <PropertyRef Name="numi" />
@@ -2000,7 +2003,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_ListarZona' no tien
           <Property Name="uact" Type="nchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_PrestamoEquiposAgrupado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_PrestamoEquiposAgrupado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_PrestamoEquiposAgrupado">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -2015,7 +2018,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_PrestamoEquiposAgru
           <Property Name="cpmov" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_PrestamoEquiposDetallado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_PrestamoEquiposDetallado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_PrestamoEquiposDetallado">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -2037,7 +2040,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_PrestamoEquiposDeta
           <Property Name="cpmovcli" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vr_go_reciboCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.vr_go_reciboCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_reciboCliente">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2062,7 +2065,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vr_go_reciboCliente' no t
           <Property Name="cbdesc2" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_SaldoPrestamoEquipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_SaldoPrestamoEquipo' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_SaldoPrestamoEquipo">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -2075,7 +2078,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_SaldoPrestamoEquipo
           <Property Name="ES" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_UltimaVentaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_UltimaVentaCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_UltimaVentaCliente">
           <Key>
             <PropertyRef Name="numi" />
@@ -2092,7 +2095,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GO_UltimaVentaCliente'
           <Property Name="est" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vr_go_visitasDiarias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.vr_go_visitasDiarias' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vr_go_visitasDiarias">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -2117,7 +2120,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.vr_go_visitasDiarias' no 
           <Property Name="ccabcant" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GraficaVentasVs' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GraficaVentasVs' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GraficaVentasVs">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2130,7 +2133,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_GraficaVentasVs' no ti
           <Property Name="mes2" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_KadexCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_KadexCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KadexCliente">
           <Key>
             <PropertyRef Name="concepto" />
@@ -2151,7 +2154,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_KadexCliente' no tiene
           <Property Name="factura" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_KardexInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_KardexInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KardexInventario">
           <Key>
             <PropertyRef Name="id" />
@@ -2176,7 +2179,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_KardexInventario' no t
           <Property Name="nombreCliente" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_KardexPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_KardexPrestamos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_KardexPrestamos">
           <Key>
             <PropertyRef Name="chnumi" />
@@ -2195,7 +2198,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_KardexPrestamos' no ti
           <Property Name="chtmov" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_LibroVentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_LibroVentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentas">
           <Key>
             <PropertyRef Name="fvanumi" />
@@ -2223,7 +2226,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_LibroVentas' no tiene 
           <Property Name="scnom" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_LibroVentasChacaltaya1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_LibroVentasChacaltaya1' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentasChacaltaya1">
           <Key>
             <PropertyRef Name="esp" />
@@ -2255,7 +2258,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_LibroVentasChacaltaya1
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_LibroVentasChacaltaya2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_LibroVentasChacaltaya2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_LibroVentasChacaltaya2">
           <Key>
             <PropertyRef Name="esp" />
@@ -2284,7 +2287,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_LibroVentasChacaltaya2
           <Property Name="ccon" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Mam_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Vr_Mam_Clientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_Clientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -2324,7 +2327,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Mam_Clientes' no tiene
           <Property Name="ccuact" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Mam_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_Mam_Conciliacion' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Mam_Conciliacion">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2340,7 +2343,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Mam_Conciliacion' no t
           <Property Name="TOTAL" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Mam_Credito_Cliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Vr_Mam_Credito_Cliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_Credito_Cliente">
           <Key>
             <PropertyRef Name="pago" />
@@ -2367,7 +2370,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Mam_Credito_Cliente' n
           <Property Name="pendiente" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Mam_ProductoVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Vr_Mam_ProductoVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_ProductoVenta">
           <Key>
             <PropertyRef Name="numiProducto" />
@@ -2382,7 +2385,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Mam_ProductoVenta' no 
           <Property Name="TotalVenta" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Mam_ProductoVentaInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Vr_Mam_ProductoVentaInventario' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_Mam_ProductoVentaInventario">
           <Key>
             <PropertyRef Name="numiProducto" />
@@ -2401,7 +2404,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_Mam_ProductoVentaInven
           <Property Name="cmdesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_MO_GetPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_MO_GetPedidos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_MO_GetPedidos">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2423,7 +2426,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_MO_GetPedidos' no tien
           <Property Name="oauact" Type="nvarchar" MaxLength="10" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_MorosidadProveedores' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_MorosidadProveedores' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_MorosidadProveedores">
           <Key>
             <PropertyRef Name="Numicompra" />
@@ -2439,7 +2442,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_MorosidadProveedores' 
           <Property Name="Mora" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Nota de Venta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_Nota de Venta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Nota de Venta">
           <Key>
             <PropertyRef Name="oanumi" />
@@ -2461,7 +2464,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Nota de Venta' no tien
           <Property Name="FechaPedido" Type="date" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_NotaCompra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_NotaCompra' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_NotaCompra">
           <Key>
             <PropertyRef Name="caanumi" />
@@ -2502,7 +2505,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_NotaCompra' no tiene d
           <Property Name="plazo" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Pagos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_Pagos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Pagos">
           <Key>
             <PropertyRef Name="ognumi" />
@@ -2519,7 +2522,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Pagos' no tiene defini
           <Property Name="ogrec" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_ProductosMesas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_ProductosMesas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ProductosMesas">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2536,7 +2539,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_ProductosMesas' no tie
           <Property Name="totvend4" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Proforma' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_Proforma' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_Proforma">
           <Key>
             <PropertyRef Name="pmnumi" />
@@ -2562,7 +2565,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_Proforma' no tiene def
           <Property Name="cedesc" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_ReportePrecios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_ReportePrecios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ReportePrecios">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2575,7 +2578,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_ReportePrecios' no tie
           <Property Name="PrecioCaja" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_ResumenNotas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_ResumenNotas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_ResumenNotas">
           <Key>
             <PropertyRef Name="odnumi" />
@@ -2590,7 +2593,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_ResumenNotas' no tiene
           <Property Name="total" Type="float" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_SaldoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_SaldoCliente' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_SaldoCliente">
           <Key>
             <PropertyRef Name="idcodcli" />
@@ -2600,7 +2603,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_SaldoCliente' no tiene
           <Property Name="idsaldo" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_SaldoFisicoValorado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_SaldoFisicoValorado' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_SaldoFisicoValorado">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2621,7 +2624,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_SaldoFisicoValorado' n
           <Property Name="iaalm" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_stockActual' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_stockActual' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_stockActual">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2639,7 +2642,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_stockActual' no tiene 
           <Property Name="iaalm" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_StockDisponible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_StockDisponible' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_StockDisponible">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2654,7 +2657,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_StockDisponible' no ti
           <Property Name="StockFinal" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_UtilidadPorProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_UtilidadPorProducto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_UtilidadPorProducto">
           <Key>
             <PropertyRef Name="canumi" />
@@ -2667,7 +2670,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_UtilidadPorProducto' n
           <Property Name="Utilidad" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VentasComision' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VentasComision' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_VentasComision">
           <Key>
             <PropertyRef Name="codven" />
@@ -2687,7 +2690,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VentasComision' no tie
           <Property Name="mcomision" Type="decimal" Precision="38" Scale="6" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VentasComisionRep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VentasComisionRep' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_VentasComisionRep">
           <Key>
             <PropertyRef Name="codrep" />
@@ -2707,7 +2710,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VentasComisionRep' no 
           <Property Name="mcomision" Type="decimal" Precision="38" Scale="6" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VentasVendedor' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VentasVendedor' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_VentasVendedor">
           <Key>
             <PropertyRef Name="codven" />
@@ -2727,7 +2730,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VentasVendedor' no tie
           <Property Name="TotalVenta" Type="decimal" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_VentasVendedor12Meses' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Vr_VentasVendedor12Meses' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_VentasVendedor12Meses">
           <Key>
             <PropertyRef Name="numiVendedor" />
@@ -2749,7 +2752,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_VentasVendedor12Meses'
           <Property Name="total" Type="decimal" Precision="18" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_VentasVendidas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.Vr_VentasVendidas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="Vr_VentasVendidas">
           <Key>
             <PropertyRef Name="aanumi" />
@@ -2772,7 +2775,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.Vr_VentasVendidas' no tie
           <Property Name="total" Type="numeric" Precision="38" Scale="2" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VisitaClientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VisitaClientes' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_VisitaClientes">
           <Key>
             <PropertyRef Name="ccnumi" />
@@ -2788,7 +2791,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VisitaClientes' no tie
           <Property Name="dias" Type="int" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCosto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCosto' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_VistaPedido_PrecioCosto">
           <Key>
             <PropertyRef Name="codcliente" />
@@ -4028,7 +4031,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
     [v_VentasDetalleDespacho].[oaccbnumi] AS [oaccbnumi], 
     [v_VentasDetalleDespacho].[cbdesc] AS [cbdesc], 
     [v_VentasDetalleDespacho].[oaanumiprev] AS [oaanumiprev], 
-    [v_VentasDetalleDespacho].[vendedor] AS [vendedor]
+    [v_VentasDetalleDespacho].[vendedor] AS [vendedor], 
+    [v_VentasDetalleDespacho].[oaobs] AS [oaobs]
     FROM [dbo].[v_VentasDetalleDespacho] AS [v_VentasDetalleDespacho]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vista_promconsumo" EntityType="Self.vista_promconsumo" store:Type="Views" store:Schema="dbo">
@@ -4317,7 +4321,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
     [VR_GO_DespachoXProducto].[Unidad] AS [Unidad], 
     [VR_GO_DespachoXProducto].[Total] AS [Total], 
     [VR_GO_DespachoXProducto].[Conv] AS [Conv], 
-    [VR_GO_DespachoXProducto].[PesoKg] AS [PesoKg]
+    [VR_GO_DespachoXProducto].[PesoKg] AS [PesoKg], 
+    [VR_GO_DespachoXProducto].[cagr1] AS [cagr1], 
+    [VR_GO_DespachoXProducto].[cmdesc] AS [cmdesc]
     FROM [dbo].[VR_GO_DespachoXProducto] AS [VR_GO_DespachoXProducto]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VR_GO_DespachoXProducto2" EntityType="Self.VR_GO_DespachoXProducto2" store:Type="Views" store:Schema="dbo">
@@ -5849,8 +5855,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
           <EntitySet Name="vr_go_comprobanteSalidaItems" EntityType="BDDistBHFModel.vr_go_comprobanteSalidaItems" />
           <EntitySet Name="vr_go_comprobanteVenta" EntityType="BDDistBHFModel.vr_go_comprobanteVenta" />
           <EntitySet Name="VR_GO_DespachoNotaVenta" EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" />
-          <EntitySet Name="VR_GO_DespachoXCliente" EntityType="BDDistBHFModel.VR_GO_DespachoXCliente" />
-          <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
           <EntitySet Name="VR_GO_DespachoXProducto2" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto2" />
           <EntitySet Name="VR_GO_DiferenciaPedidoNota" EntityType="BDDistBHFModel.VR_GO_DiferenciaPedidoNota" />
           <EntitySet Name="VR_GO_EquipoPrestadoVsUltimaVenta" EntityType="BDDistBHFModel.VR_GO_EquipoPrestadoVsUltimaVenta" />
@@ -5910,6 +5914,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
             <End Role="TO005" EntitySet="TO005" />
             <End Role="TO0052" EntitySet="TO0052" />
           </AssociationSet>
+          <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
+          <EntitySet Name="VR_GO_DespachoXCliente" EntityType="BDDistBHFModel.VR_GO_DespachoXCliente" />
           </EntityContainer>
         <ComplexType Name="sp_dg_RAsistencia_Result">
           <Property Type="Int32" Name="cbnumi" Nullable="false" />
@@ -7455,6 +7461,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
           <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="oaanumiprev" Type="Int32" />
           <Property Name="vendedor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="vista_promconsumo">
           <Key>
@@ -7728,56 +7735,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
           <Property Name="ccnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="cctelf1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="cedesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="VR_GO_DespachoXCliente">
-          <Key>
-            <PropertyRef Name="oaccbnumi" />
-            <PropertyRef Name="ccnumi" />
-            <PropertyRef Name="oacnrofact" />
-            <PropertyRef Name="oanumi" />
-            <PropertyRef Name="tipo" />
-          </Key>
-          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
-          <Property Name="ccnumi" Type="Int32" Nullable="false" />
-          <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="oacnrofact" Type="Int64" Nullable="false" />
-          <Property Name="obptot" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="obdesc" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="obtotal" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="IdZona" Type="Int32" />
-          <Property Name="oaest" Type="Int32" />
-          <Property Name="oaap" Type="Int32" />
-          <Property Name="oafdoc" Type="DateTime" Precision="0" />
-          <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="oanumi" Type="Int32" Nullable="false" />
-          <Property Name="tipo" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Name="contado" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="credito" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="oaanumiprev" Type="Int32" />
-          <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="VR_GO_DespachoXProducto">
-          <Key>
-            <PropertyRef Name="oaccbnumi" />
-            <PropertyRef Name="canumi" />
-          </Key>
-          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
-          <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="obpcant" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="oacnconc" Type="Int32" />
-          <Property Name="oaest" Type="Int32" />
-          <Property Name="oaap" Type="Int32" />
-          <Property Name="oafdoc" Type="DateTime" Precision="0" />
-          <Property Name="caja" Type="Int32" />
-          <Property Name="Unidad" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="Conv" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PesoKg" Type="Decimal" Precision="38" Scale="6" />
         </EntityType>
         <EntityType Name="VR_GO_DespachoXProducto2">
           <Key>
@@ -8693,6 +8650,58 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VR_GO_DespachoXProducto">
+          <Key>
+            <PropertyRef Name="oaccbnumi" />
+            <PropertyRef Name="canumi" />
+          </Key>
+          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
+          <Property Name="canumi" Type="Int32" Nullable="false" />
+          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="obpcant" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="oacnconc" Type="Int32" />
+          <Property Name="oaest" Type="Int32" />
+          <Property Name="oaap" Type="Int32" />
+          <Property Name="oafdoc" Type="DateTime" Precision="0" />
+          <Property Name="caja" Type="Int32" />
+          <Property Name="Unidad" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Conv" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PesoKg" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="cagr1" Type="Int32" />
+          <Property Name="cmdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VR_GO_DespachoXCliente">
+          <Key>
+            <PropertyRef Name="oaccbnumi" />
+            <PropertyRef Name="ccnumi" />
+            <PropertyRef Name="oacnrofact" />
+            <PropertyRef Name="oanumi" />
+            <PropertyRef Name="tipo" />
+          </Key>
+          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
+          <Property Name="ccnumi" Type="Int32" Nullable="false" />
+          <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ccdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oacnrofact" Type="Int64" Nullable="false" />
+          <Property Name="obptot" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="obdesc" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="obtotal" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="IdZona" Type="Int32" />
+          <Property Name="oaest" Type="Int32" />
+          <Property Name="oaap" Type="Int32" />
+          <Property Name="oafdoc" Type="DateTime" Precision="0" />
+          <Property Name="oaobs" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="oanumi" Type="Int32" Nullable="false" />
+          <Property Name="tipo" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="contado" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="credito" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="oaanumiprev" Type="Int32" />
+          <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -10372,6 +10381,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
           <EntitySetMapping Name="v_VentasDetalleDespacho">
             <EntityTypeMapping TypeName="BDDistBHFModel.v_VentasDetalleDespacho">
               <MappingFragment StoreEntitySet="v_VentasDetalleDespacho">
+                <ScalarProperty Name="oaobs" ColumnName="oaobs" />
                 <ScalarProperty Name="vendedor" ColumnName="vendedor" />
                 <ScalarProperty Name="oaanumiprev" ColumnName="oaanumiprev" />
                 <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
@@ -10669,53 +10679,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
                 <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_DespachoXCliente">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXCliente">
-              <MappingFragment StoreEntitySet="VR_GO_DespachoXCliente">
-                <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
-                <ScalarProperty Name="oaanumiprev" ColumnName="oaanumiprev" />
-                <ScalarProperty Name="credito" ColumnName="credito" />
-                <ScalarProperty Name="contado" ColumnName="contado" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="oanumi" ColumnName="oanumi" />
-                <ScalarProperty Name="oaobs" ColumnName="oaobs" />
-                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
-                <ScalarProperty Name="oaap" ColumnName="oaap" />
-                <ScalarProperty Name="oaest" ColumnName="oaest" />
-                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
-                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
-                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
-                <ScalarProperty Name="obptot" ColumnName="obptot" />
-                <ScalarProperty Name="oacnrofact" ColumnName="oacnrofact" />
-                <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
-                <ScalarProperty Name="cccod" ColumnName="cccod" />
-                <ScalarProperty Name="ccnumi" ColumnName="ccnumi" />
-                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_DespachoXProducto">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXProducto">
-              <MappingFragment StoreEntitySet="VR_GO_DespachoXProducto">
-                <ScalarProperty Name="PesoKg" ColumnName="PesoKg" />
-                <ScalarProperty Name="Conv" ColumnName="Conv" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
-                <ScalarProperty Name="caja" ColumnName="caja" />
-                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
-                <ScalarProperty Name="oaap" ColumnName="oaap" />
-                <ScalarProperty Name="oaest" ColumnName="oaest" />
-                <ScalarProperty Name="oacnconc" ColumnName="oacnconc" />
-                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
-                <ScalarProperty Name="categoria" ColumnName="categoria" />
-                <ScalarProperty Name="cadesc2" ColumnName="cadesc2" />
-                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
-                <ScalarProperty Name="cacod" ColumnName="cacod" />
-                <ScalarProperty Name="canumi" ColumnName="canumi" />
-                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11597,6 +11560,55 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Yver.dbo.VR_VistaPedido_PrecioCost
                 <ScalarProperty Name="codcliente" ColumnName="codcliente" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_DespachoXProducto">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXProducto">
+              <MappingFragment StoreEntitySet="VR_GO_DespachoXProducto">
+                <ScalarProperty Name="cmdesc" ColumnName="cmdesc" />
+                <ScalarProperty Name="cagr1" ColumnName="cagr1" />
+                <ScalarProperty Name="PesoKg" ColumnName="PesoKg" />
+                <ScalarProperty Name="Conv" ColumnName="Conv" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="caja" ColumnName="caja" />
+                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
+                <ScalarProperty Name="oaap" ColumnName="oaap" />
+                <ScalarProperty Name="oaest" ColumnName="oaest" />
+                <ScalarProperty Name="oacnconc" ColumnName="oacnconc" />
+                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="cadesc2" ColumnName="cadesc2" />
+                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
+                <ScalarProperty Name="cacod" ColumnName="cacod" />
+                <ScalarProperty Name="canumi" ColumnName="canumi" />
+                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_DespachoXCliente">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXCliente">
+              <MappingFragment StoreEntitySet="VR_GO_DespachoXCliente">
+                <ScalarProperty Name="cbdesc" ColumnName="cbdesc" />
+                <ScalarProperty Name="oaanumiprev" ColumnName="oaanumiprev" />
+                <ScalarProperty Name="credito" ColumnName="credito" />
+                <ScalarProperty Name="contado" ColumnName="contado" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+                <ScalarProperty Name="oaobs" ColumnName="oaobs" />
+                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
+                <ScalarProperty Name="oaap" ColumnName="oaap" />
+                <ScalarProperty Name="oaest" ColumnName="oaest" />
+                <ScalarProperty Name="IdZona" ColumnName="IdZona" />
+                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
+                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
+                <ScalarProperty Name="obptot" ColumnName="obptot" />
+                <ScalarProperty Name="oacnrofact" ColumnName="oacnrofact" />
+                <ScalarProperty Name="ccdesc" ColumnName="ccdesc" />
+                <ScalarProperty Name="cccod" ColumnName="cccod" />
+                <ScalarProperty Name="ccnumi" ColumnName="ccnumi" />
+                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

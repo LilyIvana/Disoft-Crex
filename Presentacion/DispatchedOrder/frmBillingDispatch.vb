@@ -1146,7 +1146,9 @@ Public Class frmBillingDispatch
                           .Unidad = grupo.Sum(Function(item) item.Unidad),
                           .Total = grupo.Sum(Function(item) item.Total),
                           .Conv = grupo.FirstOrDefault().Conv,
-                          .Pesokg = grupo.Sum(Function(item) item.Pesokg)
+                          .Pesokg = grupo.Sum(Function(item) item.Pesokg),
+                          .cagr1 = grupo.FirstOrDefault().cagr1,
+                          .cmdesc = grupo.FirstOrDefault().cmdesc
                         }).ToList()
             If (lista.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
@@ -1160,6 +1162,9 @@ Public Class frmBillingDispatch
                         SerParametros(lista, objrep)
                     Case ENReporteTipo.DESPACHOXPRODUCTO_SinAgrupacion
                         Dim objrep As New DespachoXProductoSinAgrupacion
+                        SerParametros(lista, objrep)
+                    Case ENReporteTipo.DESPACHOXPRODUCTO_AgrupadoXProveedor
+                        Dim objrep As New DespachoXProductoProv
                         SerParametros(lista, objrep)
                 End Select
             Next

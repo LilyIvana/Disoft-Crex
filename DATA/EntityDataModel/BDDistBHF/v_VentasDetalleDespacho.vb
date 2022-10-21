@@ -32,5 +32,6 @@ Partial Public Class v_VentasDetalleDespacho
     Public Property cbdesc As String
     Public Property oaanumiprev As Nullable(Of Integer)
     Public Property vendedor As String
+    Public Property oaobs As String
 
 End Class

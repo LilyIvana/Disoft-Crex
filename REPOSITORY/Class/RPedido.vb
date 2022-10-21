@@ -189,7 +189,9 @@ Public Class RPedido
                                    .Unidad = a.Unidad,
                                    .Total = a.Total,
                                    .Conv = a.Conv,
-                                   .Pesokg = a.PesoKg
+                                   .Pesokg = a.PesoKg,
+                                   .cagr1 = a.cagr1,
+                                   .cmdesc = a.cmdesc
                                    }).ToList()
                 ' Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
                 'Select New RDespachoXProducto With {
@@ -462,7 +464,8 @@ Public Class RPedido
                                       .oaccbnumi = a.oaccbnumi,
                                       .cbdesc = a.cbdesc,
                                       .oaanumiprev = a.oaanumiprev,
-                                      .vendedor = a.vendedor
+                                      .vendedor = a.vendedor,
+                                      .oaobs = a.oaobs
                                       }).ToList()
                 Return listResult
 

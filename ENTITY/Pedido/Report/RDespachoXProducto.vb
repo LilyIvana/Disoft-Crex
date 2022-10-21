@@ -124,4 +124,25 @@
             _Pesokg = value
         End Set
     End Property
+
+
+    Private _cagr1 As Integer
+    Public Property cagr1() As Integer
+        Get
+            Return _cagr1
+        End Get
+        Set(ByVal value As Integer)
+            _cagr1 = value
+        End Set
+    End Property
+
+    Private _cmdesc As String
+    Public Property cmdesc() As String
+        Get
+            Return _cmdesc
+        End Get
+        Set(ByVal value As String)
+            _cmdesc = value
+        End Set
+    End Property
 End Class

@@ -24,9 +24,9 @@ Partial Class F01_Producto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim CbUnidVenta_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_Producto))
         Dim CbUnidMax_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbgrupo1_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_Producto))
         Dim cbUMed_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbgrupo2_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbgrupo4_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -902,7 +902,7 @@ Partial Class F01_Producto
         Me.lbgrupo3.SingleLineColor = System.Drawing.SystemColors.Control
         Me.lbgrupo3.Size = New System.Drawing.Size(103, 23)
         Me.lbgrupo3.TabIndex = 31
-        Me.lbgrupo3.Text = "Atributo:"
+        Me.lbgrupo3.Text = "Calibre-Gramaje:"
         '
         'LabelX15
         '
@@ -918,8 +918,7 @@ Partial Class F01_Producto
         Me.LabelX15.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX15.Size = New System.Drawing.Size(104, 23)
         Me.LabelX15.TabIndex = 213
-        Me.LabelX15.Text = "Unidad Medida:"
-        Me.LabelX15.Visible = False
+        Me.LabelX15.Text = "Grupo Desct.:"
         '
         'lbgrupo4
         '
@@ -984,7 +983,6 @@ Partial Class F01_Producto
         Me.cbUMed.SelectedItem = Nothing
         Me.cbUMed.Size = New System.Drawing.Size(144, 22)
         Me.cbUMed.TabIndex = 4
-        Me.cbUMed.Visible = False
         Me.cbUMed.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'cbgrupo2

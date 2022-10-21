@@ -115,9 +115,7 @@
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_CajaGeneral" Width="1.5" PointX="22.75" PointY="30.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.vr_go_comprobanteSalidaItems" Width="1.5" PointX="30.75" PointY="26.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.vr_go_comprobanteVenta" Width="1.5" PointX="31.75" PointY="0.75" />
-        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" Width="1.5" PointX="31.75" PointY="5.75" />
-        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoXCliente" Width="1.5" PointX="31.75" PointY="12.75" />
-        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" Width="1.5" PointX="31.75" PointY="18.75" />
+        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" Width="1.75" PointX="31.75" PointY="5.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoXProducto2" Width="1.5" PointX="30.75" PointY="31.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DiferenciaPedidoNota" Width="1.5" PointX="2.75" PointY="32.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_EquipoPrestadoVsUltimaVenta" Width="1.5" PointX="4.75" PointY="32.75" />
@@ -168,6 +166,8 @@
         <AssociationConnector Association="BDDistBHFModel.FK_EmpresaReporte_Empresa" />
         <AssociationConnector Association="BDDistBHFModel.FK_TO0051_TO005" />
         <AssociationConnector Association="BDDistBHFModel.FK_TO0052_TO005" />
+        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" Width="1.5" PointX="35.375" PointY="38.75" />
+        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoXCliente" Width="1.5" PointX="37.375" PointY="38.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
