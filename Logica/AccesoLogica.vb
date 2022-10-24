@@ -1036,7 +1036,7 @@ Public Class AccesoLogica
         Else
             _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0"
         End If
-        _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, iacant", "TC001,TC003, TI001", _Where + " order by canumi")
+        _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, iacant, caumed", "TC001,TC003, TI001", _Where + " order by canumi")
 
         Return _Tabla
     End Function
@@ -1401,7 +1401,7 @@ Public Class AccesoLogica
         Else
             _Where = "obnumi=" + _idCabecera + " AND obcprod=canumi AND iacprod=obcprod and iaalm=1"
         End If
-        _Tabla = D_Datos_Tabla("obnumi,obcprod, cacod, cadesc,obpcant,obpbase,obptot,obdesc,obtotal,obfamilia, obcampo1, iacant", "TO0011,TC001, TI001", _Where)
+        _Tabla = D_Datos_Tabla("obnumi,obcprod, cacod, cadesc,obpcant,obpbase,obptot,obdesc,obtotal,obfamilia, obcampo1, iacant, obgrupdesc", "TO0011,TC001, TI001", _Where)
         Return _Tabla
     End Function
     Public Shared Sub L_PedidoDetalle_Grabar(_idCabecera As String, _codProd As String, _cantidad As String, _precio As String, _subTotal As String, _desc As String, _total As String, _flia As String)
@@ -4624,6 +4624,18 @@ Public Class AccesoLogica
 
         _listParam.Add(New Datos.DParametro("@tipo", 4))
         _listParam.Add(New Datos.DParametro("@codpro", cod))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_go_TD001", _listParam)
+
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnMostrarDescuentosProveedor(grupdesc As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 5))
+        _listParam.Add(New Datos.DParametro("@grupdesc", grupdesc))
         _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_go_TD001", _listParam)
 
