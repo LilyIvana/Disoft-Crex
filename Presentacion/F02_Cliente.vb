@@ -10,6 +10,8 @@ Imports GMap.NET.WindowsForms.Markers
 Imports GMap.NET.WindowsForms.ToolTips
 Imports DevComponents.DotNetBar.Controls
 
+
+
 Public Class F02_Cliente
     Dim _inter As Integer = 0
 #Region "Atributos generales"
@@ -149,6 +151,7 @@ Public Class F02_Cliente
         Else
             stiFrecuencia.Visible = False
         End If
+        StcFrecuencia.SelectedTabIndex = 1
     End Sub
     Private Sub _Habilitar()
         GroupPanelEquipos.Visible = gs_Parametros(0).Item("syclienteequipo")
@@ -275,6 +278,7 @@ Public Class F02_Cliente
         TbObs.ReadOnly = Not flat
         TbNombreFactura.ReadOnly = Not flat
         TbNit.ReadOnly = Not flat
+        TbEmail.ReadOnly = Not flat
         tbLatitud.ReadOnly = Not flat
         tbLongitud.ReadOnly = Not flat
         tbRecorrido.ReadOnly = Not flat
@@ -346,6 +350,7 @@ Public Class F02_Cliente
         TbObs.Clear()
         TbNombreFactura.Clear()
         TbNit.Clear()
+        TbEmail.Clear()
         tbLatitud.Clear()
         tbLongitud.Clear()
         tbRecorrido.Text = "0"
@@ -498,6 +503,7 @@ Public Class F02_Cliente
                     Me.SbEventual.Value = .GetValue("even").ToString.Equals("False")
                     Me.TbNombreFactura.Text = .GetValue("nomfac").ToString
                     Me.TbNit.Text = .GetValue("nit").ToString
+                    Me.TbEmail.Text = .GetValue("ccemail").ToString
 
                     Me.tbLatitud.Text = .GetValue("lat").ToString
                     Me.tbLongitud.Text = .GetValue("longi").ToString
@@ -823,7 +829,7 @@ Public Class F02_Cliente
                                                        IIf(chbLunes.Checked, 1, 0), IIf(chbMartes.Checked, 1, 0),
                                                        IIf(chbMiercoles.Checked, 1, 0), IIf(chbJueves.Checked, 1, 0),
                                                        IIf(chbViernes.Checked, 1, 0), IIf(chbSabado.Checked, 1, 0),
-                                                       IIf(chbDomingo.Checked, 1, 0))
+                                                       IIf(chbDomingo.Checked, 1, 0), TbEmail.Text)
 
 
                 If (res) Then
@@ -927,7 +933,7 @@ Public Class F02_Cliente
                                                           IIf(chbLunes.Checked, 1, 0), IIf(chbMartes.Checked, 1, 0),
                                                           IIf(chbMiercoles.Checked, 1, 0), IIf(chbJueves.Checked, 1, 0),
                                                           IIf(chbViernes.Checked, 1, 0), IIf(chbSabado.Checked, 1, 0),
-                                                          IIf(chbDomingo.Checked, 1, 0))
+                                                          IIf(chbDomingo.Checked, 1, 0), TbEmail.Text)
 
                 If (res) Then
 
@@ -1518,6 +1524,17 @@ Public Class F02_Cliente
             .Visible = True
             '.CellStyle.BackColor = Color.AliceBlue
         End With
+        With DgjBusqueda.RootTable.Columns(34)
+            .Caption = ""
+            .Key = "ccemail"
+            .Width = 100
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = True
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
 
         'Habilitar Filtradores
         With DgjBusqueda
@@ -1948,14 +1965,54 @@ Public Class F02_Cliente
             Return False
             Exit Function
         End If
-        If (TbNroDoc.Text.Trim.Equals("")) Then
-            ToastNotification.Show(Me, "El Nro de Documento no puede estar vacio".ToUpper,
+        If (CbTipoDoc.SelectedIndex < 0) Then
+            ToastNotification.Show(Me, "Seleccione un Tipo de Documento".ToUpper,
                        My.Resources.WARNING,
                        InDuracion * 1000,
                        eToastGlowColor.Red,
                        eToastPosition.BottomLeft)
             Return False
             Exit Function
+        End If
+        'If (TbNroDoc.Text.Trim.Equals("")) Then
+        '    ToastNotification.Show(Me, "El Nro de Documento no puede estar vacio".ToUpper,
+        '               My.Resources.WARNING,
+        '               InDuracion * 1000,
+        '               eToastGlowColor.Red,
+        '               eToastPosition.BottomLeft)
+        '    Return False
+        '    Exit Function
+        'End If
+        If (TbNombreFactura.Text.Trim.Equals("")) Then
+            ToastNotification.Show(Me, "El nombre para Factura no puede estar vacio".ToUpper,
+                       My.Resources.WARNING,
+                       InDuracion * 1000,
+                       eToastGlowColor.Red,
+                       eToastPosition.BottomLeft)
+            Return False
+            Exit Function
+        End If
+        If (TbNit.Text.Trim.Equals("")) Then
+            ToastNotification.Show(Me, "El nit no puede estar vacio".ToUpper,
+                       My.Resources.WARNING,
+                       InDuracion * 1000,
+                       eToastGlowColor.Red,
+                       eToastPosition.BottomLeft)
+            Return False
+            Exit Function
+        End If
+
+        If (TbEmail.Text.Trim.Equals("")) Then
+            TbEmail.Text = "cliente@crex.com.bo"
+        End If
+        If (CbTipoDoc.Value = 5) Then ''El tipo de Doc. es Nit
+
+            Dim tokenSifac As String = frmBillingDispatch.ObtToken()
+            Dim Succes As Integer = frmBillingDispatch.VerificarNit(tokenSifac, TbNit.Text)
+            If Succes <> 200 Then
+                Return False
+            End If
+
         End If
         If (BoEliminar) Then
             If (DtiFechaIng.Value > DtiUltimoPedido.Value) Then
@@ -3131,7 +3188,5 @@ Public Class F02_Cliente
         P_prPonerResumenEquipo()
     End Sub
 
-    Private Sub StcFrecuencia_SelectedTabChanged(sender As Object, e As SuperTabStripSelectedTabChangedEventArgs) Handles StcFrecuencia.SelectedTabChanged
 
-    End Sub
 End Class

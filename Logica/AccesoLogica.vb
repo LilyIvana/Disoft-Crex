@@ -1401,7 +1401,8 @@ Public Class AccesoLogica
         Else
             _Where = "obnumi=" + _idCabecera + " AND obcprod=canumi AND iacprod=obcprod and iaalm=1"
         End If
-        _Tabla = D_Datos_Tabla("obnumi,obcprod, cacod, cadesc,obpcant,obpbase,obptot,obdesc,obtotal,obfamilia, obcampo1, iacant, obgrupdesc", "TO0011,TC001, TI001", _Where)
+        '_Tabla = D_Datos_Tabla("obnumi,obcprod, cacod, cadesc,obpcant,obpbase,obptot,obdesc,obtotal,obfamilia, obcampo1, iacant, obgrupdesc", "TO0011,TC001, TI001", _Where)
+        _Tabla = D_Datos_Tabla("obnumi,obcprod, cacod, cadesc,obpcant,obpbase,obptot,obdesc,obtotal,obfamilia, obcampo1, iacant ", "TO0011,TC001, TI001", _Where)
         Return _Tabla
     End Function
     Public Shared Sub L_PedidoDetalle_Grabar(_idCabecera As String, _codProd As String, _cantidad As String, _precio As String, _subTotal As String, _desc As String, _total As String, _flia As String)
@@ -2811,7 +2812,7 @@ Public Class AccesoLogica
                                              acuEst As String, acuObs As String, tcre As String,
                                              dtDet1 As DataTable, dtDet2 As DataTable, giFrec As String,
                                              frecvisita As String, lunes As Integer, martes As Integer, miercoles As Integer,
-                                             jueves As Integer, viernes As Integer, sabado As Integer, domingo As Integer) As Boolean
+                                             jueves As Integer, viernes As Integer, sabado As Integer, domingo As Integer, email As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -2843,6 +2844,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@recven", recven))
         _listParam.Add(New Datos.DParametro("@supven", supven))
         _listParam.Add(New Datos.DParametro("@preven", preven))
+        _listParam.Add(New Datos.DParametro("@email", email))
         _listParam.Add(New Datos.DParametro("@tcre", tcre))
         _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
         _listParam.Add(New Datos.DParametro("@TC0041", "", detalle))
@@ -2897,7 +2899,7 @@ Public Class AccesoLogica
                                                 acuEst As String, acuObs As String, tcre As String,
                                                 dtDet1 As DataTable, dtDet2 As DataTable, giFrec As String,
                                                 frecvisita As String, lunes As Integer, martes As Integer, miercoles As Integer,
-                                                jueves As Integer, viernes As Integer, sabado As Integer, domingo As Integer) As Boolean
+                                                jueves As Integer, viernes As Integer, sabado As Integer, domingo As Integer, email As String) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -2928,6 +2930,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@recven", recven))
         _listParam.Add(New Datos.DParametro("@supven", supven))
         _listParam.Add(New Datos.DParametro("@preven", preven))
+        _listParam.Add(New Datos.DParametro("@email", email))
         _listParam.Add(New Datos.DParametro("@tcre", tcre))
         _listParam.Add(New Datos.DParametro("@ccuact", L_Usuario))
         _listParam.Add(New Datos.DParametro("@TC0041", "", detalle))
@@ -9331,7 +9334,34 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-
+    Public Shared Function L_prObtenerEncabezadoPedido(numi As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 35))
+        _listParam.Add(New Datos.DParametro("@numi", numi))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_prObtenerDetallePedidoFact(numi As String) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 36))
+        _listParam.Add(New Datos.DParametro("@numi", numi))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_fnObtenerMaxFact(_nrocaja As Integer, _anhio As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 37))
+        _listParam.Add(New Datos.DParametro("@taNrocaja", _nrocaja))
+        _listParam.Add(New Datos.DParametro("@anhio", _anhio))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
+        Return _Tabla
+    End Function
     Public Shared Function L_prLibreriaClienteLGeneral() As DataTable
         Dim _Tabla As DataTable
 
@@ -10452,7 +10482,7 @@ Public Class AccesoLogica
 
 #Region "Facturar"
 
-    Public Shared Sub L_Grabar_Factura(_Numi As String, _Fecha As String, _Nfac As String, _NAutoriz As String, _Est As String,
+    Public Shared Sub L_Grabar_FacturaAntigua(_Numi As String, _Fecha As String, _Nfac As String, _NAutoriz As String, _Est As String,
                                        _NitCli As String, _CodCli As String, _DesCli1 As String, _DesCli2 As String,
                                        _A As String, _B As String, _C As String, _D As String, _E As String, _F As String,
                                        _G As String, _H As String, _CodCon As String, _FecLim As String,
@@ -10481,6 +10511,52 @@ Public Class AccesoLogica
                 + "" + _Imgqr + ", " _
                 + "" + _Alm + ", " _
                 + "" + _Numi2 + ""
+
+            D_Insertar_Datos("TFV001", Sql)
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Public Shared Sub L_Grabar_Factura(_Numi As String, _Fecha As String, _Nfac As String, _NAutoriz As String, _Est As String,
+                                       _NitCli As String, _CodCli As String, _DesCli1 As String, _DesCli2 As String,
+                                       _A As String, _B As String, _C As String, _D As String, _E As String, _F As String,
+                                       _G As String, _H As String, _CodCon As String, _FecLim As String,
+                                       _Imgqr As String, _Alm As String, _Numi2 As String, _hora As String, _qrurl As String,
+                                       _facturl As String, _2leyenda As String, _3leyenda As String, _cufd As String,
+                                       _nrocaja As String, _anhio As String)
+        Dim Sql As String
+        Try
+            Sql = "" + _Numi + ", " _
+                + "'" + _Fecha + "', " _
+                + "" + _Nfac + ", " _
+                + "'" + _NAutoriz + "', " _
+                + "" + _Est + ", " _
+                + "'" + _NitCli + "', " _
+                + "" + _CodCli + ", " _
+                + "'" + _DesCli1 + "', " _
+                + "'" + _DesCli2 + "', " _
+                + "" + _A + ", " _
+                + "" + _B + ", " _
+                + "" + _C + ", " _
+                + "" + _D + ", " _
+                + "" + _E + ", " _
+                + "" + _F + ", " _
+                + "" + _G + ", " _
+                + "" + _H + ", " _
+                + "'" + _CodCon + "', " _
+                + "'" + _FecLim + "', " _
+                + "" + _Imgqr + ", " _
+                + "" + _Alm + ", " _
+                + "" + _Numi2 + ", " _
+                + "'" + _hora + "', " _
+                + "'" + _qrurl + "', " _
+                + "'" + _facturl + "', " _
+                + "'" + _2leyenda + "', " _
+                + "'" + _3leyenda + "', " _
+                + "'" + _cufd + "', " _
+                + "" + _nrocaja + ", " _
+                + "" + _anhio + ""
 
             D_Insertar_Datos("TFV001", Sql)
         Catch ex As Exception

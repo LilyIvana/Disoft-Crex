@@ -240,15 +240,19 @@ Partial Class F01_Producto
         '
         'MBtGrabar
         '
+        Me.MBtGrabar.Visible = False
         '
         'MBtEliminar
         '
+        Me.MBtEliminar.Visible = False
         '
         'MBtModificar
         '
+        Me.MBtModificar.Visible = False
         '
         'MBtNuevo
         '
+        Me.MBtNuevo.Visible = False
         '
         'MPanelToolBarImprimir
         '

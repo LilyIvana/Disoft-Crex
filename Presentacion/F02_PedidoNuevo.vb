@@ -442,11 +442,11 @@ Public Class F02_PedidoNuevo
             .Key = "Stock"
             .Visible = False
         End With
-        With JGr_DetallePedido.RootTable.Columns(12)
-            .Caption = "GrupDesc"
-            .Key = "GrupDesc"
-            .Visible = False
-        End With
+        'With JGr_DetallePedido.RootTable.Columns(12)
+        '    .Caption = "GrupDesc"
+        '    .Key = "GrupDesc"
+        '    .Visible = False
+        'End With
 
         'Habilitar Filtradores
         With JGr_DetallePedido
@@ -660,10 +660,11 @@ Public Class F02_PedidoNuevo
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
         End With
-        With JGr_Productos.RootTable.Columns(9)
-            .Caption = "GrupoDesc"
-            .Visible = False
-        End With
+        'With JGr_Productos.RootTable.Columns(9)
+        '    .Caption = "GrupoDesc"
+        '    .Visible = False
+        'End With
+
 
         'añadir columna de imagenes
         'JGr_Productos.RootTable.Columns.Add("Imagenes", ColumnType.Image)
@@ -1887,7 +1888,7 @@ Public Class F02_PedidoNuevo
 
         Dim res As Boolean = False
         'Grabado de Cabesera Factura
-        L_Grabar_Factura(numi,
+        L_Grabar_FacturaAntigua(numi,
                         fechafact.ToString("yyyy/MM/dd"), nfact, "0",
                         "1",
                         nit,
@@ -2390,7 +2391,7 @@ Public Class F02_PedidoNuevo
                         familia = Convert.ToString(JGr_Productos.CurrentRow.Cells("cagr4").Value)
                         atributo = Convert.ToString(JGr_Productos.CurrentRow.Cells("cagr3").Value)
                         stock = Convert.ToString(JGr_Productos.CurrentRow.Cells("iacant").Value)
-                        grupdesc = Convert.ToString(JGr_Productos.CurrentRow.Cells("caumed").Value)
+                        'grupdesc = Convert.ToString(JGr_Productos.CurrentRow.Cells("caumed").Value)
 
                         Dim nuevaFila As DataRow = CType(JGr_DetallePedido.DataSource, DataTable).NewRow()
 
@@ -2402,7 +2403,7 @@ Public Class F02_PedidoNuevo
                         nuevaFila(9) = familia
                         nuevaFila(10) = atributo
                         nuevaFila(11) = stock
-                        nuevaFila(12) = grupdesc
+                        'nuevaFila(12) = grupdesc
 
 
                         CType(JGr_DetallePedido.DataSource, DataTable).Rows.Add(nuevaFila)
@@ -2552,17 +2553,17 @@ Public Class F02_PedidoNuevo
         Dim dt1, dt2 As New DataTable
         Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
         dt1 = L_VerificarPedidoConsolidado(Tb_Id.Text)
-        'If (P_fnValidarFacturaVigente()) Then
-        '    ToastNotification.Show(Me, "No se puede modificar el pedido con código ".ToUpper + Tb_Id.Text + ", su factura esta vigente, por favor primero anule la factura".ToUpper,
-        '                                  img, 4000,
-        '                                  eToastGlowColor.Green,
-        '                                  eToastPosition.TopCenter)
-        '    Exit Sub
-        'End If
+        If (P_fnValidarFacturaVigente()) Then
+            ToastNotification.Show(Me, "No se puede modificar el pedido con código ".ToUpper + Tb_Id.Text + ", su factura esta vigente.".ToUpper,
+                                          img, 4000,
+                                          eToastGlowColor.Green,
+                                          eToastPosition.TopCenter)
+            Exit Sub
+        End If
 
         If dt1.Rows.Count > 0 Then
             If dt1.Rows(0).Item("ieest") = 2 Or dt1.Rows(0).Item("ieest") = 3 Then
-                ToastNotification.Show(Me, "Este pedido ya fue consolidado no puede modificarlo".ToUpper, img, 3000, eToastGlowColor.Red, eToastPosition.TopCenter)
+                ToastNotification.Show(Me, "Este pedido ya fue consolidado no puede ser modificado".ToUpper, img, 3000, eToastGlowColor.Red, eToastPosition.TopCenter)
             Else
                 _PModificarRegistro()
             End If
@@ -3261,7 +3262,7 @@ Public Class F02_PedidoNuevo
 
         Dim res As Boolean = False
         'Grabado de Cabesera Factura
-        L_Grabar_Factura(numi,
+        L_Grabar_FacturaAntigua(numi,
                         Now.Date.ToString("yyyy/MM/dd"), "0", "0",
                         "1",
                         nit,
@@ -3547,36 +3548,38 @@ Public Class F02_PedidoNuevo
             End If
         Next
 
-        'Recorro el grid de pedido fila por fila para descuento por proveedor
-        Dim ConteoProd As Integer
-        For i = 0 To JGr_DetallePedido.RowCount - 1
-            grupDesc = CType(JGr_DetallePedido.DataSource, DataTable).Rows(i).Item("obgrupdesc")
 
-            dt = L_fnMostrarDescuentosProveedor(grupDesc)
+        ''Recorro el grid de pedido fila por fila para Descuento por Proveedor
+        'Dim ConteoProd As Integer
+        'Dim DetallePedido = CType(JGr_DetallePedido.DataSource, DataTable).Copy
 
+        'For i = 0 To DetallePedido.Rows.Count - 1
+        '    grupDesc = DetallePedido.Rows(i).Item("obgrupdesc")
 
+        '    'Recorre el grid para hacer la suma de montos por grupo de descuentos
+        '    For Each desc In DetallePedido.Rows
+        '        If grupDesc = desc("obgrupdesc") Then
+        '            acumladoProv += desc("obtotal")
+        '            ConteoProd += 1
+        '        End If
+        '    Next
 
-            'Recorre el grid para hacer la suma de las cantidades por familia
-            For Each desc In JGr_DetallePedido.GetRows
-                If grupDesc = desc.Cells("GrupDesc").Value Then
-                    acumladoProv += desc.Cells("Total").Value
-                    ConteoProd += 1
-                End If
-            Next
-            'Consulta la tabla de descuentos para ver cual aplicará segun la cantidad ingresada
-            For Each preciodesc As DataRow In dt.Rows
-                If acumladoProv >= preciodesc.Item("MontoInicial") And acumladoProv <= preciodesc.Item("MontoFinal") Then
-                    totalProv = (acumladoProv * preciodesc.Item("DescuentoPorcentaje")) / 100
-                    totalDescProv = Math.Round((totalProv / ConteoProd), 2)
-                End If
-            Next
+        '    'Consulta la tabla de descuentos para ver cual aplicará según montos acumulados
+        '    dt = L_fnMostrarDescuentosProveedor(grupDesc)
 
-            CType(JGr_DetallePedido.DataSource, DataTable).Rows(i).Item("obdesc") = totalDescProv
-            CType(JGr_DetallePedido.DataSource, DataTable).Rows(i).Item("obtotal") = CType(JGr_DetallePedido.DataSource, DataTable).Rows(i).Item("obptot") - totalDescProv
-            acumladoProv = 0
-            totalDescProv = 0
-            ConteoProd = 0
-        Next
+        '    For Each preciodesc As DataRow In dt.Rows
+        '        If acumladoProv >= preciodesc.Item("MontoInicial") And acumladoProv <= preciodesc.Item("MontoFinal") Then
+        '            totalProv = (acumladoProv * preciodesc.Item("DescuentoPorcentaje")) / 100
+        '            totalDescProv = Math.Round((totalProv / ConteoProd), 2)
+        '        End If
+        '    Next
+
+        '    CType(JGr_DetallePedido.DataSource, DataTable).Rows(i).Item("obdesc") = totalDescProv
+        '    CType(JGr_DetallePedido.DataSource, DataTable).Rows(i).Item("obtotal") = CType(JGr_DetallePedido.DataSource, DataTable).Rows(i).Item("obptot") - totalDescProv
+        '    acumladoProv = 0
+        '    totalDescProv = 0
+        '    ConteoProd = 0
+        'Next
 
 
         _BanderaDescuentos = True

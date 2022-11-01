@@ -12,7 +12,7 @@
     <AssemblyName>Disoft</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -35,6 +35,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -295,6 +296,9 @@
       <HintPath>C:\librerias\QrCode\OnBarcode.Barcode.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
+    <Reference Include="RestSharp">
+      <HintPath>..\..\..\DYNASYS\DinoNuevo_Crex\DinoM\bin\Debug\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
@@ -597,6 +601,24 @@
     <Compile Include="Mapas\R0_UTilidadPorProducto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="modelosApi\AeconomicaResp.vb" />
+    <Compile Include="modelosApi\AnulacionEnvio.vb" />
+    <Compile Include="modelosApi\AnulacionResp.vb" />
+    <Compile Include="modelosApi\ConnSiat.vb" />
+    <Compile Include="modelosApi\DBApi.vb" />
+    <Compile Include="modelosApi\EmisorEnvio.vb" />
+    <Compile Include="modelosApi\EmisorResp.vb" />
+    <Compile Include="modelosApi\HomologEnvio.vb" />
+    <Compile Include="modelosApi\HomologResp.vb" />
+    <Compile Include="modelosApi\ListarPServResp.vb" />
+    <Compile Include="modelosApi\LoginEnvio.vb" />
+    <Compile Include="modelosApi\LoginResp.vb" />
+    <Compile Include="modelosApi\NitResp.vb" />
+    <Compile Include="modelosApi\Parametro.vb" />
+    <Compile Include="modelosApi\RespMetodosPago.vb" />
+    <Compile Include="modelosApi\RespMotivoAnulacion.vb" />
+    <Compile Include="modelosApi\RespTipoDoc.vb" />
+    <Compile Include="modelosApi\UmedidaResp.vb" />
     <Compile Include="Parametros.Designer.vb">
       <DependentUpon>Parametros.vb</DependentUpon>
     </Compile>
@@ -1603,6 +1625,12 @@
     <Compile Include="Utils\Efecto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utils\notifi.designer.vb">
+      <DependentUpon>notifi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\notifi.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Visualizador.designer.vb">
       <DependentUpon>Visualizador.vb</DependentUpon>
     </Compile>
@@ -2354,6 +2382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Utils\Efecto.resx">
       <DependentUpon>Efecto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utils\notifi.resx">
+      <DependentUpon>notifi.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visualizador.resx">
       <DependentUpon>Visualizador.vb</DependentUpon>

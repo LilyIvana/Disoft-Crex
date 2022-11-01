@@ -52,6 +52,23 @@ Partial Class F02_Cliente
         Me.BtAddEquipo = New DevComponents.DotNetBar.ButtonX()
         Me.TableLayoutPanelDatos = New System.Windows.Forms.TableLayoutPanel()
         Me.StcFrecuencia = New DevComponents.DotNetBar.SuperTabControl()
+        Me.SuperTabControlPanel4 = New DevComponents.DotNetBar.SuperTabControlPanel()
+        Me.SuperTabControlUbicacionGeografica = New DevComponents.DotNetBar.SuperTabControl()
+        Me.SuperTabControlPanel1 = New DevComponents.DotNetBar.SuperTabControlPanel()
+        Me.GroupPanelMapa = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.btZoomAlejar = New DevComponents.DotNetBar.ButtonX()
+        Me.btZoomAcercar = New DevComponents.DotNetBar.ButtonX()
+        Me.GmUbicacionCliente = New GMap.NET.WindowsForms.GMapControl()
+        Me.SuperTabItemMapa = New DevComponents.DotNetBar.SuperTabItem()
+        Me.SuperTabControlPanel2 = New DevComponents.DotNetBar.SuperTabControlPanel()
+        Me.GroupPanelCoordenadas = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.tbLongitud = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.tbLatitud = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.BtMarcarPunto = New DevComponents.DotNetBar.ButtonX()
+        Me.LabelX12 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX11 = New DevComponents.DotNetBar.LabelX()
+        Me.SuperTabItemCoordenadas = New DevComponents.DotNetBar.SuperTabItem()
+        Me.StiUbicacion = New DevComponents.DotNetBar.SuperTabItem()
         Me.SuperTabControlPanel3 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.DgjSugerencia = New Janus.Windows.GridEX.GridEX()
         Me.StiFiltroCliente = New DevComponents.DotNetBar.SuperTabItem()
@@ -72,23 +89,6 @@ Partial Class F02_Cliente
         Me.SuperTabControlPanel6 = New DevComponents.DotNetBar.SuperTabControlPanel()
         Me.grCatProd = New Janus.Windows.GridEX.GridEX()
         Me.catProd = New DevComponents.DotNetBar.SuperTabItem()
-        Me.SuperTabControlPanel4 = New DevComponents.DotNetBar.SuperTabControlPanel()
-        Me.SuperTabControlUbicacionGeografica = New DevComponents.DotNetBar.SuperTabControl()
-        Me.SuperTabControlPanel1 = New DevComponents.DotNetBar.SuperTabControlPanel()
-        Me.GroupPanelMapa = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.btZoomAlejar = New DevComponents.DotNetBar.ButtonX()
-        Me.btZoomAcercar = New DevComponents.DotNetBar.ButtonX()
-        Me.GmUbicacionCliente = New GMap.NET.WindowsForms.GMapControl()
-        Me.SuperTabItemMapa = New DevComponents.DotNetBar.SuperTabItem()
-        Me.SuperTabControlPanel2 = New DevComponents.DotNetBar.SuperTabControlPanel()
-        Me.GroupPanelCoordenadas = New DevComponents.DotNetBar.Controls.GroupPanel()
-        Me.tbLongitud = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.tbLatitud = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.BtMarcarPunto = New DevComponents.DotNetBar.ButtonX()
-        Me.LabelX12 = New DevComponents.DotNetBar.LabelX()
-        Me.LabelX11 = New DevComponents.DotNetBar.LabelX()
-        Me.SuperTabItemCoordenadas = New DevComponents.DotNetBar.SuperTabItem()
-        Me.StiUbicacion = New DevComponents.DotNetBar.SuperTabItem()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PnDatosGenerales = New DevComponents.DotNetBar.PanelEx()
         Me.cbTipoCredito = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
@@ -111,6 +111,8 @@ Partial Class F02_Cliente
         Me.RbPasivo = New System.Windows.Forms.RadioButton()
         Me.RbActivo = New System.Windows.Forms.RadioButton()
         Me.GroupPanelDatosFactura = New DevComponents.DotNetBar.Controls.GroupPanel()
+        Me.TbEmail = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.LabelX37 = New DevComponents.DotNetBar.LabelX()
         Me.TbNit = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.TbNombreFactura = New DevComponents.DotNetBar.Controls.TextBoxX()
         Me.LabelX10 = New DevComponents.DotNetBar.LabelX()
@@ -201,6 +203,13 @@ Partial Class F02_Cliente
         Me.TableLayoutPanelDatos.SuspendLayout()
         CType(Me.StcFrecuencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StcFrecuencia.SuspendLayout()
+        Me.SuperTabControlPanel4.SuspendLayout()
+        CType(Me.SuperTabControlUbicacionGeografica, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuperTabControlUbicacionGeografica.SuspendLayout()
+        Me.SuperTabControlPanel1.SuspendLayout()
+        Me.GroupPanelMapa.SuspendLayout()
+        Me.SuperTabControlPanel2.SuspendLayout()
+        Me.GroupPanelCoordenadas.SuspendLayout()
         Me.SuperTabControlPanel3.SuspendLayout()
         CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel7.SuspendLayout()
@@ -210,13 +219,6 @@ Partial Class F02_Cliente
         CType(Me.tbiFrecuencia, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuperTabControlPanel6.SuspendLayout()
         CType(Me.grCatProd, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuperTabControlPanel4.SuspendLayout()
-        CType(Me.SuperTabControlUbicacionGeografica, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuperTabControlUbicacionGeografica.SuspendLayout()
-        Me.SuperTabControlPanel1.SuspendLayout()
-        Me.GroupPanelMapa.SuspendLayout()
-        Me.SuperTabControlPanel2.SuspendLayout()
-        Me.GroupPanelCoordenadas.SuspendLayout()
         Me.GroupPanelDatosGenerales.SuspendLayout()
         Me.PnDatosGenerales.SuspendLayout()
         CType(Me.cbTipoCredito, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -269,7 +271,7 @@ Partial Class F02_Cliente
         Me.MSuperTabControlPrincipal.Controls.Add(Me.SuperTabControlPanel5)
         Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
-        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1149, 496)
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1284, 585)
         Me.MSuperTabControlPrincipal.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemAcuerdo})
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanel5, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
@@ -285,14 +287,14 @@ Partial Class F02_Cliente
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
         Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1107, 496)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1242, 585)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         '
         'MPnSuperior
         '
         Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPnSuperior.Size = New System.Drawing.Size(1149, 70)
+        Me.MPnSuperior.Size = New System.Drawing.Size(1284, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -303,9 +305,9 @@ Partial Class F02_Cliente
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(0, 566)
+        Me.MPnInferior.Location = New System.Drawing.Point(0, 655)
         Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPnInferior.Size = New System.Drawing.Size(1149, 36)
+        Me.MPnInferior.Size = New System.Drawing.Size(1284, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -316,7 +318,7 @@ Partial Class F02_Cliente
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(949, 0)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1084, 0)
         Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
@@ -357,7 +359,7 @@ Partial Class F02_Cliente
         'MPanelToolBarImprimir
         '
         Me.MPanelToolBarImprimir.Controls.Add(Me.btActualizar)
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(989, 0)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1124, 0)
         Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(160, 70)
         Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.MBtImprimir, 0)
@@ -416,9 +418,9 @@ Partial Class F02_Cliente
         Me.TableLayoutPanelPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanelPrincipal.Name = "TableLayoutPanelPrincipal"
         Me.TableLayoutPanelPrincipal.RowCount = 2
-        Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.5401!))
-        Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.4599!))
-        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1107, 496)
+        Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90.54!))
+        Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.46!))
+        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1242, 585)
         Me.TableLayoutPanelPrincipal.TabIndex = 37
         '
         'GroupPanelEquipos
@@ -430,10 +432,10 @@ Partial Class F02_Cliente
         Me.GroupPanelEquipos.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelEquipos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelEquipos.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupPanelEquipos.Location = New System.Drawing.Point(3, 352)
+        Me.GroupPanelEquipos.Location = New System.Drawing.Point(3, 532)
         Me.GroupPanelEquipos.Name = "GroupPanelEquipos"
         Me.GroupPanelEquipos.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupPanelEquipos.Size = New System.Drawing.Size(1101, 141)
+        Me.GroupPanelEquipos.Size = New System.Drawing.Size(1236, 50)
         '
         '
         '
@@ -474,7 +476,7 @@ Partial Class F02_Cliente
         Me.PanelEx7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelEx7.Location = New System.Drawing.Point(5, 58)
         Me.PanelEx7.Name = "PanelEx7"
-        Me.PanelEx7.Size = New System.Drawing.Size(1085, 54)
+        Me.PanelEx7.Size = New System.Drawing.Size(1220, 0)
         Me.PanelEx7.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx7.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground
         Me.PanelEx7.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2
@@ -490,7 +492,7 @@ Partial Class F02_Cliente
         Me.DgjEquipo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DgjEquipo.Location = New System.Drawing.Point(0, 0)
         Me.DgjEquipo.Name = "DgjEquipo"
-        Me.DgjEquipo.Size = New System.Drawing.Size(1085, 54)
+        Me.DgjEquipo.Size = New System.Drawing.Size(1220, 0)
         Me.DgjEquipo.TabIndex = 0
         '
         'Cms1Equipos
@@ -526,7 +528,7 @@ Partial Class F02_Cliente
         Me.PanelEx6.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelEx6.Location = New System.Drawing.Point(5, 5)
         Me.PanelEx6.Name = "PanelEx6"
-        Me.PanelEx6.Size = New System.Drawing.Size(1085, 53)
+        Me.PanelEx6.Size = New System.Drawing.Size(1220, 53)
         Me.PanelEx6.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelEx6.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelEx6.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -680,7 +682,7 @@ Partial Class F02_Cliente
         Me.TableLayoutPanelDatos.Name = "TableLayoutPanelDatos"
         Me.TableLayoutPanelDatos.RowCount = 1
         Me.TableLayoutPanelDatos.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelDatos.Size = New System.Drawing.Size(1101, 343)
+        Me.TableLayoutPanelDatos.Size = New System.Drawing.Size(1236, 523)
         Me.TableLayoutPanelDatos.TabIndex = 0
         '
         'StcFrecuencia
@@ -699,22 +701,312 @@ Partial Class F02_Cliente
         Me.StcFrecuencia.ControlBox.Name = ""
         Me.StcFrecuencia.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.StcFrecuencia.ControlBox.MenuBox, Me.StcFrecuencia.ControlBox.CloseBox})
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel3)
+        Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel4)
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel7)
         Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel6)
-        Me.StcFrecuencia.Controls.Add(Me.SuperTabControlPanel4)
         Me.StcFrecuencia.Dock = System.Windows.Forms.DockStyle.Fill
         Me.StcFrecuencia.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StcFrecuencia.Location = New System.Drawing.Point(761, 3)
+        Me.StcFrecuencia.Location = New System.Drawing.Point(854, 3)
         Me.StcFrecuencia.Name = "StcFrecuencia"
         Me.StcFrecuencia.ReorderTabsEnabled = True
         Me.StcFrecuencia.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
         Me.StcFrecuencia.SelectedTabIndex = 0
-        Me.StcFrecuencia.Size = New System.Drawing.Size(337, 337)
+        Me.StcFrecuencia.Size = New System.Drawing.Size(379, 517)
         Me.StcFrecuencia.TabFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.StcFrecuencia.TabIndex = 24
         Me.StcFrecuencia.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.StiFiltroCliente, Me.StiUbicacion, Me.catProd, Me.stiFrecuencia})
         Me.StcFrecuencia.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
         Me.StcFrecuencia.Text = "SuperTabControl2"
+        '
+        'SuperTabControlPanel4
+        '
+        Me.SuperTabControlPanel4.Controls.Add(Me.SuperTabControlUbicacionGeografica)
+        Me.SuperTabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuperTabControlPanel4.Location = New System.Drawing.Point(0, 23)
+        Me.SuperTabControlPanel4.Name = "SuperTabControlPanel4"
+        Me.SuperTabControlPanel4.Size = New System.Drawing.Size(379, 494)
+        Me.SuperTabControlPanel4.TabIndex = 0
+        Me.SuperTabControlPanel4.TabItem = Me.StiUbicacion
+        '
+        'SuperTabControlUbicacionGeografica
+        '
+        '
+        '
+        '
+        '
+        '
+        '
+        Me.SuperTabControlUbicacionGeografica.ControlBox.CloseBox.Name = ""
+        '
+        '
+        '
+        Me.SuperTabControlUbicacionGeografica.ControlBox.MenuBox.Name = ""
+        Me.SuperTabControlUbicacionGeografica.ControlBox.Name = ""
+        Me.SuperTabControlUbicacionGeografica.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControlUbicacionGeografica.ControlBox.MenuBox, Me.SuperTabControlUbicacionGeografica.ControlBox.CloseBox})
+        Me.SuperTabControlUbicacionGeografica.Controls.Add(Me.SuperTabControlPanel1)
+        Me.SuperTabControlUbicacionGeografica.Controls.Add(Me.SuperTabControlPanel2)
+        Me.SuperTabControlUbicacionGeografica.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuperTabControlUbicacionGeografica.HorizontalText = False
+        Me.SuperTabControlUbicacionGeografica.Location = New System.Drawing.Point(0, 0)
+        Me.SuperTabControlUbicacionGeografica.Name = "SuperTabControlUbicacionGeografica"
+        Me.SuperTabControlUbicacionGeografica.ReorderTabsEnabled = True
+        Me.SuperTabControlUbicacionGeografica.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
+        Me.SuperTabControlUbicacionGeografica.SelectedTabIndex = 0
+        Me.SuperTabControlUbicacionGeografica.Size = New System.Drawing.Size(379, 494)
+        Me.SuperTabControlUbicacionGeografica.TabAlignment = DevComponents.DotNetBar.eTabStripAlignment.Right
+        Me.SuperTabControlUbicacionGeografica.TabFont = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SuperTabControlUbicacionGeografica.TabIndex = 3
+        Me.SuperTabControlUbicacionGeografica.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemMapa, Me.SuperTabItemCoordenadas})
+        Me.SuperTabControlUbicacionGeografica.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
+        '
+        'SuperTabControlPanel1
+        '
+        Me.SuperTabControlPanel1.Controls.Add(Me.GroupPanelMapa)
+        Me.SuperTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuperTabControlPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.SuperTabControlPanel1.Name = "SuperTabControlPanel1"
+        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(143, 494)
+        Me.SuperTabControlPanel1.TabIndex = 1
+        Me.SuperTabControlPanel1.TabItem = Me.SuperTabItemMapa
+        '
+        'GroupPanelMapa
+        '
+        Me.GroupPanelMapa.CanvasColor = System.Drawing.SystemColors.Control
+        Me.GroupPanelMapa.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanelMapa.Controls.Add(Me.btZoomAlejar)
+        Me.GroupPanelMapa.Controls.Add(Me.btZoomAcercar)
+        Me.GroupPanelMapa.Controls.Add(Me.GmUbicacionCliente)
+        Me.GroupPanelMapa.DisabledBackColor = System.Drawing.Color.Empty
+        Me.GroupPanelMapa.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupPanelMapa.Location = New System.Drawing.Point(0, 0)
+        Me.GroupPanelMapa.Name = "GroupPanelMapa"
+        Me.GroupPanelMapa.Size = New System.Drawing.Size(143, 494)
+        '
+        '
+        '
+        Me.GroupPanelMapa.Style.BackColor = System.Drawing.SystemColors.Control
+        Me.GroupPanelMapa.Style.BackColor2 = System.Drawing.SystemColors.Control
+        Me.GroupPanelMapa.Style.BackColorGradientAngle = 90
+        Me.GroupPanelMapa.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelMapa.Style.BorderBottomWidth = 1
+        Me.GroupPanelMapa.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.GroupPanelMapa.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelMapa.Style.BorderLeftWidth = 1
+        Me.GroupPanelMapa.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelMapa.Style.BorderRightWidth = 1
+        Me.GroupPanelMapa.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelMapa.Style.BorderTopWidth = 1
+        Me.GroupPanelMapa.Style.CornerDiameter = 4
+        Me.GroupPanelMapa.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanelMapa.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanelMapa.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.GroupPanelMapa.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanelMapa.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanelMapa.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanelMapa.TabIndex = 5
+        Me.GroupPanelMapa.Text = "MAPA DE UBICACIÖN"
+        '
+        'btZoomAlejar
+        '
+        Me.btZoomAlejar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btZoomAlejar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.btZoomAlejar.Image = Global.Presentacion.My.Resources.Resources.iconalejar
+        Me.btZoomAlejar.ImageFixedSize = New System.Drawing.Size(30, 30)
+        Me.btZoomAlejar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btZoomAlejar.Location = New System.Drawing.Point(49, 3)
+        Me.btZoomAlejar.Name = "btZoomAlejar"
+        Me.btZoomAlejar.Size = New System.Drawing.Size(40, 40)
+        Me.btZoomAlejar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btZoomAlejar.TabIndex = 9
+        '
+        'btZoomAcercar
+        '
+        Me.btZoomAcercar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btZoomAcercar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.MHighlighterFocus.SetHighlightOnFocus(Me.btZoomAcercar, True)
+        Me.btZoomAcercar.Image = Global.Presentacion.My.Resources.Resources.iconacercar
+        Me.btZoomAcercar.ImageFixedSize = New System.Drawing.Size(30, 30)
+        Me.btZoomAcercar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btZoomAcercar.Location = New System.Drawing.Point(3, 3)
+        Me.btZoomAcercar.Name = "btZoomAcercar"
+        Me.btZoomAcercar.Size = New System.Drawing.Size(40, 40)
+        Me.btZoomAcercar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btZoomAcercar.TabIndex = 8
+        '
+        'GmUbicacionCliente
+        '
+        Me.GmUbicacionCliente.Bearing = 0!
+        Me.GmUbicacionCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.GmUbicacionCliente.CanDragMap = True
+        Me.GmUbicacionCliente.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GmUbicacionCliente.EmptyTileColor = System.Drawing.Color.Navy
+        Me.GmUbicacionCliente.GrayScaleMode = False
+        Me.GmUbicacionCliente.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow
+        Me.GmUbicacionCliente.LevelsKeepInMemmory = 5
+        Me.GmUbicacionCliente.Location = New System.Drawing.Point(0, 0)
+        Me.GmUbicacionCliente.MarkersEnabled = True
+        Me.GmUbicacionCliente.MaxZoom = 2
+        Me.GmUbicacionCliente.MinZoom = 2
+        Me.GmUbicacionCliente.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter
+        Me.GmUbicacionCliente.Name = "GmUbicacionCliente"
+        Me.GmUbicacionCliente.NegativeMode = False
+        Me.GmUbicacionCliente.Padding = New System.Windows.Forms.Padding(5)
+        Me.GmUbicacionCliente.PolygonsEnabled = True
+        Me.GmUbicacionCliente.RetryLoadTile = 0
+        Me.GmUbicacionCliente.RoutesEnabled = True
+        Me.GmUbicacionCliente.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
+        Me.GmUbicacionCliente.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.GmUbicacionCliente.ShowTileGridLines = False
+        Me.GmUbicacionCliente.Size = New System.Drawing.Size(137, 470)
+        Me.GmUbicacionCliente.TabIndex = 2
+        Me.GmUbicacionCliente.Zoom = 0R
+        '
+        'SuperTabItemMapa
+        '
+        Me.SuperTabItemMapa.AttachedControl = Me.SuperTabControlPanel1
+        Me.SuperTabItemMapa.GlobalItem = False
+        Me.SuperTabItemMapa.Name = "SuperTabItemMapa"
+        Me.SuperTabItemMapa.Text = "MAPA"
+        '
+        'SuperTabControlPanel2
+        '
+        Me.SuperTabControlPanel2.Controls.Add(Me.GroupPanelCoordenadas)
+        Me.SuperTabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.SuperTabControlPanel2.Name = "SuperTabControlPanel2"
+        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(393, 370)
+        Me.SuperTabControlPanel2.TabIndex = 0
+        Me.SuperTabControlPanel2.TabItem = Me.SuperTabItemCoordenadas
+        '
+        'GroupPanelCoordenadas
+        '
+        Me.GroupPanelCoordenadas.CanvasColor = System.Drawing.SystemColors.Control
+        Me.GroupPanelCoordenadas.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanelCoordenadas.Controls.Add(Me.tbLongitud)
+        Me.GroupPanelCoordenadas.Controls.Add(Me.tbLatitud)
+        Me.GroupPanelCoordenadas.Controls.Add(Me.BtMarcarPunto)
+        Me.GroupPanelCoordenadas.Controls.Add(Me.LabelX12)
+        Me.GroupPanelCoordenadas.Controls.Add(Me.LabelX11)
+        Me.GroupPanelCoordenadas.DisabledBackColor = System.Drawing.Color.Empty
+        Me.GroupPanelCoordenadas.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.GroupPanelCoordenadas.Location = New System.Drawing.Point(0, 0)
+        Me.GroupPanelCoordenadas.Name = "GroupPanelCoordenadas"
+        Me.GroupPanelCoordenadas.Size = New System.Drawing.Size(393, 370)
+        '
+        '
+        '
+        Me.GroupPanelCoordenadas.Style.BackColor = System.Drawing.SystemColors.Control
+        Me.GroupPanelCoordenadas.Style.BackColor2 = System.Drawing.SystemColors.Control
+        Me.GroupPanelCoordenadas.Style.BackColorGradientAngle = 90
+        Me.GroupPanelCoordenadas.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelCoordenadas.Style.BorderBottomWidth = 1
+        Me.GroupPanelCoordenadas.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
+        Me.GroupPanelCoordenadas.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelCoordenadas.Style.BorderLeftWidth = 1
+        Me.GroupPanelCoordenadas.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelCoordenadas.Style.BorderRightWidth = 1
+        Me.GroupPanelCoordenadas.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
+        Me.GroupPanelCoordenadas.Style.BorderTopWidth = 1
+        Me.GroupPanelCoordenadas.Style.CornerDiameter = 4
+        Me.GroupPanelCoordenadas.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
+        Me.GroupPanelCoordenadas.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
+        Me.GroupPanelCoordenadas.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
+        Me.GroupPanelCoordenadas.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
+        '
+        '
+        '
+        Me.GroupPanelCoordenadas.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        '
+        '
+        '
+        Me.GroupPanelCoordenadas.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.GroupPanelCoordenadas.TabIndex = 4
+        Me.GroupPanelCoordenadas.Text = "COORDENADAS DE UBICACIÓN"
+        '
+        'tbLongitud
+        '
+        '
+        '
+        '
+        Me.tbLongitud.Border.Class = "TextBoxBorder"
+        Me.tbLongitud.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbLongitud.Location = New System.Drawing.Point(64, 32)
+        Me.tbLongitud.MaxLength = 30
+        Me.tbLongitud.Name = "tbLongitud"
+        Me.tbLongitud.PreventEnterBeep = True
+        Me.tbLongitud.Size = New System.Drawing.Size(150, 23)
+        Me.tbLongitud.TabIndex = 9
+        Me.tbLongitud.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'tbLatitud
+        '
+        '
+        '
+        '
+        Me.tbLatitud.Border.Class = "TextBoxBorder"
+        Me.tbLatitud.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbLatitud.Location = New System.Drawing.Point(64, 3)
+        Me.tbLatitud.MaxLength = 30
+        Me.tbLatitud.Name = "tbLatitud"
+        Me.tbLatitud.PreventEnterBeep = True
+        Me.tbLatitud.Size = New System.Drawing.Size(150, 23)
+        Me.tbLatitud.TabIndex = 8
+        Me.tbLatitud.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'BtMarcarPunto
+        '
+        Me.BtMarcarPunto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.BtMarcarPunto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
+        Me.BtMarcarPunto.Location = New System.Drawing.Point(64, 64)
+        Me.BtMarcarPunto.Name = "BtMarcarPunto"
+        Me.BtMarcarPunto.Size = New System.Drawing.Size(150, 60)
+        Me.BtMarcarPunto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.BtMarcarPunto.TabIndex = 5
+        Me.BtMarcarPunto.Text = "Marcar"
+        '
+        'LabelX12
+        '
+        '
+        '
+        '
+        Me.LabelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX12.Location = New System.Drawing.Point(3, 32)
+        Me.LabelX12.Name = "LabelX12"
+        Me.LabelX12.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX12.TabIndex = 2
+        Me.LabelX12.Text = "Longitud:"
+        '
+        'LabelX11
+        '
+        '
+        '
+        '
+        Me.LabelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX11.Location = New System.Drawing.Point(3, 3)
+        Me.LabelX11.Name = "LabelX11"
+        Me.LabelX11.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX11.TabIndex = 0
+        Me.LabelX11.Text = "Latitud:"
+        '
+        'SuperTabItemCoordenadas
+        '
+        Me.SuperTabItemCoordenadas.AttachedControl = Me.SuperTabControlPanel2
+        Me.SuperTabItemCoordenadas.GlobalItem = False
+        Me.SuperTabItemCoordenadas.Name = "SuperTabItemCoordenadas"
+        Me.SuperTabItemCoordenadas.Text = "COORDENADAS"
+        '
+        'StiUbicacion
+        '
+        Me.StiUbicacion.AttachedControl = Me.SuperTabControlPanel4
+        Me.StiUbicacion.GlobalItem = False
+        Me.StiUbicacion.Name = "StiUbicacion"
+        Me.StiUbicacion.Text = "UBICACIÓN"
         '
         'SuperTabControlPanel3
         '
@@ -723,7 +1015,7 @@ Partial Class F02_Cliente
         Me.SuperTabControlPanel3.Location = New System.Drawing.Point(0, 23)
         Me.SuperTabControlPanel3.Name = "SuperTabControlPanel3"
         Me.SuperTabControlPanel3.Padding = New System.Windows.Forms.Padding(5)
-        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(337, 314)
+        Me.SuperTabControlPanel3.Size = New System.Drawing.Size(379, 494)
         Me.SuperTabControlPanel3.TabIndex = 1
         Me.SuperTabControlPanel3.TabItem = Me.StiFiltroCliente
         '
@@ -733,7 +1025,7 @@ Partial Class F02_Cliente
         Me.DgjSugerencia.Location = New System.Drawing.Point(5, 5)
         Me.DgjSugerencia.Name = "DgjSugerencia"
         Me.DgjSugerencia.RecordNavigator = True
-        Me.DgjSugerencia.Size = New System.Drawing.Size(327, 304)
+        Me.DgjSugerencia.Size = New System.Drawing.Size(369, 484)
         Me.DgjSugerencia.TabIndex = 0
         '
         'StiFiltroCliente
@@ -1014,296 +1306,6 @@ Partial Class F02_Cliente
         Me.catProd.Text = "CAT. PRODUCTOS"
         Me.catProd.Visible = False
         '
-        'SuperTabControlPanel4
-        '
-        Me.SuperTabControlPanel4.Controls.Add(Me.SuperTabControlUbicacionGeografica)
-        Me.SuperTabControlPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel4.Location = New System.Drawing.Point(0, 23)
-        Me.SuperTabControlPanel4.Name = "SuperTabControlPanel4"
-        Me.SuperTabControlPanel4.Size = New System.Drawing.Size(337, 314)
-        Me.SuperTabControlPanel4.TabIndex = 0
-        Me.SuperTabControlPanel4.TabItem = Me.StiUbicacion
-        '
-        'SuperTabControlUbicacionGeografica
-        '
-        '
-        '
-        '
-        '
-        '
-        '
-        Me.SuperTabControlUbicacionGeografica.ControlBox.CloseBox.Name = ""
-        '
-        '
-        '
-        Me.SuperTabControlUbicacionGeografica.ControlBox.MenuBox.Name = ""
-        Me.SuperTabControlUbicacionGeografica.ControlBox.Name = ""
-        Me.SuperTabControlUbicacionGeografica.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControlUbicacionGeografica.ControlBox.MenuBox, Me.SuperTabControlUbicacionGeografica.ControlBox.CloseBox})
-        Me.SuperTabControlUbicacionGeografica.Controls.Add(Me.SuperTabControlPanel1)
-        Me.SuperTabControlUbicacionGeografica.Controls.Add(Me.SuperTabControlPanel2)
-        Me.SuperTabControlUbicacionGeografica.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlUbicacionGeografica.HorizontalText = False
-        Me.SuperTabControlUbicacionGeografica.Location = New System.Drawing.Point(0, 0)
-        Me.SuperTabControlUbicacionGeografica.Name = "SuperTabControlUbicacionGeografica"
-        Me.SuperTabControlUbicacionGeografica.ReorderTabsEnabled = True
-        Me.SuperTabControlUbicacionGeografica.SelectedTabFont = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.SuperTabControlUbicacionGeografica.SelectedTabIndex = 0
-        Me.SuperTabControlUbicacionGeografica.Size = New System.Drawing.Size(337, 314)
-        Me.SuperTabControlUbicacionGeografica.TabAlignment = DevComponents.DotNetBar.eTabStripAlignment.Right
-        Me.SuperTabControlUbicacionGeografica.TabFont = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SuperTabControlUbicacionGeografica.TabIndex = 3
-        Me.SuperTabControlUbicacionGeografica.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemMapa, Me.SuperTabItemCoordenadas})
-        Me.SuperTabControlUbicacionGeografica.TabStyle = DevComponents.DotNetBar.eSuperTabStyle.Office2010BackstageBlue
-        '
-        'SuperTabControlPanel1
-        '
-        Me.SuperTabControlPanel1.Controls.Add(Me.GroupPanelMapa)
-        Me.SuperTabControlPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.SuperTabControlPanel1.Name = "SuperTabControlPanel1"
-        Me.SuperTabControlPanel1.Size = New System.Drawing.Size(101, 314)
-        Me.SuperTabControlPanel1.TabIndex = 1
-        Me.SuperTabControlPanel1.TabItem = Me.SuperTabItemMapa
-        '
-        'GroupPanelMapa
-        '
-        Me.GroupPanelMapa.CanvasColor = System.Drawing.SystemColors.Control
-        Me.GroupPanelMapa.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanelMapa.Controls.Add(Me.btZoomAlejar)
-        Me.GroupPanelMapa.Controls.Add(Me.btZoomAcercar)
-        Me.GroupPanelMapa.Controls.Add(Me.GmUbicacionCliente)
-        Me.GroupPanelMapa.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanelMapa.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanelMapa.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanelMapa.Name = "GroupPanelMapa"
-        Me.GroupPanelMapa.Size = New System.Drawing.Size(101, 314)
-        '
-        '
-        '
-        Me.GroupPanelMapa.Style.BackColor = System.Drawing.SystemColors.Control
-        Me.GroupPanelMapa.Style.BackColor2 = System.Drawing.SystemColors.Control
-        Me.GroupPanelMapa.Style.BackColorGradientAngle = 90
-        Me.GroupPanelMapa.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelMapa.Style.BorderBottomWidth = 1
-        Me.GroupPanelMapa.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.GroupPanelMapa.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelMapa.Style.BorderLeftWidth = 1
-        Me.GroupPanelMapa.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelMapa.Style.BorderRightWidth = 1
-        Me.GroupPanelMapa.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelMapa.Style.BorderTopWidth = 1
-        Me.GroupPanelMapa.Style.CornerDiameter = 4
-        Me.GroupPanelMapa.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.GroupPanelMapa.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.GroupPanelMapa.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.GroupPanelMapa.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.GroupPanelMapa.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.GroupPanelMapa.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.GroupPanelMapa.TabIndex = 5
-        Me.GroupPanelMapa.Text = "MAPA DE UBICACIÖN"
-        '
-        'btZoomAlejar
-        '
-        Me.btZoomAlejar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btZoomAlejar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.btZoomAlejar.Image = Global.Presentacion.My.Resources.Resources.iconalejar
-        Me.btZoomAlejar.ImageFixedSize = New System.Drawing.Size(30, 30)
-        Me.btZoomAlejar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btZoomAlejar.Location = New System.Drawing.Point(49, 3)
-        Me.btZoomAlejar.Name = "btZoomAlejar"
-        Me.btZoomAlejar.Size = New System.Drawing.Size(40, 40)
-        Me.btZoomAlejar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btZoomAlejar.TabIndex = 9
-        '
-        'btZoomAcercar
-        '
-        Me.btZoomAcercar.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.btZoomAcercar.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.MHighlighterFocus.SetHighlightOnFocus(Me.btZoomAcercar, True)
-        Me.btZoomAcercar.Image = Global.Presentacion.My.Resources.Resources.iconacercar
-        Me.btZoomAcercar.ImageFixedSize = New System.Drawing.Size(30, 30)
-        Me.btZoomAcercar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btZoomAcercar.Location = New System.Drawing.Point(3, 3)
-        Me.btZoomAcercar.Name = "btZoomAcercar"
-        Me.btZoomAcercar.Size = New System.Drawing.Size(40, 40)
-        Me.btZoomAcercar.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.btZoomAcercar.TabIndex = 8
-        '
-        'GmUbicacionCliente
-        '
-        Me.GmUbicacionCliente.Bearing = 0!
-        Me.GmUbicacionCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.GmUbicacionCliente.CanDragMap = True
-        Me.GmUbicacionCliente.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GmUbicacionCliente.EmptyTileColor = System.Drawing.Color.Navy
-        Me.GmUbicacionCliente.GrayScaleMode = False
-        Me.GmUbicacionCliente.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow
-        Me.GmUbicacionCliente.LevelsKeepInMemmory = 5
-        Me.GmUbicacionCliente.Location = New System.Drawing.Point(0, 0)
-        Me.GmUbicacionCliente.MarkersEnabled = True
-        Me.GmUbicacionCliente.MaxZoom = 2
-        Me.GmUbicacionCliente.MinZoom = 2
-        Me.GmUbicacionCliente.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter
-        Me.GmUbicacionCliente.Name = "GmUbicacionCliente"
-        Me.GmUbicacionCliente.NegativeMode = False
-        Me.GmUbicacionCliente.Padding = New System.Windows.Forms.Padding(5)
-        Me.GmUbicacionCliente.PolygonsEnabled = True
-        Me.GmUbicacionCliente.RetryLoadTile = 0
-        Me.GmUbicacionCliente.RoutesEnabled = True
-        Me.GmUbicacionCliente.ScaleMode = GMap.NET.WindowsForms.ScaleModes.[Integer]
-        Me.GmUbicacionCliente.SelectedAreaFillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(65, Byte), Integer), CType(CType(105, Byte), Integer), CType(CType(225, Byte), Integer))
-        Me.GmUbicacionCliente.ShowTileGridLines = False
-        Me.GmUbicacionCliente.Size = New System.Drawing.Size(95, 290)
-        Me.GmUbicacionCliente.TabIndex = 2
-        Me.GmUbicacionCliente.Zoom = 0R
-        '
-        'SuperTabItemMapa
-        '
-        Me.SuperTabItemMapa.AttachedControl = Me.SuperTabControlPanel1
-        Me.SuperTabItemMapa.GlobalItem = False
-        Me.SuperTabItemMapa.Name = "SuperTabItemMapa"
-        Me.SuperTabItemMapa.Text = "MAPA"
-        '
-        'SuperTabControlPanel2
-        '
-        Me.SuperTabControlPanel2.Controls.Add(Me.GroupPanelCoordenadas)
-        Me.SuperTabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.SuperTabControlPanel2.Name = "SuperTabControlPanel2"
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(393, 370)
-        Me.SuperTabControlPanel2.TabIndex = 0
-        Me.SuperTabControlPanel2.TabItem = Me.SuperTabItemCoordenadas
-        '
-        'GroupPanelCoordenadas
-        '
-        Me.GroupPanelCoordenadas.CanvasColor = System.Drawing.SystemColors.Control
-        Me.GroupPanelCoordenadas.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.GroupPanelCoordenadas.Controls.Add(Me.tbLongitud)
-        Me.GroupPanelCoordenadas.Controls.Add(Me.tbLatitud)
-        Me.GroupPanelCoordenadas.Controls.Add(Me.BtMarcarPunto)
-        Me.GroupPanelCoordenadas.Controls.Add(Me.LabelX12)
-        Me.GroupPanelCoordenadas.Controls.Add(Me.LabelX11)
-        Me.GroupPanelCoordenadas.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanelCoordenadas.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanelCoordenadas.Location = New System.Drawing.Point(0, 0)
-        Me.GroupPanelCoordenadas.Name = "GroupPanelCoordenadas"
-        Me.GroupPanelCoordenadas.Size = New System.Drawing.Size(393, 370)
-        '
-        '
-        '
-        Me.GroupPanelCoordenadas.Style.BackColor = System.Drawing.SystemColors.Control
-        Me.GroupPanelCoordenadas.Style.BackColor2 = System.Drawing.SystemColors.Control
-        Me.GroupPanelCoordenadas.Style.BackColorGradientAngle = 90
-        Me.GroupPanelCoordenadas.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelCoordenadas.Style.BorderBottomWidth = 1
-        Me.GroupPanelCoordenadas.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
-        Me.GroupPanelCoordenadas.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelCoordenadas.Style.BorderLeftWidth = 1
-        Me.GroupPanelCoordenadas.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelCoordenadas.Style.BorderRightWidth = 1
-        Me.GroupPanelCoordenadas.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid
-        Me.GroupPanelCoordenadas.Style.BorderTopWidth = 1
-        Me.GroupPanelCoordenadas.Style.CornerDiameter = 4
-        Me.GroupPanelCoordenadas.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded
-        Me.GroupPanelCoordenadas.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center
-        Me.GroupPanelCoordenadas.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
-        Me.GroupPanelCoordenadas.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near
-        '
-        '
-        '
-        Me.GroupPanelCoordenadas.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        '
-        '
-        '
-        Me.GroupPanelCoordenadas.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.GroupPanelCoordenadas.TabIndex = 4
-        Me.GroupPanelCoordenadas.Text = "COORDENADAS DE UBICACIÓN"
-        '
-        'tbLongitud
-        '
-        '
-        '
-        '
-        Me.tbLongitud.Border.Class = "TextBoxBorder"
-        Me.tbLongitud.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbLongitud.Location = New System.Drawing.Point(64, 32)
-        Me.tbLongitud.MaxLength = 30
-        Me.tbLongitud.Name = "tbLongitud"
-        Me.tbLongitud.PreventEnterBeep = True
-        Me.tbLongitud.Size = New System.Drawing.Size(150, 23)
-        Me.tbLongitud.TabIndex = 9
-        Me.tbLongitud.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'tbLatitud
-        '
-        '
-        '
-        '
-        Me.tbLatitud.Border.Class = "TextBoxBorder"
-        Me.tbLatitud.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbLatitud.Location = New System.Drawing.Point(64, 3)
-        Me.tbLatitud.MaxLength = 30
-        Me.tbLatitud.Name = "tbLatitud"
-        Me.tbLatitud.PreventEnterBeep = True
-        Me.tbLatitud.Size = New System.Drawing.Size(150, 23)
-        Me.tbLatitud.TabIndex = 8
-        Me.tbLatitud.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'BtMarcarPunto
-        '
-        Me.BtMarcarPunto.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
-        Me.BtMarcarPunto.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground
-        Me.BtMarcarPunto.Location = New System.Drawing.Point(64, 64)
-        Me.BtMarcarPunto.Name = "BtMarcarPunto"
-        Me.BtMarcarPunto.Size = New System.Drawing.Size(150, 60)
-        Me.BtMarcarPunto.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
-        Me.BtMarcarPunto.TabIndex = 5
-        Me.BtMarcarPunto.Text = "Marcar"
-        '
-        'LabelX12
-        '
-        '
-        '
-        '
-        Me.LabelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX12.Location = New System.Drawing.Point(3, 32)
-        Me.LabelX12.Name = "LabelX12"
-        Me.LabelX12.Size = New System.Drawing.Size(100, 23)
-        Me.LabelX12.TabIndex = 2
-        Me.LabelX12.Text = "Longitud:"
-        '
-        'LabelX11
-        '
-        '
-        '
-        '
-        Me.LabelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX11.Location = New System.Drawing.Point(3, 3)
-        Me.LabelX11.Name = "LabelX11"
-        Me.LabelX11.Size = New System.Drawing.Size(100, 23)
-        Me.LabelX11.TabIndex = 0
-        Me.LabelX11.Text = "Latitud:"
-        '
-        'SuperTabItemCoordenadas
-        '
-        Me.SuperTabItemCoordenadas.AttachedControl = Me.SuperTabControlPanel2
-        Me.SuperTabItemCoordenadas.GlobalItem = False
-        Me.SuperTabItemCoordenadas.Name = "SuperTabItemCoordenadas"
-        Me.SuperTabItemCoordenadas.Text = "COORDENADAS"
-        '
-        'StiUbicacion
-        '
-        Me.StiUbicacion.AttachedControl = Me.SuperTabControlPanel4
-        Me.StiUbicacion.GlobalItem = False
-        Me.StiUbicacion.Name = "StiUbicacion"
-        Me.StiUbicacion.Text = "UBICACIÓN"
-        '
         'GroupPanelDatosGenerales
         '
         Me.GroupPanelDatosGenerales.BackColor = System.Drawing.SystemColors.Window
@@ -1315,7 +1317,7 @@ Partial Class F02_Cliente
         Me.GroupPanelDatosGenerales.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanelDatosGenerales.Location = New System.Drawing.Point(3, 3)
         Me.GroupPanelDatosGenerales.Name = "GroupPanelDatosGenerales"
-        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(752, 337)
+        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(845, 517)
         '
         '
         '
@@ -1394,7 +1396,7 @@ Partial Class F02_Cliente
         Me.PnDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PnDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.PnDatosGenerales.Name = "PnDatosGenerales"
-        Me.PnDatosGenerales.Size = New System.Drawing.Size(746, 313)
+        Me.PnDatosGenerales.Size = New System.Drawing.Size(839, 493)
         Me.PnDatosGenerales.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PnDatosGenerales.Style.BackColor1.Color = System.Drawing.Color.White
         Me.PnDatosGenerales.Style.BackColor2.Color = System.Drawing.Color.White
@@ -1413,6 +1415,7 @@ Partial Class F02_Cliente
         Me.cbTipoCredito.SelectedItem = Nothing
         Me.cbTipoCredito.Size = New System.Drawing.Size(112, 23)
         Me.cbTipoCredito.TabIndex = 45
+        Me.cbTipoCredito.Visible = False
         '
         'LabelX36
         '
@@ -1426,6 +1429,7 @@ Partial Class F02_Cliente
         Me.LabelX36.Size = New System.Drawing.Size(100, 23)
         Me.LabelX36.TabIndex = 46
         Me.LabelX36.Text = "Tipo de Venta."
+        Me.LabelX36.Visible = False
         '
         'tbCodCliente
         '
@@ -1466,7 +1470,7 @@ Partial Class F02_Cliente
         Me.GroupPanelEncargados.Controls.Add(Me.tbRecorrido)
         Me.GroupPanelEncargados.Controls.Add(Me.LabelX24)
         Me.GroupPanelEncargados.DisabledBackColor = System.Drawing.Color.Empty
-        Me.GroupPanelEncargados.Location = New System.Drawing.Point(0, 345)
+        Me.GroupPanelEncargados.Location = New System.Drawing.Point(6, 360)
         Me.GroupPanelEncargados.Name = "GroupPanelEncargados"
         Me.GroupPanelEncargados.Size = New System.Drawing.Size(855, 53)
         '
@@ -1504,7 +1508,7 @@ Partial Class F02_Cliente
         '
         cbPrevendedor_DesignTimeLayout.LayoutString = resources.GetString("cbPrevendedor_DesignTimeLayout.LayoutString")
         Me.cbPrevendedor.DesignTimeLayout = cbPrevendedor_DesignTimeLayout
-        Me.cbPrevendedor.Location = New System.Drawing.Point(626, 3)
+        Me.cbPrevendedor.Location = New System.Drawing.Point(418, 1)
         Me.cbPrevendedor.Name = "cbPrevendedor"
         Me.cbPrevendedor.SelectedIndex = -1
         Me.cbPrevendedor.SelectedItem = Nothing
@@ -1515,7 +1519,7 @@ Partial Class F02_Cliente
         '
         cbSupervisor_DesignTimeLayout.LayoutString = resources.GetString("cbSupervisor_DesignTimeLayout.LayoutString")
         Me.cbSupervisor.DesignTimeLayout = cbSupervisor_DesignTimeLayout
-        Me.cbSupervisor.Location = New System.Drawing.Point(309, 3)
+        Me.cbSupervisor.Location = New System.Drawing.Point(89, 1)
         Me.cbSupervisor.Name = "cbSupervisor"
         Me.cbSupervisor.SelectedIndex = -1
         Me.cbSupervisor.SelectedItem = Nothing
@@ -1528,9 +1532,9 @@ Partial Class F02_Cliente
         '
         '
         Me.LabelX26.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX26.Location = New System.Drawing.Point(535, 3)
+        Me.LabelX26.Location = New System.Drawing.Point(324, 1)
         Me.LabelX26.Name = "LabelX26"
-        Me.LabelX26.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX26.Size = New System.Drawing.Size(88, 23)
         Me.LabelX26.TabIndex = 4
         Me.LabelX26.Text = "Pre-Vendedor:"
         '
@@ -1540,9 +1544,9 @@ Partial Class F02_Cliente
         '
         '
         Me.LabelX25.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX25.Location = New System.Drawing.Point(214, 3)
+        Me.LabelX25.Location = New System.Drawing.Point(7, 1)
         Me.LabelX25.Name = "LabelX25"
-        Me.LabelX25.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX25.Size = New System.Drawing.Size(76, 23)
         Me.LabelX25.TabIndex = 2
         Me.LabelX25.Text = "Supervisor:"
         '
@@ -1553,13 +1557,14 @@ Partial Class F02_Cliente
         '
         Me.tbRecorrido.Border.Class = "TextBoxBorder"
         Me.tbRecorrido.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbRecorrido.Location = New System.Drawing.Point(108, 3)
+        Me.tbRecorrido.Location = New System.Drawing.Point(746, 2)
         Me.tbRecorrido.MaxLength = 200
         Me.tbRecorrido.Name = "tbRecorrido"
         Me.tbRecorrido.PreventEnterBeep = True
         Me.tbRecorrido.Size = New System.Drawing.Size(100, 23)
         Me.tbRecorrido.TabIndex = 0
         Me.tbRecorrido.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.tbRecorrido.Visible = False
         '
         'LabelX24
         '
@@ -1567,11 +1572,12 @@ Partial Class F02_Cliente
         '
         '
         Me.LabelX24.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX24.Location = New System.Drawing.Point(2, 3)
+        Me.LabelX24.Location = New System.Drawing.Point(674, 1)
         Me.LabelX24.Name = "LabelX24"
-        Me.LabelX24.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX24.Size = New System.Drawing.Size(67, 23)
         Me.LabelX24.TabIndex = 0
         Me.LabelX24.Text = "Recorrido:"
+        Me.LabelX24.Visible = False
         '
         'DtiUltimaVenta
         '
@@ -1805,6 +1811,7 @@ Partial Class F02_Cliente
         Me.RbDevuelto.TabStop = True
         Me.RbDevuelto.Text = "Devuelto"
         Me.RbDevuelto.UseVisualStyleBackColor = True
+        Me.RbDevuelto.Visible = False
         '
         'RbPasivo
         '
@@ -1832,6 +1839,8 @@ Partial Class F02_Cliente
         '
         Me.GroupPanelDatosFactura.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanelDatosFactura.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanelDatosFactura.Controls.Add(Me.TbEmail)
+        Me.GroupPanelDatosFactura.Controls.Add(Me.LabelX37)
         Me.GroupPanelDatosFactura.Controls.Add(Me.TbNit)
         Me.GroupPanelDatosFactura.Controls.Add(Me.TbNombreFactura)
         Me.GroupPanelDatosFactura.Controls.Add(Me.LabelX10)
@@ -1839,7 +1848,7 @@ Partial Class F02_Cliente
         Me.GroupPanelDatosFactura.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanelDatosFactura.Location = New System.Drawing.Point(0, 286)
         Me.GroupPanelDatosFactura.Name = "GroupPanelDatosFactura"
-        Me.GroupPanelDatosFactura.Size = New System.Drawing.Size(855, 53)
+        Me.GroupPanelDatosFactura.Size = New System.Drawing.Size(855, 73)
         '
         '
         '
@@ -1870,6 +1879,32 @@ Partial Class F02_Cliente
         Me.GroupPanelDatosFactura.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanelDatosFactura.TabIndex = 29
         Me.GroupPanelDatosFactura.Text = "DATOS DE FACTURA"
+        '
+        'TbEmail
+        '
+        '
+        '
+        '
+        Me.TbEmail.Border.Class = "TextBoxBorder"
+        Me.TbEmail.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.TbEmail.Location = New System.Drawing.Point(108, 26)
+        Me.TbEmail.MaxLength = 200
+        Me.TbEmail.Name = "TbEmail"
+        Me.TbEmail.PreventEnterBeep = True
+        Me.TbEmail.Size = New System.Drawing.Size(480, 23)
+        Me.TbEmail.TabIndex = 2
+        '
+        'LabelX37
+        '
+        '
+        '
+        '
+        Me.LabelX37.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX37.Location = New System.Drawing.Point(2, 26)
+        Me.LabelX37.Name = "LabelX37"
+        Me.LabelX37.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX37.TabIndex = 3
+        Me.LabelX37.Text = "Email:"
         '
         'TbNit
         '
@@ -2912,7 +2947,7 @@ Partial Class F02_Cliente
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.ClientSize = New System.Drawing.Size(1149, 602)
+        Me.ClientSize = New System.Drawing.Size(1284, 691)
         Me.Location = New System.Drawing.Point(0, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F02_Cliente"
@@ -2949,6 +2984,13 @@ Partial Class F02_Cliente
         Me.TableLayoutPanelDatos.ResumeLayout(False)
         CType(Me.StcFrecuencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StcFrecuencia.ResumeLayout(False)
+        Me.SuperTabControlPanel4.ResumeLayout(False)
+        CType(Me.SuperTabControlUbicacionGeografica, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SuperTabControlUbicacionGeografica.ResumeLayout(False)
+        Me.SuperTabControlPanel1.ResumeLayout(False)
+        Me.GroupPanelMapa.ResumeLayout(False)
+        Me.SuperTabControlPanel2.ResumeLayout(False)
+        Me.GroupPanelCoordenadas.ResumeLayout(False)
         Me.SuperTabControlPanel3.ResumeLayout(False)
         CType(Me.DgjSugerencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel7.ResumeLayout(False)
@@ -2958,13 +3000,6 @@ Partial Class F02_Cliente
         CType(Me.tbiFrecuencia, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SuperTabControlPanel6.ResumeLayout(False)
         CType(Me.grCatProd, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SuperTabControlPanel4.ResumeLayout(False)
-        CType(Me.SuperTabControlUbicacionGeografica, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.SuperTabControlUbicacionGeografica.ResumeLayout(False)
-        Me.SuperTabControlPanel1.ResumeLayout(False)
-        Me.GroupPanelMapa.ResumeLayout(False)
-        Me.SuperTabControlPanel2.ResumeLayout(False)
-        Me.GroupPanelCoordenadas.ResumeLayout(False)
         Me.GroupPanelDatosGenerales.ResumeLayout(False)
         Me.PnDatosGenerales.ResumeLayout(False)
         Me.PnDatosGenerales.PerformLayout()
@@ -3146,4 +3181,6 @@ Partial Class F02_Cliente
     Friend WithEvents chbMiercoles As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents chbMartes As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents chbLunes As DevComponents.DotNetBar.Controls.CheckBoxX
+    Friend WithEvents TbEmail As DevComponents.DotNetBar.Controls.TextBoxX
+    Friend WithEvents LabelX37 As DevComponents.DotNetBar.LabelX
 End Class

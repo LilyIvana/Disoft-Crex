@@ -61,6 +61,8 @@ Module P_Global
 
     Public gt_Productos As DataTable
 
+    Public gb_cufSifac As String = ""
+
 #Region "Variables"
 
     Public gs_separadorDecimal As Char = Application.CurrentCulture.NumberFormat.NumberDecimalSeparator

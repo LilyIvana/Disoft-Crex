@@ -1598,26 +1598,26 @@ Public Class F02_ProformaPedido
 
         Dim res As Boolean = False
         'Grabado de Cabesera Factura
-        L_Grabar_Factura(numi,
-                        fechafact.ToString("yyyy/MM/dd"), nfact, "0",
-                        "1",
-                        nit,
-                        Codcli,
-                       nameCliente,
-                        "",
-                        CStr(Format(a, "####0.00")),
-                        CStr(Format(b, "####0.00")),
-                        CStr(Format(c, "####0.00")),
-                        CStr(Format(d, "####0.00")),
-                        CStr(Format(e, "####0.00")),
-                        CStr(Format(f, "####0.00")),
-                        CStr(Format(g, "####0.00")),
-                        CStr(Format(h, "####0.00")),
-                        "",
-                        Now.Date.ToString("yyyy/MM/dd"),
-                        "''",
-                        "0",
-                        numi)
+        'L_Grabar_Factura(numi,
+        '                fechafact.ToString("yyyy/MM/dd"), nfact, "0",
+        '                "1",
+        '                nit,
+        '                Codcli,
+        '               nameCliente,
+        '                "",
+        '                CStr(Format(a, "####0.00")),
+        '                CStr(Format(b, "####0.00")),
+        '                CStr(Format(c, "####0.00")),
+        '                CStr(Format(d, "####0.00")),
+        '                CStr(Format(e, "####0.00")),
+        '                CStr(Format(f, "####0.00")),
+        '                CStr(Format(g, "####0.00")),
+        '                CStr(Format(h, "####0.00")),
+        '                "",
+        '                Now.Date.ToString("yyyy/MM/dd"),
+        '                "''",
+        '                "0",
+        '                numi)
 
 
         Dim dtDetalle As DataTable = L_prObtenerDetallePedido(numi)
@@ -2997,26 +2997,26 @@ Public Class F02_ProformaPedido
 
         Dim res As Boolean = False
         'Grabado de Cabesera Factura
-        L_Grabar_Factura(numi,
-                        Now.Date.ToString("yyyy/MM/dd"), "0", "0",
-                        "1",
-                        nit,
-                        Codcli,
-                       nameCliente,
-                        "",
-                        CStr(Format(a, "####0.00")),
-                        CStr(Format(b, "####0.00")),
-                        CStr(Format(c, "####0.00")),
-                        CStr(Format(d, "####0.00")),
-                        CStr(Format(e, "####0.00")),
-                        CStr(Format(f, "####0.00")),
-                        CStr(Format(g, "####0.00")),
-                        CStr(Format(h, "####0.00")),
-                        "",
-                        Now.Date.ToString("yyyy/MM/dd"),
-                        "''",
-                        "0",
-                        numi)
+        'L_Grabar_Factura(numi,
+        '                Now.Date.ToString("yyyy/MM/dd"), "0", "0",
+        '                "1",
+        '                nit,
+        '                Codcli,
+        '               nameCliente,
+        '                "",
+        '                CStr(Format(a, "####0.00")),
+        '                CStr(Format(b, "####0.00")),
+        '                CStr(Format(c, "####0.00")),
+        '                CStr(Format(d, "####0.00")),
+        '                CStr(Format(e, "####0.00")),
+        '                CStr(Format(f, "####0.00")),
+        '                CStr(Format(g, "####0.00")),
+        '                CStr(Format(h, "####0.00")),
+        '                "",
+        '                Now.Date.ToString("yyyy/MM/dd"),
+        '                "''",
+        '                "0",
+        '                numi)
 
 
         Dim dtDetalle As DataTable = L_prObtenerDetallePedido(numi)
