@@ -1196,7 +1196,12 @@ Public Class frmBillingDispatch
                           .Conv = grupo.FirstOrDefault().Conv,
                           .Pesokg = grupo.Sum(Function(item) item.Pesokg),
                           .cagr1 = grupo.FirstOrDefault().cagr1,
-                          .cmdesc = grupo.FirstOrDefault().cmdesc
+                          .cmdesc = grupo.FirstOrDefault().cmdesc,
+                          .cauventa = grupo.FirstOrDefault().cauventa,
+                          .uventa = grupo.FirstOrDefault().uventa,
+                          .caumax = grupo.FirstOrDefault().caumax,
+                          .uvmaxima = grupo.FirstOrDefault().uvmaxima,
+                          .oaccbnumi = grupo.FirstOrDefault().oaccbnumi
                         }).ToList()
             If (lista.Count = 0) Then
                 Throw New Exception("No hay registros para generar el reporte.")
@@ -1736,7 +1741,7 @@ Public Class frmBillingDispatch
                         list1.Add(list2(i))
                     Else
                         'P_ReImprImprimirFacturar(list2(i).Id, True, True, 0)
-                        Return
+                        'Return
                     End If
 
                 End If
@@ -1889,6 +1894,26 @@ Public Class frmBillingDispatch
             Dim dtEncabezado As DataTable = L_prObtenerEncabezadoPedido(idNumi)
             Dim dtDetalle As DataTable = L_prObtenerDetallePedidoFact(idNumi)
 
+            'Dim code = VerifConexion(tokenObtenido)
+            'If (code = 200) Then
+
+            'End If
+            'If dtEncabezado.Rows(0).Item("ccdct").ToString() = "5" Then ''El tipo de Doc. es Nit
+            '    Dim Succes As Integer = VerificarNit(tokenObtenido, dtEncabezado.Rows(0).Item("nit").ToString())
+            '    If Succes <> 200 Then
+
+            '        ToastNotification.Show(Me, "El Nit del cliente en el Pedido: " + idNumi + "No es válido, no puede facturarse".ToUpper,
+            '           My.Resources.Mensaje,
+            '           4 * 1000,
+            '           eToastGlowColor.Red,
+            '           eToastPosition.BottomLeft)
+            '        Return ""
+            '        Exit Function
+            '    End If
+            'End If
+
+
+
             Dim array(dtDetalle.Rows.Count - 1) As EmisorEnvio.Detalle
             Dim val = 0
             PrecioTot = 0
@@ -1998,19 +2023,19 @@ Public Class frmBillingDispatch
                 Dim siat = JsonConvert.SerializeObject(resultError.errors.siat)
                 Dim notifi = New notifi
 
-                'notifi.tipo = 2
-                'notifi.Context = "SIFAC".ToUpper
-                'notifi.Header = "Error de solicitud - Código: " + codigo.ToString() & vbCrLf & " " & vbCrLf & details & vbCrLf & siat & vbCrLf & " " & vbCrLf & "La factura no pudo enviarse al Siat".ToUpper
-                'notifi.ShowDialog()
+                notifi.tipo = 2
+                notifi.Context = "sifac".ToUpper
+                notifi.Header = "error de solicitud - código: " + codigo.ToString() & vbCrLf & " " & vbCrLf & details & vbCrLf & siat & vbCrLf & " " & vbCrLf & "la factura no pudo enviarse al siat".ToUpper
+                notifi.ShowDialog()
 
             ElseIf codigo = 401 Or codigo = 404 Or codigo = 405 Or codigo = 422 Then
                 Dim details = JsonConvert.SerializeObject(resultError.errors.details)
                 Dim notifi = New notifi
 
-                'notifi.tipo = 2
-                'notifi.Context = "SIFAC".ToUpper
-                'notifi.Header = "Error de solicitud - Código: " + codigo.ToString() & vbCrLf & " " & vbCrLf & details & vbCrLf & " " & vbCrLf & "La factura no pudo enviarse al Siat".ToUpper
-                'notifi.ShowDialog()
+                notifi.tipo = 2
+                notifi.Context = "SIFAC".ToUpper
+                notifi.Header = "Error de solicitud - Código: " + codigo.ToString() & vbCrLf & " " & vbCrLf & details & vbCrLf & " " & vbCrLf & "La factura no pudo enviarse al Siat".ToUpper
+                notifi.ShowDialog()
 
             End If
 

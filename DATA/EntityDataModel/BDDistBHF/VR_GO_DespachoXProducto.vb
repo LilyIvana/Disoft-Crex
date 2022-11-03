@@ -29,5 +29,9 @@ Partial Public Class VR_GO_DespachoXProducto
     Public Property PesoKg As Nullable(Of Decimal)
     Public Property cagr1 As Nullable(Of Integer)
     Public Property cmdesc As String
+    Public Property cauventa As Nullable(Of Integer)
+    Public Property uventa As String
+    Public Property caumax As Nullable(Of Integer)
+    Public Property uvmaxima As String
 
 End Class

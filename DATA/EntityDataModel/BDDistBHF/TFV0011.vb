@@ -10,28 +10,36 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class TFV001
+Partial Public Class TFV0011
     Public Property fvanumi As Integer
     Public Property fvafec As Nullable(Of Date)
     Public Property fvanfac As Nullable(Of Integer)
-    Public Property fvaautoriz As Nullable(Of Double)
+    Public Property fvaautoriz As String
     Public Property fvaest As Nullable(Of Integer)
     Public Property fvanitcli As String
     Public Property fvacodcli As Nullable(Of Integer)
     Public Property fvadescli1 As String
     Public Property fvadescli2 As String
-    Public Property fvastot As Nullable(Of Double)
-    Public Property fvaimpsi As Nullable(Of Double)
-    Public Property fvaimpeo As Nullable(Of Double)
-    Public Property fvaimptc As Nullable(Of Double)
-    Public Property fvasubtotal As Nullable(Of Double)
-    Public Property fvadesc As Nullable(Of Double)
-    Public Property fvatotal As Nullable(Of Double)
-    Public Property fvadebfis As Nullable(Of Double)
+    Public Property fvastot As Nullable(Of Decimal)
+    Public Property fvaimpsi As Nullable(Of Decimal)
+    Public Property fvaimpeo As Nullable(Of Decimal)
+    Public Property fvaimptc As Nullable(Of Decimal)
+    Public Property fvasubtotal As Nullable(Of Decimal)
+    Public Property fvadesc As Nullable(Of Decimal)
+    Public Property fvatotal As Nullable(Of Decimal)
+    Public Property fvadebfis As Nullable(Of Decimal)
     Public Property fvaccont As String
     Public Property fvaflim As Nullable(Of Date)
     Public Property fvaimgqr As Byte()
     Public Property fvaalm As Nullable(Of Integer)
     Public Property fvanumi2 As Integer
+    Public Property fvahora As String
+    Public Property fvaQrUrl As String
+    Public Property fvaFactUrl As String
+    Public Property fva2leyenda As String
+    Public Property fva3leyenda As String
+    Public Property fvacufd As String
+    Public Property fvanrocaja As Nullable(Of Integer)
+    Public Property fvaanhio As Nullable(Of Integer)
 
 End Class

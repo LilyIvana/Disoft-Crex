@@ -191,7 +191,12 @@ Public Class RPedido
                                    .Conv = a.Conv,
                                    .Pesokg = a.PesoKg,
                                    .cagr1 = a.cagr1,
-                                   .cmdesc = a.cmdesc
+                                   .cmdesc = a.cmdesc,
+                                   .cauventa = a.cauventa,
+                                   .uventa = a.uventa,
+                                   .caumax = a.caumax,
+                                   .uvmaxima = a.uvmaxima,
+                                   .oaccbnumi = a.oaccbnumi
                                    }).ToList()
                 ' Group a By a.canumi, a.cadesc, a.categoria Into grupo = Group
                 'Select New RDespachoXProducto With {

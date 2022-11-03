@@ -145,4 +145,44 @@
             _cmdesc = value
         End Set
     End Property
+
+    Private _cauventa As Integer
+    Public Property cauventa() As Integer
+        Get
+            Return _cauventa
+        End Get
+        Set(ByVal value As Integer)
+            _cauventa = value
+        End Set
+    End Property
+
+    Private _uventa As String
+    Public Property uventa() As String
+        Get
+            Return _uventa
+        End Get
+        Set(ByVal value As String)
+            _uventa = value
+        End Set
+    End Property
+
+    Private _caumax As Integer
+    Public Property caumax() As Integer
+        Get
+            Return _caumax
+        End Get
+        Set(ByVal value As Integer)
+            _caumax = value
+        End Set
+    End Property
+
+    Private _uvmaxima As String
+    Public Property uvmaxima() As String
+        Get
+            Return _uvmaxima
+        End Get
+        Set(ByVal value As String)
+            _uvmaxima = value
+        End Set
+    End Property
 End Class

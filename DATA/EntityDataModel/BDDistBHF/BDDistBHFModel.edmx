@@ -292,7 +292,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TC0012' no tiene definida
           <Property Name="ccrecven" Type="int" />
           <Property Name="ccsupven" Type="int" />
           <Property Name="ccpreven" Type="int" />
-          <Property Name="ccemail" Type="nvarchar" MaxLength="255" />
+          <Property Name="ccemail" Type="nvarchar" MaxLength="200" />
           <Property Name="ccref" Type="nvarchar" MaxLength="255" />
           <Property Name="ccpass" Type="nvarchar" MaxLength="255" />
           <Property Name="ccfact" Type="date" />
@@ -596,25 +596,33 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.TCP0011' no tiene definid
           <Property Name="fvanumi" Type="int" Nullable="false" />
           <Property Name="fvafec" Type="date" />
           <Property Name="fvanfac" Type="int" />
-          <Property Name="fvaautoriz" Type="float" />
+          <Property Name="fvaautoriz" Type="nvarchar" MaxLength="200" />
           <Property Name="fvaest" Type="int" />
-          <Property Name="fvanitcli" Type="nvarchar" MaxLength="15" />
+          <Property Name="fvanitcli" Type="nvarchar" MaxLength="20" />
           <Property Name="fvacodcli" Type="int" />
-          <Property Name="fvadescli1" Type="nvarchar" MaxLength="50" />
+          <Property Name="fvadescli1" Type="nvarchar" MaxLength="100" />
           <Property Name="fvadescli2" Type="nvarchar" MaxLength="30" />
-          <Property Name="fvastot" Type="float" />
-          <Property Name="fvaimpsi" Type="float" />
-          <Property Name="fvaimpeo" Type="float" />
-          <Property Name="fvaimptc" Type="float" />
-          <Property Name="fvasubtotal" Type="float" />
-          <Property Name="fvadesc" Type="float" />
-          <Property Name="fvatotal" Type="float" />
-          <Property Name="fvadebfis" Type="float" />
+          <Property Name="fvastot" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fvaimpsi" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fvaimpeo" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fvaimptc" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fvasubtotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fvadesc" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fvatotal" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="fvadebfis" Type="decimal" Precision="18" Scale="2" />
           <Property Name="fvaccont" Type="nvarchar" MaxLength="14" />
           <Property Name="fvaflim" Type="date" />
           <Property Name="fvaimgqr" Type="image" />
           <Property Name="fvaalm" Type="int" />
           <Property Name="fvanumi2" Type="int" Nullable="false" />
+          <Property Name="fvahora" Type="nchar" MaxLength="10" />
+          <Property Name="fvaQrUrl" Type="nvarchar" MaxLength="200" />
+          <Property Name="fvaFactUrl" Type="nvarchar" MaxLength="200" />
+          <Property Name="fva2leyenda" Type="nvarchar" MaxLength="256" />
+          <Property Name="fva3leyenda" Type="nvarchar" MaxLength="200" />
+          <Property Name="fvacufd" Type="nvarchar" MaxLength="200" />
+          <Property Name="fvanrocaja" Type="int" />
+          <Property Name="fvaanhio" Type="int" />
         </EntityType>
         <EntityType Name="TI002">
           <Key>
@@ -1834,6 +1842,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_DespachoXProducto' 
           <Property Name="PesoKg" Type="decimal" Precision="38" Scale="6" />
           <Property Name="cagr1" Type="int" />
           <Property Name="cmdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="cauventa" Type="int" />
+          <Property Name="uventa" Type="nvarchar" MaxLength="50" />
+          <Property Name="caumax" Type="int" />
+          <Property Name="uvmaxima" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_DespachoXProducto2' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -3041,6 +3053,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Parameter Name="viernes" Type="int" Mode="In" />
           <Parameter Name="sabado" Type="int" Mode="In" />
           <Parameter Name="domingo" Type="int" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_go_TC004_appMovil" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -3415,6 +3428,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Parameter Name="olCredito" Type="decimal" Mode="In" />
           <Parameter Name="olTipoCambio" Type="decimal" Mode="In" />
           <Parameter Name="vendedor" Type="int" Mode="In" />
+          <Parameter Name="taNrocaja" Type="int" Mode="In" />
+          <Parameter Name="anhio" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_Mam_TV00121" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -4323,7 +4338,11 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
     [VR_GO_DespachoXProducto].[Conv] AS [Conv], 
     [VR_GO_DespachoXProducto].[PesoKg] AS [PesoKg], 
     [VR_GO_DespachoXProducto].[cagr1] AS [cagr1], 
-    [VR_GO_DespachoXProducto].[cmdesc] AS [cmdesc]
+    [VR_GO_DespachoXProducto].[cmdesc] AS [cmdesc], 
+    [VR_GO_DespachoXProducto].[cauventa] AS [cauventa], 
+    [VR_GO_DespachoXProducto].[uventa] AS [uventa], 
+    [VR_GO_DespachoXProducto].[caumax] AS [caumax], 
+    [VR_GO_DespachoXProducto].[uvmaxima] AS [uvmaxima]
     FROM [dbo].[VR_GO_DespachoXProducto] AS [VR_GO_DespachoXProducto]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VR_GO_DespachoXProducto2" EntityType="Self.VR_GO_DespachoXProducto2" store:Type="Views" store:Schema="dbo">
@@ -5315,6 +5334,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
             <Parameter Name="viernes" Mode="In" Type="Int32" />
             <Parameter Name="sabado" Mode="In" Type="Int32" />
             <Parameter Name="domingo" Mode="In" Type="Int32" />
+            <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_go_TC004_appMovil">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -5689,6 +5709,8 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
             <Parameter Name="olCredito" Mode="In" Type="Decimal" />
             <Parameter Name="olTipoCambio" Mode="In" Type="Decimal" />
             <Parameter Name="vendedor" Mode="In" Type="Int32" />
+            <Parameter Name="taNrocaja" Mode="In" Type="Int32" />
+            <Parameter Name="anhio" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_Mam_TV00121">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -5769,7 +5791,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <EntitySet Name="TCA0011" EntityType="BDDistBHFModel.TCA0011" />
           <EntitySet Name="TD001" EntityType="BDDistBHFModel.TD001" />
           <EntitySet Name="TFC001" EntityType="BDDistBHFModel.TFC001" />
-          <EntitySet Name="TFV001" EntityType="BDDistBHFModel.TFV001" />
           <EntitySet Name="TI002" EntityType="BDDistBHFModel.TI002" />
           <EntitySet Name="TI0021" EntityType="BDDistBHFModel.TI0021" />
           <EntitySet Name="TI004" EntityType="BDDistBHFModel.TI004" />
@@ -5914,8 +5935,9 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
             <End Role="TO005" EntitySet="TO005" />
             <End Role="TO0052" EntitySet="TO0052" />
           </AssociationSet>
-          <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
           <EntitySet Name="VR_GO_DespachoXCliente" EntityType="BDDistBHFModel.VR_GO_DespachoXCliente" />
+          <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
+          <EntitySet Name="TFV0011Set" EntityType="BDDistBHFModel.TFV0011" />
           </EntityContainer>
         <ComplexType Name="sp_dg_RAsistencia_Result">
           <Property Type="Int32" Name="cbnumi" Nullable="false" />
@@ -6281,7 +6303,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Property Name="ccrecven" Type="Int32" />
           <Property Name="ccsupven" Type="Int32" />
           <Property Name="ccpreven" Type="Int32" />
-          <Property Name="ccemail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ccemail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="ccref" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ccpass" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="ccfact" Type="DateTime" Precision="0" />
@@ -6474,34 +6496,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Property Name="fcaccont" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
           <Property Name="fcatcom" Type="Int32" />
           <Property Name="fcanumito11" Type="Int32" />
-        </EntityType>
-        <EntityType Name="TFV001">
-          <Key>
-            <PropertyRef Name="fvanumi" />
-            <PropertyRef Name="fvanumi2" />
-          </Key>
-          <Property Name="fvanumi" Type="Int32" Nullable="false" />
-          <Property Name="fvafec" Type="DateTime" Precision="0" />
-          <Property Name="fvanfac" Type="Int32" />
-          <Property Name="fvaautoriz" Type="Double" />
-          <Property Name="fvaest" Type="Int32" />
-          <Property Name="fvanitcli" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="fvacodcli" Type="Int32" />
-          <Property Name="fvadescli1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="fvadescli2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="fvastot" Type="Double" />
-          <Property Name="fvaimpsi" Type="Double" />
-          <Property Name="fvaimpeo" Type="Double" />
-          <Property Name="fvaimptc" Type="Double" />
-          <Property Name="fvasubtotal" Type="Double" />
-          <Property Name="fvadesc" Type="Double" />
-          <Property Name="fvatotal" Type="Double" />
-          <Property Name="fvadebfis" Type="Double" />
-          <Property Name="fvaccont" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
-          <Property Name="fvaflim" Type="DateTime" Precision="0" />
-          <Property Name="fvaimgqr" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="fvaalm" Type="Int32" />
-          <Property Name="fvanumi2" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="TI002">
           <Key>
@@ -8650,30 +8644,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="VR_GO_DespachoXProducto">
-          <Key>
-            <PropertyRef Name="oaccbnumi" />
-            <PropertyRef Name="canumi" />
-          </Key>
-          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
-          <Property Name="canumi" Type="Int32" Nullable="false" />
-          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="obpcant" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="oacnconc" Type="Int32" />
-          <Property Name="oaest" Type="Int32" />
-          <Property Name="oaap" Type="Int32" />
-          <Property Name="oafdoc" Type="DateTime" Precision="0" />
-          <Property Name="caja" Type="Int32" />
-          <Property Name="Unidad" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="Conv" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="PesoKg" Type="Decimal" Precision="38" Scale="6" />
-          <Property Name="cagr1" Type="Int32" />
-          <Property Name="cmdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="VR_GO_DespachoXCliente">
           <Key>
             <PropertyRef Name="oaccbnumi" />
@@ -8701,6 +8671,70 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Property Name="credito" Type="Decimal" Precision="18" Scale="2" />
           <Property Name="oaanumiprev" Type="Int32" />
           <Property Name="cbdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="VR_GO_DespachoXProducto">
+          <Key>
+            <PropertyRef Name="oaccbnumi" />
+            <PropertyRef Name="canumi" />
+          </Key>
+          <Property Name="oaccbnumi" Type="Int32" Nullable="false" />
+          <Property Name="canumi" Type="Int32" Nullable="false" />
+          <Property Name="cacod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="cadesc2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="categoria" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="obpcant" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="oacnconc" Type="Int32" />
+          <Property Name="oaest" Type="Int32" />
+          <Property Name="oaap" Type="Int32" />
+          <Property Name="oafdoc" Type="DateTime" Precision="0" />
+          <Property Name="caja" Type="Int32" />
+          <Property Name="Unidad" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Total" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Conv" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PesoKg" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="cagr1" Type="Int32" />
+          <Property Name="cmdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cauventa" Type="Int32" />
+          <Property Name="uventa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="caumax" Type="Int32" />
+          <Property Name="uvmaxima" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TFV0011">
+          <Key>
+            <PropertyRef Name="fvanumi" />
+            <PropertyRef Name="fvanumi2" />
+          </Key>
+          <Property Name="fvanumi" Type="Int32" Nullable="false" />
+          <Property Name="fvafec" Type="DateTime" Precision="0" />
+          <Property Name="fvanfac" Type="Int32" />
+          <Property Name="fvaautoriz" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fvaest" Type="Int32" />
+          <Property Name="fvanitcli" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="fvacodcli" Type="Int32" />
+          <Property Name="fvadescli1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="fvadescli2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="fvastot" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fvaimpsi" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fvaimpeo" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fvaimptc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fvasubtotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fvadesc" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fvatotal" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fvadebfis" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="fvaccont" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
+          <Property Name="fvaflim" Type="DateTime" Precision="0" />
+          <Property Name="fvaimgqr" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="fvaalm" Type="Int32" />
+          <Property Name="fvanumi2" Type="Int32" Nullable="false" />
+          <Property Name="fvahora" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="fvaQrUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fvaFactUrl" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fva2leyenda" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="fva3leyenda" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fvacufd" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fvanrocaja" Type="Int32" />
+          <Property Name="fvaanhio" Type="Int32" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -9361,34 +9395,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
                 <ScalarProperty Name="fcanit" ColumnName="fcanit" />
                 <ScalarProperty Name="fcafdoc" ColumnName="fcafdoc" />
                 <ScalarProperty Name="fcanumi" ColumnName="fcanumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TFV001">
-            <EntityTypeMapping TypeName="BDDistBHFModel.TFV001">
-              <MappingFragment StoreEntitySet="TFV001">
-                <ScalarProperty Name="fvanumi2" ColumnName="fvanumi2" />
-                <ScalarProperty Name="fvaalm" ColumnName="fvaalm" />
-                <ScalarProperty Name="fvaimgqr" ColumnName="fvaimgqr" />
-                <ScalarProperty Name="fvaflim" ColumnName="fvaflim" />
-                <ScalarProperty Name="fvaccont" ColumnName="fvaccont" />
-                <ScalarProperty Name="fvadebfis" ColumnName="fvadebfis" />
-                <ScalarProperty Name="fvatotal" ColumnName="fvatotal" />
-                <ScalarProperty Name="fvadesc" ColumnName="fvadesc" />
-                <ScalarProperty Name="fvasubtotal" ColumnName="fvasubtotal" />
-                <ScalarProperty Name="fvaimptc" ColumnName="fvaimptc" />
-                <ScalarProperty Name="fvaimpeo" ColumnName="fvaimpeo" />
-                <ScalarProperty Name="fvaimpsi" ColumnName="fvaimpsi" />
-                <ScalarProperty Name="fvastot" ColumnName="fvastot" />
-                <ScalarProperty Name="fvadescli2" ColumnName="fvadescli2" />
-                <ScalarProperty Name="fvadescli1" ColumnName="fvadescli1" />
-                <ScalarProperty Name="fvacodcli" ColumnName="fvacodcli" />
-                <ScalarProperty Name="fvanitcli" ColumnName="fvanitcli" />
-                <ScalarProperty Name="fvaest" ColumnName="fvaest" />
-                <ScalarProperty Name="fvaautoriz" ColumnName="fvaautoriz" />
-                <ScalarProperty Name="fvanfac" ColumnName="fvanfac" />
-                <ScalarProperty Name="fvafec" ColumnName="fvafec" />
-                <ScalarProperty Name="fvanumi" ColumnName="fvanumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11563,30 +11569,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_DespachoXProducto">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXProducto">
-              <MappingFragment StoreEntitySet="VR_GO_DespachoXProducto">
-                <ScalarProperty Name="cmdesc" ColumnName="cmdesc" />
-                <ScalarProperty Name="cagr1" ColumnName="cagr1" />
-                <ScalarProperty Name="PesoKg" ColumnName="PesoKg" />
-                <ScalarProperty Name="Conv" ColumnName="Conv" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
-                <ScalarProperty Name="caja" ColumnName="caja" />
-                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
-                <ScalarProperty Name="oaap" ColumnName="oaap" />
-                <ScalarProperty Name="oaest" ColumnName="oaest" />
-                <ScalarProperty Name="oacnconc" ColumnName="oacnconc" />
-                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
-                <ScalarProperty Name="categoria" ColumnName="categoria" />
-                <ScalarProperty Name="cadesc2" ColumnName="cadesc2" />
-                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
-                <ScalarProperty Name="cacod" ColumnName="cacod" />
-                <ScalarProperty Name="canumi" ColumnName="canumi" />
-                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="VR_GO_DespachoXCliente">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXCliente">
               <MappingFragment StoreEntitySet="VR_GO_DespachoXCliente">
@@ -11609,6 +11591,70 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
                 <ScalarProperty Name="cccod" ColumnName="cccod" />
                 <ScalarProperty Name="ccnumi" ColumnName="ccnumi" />
                 <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_DespachoXProducto">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_DespachoXProducto">
+              <MappingFragment StoreEntitySet="VR_GO_DespachoXProducto">
+                <ScalarProperty Name="uvmaxima" ColumnName="uvmaxima" />
+                <ScalarProperty Name="caumax" ColumnName="caumax" />
+                <ScalarProperty Name="uventa" ColumnName="uventa" />
+                <ScalarProperty Name="cauventa" ColumnName="cauventa" />
+                <ScalarProperty Name="cmdesc" ColumnName="cmdesc" />
+                <ScalarProperty Name="cagr1" ColumnName="cagr1" />
+                <ScalarProperty Name="PesoKg" ColumnName="PesoKg" />
+                <ScalarProperty Name="Conv" ColumnName="Conv" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="caja" ColumnName="caja" />
+                <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
+                <ScalarProperty Name="oaap" ColumnName="oaap" />
+                <ScalarProperty Name="oaest" ColumnName="oaest" />
+                <ScalarProperty Name="oacnconc" ColumnName="oacnconc" />
+                <ScalarProperty Name="obpcant" ColumnName="obpcant" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="cadesc2" ColumnName="cadesc2" />
+                <ScalarProperty Name="cadesc" ColumnName="cadesc" />
+                <ScalarProperty Name="cacod" ColumnName="cacod" />
+                <ScalarProperty Name="canumi" ColumnName="canumi" />
+                <ScalarProperty Name="oaccbnumi" ColumnName="oaccbnumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TFV0011Set">
+            <EntityTypeMapping TypeName="BDDistBHFModel.TFV0011">
+              <MappingFragment StoreEntitySet="TFV001">
+                <ScalarProperty Name="fvaanhio" ColumnName="fvaanhio" />
+                <ScalarProperty Name="fvanrocaja" ColumnName="fvanrocaja" />
+                <ScalarProperty Name="fvacufd" ColumnName="fvacufd" />
+                <ScalarProperty Name="fva3leyenda" ColumnName="fva3leyenda" />
+                <ScalarProperty Name="fva2leyenda" ColumnName="fva2leyenda" />
+                <ScalarProperty Name="fvaFactUrl" ColumnName="fvaFactUrl" />
+                <ScalarProperty Name="fvaQrUrl" ColumnName="fvaQrUrl" />
+                <ScalarProperty Name="fvahora" ColumnName="fvahora" />
+                <ScalarProperty Name="fvanumi2" ColumnName="fvanumi2" />
+                <ScalarProperty Name="fvaalm" ColumnName="fvaalm" />
+                <ScalarProperty Name="fvaimgqr" ColumnName="fvaimgqr" />
+                <ScalarProperty Name="fvaflim" ColumnName="fvaflim" />
+                <ScalarProperty Name="fvaccont" ColumnName="fvaccont" />
+                <ScalarProperty Name="fvadebfis" ColumnName="fvadebfis" />
+                <ScalarProperty Name="fvatotal" ColumnName="fvatotal" />
+                <ScalarProperty Name="fvadesc" ColumnName="fvadesc" />
+                <ScalarProperty Name="fvasubtotal" ColumnName="fvasubtotal" />
+                <ScalarProperty Name="fvaimptc" ColumnName="fvaimptc" />
+                <ScalarProperty Name="fvaimpeo" ColumnName="fvaimpeo" />
+                <ScalarProperty Name="fvaimpsi" ColumnName="fvaimpsi" />
+                <ScalarProperty Name="fvastot" ColumnName="fvastot" />
+                <ScalarProperty Name="fvadescli2" ColumnName="fvadescli2" />
+                <ScalarProperty Name="fvadescli1" ColumnName="fvadescli1" />
+                <ScalarProperty Name="fvacodcli" ColumnName="fvacodcli" />
+                <ScalarProperty Name="fvanitcli" ColumnName="fvanitcli" />
+                <ScalarProperty Name="fvaest" ColumnName="fvaest" />
+                <ScalarProperty Name="fvaautoriz" ColumnName="fvaautoriz" />
+                <ScalarProperty Name="fvanfac" ColumnName="fvanfac" />
+                <ScalarProperty Name="fvafec" ColumnName="fvafec" />
+                <ScalarProperty Name="fvanumi" ColumnName="fvanumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
