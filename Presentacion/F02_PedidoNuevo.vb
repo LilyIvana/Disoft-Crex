@@ -1165,7 +1165,7 @@ Public Class F02_PedidoNuevo
         Tb_Observaciones.ReadOnly = False
         Tb_CantProd.ReadOnly = False
         swTipoVenta.IsReadOnly = False
-        tbMontoCredito.ReadOnly = False
+        'tbMontoCredito.ReadOnly = False
         MBtNuevo.Enabled = False
         MBtModificar.Enabled = False
         MBtEliminar.Enabled = False

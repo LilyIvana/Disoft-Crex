@@ -470,7 +470,15 @@ Public Class RPedido
                                       .cbdesc = a.cbdesc,
                                       .oaanumiprev = a.oaanumiprev,
                                       .vendedor = a.vendedor,
-                                      .oaobs = a.oaobs
+                                      .oaobs = a.oaobs,
+                                      .cccod = a.cccod,
+                                      .ccdirec = a.ccdirec,
+                                      .latitud = a.latitud,
+                                      .longitd = a.longitd,
+                                      .oazona = a.oazona,
+                                      .zona = a.zona,
+                                      .fvanfac = a.fvanfac,
+                                      .tipo = a.tipo
                                       }).ToList()
                 Return listResult
 

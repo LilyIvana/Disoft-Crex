@@ -201,4 +201,85 @@
             _oaobs = value
         End Set
     End Property
+
+    Private _cccod As String
+    Public Property cccod() As String
+        Get
+            Return _cccod
+        End Get
+        Set(ByVal value As String)
+            _cccod = value
+        End Set
+    End Property
+
+    Private _ccdirec As String
+    Public Property ccdirec() As String
+        Get
+            Return _ccdirec
+        End Get
+        Set(ByVal value As String)
+            _ccdirec = value
+        End Set
+    End Property
+
+    Private _latitud As Decimal
+    Public Property latitud() As Decimal
+        Get
+            Return _latitud
+        End Get
+        Set(ByVal value As Decimal)
+            _latitud = value
+        End Set
+    End Property
+
+    Private _longitd As Decimal
+    Public Property longitd() As Decimal
+        Get
+            Return _longitd
+        End Get
+        Set(ByVal value As Decimal)
+            _longitd = value
+        End Set
+    End Property
+
+    Private _oazona As Integer
+    Public Property oazona() As Integer
+        Get
+            Return _oazona
+        End Get
+        Set(ByVal value As Integer)
+            _oazona = value
+        End Set
+    End Property
+
+    Private _zona As String
+    Public Property zona() As String
+        Get
+            Return _zona
+        End Get
+        Set(ByVal value As String)
+            _zona = value
+        End Set
+    End Property
+
+
+    Private _fvanfac As Integer
+    Public Property fvanfac() As Integer
+        Get
+            Return _fvanfac
+        End Get
+        Set(ByVal value As Integer)
+            _fvanfac = value
+        End Set
+    End Property
+
+    Private _tipo As String
+    Public Property tipo() As String
+        Get
+            Return _tipo
+        End Get
+        Set(ByVal value As String)
+            _tipo = value
+        End Set
+    End Property
 End Class
