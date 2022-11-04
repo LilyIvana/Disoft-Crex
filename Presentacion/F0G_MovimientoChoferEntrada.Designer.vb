@@ -662,7 +662,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         Me.tbTablet.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbTablet.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbTablet.Location = New System.Drawing.Point(588, 28)
+        Me.tbTablet.Location = New System.Drawing.Point(435, 28)
         Me.tbTablet.Name = "tbTablet"
         Me.tbTablet.OffBackColor = System.Drawing.Color.DodgerBlue
         Me.tbTablet.OffText = "TODOS LOS REGISTROS"
@@ -688,7 +688,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         Me.swDevolucion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.swDevolucion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.swDevolucion.Location = New System.Drawing.Point(852, 28)
+        Me.swDevolucion.Location = New System.Drawing.Point(663, 28)
         Me.swDevolucion.Name = "swDevolucion"
         Me.swDevolucion.OffBackColor = System.Drawing.Color.DodgerBlue
         Me.swDevolucion.OffText = "SOLO DEVOLUCIÓN"
@@ -701,6 +701,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.swDevolucion.TabIndex = 37
         Me.swDevolucion.Value = True
         Me.swDevolucion.ValueObject = "Y"
+        Me.swDevolucion.Visible = False
         '
         'F0G_MovimientoChoferEntrada
         '

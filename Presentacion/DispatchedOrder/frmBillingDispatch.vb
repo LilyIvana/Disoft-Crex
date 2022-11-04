@@ -2025,7 +2025,7 @@ Public Class frmBillingDispatch
 
                 notifi.tipo = 2
                 notifi.Context = "sifac".ToUpper
-                notifi.Header = "error de solicitud - código: " + codigo.ToString() & vbCrLf & " " & vbCrLf & details & vbCrLf & siat & vbCrLf & " " & vbCrLf & "la factura no pudo enviarse al siat".ToUpper
+                notifi.Header = "Error de solicitud - Código: " + codigo.ToString() & vbCrLf & " " & vbCrLf & details & vbCrLf & siat & vbCrLf & " " & vbCrLf & "la factura no pudo enviarse al siat".ToUpper
                 notifi.ShowDialog()
 
             ElseIf codigo = 401 Or codigo = 404 Or codigo = 405 Or codigo = 422 Then

@@ -102,6 +102,17 @@
             _cauventa = value
         End Set
     End Property
+
+    Private _cedesc As String
+    Public Property cedesc() As String
+        Get
+            Return _cedesc
+        End Get
+        Set(ByVal value As String)
+            _cedesc = value
+        End Set
+    End Property
+
     Private _obpbase As Decimal
     Public Property obpbase() As Decimal
         Get

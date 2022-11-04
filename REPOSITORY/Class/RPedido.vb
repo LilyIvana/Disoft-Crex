@@ -478,7 +478,8 @@ Public Class RPedido
                                       .oazona = a.oazona,
                                       .zona = a.zona,
                                       .fvanfac = a.fvanfac,
-                                      .tipo = a.tipo
+                                      .tipo = a.tipo,
+                                      .cedesc = a.cedesc
                                       }).ToList()
                 Return listResult
 
