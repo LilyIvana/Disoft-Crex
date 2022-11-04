@@ -1897,21 +1897,21 @@ Public Class frmBillingDispatch
             'Dim code = VerifConexion(tokenObtenido)
             'If (code = 200) Then
 
-            'End If
-            'If dtEncabezado.Rows(0).Item("ccdct").ToString() = "5" Then ''El tipo de Doc. es Nit
-            '    Dim Succes As Integer = VerificarNit(tokenObtenido, dtEncabezado.Rows(0).Item("nit").ToString())
-            '    If Succes <> 200 Then
+            '    If dtEncabezado.Rows(0).Item("ccdct").ToString() = "5" Then ''El tipo de Doc. es Nit
+            '        Dim Succes As Integer = VerificarNit(tokenObtenido, dtEncabezado.Rows(0).Item("nit").ToString())
+            '        If Succes <> 200 Then
 
-            '        ToastNotification.Show(Me, "El Nit del cliente en el Pedido: " + idNumi + "No es válido, no puede facturarse".ToUpper,
+            '            ToastNotification.Show(Me, "El Nit del cliente en el Pedido: " + idNumi + "No es válido, no puede facturarse".ToUpper,
             '           My.Resources.Mensaje,
             '           4 * 1000,
             '           eToastGlowColor.Red,
             '           eToastPosition.BottomLeft)
-            '        Return ""
-            '        Exit Function
+            '            Return ""
+            '            Exit Function
+            '        End If
             '    End If
-            'End If
 
+            'End If
 
 
             Dim array(dtDetalle.Rows.Count - 1) As EmisorEnvio.Detalle

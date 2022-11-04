@@ -2005,15 +2005,18 @@ Public Class F02_Cliente
         If (TbEmail.Text.Trim.Equals("")) Then
             TbEmail.Text = "cliente@crex.com.bo"
         End If
-        If (CbTipoDoc.Value = 5) Then ''El tipo de Doc. es Nit
 
-            Dim tokenSifac As String = frmBillingDispatch.ObtToken()
-            Dim Succes As Integer = frmBillingDispatch.VerificarNit(tokenSifac, TbNit.Text)
-            If Succes <> 200 Then
-                Return False
+        Dim tokenSifac As String = frmBillingDispatch.ObtToken()
+        Dim code = frmBillingDispatch.VerifConexion(tokenSifac)
+        If (code = 200) Then
+            If (CbTipoDoc.Value = 5) Then ''El tipo de Doc. es Nit
+                Dim Succes As Integer = frmBillingDispatch.VerificarNit(tokenSifac, TbNit.Text)
+                If Succes <> 200 Then
+                    Return False
+                End If
             End If
-
         End If
+
         If (BoEliminar) Then
             If (DtiFechaIng.Value > DtiUltimoPedido.Value) Then
                 ToastNotification.Show(Me, "No se puede eliminar a este cliente, tiene pedido realizados!!!".ToUpper,
