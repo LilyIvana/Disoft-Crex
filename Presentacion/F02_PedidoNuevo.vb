@@ -1805,35 +1805,35 @@ Public Class F02_PedidoNuevo
 
                 End If
 
-                'Modificar la Facturacion(si se facturó)
-                'Recupero antes de eliminar
-                Dim nroFact As String = L_fnObtenerDatoTabla("TFV001", "fvanfac", "fvanumi=" + Tb_Id.Text.Trim)
+                ''Modificar la Facturacion(si se facturó)
+                ''Recupero antes de eliminar
+                'Dim nroFact As String = L_fnObtenerDatoTabla("TFV001", "fvanfac", "fvanumi=" + Tb_Id.Text.Trim)
 
-                'Elimino la TV001, TV0011
-                L_fnEliminarDatos("TV001", "tanumi=" + Tb_Id.Text.Trim)
-                L_fnEliminarDatos("TV0011", "tbtv1numi=" + Tb_Id.Text.Trim)
+                ''Elimino la TV001, TV0011
+                'L_fnEliminarDatos("TV001", "tanumi=" + Tb_Id.Text.Trim)
+                'L_fnEliminarDatos("TV0011", "tbtv1numi=" + Tb_Id.Text.Trim)
 
-                GrabarTV001(Tb_Id.Text.Trim)
+                'GrabarTV001(Tb_Id.Text.Trim)
 
-                If nroFact <> String.Empty Then
-                    Dim fechaFact As Date = L_fnObtenerDatoTabla("TFV001", "fvafec", "fvanumi=" + Tb_Id.Text.Trim)
+                'If nroFact <> String.Empty Then
+                '    Dim fechaFact As Date = L_fnObtenerDatoTabla("TFV001", "fvafec", "fvanumi=" + Tb_Id.Text.Trim)
 
-                    'Elimino la TFV001, TFV0011
-                    L_fnEliminarDatos("TFV001", "fvanumi=" + Tb_Id.Text.Trim)
-                    L_fnEliminarDatos("TFV0011", "fvbnumi=" + Tb_Id.Text.Trim)
+                '    'Elimino la TFV001, TFV0011
+                '    L_fnEliminarDatos("TFV001", "fvanumi=" + Tb_Id.Text.Trim)
+                '    L_fnEliminarDatos("TFV0011", "fvbnumi=" + Tb_Id.Text.Trim)
 
-                    'Vuelvo a insertar TFV001 y TFV0011 modificado y reimprimo factura
-                    Dim dtDetalle As DataTable = L_prObtenerDetallePedidoFactura(Tb_Id.Text.Trim)
-                    P_fnGenerarFacturaModificada(dtDetalle.Rows(0).Item("oanumi"), dtDetalle.Rows(0).Item("subtotal"), dtDetalle.Rows(0).Item("descuento"), dtDetalle.Rows(0).Item("total"), dtDetalle.Rows(0).Item("nit"), dtDetalle.Rows(0).Item("cliente"), dtDetalle.Rows(0).Item("codcli"), nroFact, fechaFact)
+                '    'Vuelvo a insertar TFV001 y TFV0011 modificado y reimprimo factura
+                '    Dim dtDetalle As DataTable = L_prObtenerDetallePedidoFactura(Tb_Id.Text.Trim)
+                '    P_fnGenerarFacturaModificada(dtDetalle.Rows(0).Item("oanumi"), dtDetalle.Rows(0).Item("subtotal"), dtDetalle.Rows(0).Item("descuento"), dtDetalle.Rows(0).Item("total"), dtDetalle.Rows(0).Item("nit"), dtDetalle.Rows(0).Item("cliente"), dtDetalle.Rows(0).Item("codcli"), nroFact, fechaFact)
 
-                Else
-                    'Reimprimo Nota de venta
-                    Dim idChofer As String = L_fnObtenerDatoTabla("TO001C", "oaccbnumi", "oacoanumi=" + Tb_Id.Text.Trim)
-                    If idChofer <> String.Empty Then
-                        frmBillingDispatch.P_prImprimirNotaVenta(Tb_Id.Text.Trim, True, True, idChofer)
-                    End If
+                'Else
+                '    'Reimprimo Nota de venta
+                '    Dim idChofer As String = L_fnObtenerDatoTabla("TO001C", "oaccbnumi", "oacoanumi=" + Tb_Id.Text.Trim)
+                '    If idChofer <> String.Empty Then
+                '        frmBillingDispatch.P_prImprimirNotaVenta(Tb_Id.Text.Trim, True, True, idChofer)
+                '    End If
 
-                End If
+                'End If
 
 
                 ToastNotification.Show(Me, "Codigo de Pedido " + Tb_Id.Text + " Modificado con Exito.", My.Resources.GRABACION_EXITOSA, 5000, eToastGlowColor.Green, eToastPosition.BottomLeft)

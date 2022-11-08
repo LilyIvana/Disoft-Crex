@@ -9543,6 +9543,23 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_fnVerificarPagos(numi As String) As Boolean
+        Dim _resultado As Boolean
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 16))
+        _listParam.Add(New Datos.DParametro("@oanumi", numi))
+        _listParam.Add(New Datos.DParametro("@teuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TV00121Cheque", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+        Return _resultado
+    End Function
 
 #End Region
 
@@ -11050,6 +11067,18 @@ Public Class AccesoLogica
 
         Return _resultado
     End Function
+
+    Public Shared Function L_fnMostrarDatosFactura(_numi As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 5))
+        _listParam.Add(New Datos.DParametro("@tanumi", _numi))
+        _listParam.Add(New Datos.DParametro("@tauact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TV001", _listParam)
+
+        Return _Tabla
+    End Function
     Public Shared Function L_fnVerificarPagosVentas(numi As String) As Boolean
         Dim _resultado As Boolean
         Dim _Tabla As DataTable
@@ -11082,11 +11111,14 @@ Public Class AccesoLogica
         Dim _Err As Boolean
         Dim Sql, _where As String
 
-        Sql = "fvanumi =" + "-" + tbCodigo + ", " +
-        "fvaest =" + est + ", " +
-        "fvanumi2 = " + "-" + tbCodigo + " "
+        'Sql = "fvanumi =" + "-" + tbCodigo + ", " +
+        '"fvaest =" + est + ", " +
+        '"fvanumi2 = " + "-" + tbCodigo + " "
 
-        _where = "fvanumi =" + tbCodigo + " and fvanfac=" + tbNroFactura + " and fvaautoriz=" + tbNroAutoriz
+        Sql = "fvaest =" + est + " "
+
+
+        _where = "fvanumi =" + tbCodigo + " and fvanfac=" + tbNroFactura + " and fvaautoriz='" + tbNroAutoriz + "'"
 
         _Err = D_Modificar_Datos("TFV001", Sql, _where)
     End Sub
@@ -11125,6 +11157,24 @@ Public Class AccesoLogica
             _resultado = False
         End If
 
+        Return _resultado
+    End Function
+
+    Public Shared Function L_fnVerificarCierreCaja(numi As String) As Boolean
+        Dim _resultado As Boolean
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 38))
+        _listParam.Add(New Datos.DParametro("@pedido", numi))
+        _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            _resultado = True
+        Else
+            _resultado = False
+        End If
         Return _resultado
     End Function
 #End Region

@@ -24,6 +24,7 @@ Partial Class F0_IngresarReclamo
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim tbConcep_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim CbMotivoA_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F0_IngresarReclamo))
         Me.GroupPanel2 = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.btnsalir = New DevComponents.DotNetBar.ButtonX()
@@ -33,15 +34,20 @@ Partial Class F0_IngresarReclamo
         Me.LabelX13 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.MEP = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.CbMotivoA = New Janus.Windows.GridEX.EditControls.MultiColumnCombo()
+        Me.LabelX2 = New DevComponents.DotNetBar.LabelX()
         Me.GroupPanel2.SuspendLayout()
         CType(Me.tbConcep, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CbMotivoA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupPanel2
         '
         Me.GroupPanel2.CanvasColor = System.Drawing.SystemColors.Control
         Me.GroupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.GroupPanel2.Controls.Add(Me.LabelX2)
+        Me.GroupPanel2.Controls.Add(Me.CbMotivoA)
         Me.GroupPanel2.Controls.Add(Me.btnsalir)
         Me.GroupPanel2.Controls.Add(Me.btnguardar)
         Me.GroupPanel2.Controls.Add(Me.tbConcep)
@@ -53,7 +59,7 @@ Partial Class F0_IngresarReclamo
         Me.GroupPanel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel2.Name = "GroupPanel2"
-        Me.GroupPanel2.Size = New System.Drawing.Size(505, 183)
+        Me.GroupPanel2.Size = New System.Drawing.Size(547, 235)
         '
         '
         '
@@ -94,7 +100,7 @@ Partial Class F0_IngresarReclamo
         Me.btnsalir.Image = Global.Presentacion.My.Resources.Resources.atras
         Me.btnsalir.ImageFixedSize = New System.Drawing.Size(20, 20)
         Me.btnsalir.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnsalir.Location = New System.Drawing.Point(276, 115)
+        Me.btnsalir.Location = New System.Drawing.Point(276, 158)
         Me.btnsalir.Name = "btnsalir"
         Me.btnsalir.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.btnsalir.Size = New System.Drawing.Size(101, 42)
@@ -112,7 +118,7 @@ Partial Class F0_IngresarReclamo
         Me.btnguardar.Image = Global.Presentacion.My.Resources.Resources.save
         Me.btnguardar.ImageFixedSize = New System.Drawing.Size(20, 20)
         Me.btnguardar.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btnguardar.Location = New System.Drawing.Point(154, 115)
+        Me.btnguardar.Location = New System.Drawing.Point(154, 158)
         Me.btnguardar.Name = "btnguardar"
         Me.btnguardar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.btnguardar.Shape = New DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2)
@@ -126,11 +132,13 @@ Partial Class F0_IngresarReclamo
         '
         tbConcep_DesignTimeLayout.LayoutString = resources.GetString("tbConcep_DesignTimeLayout.LayoutString")
         Me.tbConcep.DesignTimeLayout = tbConcep_DesignTimeLayout
-        Me.tbConcep.Location = New System.Drawing.Point(124, 16)
+        Me.tbConcep.Location = New System.Drawing.Point(154, 16)
         Me.tbConcep.Name = "tbConcep"
+        Me.tbConcep.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.tbConcep.Office2007CustomColor = System.Drawing.Color.DodgerBlue
         Me.tbConcep.SelectedIndex = -1
         Me.tbConcep.SelectedItem = Nothing
-        Me.tbConcep.Size = New System.Drawing.Size(180, 22)
+        Me.tbConcep.Size = New System.Drawing.Size(278, 22)
         Me.tbConcep.TabIndex = 0
         '
         'tbObs
@@ -141,12 +149,12 @@ Partial Class F0_IngresarReclamo
         Me.tbObs.Border.Class = "TextBoxBorder"
         Me.tbObs.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbObs.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbObs.Location = New System.Drawing.Point(124, 44)
+        Me.tbObs.Location = New System.Drawing.Point(154, 76)
         Me.tbObs.MaxLength = 60
         Me.tbObs.Multiline = True
         Me.tbObs.Name = "tbObs"
         Me.tbObs.PreventEnterBeep = True
-        Me.tbObs.Size = New System.Drawing.Size(352, 62)
+        Me.tbObs.Size = New System.Drawing.Size(378, 62)
         Me.tbObs.TabIndex = 1
         '
         'LabelX13
@@ -157,7 +165,7 @@ Partial Class F0_IngresarReclamo
         '
         Me.LabelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX13.Location = New System.Drawing.Point(9, 45)
+        Me.LabelX13.Location = New System.Drawing.Point(9, 76)
         Me.LabelX13.Name = "LabelX13"
         Me.LabelX13.Size = New System.Drawing.Size(106, 23)
         Me.LabelX13.TabIndex = 45
@@ -181,11 +189,42 @@ Partial Class F0_IngresarReclamo
         '
         Me.MEP.ContainerControl = Me
         '
+        'CbMotivoA
+        '
+        Me.CbMotivoA.BorderStyle = Janus.Windows.GridEX.BorderStyle.Flat
+        Me.CbMotivoA.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        CbMotivoA_DesignTimeLayout.LayoutString = resources.GetString("CbMotivoA_DesignTimeLayout.LayoutString")
+        Me.CbMotivoA.DesignTimeLayout = CbMotivoA_DesignTimeLayout
+        Me.CbMotivoA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbMotivoA.Location = New System.Drawing.Point(154, 45)
+        Me.CbMotivoA.Name = "CbMotivoA"
+        Me.CbMotivoA.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
+        Me.CbMotivoA.Office2007CustomColor = System.Drawing.Color.DodgerBlue
+        Me.CbMotivoA.SelectedIndex = -1
+        Me.CbMotivoA.SelectedItem = Nothing
+        Me.CbMotivoA.Size = New System.Drawing.Size(278, 22)
+        Me.CbMotivoA.TabIndex = 422
+        Me.CbMotivoA.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
+        '
+        'LabelX2
+        '
+        Me.LabelX2.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX2.Location = New System.Drawing.Point(9, 44)
+        Me.LabelX2.Name = "LabelX2"
+        Me.LabelX2.Size = New System.Drawing.Size(140, 23)
+        Me.LabelX2.TabIndex = 424
+        Me.LabelX2.Text = "MOTIVO ANULACIÓN:"
+        '
         'F0_IngresarReclamo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(505, 183)
+        Me.ClientSize = New System.Drawing.Size(547, 235)
         Me.Controls.Add(Me.GroupPanel2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
@@ -196,6 +235,7 @@ Partial Class F0_IngresarReclamo
         Me.GroupPanel2.PerformLayout()
         CType(Me.tbConcep, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MEP, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CbMotivoA, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -207,4 +247,6 @@ Partial Class F0_IngresarReclamo
     Friend WithEvents btnsalir As DevComponents.DotNetBar.ButtonX
     Friend WithEvents btnguardar As DevComponents.DotNetBar.ButtonX
     Friend WithEvents MEP As System.Windows.Forms.ErrorProvider
+    Public WithEvents CbMotivoA As Janus.Windows.GridEX.EditControls.MultiColumnCombo
+    Friend WithEvents LabelX2 As DevComponents.DotNetBar.LabelX
 End Class

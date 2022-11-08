@@ -226,17 +226,17 @@ Partial Class F0_PedidosAsignacion
         Me.SuperTabControl1.ControlBox.MenuBox.Name = ""
         Me.SuperTabControl1.ControlBox.Name = ""
         Me.SuperTabControl1.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabControl1.ControlBox.MenuBox, Me.SuperTabControl1.ControlBox.CloseBox})
-        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel4)
+        Me.SuperTabControl1.Controls.Add(Me.SuperTabControlPanel3)
         Me.SuperTabControl1.Margin = New System.Windows.Forms.Padding(4)
         Me.SuperTabControl1.SelectedTabIndex = 1
         Me.SuperTabControl1.Size = New System.Drawing.Size(1022, 602)
         Me.SuperTabControl1.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItem3, Me.SuperTabItem4})
         Me.SuperTabControl1.Text = "PEDIDOS ENTREGADOS"
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel1, 0)
-        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel2, 0)
         Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel3, 0)
+        Me.SuperTabControl1.Controls.SetChildIndex(Me.SuperTabControlPanel4, 0)
         '
         'SuperTabControlPanel2
         '
@@ -248,6 +248,7 @@ Partial Class F0_PedidosAsignacion
         'SuperTabItem2
         '
         Me.SuperTabItem2.Text = "PEDIDOS PENDIENTES"
+        Me.SuperTabItem2.Visible = False
         '
         'SuperTabControlPanel1
         '
@@ -1024,7 +1025,7 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AñadirObsToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1, Me.VERHISTORIALToolStripMenuItem1, Me.ANULARPEDIDOToolStripMenuItem1, Me.IMPRIMIRPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones2.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones2.Size = New System.Drawing.Size(266, 160)
+        Me.ConMenu_Opciones2.Size = New System.Drawing.Size(266, 182)
         '
         'AñadirObsToolStripMenuItem
         '
@@ -1032,6 +1033,7 @@ Partial Class F0_PedidosAsignacion
         Me.AñadirObsToolStripMenuItem.Name = "AñadirObsToolStripMenuItem"
         Me.AñadirObsToolStripMenuItem.Size = New System.Drawing.Size(265, 26)
         Me.AñadirObsToolStripMenuItem.Text = "RETORNAR PEDIDO A ASIGNACION"
+        Me.AñadirObsToolStripMenuItem.Visible = False
         '
         'GRABARRECLAMOToolStripMenuItem1
         '
@@ -1039,6 +1041,7 @@ Partial Class F0_PedidosAsignacion
         Me.GRABARRECLAMOToolStripMenuItem1.Name = "GRABARRECLAMOToolStripMenuItem1"
         Me.GRABARRECLAMOToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
         Me.GRABARRECLAMOToolStripMenuItem1.Text = "GRABAR RECLAMO CLIENTE"
+        Me.GRABARRECLAMOToolStripMenuItem1.Visible = False
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem1
         '
@@ -1046,6 +1049,7 @@ Partial Class F0_PedidosAsignacion
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem1"
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Size = New System.Drawing.Size(265, 26)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Text = "GRABAR RECLAMO REPARTIDOR"
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1.Visible = False
         '
         'VERHISTORIALToolStripMenuItem1
         '
@@ -1066,6 +1070,7 @@ Partial Class F0_PedidosAsignacion
         Me.IMPRIMIRPEDIDOToolStripMenuItem.Name = "IMPRIMIRPEDIDOToolStripMenuItem"
         Me.IMPRIMIRPEDIDOToolStripMenuItem.Size = New System.Drawing.Size(265, 26)
         Me.IMPRIMIRPEDIDOToolStripMenuItem.Text = "IMPRIMIR PEDIDO"
+        Me.IMPRIMIRPEDIDOToolStripMenuItem.Visible = False
         '
         'SuperTabItem3
         '
@@ -2358,12 +2363,14 @@ Partial Class F0_PedidosAsignacion
         Me.GRABARRECLAMOToolStripMenuItem.Name = "GRABARRECLAMOToolStripMenuItem"
         Me.GRABARRECLAMOToolStripMenuItem.Size = New System.Drawing.Size(350, 22)
         Me.GRABARRECLAMOToolStripMenuItem.Text = "GRABAR RECLAMO CLIENTE"
+        Me.GRABARRECLAMOToolStripMenuItem.Visible = False
         '
         'GRABARRECLAMOREPARTIDORToolStripMenuItem2
         '
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Name = "GRABARRECLAMOREPARTIDORToolStripMenuItem2"
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Size = New System.Drawing.Size(350, 22)
         Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Text = "GRABAR RECLAMO REPARTIDOR"
+        Me.GRABARRECLAMOREPARTIDORToolStripMenuItem2.Visible = False
         '
         'VERHISTORIALToolStripMenuItem2
         '

@@ -1,10 +1,19 @@
 ﻿Imports Logica.AccesoLogica
+
+'importando librerias api conexion
+Imports Newtonsoft.Json
+Imports Presentacion.RespMotivoAnulacion
+Imports Presentacion.AnulacionResp
+
 Public Class F0_IngresarReclamo
 #Region "Atributos prinvados"
     Private numiPedido As String
     Private estadoPedido As String
     Private tipoReclamo As String
     Public respuesta As Boolean
+
+    'Sifac
+    Public token As String
 #End Region
 
 #Region "metodos privados"
@@ -22,6 +31,8 @@ Public Class F0_IngresarReclamo
     Private Sub _prIniciarTodo()
         _PCargarComboLibreria(tbConcep, gi_ConceptoReclamo)
 
+        token = frmBillingDispatch.ObtToken()
+        CodMotivoAnulacion(token)
     End Sub
 
     Private Sub _PCargarComboLibreria(ByVal cb As Janus.Windows.GridEX.EditControls.MultiColumnCombo, ByVal concep As Integer)
@@ -52,7 +63,7 @@ Public Class F0_IngresarReclamo
 
         If tbObs.Text = String.Empty Then
             tbObs.BackColor = Color.Red
-            MEP.SetError(tbObs, "ingrese la observacion del reclamo!".ToUpper)
+            MEP.SetError(tbObs, "ingrese la observacion de la anulación!".ToUpper)
             _ok = False
         Else
             tbObs.BackColor = Color.White
@@ -61,12 +72,22 @@ Public Class F0_IngresarReclamo
 
         If tbConcep.SelectedIndex < 0 Then
             tbConcep.BackColor = Color.Red
-            MEP.SetError(tbConcep, "seleccione el concepto del reclamo!".ToUpper)
+            MEP.SetError(tbConcep, "seleccione el concepto de la anulación!".ToUpper)
             _ok = False
         Else
             tbConcep.BackColor = Color.White
             MEP.SetError(tbConcep, "")
         End If
+
+        If CbMotivoA.SelectedIndex < 0 Then
+            tbConcep.BackColor = Color.Red
+            MEP.SetError(CbMotivoA, "seleccione el concepto de la anulación!".ToUpper)
+            _ok = False
+        Else
+            CbMotivoA.BackColor = Color.White
+            MEP.SetError(CbMotivoA, "")
+        End If
+
 
         Return _ok
     End Function
@@ -91,6 +112,7 @@ Public Class F0_IngresarReclamo
             Dim numi As String = ""
             L_PedidoReclamos_Grabar(numi, numiPedido, estadoPedido, tbObs.Text, tipoReclamo, tbConcep.Value)
             respuesta = True
+
             Me.Close()
         End If
     End Sub
@@ -102,4 +124,42 @@ Public Class F0_IngresarReclamo
     Private Sub F0_IngresarReclamo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         _prIniciarTodo()
     End Sub
+
+    Public Function CodMotivoAnulacion(tokenObtenido)
+
+        Dim api = New DBApi()
+
+        Dim url = "https://www.pilotocrex.sifac.nwc.com.bo/api/v2/motivo-anulacion"
+
+        Dim headers = New List(Of Parametro) From {
+            New Parametro("Authorization", "Bearer " + tokenObtenido),
+            New Parametro("Content-Type", "Accept:application/json; charset=utf-8")
+        }
+
+        Dim parametros = New List(Of Parametro)
+
+        Dim response = api.MGet(url, headers, parametros)
+
+        Dim result = JsonConvert.DeserializeObject(Of Motivo)(response)
+
+        Dim dt = result.data
+        dt.RemoveAt(1)
+
+        With CbMotivoA
+
+            .DropDownList.Columns.Clear()
+            .DropDownList.Columns.Add("codigoClasificador").Width = 70
+            .DropDownList.Columns("codigoClasificador").Caption = "COD"
+            .DropDownList.Columns.Add("descripcion").Width = 500
+            .DropDownList.Columns("descripcion").Caption = "DESCRIPCION"
+            .ValueMember = "codigoClasificador"
+            .DisplayMember = "descripcion"
+            .DataSource = dt
+            .Refresh()
+        End With
+
+        CbMotivoA.SelectedIndex = 0
+
+        Return ""
+    End Function
 End Class
