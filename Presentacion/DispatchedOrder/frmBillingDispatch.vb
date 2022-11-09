@@ -572,6 +572,80 @@ Public Class frmBillingDispatch
         L_Actualiza_Dosificacion(_numidosif, _NumFac, numi)
     End Sub
 
+
+    Private Sub P_ImprimirFactura(numi As String)
+        Dim _Fecha, _FechaAl As Date
+        Dim _Ds, _Ds1, _Ds2, _Ds3 As New DataSet
+        Dim _Autorizacion, _Nit, _Fechainv, _Total, _Key, _Cod_Control, _Hora,
+            _Literal, _TotalDecimal, _TotalDecimal2 As String
+        Dim I, _NumFac, _numidosif, _TotalCC As Integer
+        Dim ice, _Desc, _TotalLi As Decimal
+        Dim _VistaPrevia As Integer = 0
+        Dim QrFactura1 As String
+
+
+        If Not IsNothing(P_Global.Visualizador) Then
+            P_Global.Visualizador.Close()
+        End If
+
+        Dim Dt As DataTable = L_ReporteFacturaNueva(numi)
+
+        'Literal 
+        _TotalLi = Dt.Rows(0).Item("fvasubtotal") - Dt.Rows(0).Item("fvadesc")
+        _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
+        _TotalDecimal2 = CDbl(_TotalDecimal) * 100
+
+        _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
+
+        QrFactura.Text = Dt.Rows(0).Item("fvaQrUrl").ToString
+
+        '_Ds = L_Reporte_Factura(numi, numi)
+        _Ds2 = L_Reporte_Factura_Cia("1")
+        _Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
+
+        For I = 0 To Dt.Rows.Count - 1
+            Dt.Rows(I).Item("fvaimgqr") = P_fnImageToByteArray(QrFactura.Image)
+        Next
+
+
+        P_Global.Visualizador = New Visualizador
+        Dim objrep As New R_FacturaCarta
+
+        objrep.SetDataSource(Dt)
+        objrep.SetParameterValue("Nota2", "ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS, EL USO ILÍCITO SERÁ SANCIONADO PENALMENTE DE ACUERDO A LEY")
+
+        objrep.SetParameterValue("Literal1", _Literal)
+
+        objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+        objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
+        objrep.SetParameterValue("NPuntoVenta", " No. Punto de Venta 8")
+        objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
+        objrep.SetParameterValue("Telefono", "Teléfono " + _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
+
+        objrep.SetParameterValue("ENit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
+        objrep.SetParameterValue("EActividad", _Ds2.Tables(0).Rows(0).Item("scact").ToString)
+
+
+        If (_Ds3.Tables(0).Rows(0).Item("cbvp")) Then 'Vista Previa de la Ventana de Vizualización 1 = True 0 = False
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            Dim pd As New PrintDocument()
+            pd.PrinterSettings.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+            If (Not pd.PrinterSettings.IsValid) Then
+                ToastNotification.Show(Me, "La Impresora ".ToUpper + _Ds3.Tables(0).Rows(0).Item("cbrut").ToString + Chr(13) + "No Existe".ToUpper,
+                                       My.Resources.WARNING, 5 * 1000,
+                                       eToastGlowColor.Blue, eToastPosition.BottomRight)
+            Else
+                objrep.PrintOptions.PrinterName = _Ds3.Tables(0).Rows(0).Item("cbrut").ToString
+                objrep.PrintToPrinter(1, False, 1, 1)
+            End If
+        End If
+
+    End Sub
+
     Public Sub P_prImprimirNotaVenta(idPedido As String, impFactura As Boolean, grabarPDF As Boolean, idChofer As String)
         Dim _Fecha, _FechaAl As Date
         Dim _Ds, _Ds2, _Ds3 As New DataSet
@@ -1740,8 +1814,8 @@ Public Class frmBillingDispatch
                     If (list2(i).NroFactura.Equals("") Or list2(i).NroFactura.Equals("0")) Then
                         list1.Add(list2(i))
                     Else
-                        'P_ReImprImprimirFacturar(list2(i).Id, True, True, 0)
-                        'Return
+                        P_ImprimirFactura(list2(i).Id)
+                        Return
                     End If
 
                 End If
@@ -1766,6 +1840,7 @@ Public Class frmBillingDispatch
                     End If
                     Dim dtEncabezado As DataTable = L_prObtenerEncabezadoPedido(Str(list1(i).Id))
                     P_fnGenerarFactura(dtEncabezado.Rows(0).Item("oanumi"), dtEncabezado.Rows(0).Item("subtotal"), dtEncabezado.Rows(0).Item("descuento"), dtEncabezado.Rows(0).Item("total"), dtEncabezado.Rows(0).Item("nit"), dtEncabezado.Rows(0).Item("cliente"), dtEncabezado.Rows(0).Item("codcli"))
+                    P_ImprimirFactura(list2(i).Id)
                 Else
                     ToastNotification.Show(Me, "El pedido Nro: " + Str(list1(i).Id) + " no pudo ser facturado".ToUpper,
                                    My.Resources.WARNING,

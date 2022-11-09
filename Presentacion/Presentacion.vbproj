@@ -991,10 +991,10 @@
       <DependentUpon>MAM_ZonasRepartidor.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\R_FacturaMediaCarta.vb">
+    <Compile Include="Reportes\R_FacturaCarta.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>R_FacturaMediaCarta.rpt</DependentUpon>
+      <DependentUpon>R_FacturaCarta.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_MorosidadProveedor.vb">
@@ -1982,9 +1982,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>MAM_ZonasRepartidor.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_FacturaMediaCarta.rpt">
+    <EmbeddedResource Include="Reportes\R_FacturaCarta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_FacturaMediaCarta.vb</LastGenOutput>
+      <LastGenOutput>R_FacturaCarta.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_MorosidadProveedor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

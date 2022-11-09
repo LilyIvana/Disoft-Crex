@@ -10649,6 +10649,20 @@ Public Class AccesoLogica
         Return _Ds
     End Function
 
+    Public Shared Function L_ReporteFacturaNueva(_Numi As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 6))
+        _listParam.Add(New Datos.DParametro("@tanumi", _Numi))
+        _listParam.Add(New Datos.DParametro("@tauact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TV001", _listParam)
+
+        Return _Tabla
+    End Function
+
     Public Shared Function L_Reporte_Factura_Cia(_Cia As String) As DataSet
         Dim _Tabla As DataTable
         Dim _Ds As New DataSet

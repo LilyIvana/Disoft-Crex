@@ -2376,9 +2376,9 @@ Public Class F02_PedidoNuevo
         If Not JGr_Productos.FilterRow.Selected Then
             Dim existe As Boolean = _fnExisteProducto(JGr_Productos.GetValue("Codigo"))
 
-            ''Validación para que solo pueda ingresar 20 productos
-            If JGr_DetallePedido.RowCount < 20 Then
-                If JGr_Productos.CurrentRow.Cells("iacant").Value > 0 Then
+            '''Validación para que solo pueda ingresar 20 productos
+            'If JGr_DetallePedido.RowCount < 20 Then
+            If JGr_Productos.CurrentRow.Cells("iacant").Value > 0 Then
 
                     If (Not existe) Then
                         'agregar al detalle producto seleccionado
@@ -2420,11 +2420,11 @@ Public Class F02_PedidoNuevo
                 Else
                     ToastNotification.Show(Me, "El producto no tiene Stock Disponible".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
                 End If
-            Else
-                ToastNotification.Show(Me, "Solo puede ingresar 20 productos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
-            End If
+                'Else
+                '    ToastNotification.Show(Me, "Solo puede ingresar 20 productos".ToUpper, My.Resources.WARNING, 5500, eToastGlowColor.Green, eToastPosition.BottomCenter)
+                'End If
 
-        End If
+            End If
     End Sub
     Public Function _fnExisteProducto(idprod As Integer) As Boolean
         For i As Integer = 0 To CType(JGr_DetallePedido.DataSource, DataTable).Rows.Count - 1 Step 1
