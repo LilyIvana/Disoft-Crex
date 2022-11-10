@@ -654,7 +654,7 @@ Public Class F0_MCaja
             'oanumi , oafdoc, oaccli, cliente, oarepa, oaest, oaap, oapg, total,contado,credito, estado
             With Dgv_PedidoTotal.RootTable.Columns("oanumi")
                 .Width = 120
-                .Caption = "NOTA VENTA"
+                .Caption = "NRO. PEDIDO"
                 .Visible = True
             End With
             With Dgv_PedidoTotal.RootTable.Columns("oafdoc")
@@ -677,8 +677,8 @@ Public Class F0_MCaja
 
             With Dgv_PedidoTotal.RootTable.Columns("oacnrofac")
                 .Width = 150
-                .Caption = "Nro Factura"
-                .Visible = False
+                .Caption = "NRO. FACTURA"
+                .Visible = True
             End With
 
             With Dgv_PedidoTotal.RootTable.Columns("cliente")
@@ -694,14 +694,14 @@ Public Class F0_MCaja
                 .AggregateFunction = AggregateFunction.Sum
             End With
             With Dgv_PedidoTotal.RootTable.Columns("contado")
-                .Caption = "COBRADO"
+                .Caption = "CONTADO"
                 .Width = 200
                 .Visible = True
                 .FormatString = "0.00"
                 .AggregateFunction = AggregateFunction.Sum
             End With
             With Dgv_PedidoTotal.RootTable.Columns("credito")
-                .Caption = "CREDITO"
+                .Caption = "CRÉDITO"
                 .Width = 200
                 '.Visible = (gi_vcre2 = 1)
                 .Visible = True
@@ -754,7 +754,7 @@ Public Class F0_MCaja
                 'oanumi , oafdoc, oaccli, cliente, oarepa, oaest, oaap, oapg, total,contado,credito, estado
                 With Dgv_PedidoTotal.RootTable.Columns("oanumi")
                     .Width = 120
-                    .Caption = "NOTA VENTA"
+                    .Caption = "NRO. PEDIDO"
                     .Visible = True
                 End With
                 With Dgv_PedidoTotal.RootTable.Columns("oafdoc")
@@ -777,8 +777,8 @@ Public Class F0_MCaja
 
                 With Dgv_PedidoTotal.RootTable.Columns("oacnrofac")
                     .Width = 150
-                    .Caption = "Nro Factura"
-                    .Visible = False
+                    .Caption = "NRO. FACTURA"
+                    .Visible = True
                 End With
 
                 With Dgv_PedidoTotal.RootTable.Columns("cliente")
@@ -794,7 +794,7 @@ Public Class F0_MCaja
                     .AggregateFunction = AggregateFunction.Sum
                 End With
                 With Dgv_PedidoTotal.RootTable.Columns("contado")
-                    .Caption = "COBRADO"
+                    .Caption = "CONTADO"
                     .Width = 200
                     .Visible = True
                     .FormatString = "0.00"

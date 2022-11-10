@@ -3521,46 +3521,50 @@ Public Class F02_PedidoNuevo
         End If
 
         Dim Dt As DataTable = L_ReporteFacturaNueva(numi)
+        If Dt.Rows.Count > 0 Then
 
-        'Literal 
-        _TotalLi = Dt.Rows(0).Item("fvasubtotal") - Dt.Rows(0).Item("fvadesc")
-        _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
-        _TotalDecimal2 = CDbl(_TotalDecimal) * 100
+            'Literal 
+            _TotalLi = Dt.Rows(0).Item("fvasubtotal") - Dt.Rows(0).Item("fvadesc")
+            _TotalDecimal = _TotalLi - Math.Truncate(_TotalLi)
+            _TotalDecimal2 = CDbl(_TotalDecimal) * 100
 
-        _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
+            _Literal = Facturacion.ConvertirLiteral.A_fnConvertirLiteral(CDbl(_TotalLi) - CDbl(_TotalDecimal)) + " " + IIf(_TotalDecimal2.Equals("0"), "00", _TotalDecimal2) + "/100 Bolivianos"
 
-        QrFactura.Text = Dt.Rows(0).Item("fvaQrUrl").ToString
+            QrFactura.Text = Dt.Rows(0).Item("fvaQrUrl").ToString
 
-        '_Ds = L_Reporte_Factura(numi, numi)
-        _Ds2 = L_Reporte_Factura_Cia("1")
-        _Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
+            '_Ds = L_Reporte_Factura(numi, numi)
+            _Ds2 = L_Reporte_Factura_Cia("1")
+            _Ds3 = L_ObtenerRutaImpresora("1") ' Datos de Impresion de Facturación
 
-        For I = 0 To Dt.Rows.Count - 1
-            Dt.Rows(I).Item("fvaimgqr") = P_fnImageToByteArray(QrFactura.Image)
-        Next
+            For I = 0 To Dt.Rows.Count - 1
+                Dt.Rows(I).Item("fvaimgqr") = P_fnImageToByteArray(QrFactura.Image)
+            Next
 
-        P_Global.Visualizador = New Visualizador
-        Dim objrep As New R_FacturaCarta
+            P_Global.Visualizador = New Visualizador
+            Dim objrep As New R_FacturaCarta
 
-        objrep.SetDataSource(Dt)
-        objrep.SetParameterValue("Nota2", "ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS, EL USO ILÍCITO SERÁ SANCIONADO PENALMENTE DE ACUERDO A LEY")
+            objrep.SetDataSource(Dt)
+            objrep.SetParameterValue("Nota2", "ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS, EL USO ILÍCITO SERÁ SANCIONADO PENALMENTE DE ACUERDO A LEY")
 
-        objrep.SetParameterValue("Literal1", _Literal)
+            objrep.SetParameterValue("Literal1", _Literal)
 
-        objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
-        objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
-        objrep.SetParameterValue("NPuntoVenta", " No. Punto de Venta 8")
-        objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
-        objrep.SetParameterValue("Telefono", "Teléfono " + _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
-        objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
-        objrep.SetParameterValue("ENit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
-        objrep.SetParameterValue("EActividad", _Ds2.Tables(0).Rows(0).Item("scact").ToString)
+            objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
+            objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
+            objrep.SetParameterValue("NPuntoVenta", " No. Punto de Venta " + Dt.Rows(0).Item("fvanrocaja").ToString)
+            objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
+            objrep.SetParameterValue("Telefono", "Teléfono: " + _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+            objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
+            objrep.SetParameterValue("ENit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
+            objrep.SetParameterValue("EActividad", _Ds2.Tables(0).Rows(0).Item("scact").ToString)
 
 
-        P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
-        P_Global.Visualizador.ShowDialog() 'Comentar
-        P_Global.Visualizador.BringToFront() 'Comentar
-
+            P_Global.Visualizador.CRV1.ReportSource = objrep 'Comentar
+            P_Global.Visualizador.ShowDialog() 'Comentar
+            P_Global.Visualizador.BringToFront() 'Comentar
+        Else
+            ToastNotification.Show(Me, "No hay datos de la Factura para mostrar".ToUpper,
+                                   My.Resources.Mensaje, 400, eToastGlowColor.Green, eToastPosition.TopCenter)
+        End If
     End Sub
     Private Sub btnVentaDirecta_Click(sender As Object, e As EventArgs) Handles btnVentaDirecta.Click
         _PGrabarRegistroDirecto()
@@ -3923,4 +3927,15 @@ Public Class F02_PedidoNuevo
             Return 0
         End Try
     End Function
+
+    Private Sub MBtImprimir_Click(sender As Object, e As EventArgs) Handles MBtImprimir.Click
+        If MRlAccion.Text = "VIGENTE" Then
+            P_ImprimirFactura(Tb_Id.Text)
+        Else
+            Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+            ToastNotification.Show(Me, "La Factura se encuentra Anulada, no se puede mostrar".ToUpper,
+                                img, 3500, eToastGlowColor.Green, eToastPosition.TopCenter)
+        End If
+
+    End Sub
 End Class

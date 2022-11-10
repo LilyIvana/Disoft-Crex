@@ -175,6 +175,14 @@ Public Class F0G_MovimientoChoferEntrada
             End If
             MBtModificar.Refresh()
         End If
+
+        If grmovimiento.GetValue("ieest") = 2 Then
+            btnConsolidado.Visible = True
+            MBtModificar.Visible = False
+        Else
+            btnConsolidado.Visible = False
+            MBtModificar.Visible = True
+        End If
     End Sub
     Public Sub _prValidar(_estado As Integer)
         Select Case _estado
@@ -1134,7 +1142,36 @@ Public Class F0G_MovimientoChoferEntrada
         _prCargarVenta()
     End Sub
 
-    Private Sub grdetalle_Error(sender As Object, e As Janus.Windows.GridEX.ErrorEventArgs) Handles grdetalle.[Error]
+
+    Private Sub btnConsolidado_Click(sender As Object, e As EventArgs) Handles btnConsolidado.Click
+        P_GenerarReporte()
+    End Sub
+    Private Sub P_GenerarReporte()
+        Try
+            Dim dt As DataTable = L_ReporteConsolidadoVentas(lbcodigo.Text)
+
+
+            If Not IsNothing(P_Global.Visualizador) Then
+                P_Global.Visualizador.Close()
+            End If
+
+            P_Global.Visualizador = New Visualizador
+            Dim objrep As New R_ConsolidadoVentas
+
+            objrep.SetDataSource(dt)
+
+            objrep.SetParameterValue("chofer", tbChofer.Text)
+            objrep.SetParameterValue("conciliacion", lbcodigo.Text)
+            objrep.SetParameterValue("usuario", L_Usuario)
+            objrep.SetParameterValue("fecha", tbFecha.Text)
+
+
+            P_Global.Visualizador.CRV1.ReportSource = objrep
+            P_Global.Visualizador.Show()
+            P_Global.Visualizador.BringToFront()
+        Catch ex As Exception
+            MostrarMensajeError(ex.Message)
+        End Try
 
     End Sub
 End Class

@@ -610,7 +610,7 @@ Public Class frmBillingDispatch
         objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
         objrep.SetParameterValue("NPuntoVenta", " No. Punto de Venta 9")
         objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
-        objrep.SetParameterValue("Telefono", "Teléfono " + _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
+        objrep.SetParameterValue("Telefono", "Teléfono: " + _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
         objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
 
         objrep.SetParameterValue("ENit", _Ds2.Tables(0).Rows(0).Item("scnit").ToString)
@@ -1807,7 +1807,6 @@ Public Class frmBillingDispatch
                         P_ImprimirFactura(list2(i).Id)
                         Return
                     End If
-
                 End If
             Next
 

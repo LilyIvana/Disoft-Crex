@@ -48,6 +48,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.tbTablet = New DevComponents.DotNetBar.Controls.SwitchButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.swDevolucion = New DevComponents.DotNetBar.Controls.SwitchButton()
+        Me.btnConsolidado = New DevComponents.DotNetBar.ButtonX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -181,11 +182,16 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPanelToolBarImprimir
         '
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1106, 0)
+        Me.MPanelToolBarImprimir.Controls.Add(Me.btnConsolidado)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1026, 0)
         Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
+        Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(160, 70)
+        Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.MBtImprimir, 0)
+        Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.btnConsolidado, 0)
         '
         'MBtImprimir
         '
+        Me.MBtImprimir.Location = New System.Drawing.Point(88, 0)
         '
         'MBubbleBarUsuario
         '
@@ -703,6 +709,24 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.swDevolucion.ValueObject = "Y"
         Me.swDevolucion.Visible = False
         '
+        'btnConsolidado
+        '
+        Me.btnConsolidado.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btnConsolidado.BackColor = System.Drawing.Color.Transparent
+        Me.btnConsolidado.ColorTable = DevComponents.DotNetBar.eButtonColor.Orange
+        Me.btnConsolidado.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnConsolidado.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.5!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnConsolidado.Image = Global.Presentacion.My.Resources.Resources.CONTROL_PEDIDOS
+        Me.btnConsolidado.ImageFixedSize = New System.Drawing.Size(48, 48)
+        Me.btnConsolidado.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btnConsolidado.Location = New System.Drawing.Point(0, 0)
+        Me.btnConsolidado.Name = "btnConsolidado"
+        Me.btnConsolidado.Size = New System.Drawing.Size(80, 70)
+        Me.btnConsolidado.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
+        Me.btnConsolidado.TabIndex = 13
+        Me.btnConsolidado.Text = "CONSOLIDADO"
+        Me.btnConsolidado.TextColor = System.Drawing.Color.Black
+        '
         'F0G_MovimientoChoferEntrada
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -764,4 +788,5 @@ Partial Class F0G_MovimientoChoferEntrada
     Friend WithEvents tbTablet As DevComponents.DotNetBar.Controls.SwitchButton
     Friend WithEvents Timer1 As Timer
     Friend WithEvents swDevolucion As DevComponents.DotNetBar.Controls.SwitchButton
+    Friend WithEvents btnConsolidado As DevComponents.DotNetBar.ButtonX
 End Class
