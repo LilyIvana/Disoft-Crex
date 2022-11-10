@@ -31,6 +31,7 @@ Public Class frmBillingDispatch
     'Token SIFAC
     Public tokenObtenido
     Public idNumi As String
+    Public NPuntoVenta As Integer
     'Public dtDetalle As DataTable
     Public dt As DataTable
 
@@ -148,28 +149,17 @@ Public Class frmBillingDispatch
             'Grabar Estado 5 de Facturado en la TO001D
             L_GrabarTO001D(numi, "5", "Factura")
 
-            If (P_fnValidarFactura()) Then
-                'Validar para facturar
-                'P_prImprimirFacturar(numi, True, True, nit) '_Codigo de a tabla TV001
-            Else
-                'Volver todo al estada anterior
-                ToastNotification.Show(Me, "No es posible facturar!!!".ToUpper,
-                                       My.Resources.OK,
-                                       5 * 1000,
-                                       eToastGlowColor.Red,
-                                       eToastPosition.MiddleCenter)
-            End If
-
             If (Not nit.Equals("0")) Then
                 L_Grabar_Nit(nit, Nombre, "")
             Else
                 L_Grabar_Nit(nit, "S/N", "")
             End If
         End If
-        Dim dtfv001 As DataTable = L_fnObtenerTabla("fvanitcli, fvadescli1, fvadescli2, fvaautoriz, fvanfac, fvaccont, fvafec,fvaest", "TFV001", "fvanumi=" + numi + " or fvanumi=" + "-" + numi)
-        If dtfv001.Rows.Count = 2 Then
-            L_ActualizaNegativosTFV001(numi, "0")
-        End If
+
+        'Dim dtfv001 As DataTable = L_fnObtenerTabla("fvanitcli, fvadescli1, fvadescli2, fvaautoriz, fvanfac, fvaccont, fvafec,fvaest", "TFV001", "fvanumi=" + numi + " or fvanumi=" + "-" + numi)
+        'If dtfv001.Rows.Count = 2 Then
+        '    L_ActualizaNegativosTFV001(numi, "0")
+        'End If
 
         Return res
     End Function
@@ -618,7 +608,7 @@ Public Class frmBillingDispatch
 
         objrep.SetParameterValue("ENombre", _Ds2.Tables(0).Rows(0).Item("scneg").ToString)
         objrep.SetParameterValue("ECasaMatriz", _Ds2.Tables(0).Rows(0).Item("scsuc").ToString)
-        objrep.SetParameterValue("NPuntoVenta", " No. Punto de Venta 8")
+        objrep.SetParameterValue("NPuntoVenta", " No. Punto de Venta 9")
         objrep.SetParameterValue("Direccionpr", _Ds2.Tables(0).Rows(0).Item("scdir").ToString)
         objrep.SetParameterValue("Telefono", "Teléfono " + _Ds2.Tables(0).Rows(0).Item("sctelf").ToString)
         objrep.SetParameterValue("ECiudadPais", _Ds2.Tables(0).Rows(0).Item("scciu").ToString)
@@ -1833,7 +1823,7 @@ Public Class frmBillingDispatch
             For i As Integer = 0 To list1.Count - 1 Step 1
 
                 'Dim dtDetallePedido As DataTable = L_prObtenerDetallePedido(Str(list1(i).Id))
-                Dim Succes As Integer = Emisor(tokenObtenido, Str(list1(i).Id))
+                Dim Succes As Integer = Emisor(tokenObtenido, Str(list1(i).Id), 9)
                 If Succes = 200 Then
                     If L_YaSeGraboTV001(list1(i).Id) = False Then
                         GrabarTV001(Str(list1(i).Id))
@@ -1960,7 +1950,7 @@ Public Class frmBillingDispatch
     End Function
 
 
-    Public Function Emisor(tokenObtenido, idNumi)
+    Public Function Emisor(tokenObtenido, idNumi, NPuntoVenta)
         Try
             Dim api = New DBApi()
             Dim Emenvio = New EmisorEnvio.Emisor()
@@ -2023,7 +2013,7 @@ Public Class frmBillingDispatch
                 email = dtEncabezado.Rows(0).Item("ccemail").ToString
             End If
 
-            Dim dtmax = L_fnObtenerMaxFact(9, Convert.ToInt32(Now.Date.Year))
+            Dim dtmax = L_fnObtenerMaxFact(NPuntoVenta, Convert.ToInt32(Now.Date.Year))
             If dtmax.Rows.Count = 0 Then
                 NumFactura = 1
             Else
@@ -2037,9 +2027,9 @@ Public Class frmBillingDispatch
             Emenvio.numeroDocumento = dtEncabezado.Rows(0).Item("nit").ToString()
             Emenvio.complemento = "" '---------------------------------
             Emenvio.codigoCliente = "C-" + dtEncabezado.Rows(0).Item("codcli").ToString()
-            Emenvio.codigoMetodoPago = 1
-            Emenvio.numeroTarjeta = "" '---------------------
-            Emenvio.codigoPuntoVenta = 9 '--------------------
+            Emenvio.codigoMetodoPago = 1 'Contado
+            Emenvio.numeroTarjeta = ""
+            Emenvio.codigoPuntoVenta = NPuntoVenta
             Emenvio.codigoDocumentoSector = 1 '-------------------
             Emenvio.codigoMoneda = 1 'falta
             Emenvio.tipoCambio = 1 'CDbl(cbCambioDolar.Text) '--------------------
@@ -2117,7 +2107,7 @@ Public Class frmBillingDispatch
             Return codigo
         Catch ex As Exception
             MostrarMensajeError(ex.Message)
-            Return ""
+            Return 0
         End Try
     End Function
 
