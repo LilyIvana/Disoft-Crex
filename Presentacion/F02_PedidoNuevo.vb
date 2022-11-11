@@ -3541,7 +3541,7 @@ Public Class F02_PedidoNuevo
             Next
 
             P_Global.Visualizador = New Visualizador
-            Dim objrep As New R_FacturaCarta
+            Dim objrep As New R_Factura
 
             objrep.SetDataSource(Dt)
             objrep.SetParameterValue("Nota2", "ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS, EL USO ILÍCITO SERÁ SANCIONADO PENALMENTE DE ACUERDO A LEY")

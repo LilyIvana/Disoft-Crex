@@ -997,10 +997,10 @@
       <DependentUpon>R_ConsolidadoVentas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\R_FacturaCarta.vb">
+    <Compile Include="Reportes\R_Factura.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>R_FacturaCarta.rpt</DependentUpon>
+      <DependentUpon>R_Factura.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_MorosidadProveedor.vb">
@@ -1992,9 +1992,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_ConsolidadoVentas.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_FacturaCarta.rpt">
+    <EmbeddedResource Include="Reportes\R_Factura.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_FacturaCarta.vb</LastGenOutput>
+      <LastGenOutput>R_Factura.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_MorosidadProveedor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
