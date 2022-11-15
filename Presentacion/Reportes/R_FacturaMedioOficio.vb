@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class R_Factura
+Public Class R_FacturaMedioOficio
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class R_Factura
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "R_Factura.rpt"
+            Return "R_FacturaMedioOficio.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class R_Factura
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Presentacion.R_Factura.rpt"
+            Return "Presentacion.R_FacturaMedioOficio.rpt"
         End Get
         Set
             'Do nothing
@@ -246,7 +246,7 @@ Public Class R_Factura
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedR_Factura
+Public Class CachedR_FacturaMedioOficio
     Inherits Component
     Implements ICachedReport
     
@@ -288,7 +288,7 @@ Public Class CachedR_Factura
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As R_Factura = New R_Factura()
+        Dim rpt As R_FacturaMedioOficio = New R_FacturaMedioOficio()
         rpt.Site = Me.Site
         Return rpt
     End Function

@@ -599,7 +599,15 @@ Public Class frmBillingDispatch
 
 
         P_Global.Visualizador = New Visualizador
-        Dim objrep As New R_Factura
+        Dim objrep
+        If Dt.Rows.Count <= 15 Then
+            objrep = New R_FacturaMedioOficio
+        Else
+            objrep = New R_FacturaOficio
+        End If
+
+
+
 
         objrep.SetDataSource(Dt)
         objrep.SetParameterValue("Nota2", "ESTA FACTURA CONTRIBUYE AL DESARROLLO DEL PAÍS, EL USO ILÍCITO SERÁ SANCIONADO PENALMENTE DE ACUERDO A LEY")

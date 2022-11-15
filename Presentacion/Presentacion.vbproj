@@ -997,10 +997,16 @@
       <DependentUpon>R_ConsolidadoVentas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\R_Factura.vb">
+    <Compile Include="Reportes\R_FacturaOficio.vb">
+      <DependentUpon>R_FacturaOficio.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reportes\R_FacturaMedioOficio.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>R_Factura.rpt</DependentUpon>
+      <DependentUpon>R_FacturaMedioOficio.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\R_MorosidadProveedor.vb">
@@ -1992,9 +1998,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_ConsolidadoVentas.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\R_Factura.rpt">
+    <EmbeddedResource Include="Reportes\R_FacturaOficio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>R_Factura.vb</LastGenOutput>
+      <LastGenOutput>R_FacturaOficio.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\R_FacturaMedioOficio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>R_FacturaMedioOficio.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\R_MorosidadProveedor.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
