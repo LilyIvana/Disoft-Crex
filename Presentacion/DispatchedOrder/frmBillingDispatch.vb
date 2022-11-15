@@ -1805,7 +1805,7 @@ Public Class frmBillingDispatch
                         list1.Add(list2(i))
                     Else
                         P_ImprimirFactura(list2(i).Id)
-                        Return
+                        'Return
                     End If
                 End If
             Next
