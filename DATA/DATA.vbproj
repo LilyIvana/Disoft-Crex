@@ -464,9 +464,6 @@
     <Compile Include="EntityDataModel\BDDistBHF\VR_GO_EquiposPrestadoCliente.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EntityDataModel\BDDistBHF\VR_GO_Factura.vb">
-      <DependentUpon>BDDistBHFModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="EntityDataModel\BDDistBHF\VR_GO_FacturaVsVenta.vb">
       <DependentUpon>BDDistBHFModel.tt</DependentUpon>
     </Compile>

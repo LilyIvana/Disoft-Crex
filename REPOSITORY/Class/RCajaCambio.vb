@@ -70,7 +70,6 @@ Public Class RCajaCambio
                                       .IdCaja = a.IdCaja,
                                       .FechaCaja = a.FechaCaja,
                                       .Conciliacion = a.Conciliacion,
-                                      .FechaPedido = a.FechaPedido,
                                       .Repartidor = a.Repartidor,
                                       .TotalConciliacion = a.TotalConciliacion,
                                       .TotalEfectivo = a.TotalEfectivo,

@@ -20,8 +20,6 @@ Partial Public Class VR_GO_CajaGeneral
 
     Public Property Conciliacion As Nullable(Of Integer)
 
-    Public Property FechaPedido As Nullable(Of Date)
-
     Public Property Repartidor As String
 
     Public Property TotalConciliacion As Nullable(Of Decimal)

@@ -40,5 +40,13 @@ Partial Public Class VR_CajaDetalle
 
     Public Property estado As Integer
 
+    Public Property ccnumi As Integer
+
+    Public Property cccod As String
+
+    Public Property ccnit As String
+
+    Public Property ccnomfac As String
+
 
 End Class

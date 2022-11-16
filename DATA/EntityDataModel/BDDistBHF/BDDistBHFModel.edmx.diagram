@@ -110,7 +110,6 @@
         <EntityTypeShape EntityType="BDDistBHFModel.VR_EstadoCuentasClientes" Width="1.5" PointX="29.75" PointY="22.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_Facturas" Width="1.5" PointX="0.75" PointY="30.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_FacturasChacaltaya" Width="1.5" PointX="16.75" PointY="30.75" />
-        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_CajaGeneral" Width="1.5" PointX="22.75" PointY="30.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.vr_go_comprobanteSalidaItems" Width="1.5" PointX="30.75" PointY="26.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.vr_go_comprobanteVenta" Width="1.5" PointX="31.75" PointY="0.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" Width="1.75" PointX="31.75" PointY="5.75" />
@@ -118,7 +117,6 @@
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DiferenciaPedidoNota" Width="1.5" PointX="2.75" PointY="32.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_EquipoPrestadoVsUltimaVenta" Width="1.5" PointX="4.75" PointY="32.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_EquiposPrestadoCliente" Width="1.5" PointX="6.75" PointY="32.75" />
-        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_Factura" Width="1.5" PointX="8.75" PointY="32.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_FacturaVsVenta" Width="1.5" PointX="18.75" PointY="32.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_FacturaVsVenta2" Width="1.5" PointX="32.75" PointY="23.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_ListarZona" Width="1.5" PointX="32.75" PointY="27.75" />
@@ -168,6 +166,7 @@
         <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" Width="1.5" PointX="11.375" PointY="39.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.TFV0011" Width="1.5" PointX="13.375" PointY="39.75" />
         <EntityTypeShape EntityType="BDDistBHFModel.v_VentasDetalleDespacho" Width="1.5" PointX="19.375" PointY="39.75" />
+        <EntityTypeShape EntityType="BDDistBHFModel.VR_GO_CajaGeneral" Width="1.5" PointX="23.375" PointY="30.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

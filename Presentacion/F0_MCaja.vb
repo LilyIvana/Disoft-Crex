@@ -557,12 +557,29 @@ Public Class F0_MCaja
             'oanumi , oafdoc, oaccli, cliente, oarepa, oaest, oaap, oapg, total,contado,credito, estado
             With Dgv_PedidoTotal.RootTable.Columns("oanumi")
                 .Width = 120
-                .Caption = "NOTA VENTA"
+                .Caption = "NRO. PEDIDO"
                 .Visible = True
             End With
             With Dgv_PedidoTotal.RootTable.Columns("oafdoc")
                 .Width = 90
                 .Visible = False
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("ccnumi")
+                .Width = 90
+                .Visible = False
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("cccod")
+                .Width = 90
+                .Visible = False
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("ccnit")
+                .Width = 90
+                .Visible = False
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("ccnomfac")
+                .Width = 250
+                .Caption = "RAZÓN SOCIAL"
+                .Visible = True
             End With
             With Dgv_PedidoTotal.RootTable.Columns("oaest")
                 .Width = 90
@@ -580,7 +597,7 @@ Public Class F0_MCaja
             With Dgv_PedidoTotal.RootTable.Columns("oacnrofac")
                 .Width = 150
                 .Caption = "NRO. FACTURA"
-                .Visible = False
+                .Visible = True
             End With
 
             With Dgv_PedidoTotal.RootTable.Columns("cliente")
@@ -661,6 +678,23 @@ Public Class F0_MCaja
                 .Width = 90
                 .Visible = False
             End With
+            With Dgv_PedidoTotal.RootTable.Columns("ccnumi")
+                .Width = 90
+                .Visible = False
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("cccod")
+                .Width = 90
+                .Visible = False
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("ccnit")
+                .Width = 90
+                .Visible = False
+            End With
+            With Dgv_PedidoTotal.RootTable.Columns("ccnomfac")
+                .Width = 250
+                .Caption = "RAZÓN SOCIAL"
+                .Visible = True
+            End With
             With Dgv_PedidoTotal.RootTable.Columns("oaest")
                 .Width = 90
                 .Visible = False
@@ -673,8 +707,6 @@ Public Class F0_MCaja
                 .Width = 90
                 .Visible = False
             End With
-
-
             With Dgv_PedidoTotal.RootTable.Columns("oacnrofac")
                 .Width = 150
                 .Caption = "NRO. FACTURA"

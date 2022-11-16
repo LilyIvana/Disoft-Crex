@@ -1528,14 +1528,19 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_CajaDetalle' no tiene 
         <EntityType Name="VR_CajaDetalle">
           <Key>
             <PropertyRef Name="oanumi" />
+            <PropertyRef Name="ccnumi" />
             <PropertyRef Name="credito" />
             <PropertyRef Name="tcre" />
             <PropertyRef Name="estado" />
           </Key>
           <Property Name="oanumi" Type="int" Nullable="false" />
           <Property Name="oafdoc" Type="date" />
-          <Property Name="oacnrofac" Type="bigint" />
+          <Property Name="ccnumi" Type="int" Nullable="false" />
+          <Property Name="cccod" Type="nvarchar" MaxLength="15" />
+          <Property Name="ccnit" Type="nvarchar" MaxLength="20" />
+          <Property Name="ccnomfac" Type="nvarchar" MaxLength="200" />
           <Property Name="cliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="oacnrofac" Type="bigint" />
           <Property Name="oarepa" Type="int" />
           <Property Name="oaest" Type="int" />
           <Property Name="oaap" Type="int" />
@@ -1710,7 +1715,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_CajaGeneral' no tie
           <Property Name="IdCaja" Type="int" Nullable="false" />
           <Property Name="FechaCaja" Type="date" />
           <Property Name="Conciliacion" Type="int" />
-          <Property Name="FechaPedido" Type="date" />
           <Property Name="Repartidor" Type="nvarchar" MaxLength="50" />
           <Property Name="TotalConciliacion" Type="decimal" Precision="38" Scale="2" />
           <Property Name="TotalEfectivo" Type="decimal" Precision="38" Scale="2" />
@@ -1934,41 +1938,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_EquiposPrestadoClie
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_Factura' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
-        <EntityType Name="VR_GO_Factura">
-          <Key>
-            <PropertyRef Name="fvanumi" />
-            <PropertyRef Name="fvanumi2" />
-          </Key>
-          <Property Name="fvanumi" Type="int" Nullable="false" />
-          <Property Name="fvafec" Type="date" />
-          <Property Name="fvanfac" Type="int" />
-          <Property Name="fvaautoriz" Type="float" />
-          <Property Name="fvaest" Type="int" />
-          <Property Name="fvanitcli" Type="nvarchar" MaxLength="15" />
-          <Property Name="fvacodcli" Type="int" />
-          <Property Name="fvadescli1" Type="nvarchar" MaxLength="50" />
-          <Property Name="fvadescli2" Type="nvarchar" MaxLength="30" />
-          <Property Name="fvastot" Type="float" />
-          <Property Name="fvaimpsi" Type="float" />
-          <Property Name="fvaimpeo" Type="float" />
-          <Property Name="fvaimptc" Type="float" />
-          <Property Name="fvasubtotal" Type="float" />
-          <Property Name="fvadesc" Type="float" />
-          <Property Name="fvatotal" Type="float" />
-          <Property Name="fvadebfis" Type="float" />
-          <Property Name="fvaccont" Type="nvarchar" MaxLength="14" />
-          <Property Name="fvaflim" Type="date" />
-          <Property Name="fvaimgqr" Type="image" />
-          <Property Name="fvaalm" Type="int" />
-          <Property Name="fvanumi2" Type="int" Nullable="false" />
-          <Property Name="fvbcprod" Type="nvarchar" MaxLength="10" />
-          <Property Name="fvbdesprod" Type="nvarchar" MaxLength="100" />
-          <Property Name="fvbcant" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="fvbprecio" Type="numeric" Precision="18" Scale="2" />
-          <Property Name="obdesc" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="obtotal" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="oazona" Type="int" />
-        </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_GO_FacturaVsVenta' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VR_GO_FacturaVsVenta">
@@ -3455,6 +3424,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Parameter Name="tdnumi" Type="int" Mode="In" />
           <Parameter Name="teuact" Type="nvarchar" Mode="In" />
           <Parameter Name="credito" Type="int" Mode="In" />
+          <Parameter Name="oanumi" Type="int" Mode="In" />
         </Function>
         <Function Name="sp_Mam_VentasCredito" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="tipo" Type="int" Mode="In" />
@@ -4094,8 +4064,12 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
             <DefiningQuery>SELECT 
     [VR_CajaDetalle].[oanumi] AS [oanumi], 
     [VR_CajaDetalle].[oafdoc] AS [oafdoc], 
-    [VR_CajaDetalle].[oacnrofac] AS [oacnrofac], 
+    [VR_CajaDetalle].[ccnumi] AS [ccnumi], 
+    [VR_CajaDetalle].[cccod] AS [cccod], 
+    [VR_CajaDetalle].[ccnit] AS [ccnit], 
+    [VR_CajaDetalle].[ccnomfac] AS [ccnomfac], 
     [VR_CajaDetalle].[cliente] AS [cliente], 
+    [VR_CajaDetalle].[oacnrofac] AS [oacnrofac], 
     [VR_CajaDetalle].[oarepa] AS [oarepa], 
     [VR_CajaDetalle].[oaest] AS [oaest], 
     [VR_CajaDetalle].[oaap] AS [oaap], 
@@ -4240,7 +4214,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
     [VR_GO_CajaGeneral].[IdCaja] AS [IdCaja], 
     [VR_GO_CajaGeneral].[FechaCaja] AS [FechaCaja], 
     [VR_GO_CajaGeneral].[Conciliacion] AS [Conciliacion], 
-    [VR_GO_CajaGeneral].[FechaPedido] AS [FechaPedido], 
     [VR_GO_CajaGeneral].[Repartidor] AS [Repartidor], 
     [VR_GO_CajaGeneral].[TotalConciliacion] AS [TotalConciliacion], 
     [VR_GO_CajaGeneral].[TotalEfectivo] AS [TotalEfectivo], 
@@ -4423,39 +4396,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
     [VR_GO_EquiposPrestadoCliente].[nombre] AS [nombre], 
     [VR_GO_EquiposPrestadoCliente].[direccion] AS [direccion]
     FROM [dbo].[VR_GO_EquiposPrestadoCliente] AS [VR_GO_EquiposPrestadoCliente]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="VR_GO_Factura" EntityType="Self.VR_GO_Factura" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [VR_GO_Factura].[fvanumi] AS [fvanumi], 
-    [VR_GO_Factura].[fvafec] AS [fvafec], 
-    [VR_GO_Factura].[fvanfac] AS [fvanfac], 
-    [VR_GO_Factura].[fvaautoriz] AS [fvaautoriz], 
-    [VR_GO_Factura].[fvaest] AS [fvaest], 
-    [VR_GO_Factura].[fvanitcli] AS [fvanitcli], 
-    [VR_GO_Factura].[fvacodcli] AS [fvacodcli], 
-    [VR_GO_Factura].[fvadescli1] AS [fvadescli1], 
-    [VR_GO_Factura].[fvadescli2] AS [fvadescli2], 
-    [VR_GO_Factura].[fvastot] AS [fvastot], 
-    [VR_GO_Factura].[fvaimpsi] AS [fvaimpsi], 
-    [VR_GO_Factura].[fvaimpeo] AS [fvaimpeo], 
-    [VR_GO_Factura].[fvaimptc] AS [fvaimptc], 
-    [VR_GO_Factura].[fvasubtotal] AS [fvasubtotal], 
-    [VR_GO_Factura].[fvadesc] AS [fvadesc], 
-    [VR_GO_Factura].[fvatotal] AS [fvatotal], 
-    [VR_GO_Factura].[fvadebfis] AS [fvadebfis], 
-    [VR_GO_Factura].[fvaccont] AS [fvaccont], 
-    [VR_GO_Factura].[fvaflim] AS [fvaflim], 
-    [VR_GO_Factura].[fvaimgqr] AS [fvaimgqr], 
-    [VR_GO_Factura].[fvaalm] AS [fvaalm], 
-    [VR_GO_Factura].[fvanumi2] AS [fvanumi2], 
-    [VR_GO_Factura].[fvbcprod] AS [fvbcprod], 
-    [VR_GO_Factura].[fvbdesprod] AS [fvbdesprod], 
-    [VR_GO_Factura].[fvbcant] AS [fvbcant], 
-    [VR_GO_Factura].[fvbprecio] AS [fvbprecio], 
-    [VR_GO_Factura].[obdesc] AS [obdesc], 
-    [VR_GO_Factura].[obtotal] AS [obtotal], 
-    [VR_GO_Factura].[oazona] AS [oazona]
-    FROM [dbo].[VR_GO_Factura] AS [VR_GO_Factura]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VR_GO_FacturaVsVenta" EntityType="Self.VR_GO_FacturaVsVenta" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -5744,6 +5684,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
             <Parameter Name="tdnumi" Mode="In" Type="Int32" />
             <Parameter Name="teuact" Mode="In" Type="String" />
             <Parameter Name="credito" Mode="In" Type="Int32" />
+            <Parameter Name="oanumi" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="sp_Mam_VentasCredito" ReturnType="Collection(BDDistBHFModel.sp_Mam_VentasCredito_Result)">
             <Parameter Name="tipo" Mode="In" Type="Int32" />
@@ -5888,7 +5829,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <EntitySet Name="VR_EstadoCuentasClientes" EntityType="BDDistBHFModel.VR_EstadoCuentasClientes" />
           <EntitySet Name="VR_Facturas" EntityType="BDDistBHFModel.VR_Facturas" />
           <EntitySet Name="VR_FacturasChacaltaya" EntityType="BDDistBHFModel.VR_FacturasChacaltaya" />
-          <EntitySet Name="VR_GO_CajaGeneral" EntityType="BDDistBHFModel.VR_GO_CajaGeneral" />
           <EntitySet Name="vr_go_comprobanteSalidaItems" EntityType="BDDistBHFModel.vr_go_comprobanteSalidaItems" />
           <EntitySet Name="vr_go_comprobanteVenta" EntityType="BDDistBHFModel.vr_go_comprobanteVenta" />
           <EntitySet Name="VR_GO_DespachoNotaVenta" EntityType="BDDistBHFModel.VR_GO_DespachoNotaVenta" />
@@ -5896,7 +5836,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <EntitySet Name="VR_GO_DiferenciaPedidoNota" EntityType="BDDistBHFModel.VR_GO_DiferenciaPedidoNota" />
           <EntitySet Name="VR_GO_EquipoPrestadoVsUltimaVenta" EntityType="BDDistBHFModel.VR_GO_EquipoPrestadoVsUltimaVenta" />
           <EntitySet Name="VR_GO_EquiposPrestadoCliente" EntityType="BDDistBHFModel.VR_GO_EquiposPrestadoCliente" />
-          <EntitySet Name="VR_GO_Factura" EntityType="BDDistBHFModel.VR_GO_Factura" />
           <EntitySet Name="VR_GO_FacturaVsVenta" EntityType="BDDistBHFModel.VR_GO_FacturaVsVenta" />
           <EntitySet Name="VR_GO_FacturaVsVenta2" EntityType="BDDistBHFModel.VR_GO_FacturaVsVenta2" />
           <EntitySet Name="VR_GO_ListarZona" EntityType="BDDistBHFModel.VR_GO_ListarZona" />
@@ -5955,6 +5894,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <EntitySet Name="VR_GO_DespachoXProducto" EntityType="BDDistBHFModel.VR_GO_DespachoXProducto" />
           <EntitySet Name="TFV0011Set" EntityType="BDDistBHFModel.TFV0011" />
           <EntitySet Name="v_VentasDetalleDespacho" EntityType="BDDistBHFModel.v_VentasDetalleDespacho" />
+          <EntitySet Name="VR_GO_CajaGeneral" EntityType="BDDistBHFModel.VR_GO_CajaGeneral" />
           </EntityContainer>
         <ComplexType Name="sp_dg_RAsistencia_Result">
           <Property Type="Int32" Name="cbnumi" Nullable="false" />
@@ -7478,6 +7418,7 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
             <PropertyRef Name="credito" />
             <PropertyRef Name="tcre" />
             <PropertyRef Name="estado" />
+            <PropertyRef Name="ccnumi" />
           </Key>
           <Property Name="oanumi" Type="Int32" Nullable="false" />
           <Property Name="oafdoc" Type="DateTime" Precision="0" />
@@ -7492,6 +7433,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Property Name="credito" Type="Decimal" Nullable="false" Precision="38" Scale="2" />
           <Property Name="tcre" Type="Int32" Nullable="false" />
           <Property Name="estado" Type="Int32" Nullable="false" />
+          <Property Name="ccnumi" Type="Int32" Nullable="false" />
+          <Property Name="cccod" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ccnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ccnomfac" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="VR_Clientes">
           <Key>
@@ -7632,22 +7577,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Property Name="oenfac" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
           <Property Name="oeefec" Type="Decimal" Precision="18" Scale="2" />
         </EntityType>
-        <EntityType Name="VR_GO_CajaGeneral">
-          <Key>
-            <PropertyRef Name="IdCaja" />
-          </Key>
-          <Property Name="IdCaja" Type="Int32" Nullable="false" />
-          <Property Name="FechaCaja" Type="DateTime" Precision="0" />
-          <Property Name="Conciliacion" Type="Int32" />
-          <Property Name="FechaPedido" Type="DateTime" Precision="0" />
-          <Property Name="Repartidor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="TotalConciliacion" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="TotalEfectivo" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="TotalCredito" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="TotalDeposito" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="TotalGeneral" Type="Decimal" Precision="38" Scale="2" />
-          <Property Name="Diferencia" Type="Decimal" Precision="38" Scale="2" />
-        </EntityType>
         <EntityType Name="vr_go_comprobanteSalidaItems">
           <Key>
             <PropertyRef Name="id" />
@@ -7786,41 +7715,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Property Name="botellone" Type="Int32" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="VR_GO_Factura">
-          <Key>
-            <PropertyRef Name="fvanumi" />
-            <PropertyRef Name="fvanumi2" />
-          </Key>
-          <Property Name="fvanumi" Type="Int32" Nullable="false" />
-          <Property Name="fvafec" Type="DateTime" Precision="0" />
-          <Property Name="fvanfac" Type="Int32" />
-          <Property Name="fvaautoriz" Type="Double" />
-          <Property Name="fvaest" Type="Int32" />
-          <Property Name="fvanitcli" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-          <Property Name="fvacodcli" Type="Int32" />
-          <Property Name="fvadescli1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="fvadescli2" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="fvastot" Type="Double" />
-          <Property Name="fvaimpsi" Type="Double" />
-          <Property Name="fvaimpeo" Type="Double" />
-          <Property Name="fvaimptc" Type="Double" />
-          <Property Name="fvasubtotal" Type="Double" />
-          <Property Name="fvadesc" Type="Double" />
-          <Property Name="fvatotal" Type="Double" />
-          <Property Name="fvadebfis" Type="Double" />
-          <Property Name="fvaccont" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
-          <Property Name="fvaflim" Type="DateTime" Precision="0" />
-          <Property Name="fvaimgqr" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="fvaalm" Type="Int32" />
-          <Property Name="fvanumi2" Type="Int32" Nullable="false" />
-          <Property Name="fvbcprod" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="fvbdesprod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="fvbcant" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="fvbprecio" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obdesc" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="obtotal" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="oazona" Type="Int32" />
         </EntityType>
         <EntityType Name="VR_GO_FacturaVsVenta">
           <Key>
@@ -8761,6 +8655,21 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <Property Name="zona" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="fvanfac" Type="Int32" />
           <Property Name="tipo" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VR_GO_CajaGeneral">
+          <Key>
+            <PropertyRef Name="IdCaja" />
+          </Key>
+          <Property Name="IdCaja" Type="Int32" Nullable="false" />
+          <Property Name="FechaCaja" Type="DateTime" Precision="0" />
+          <Property Name="Conciliacion" Type="Int32" />
+          <Property Name="Repartidor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalConciliacion" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotalEfectivo" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotalCredito" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TotalDeposito" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="TotalGeneral" Type="Decimal" Precision="38" Scale="2" />
+          <Property Name="Diferencia" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -10440,6 +10349,10 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
           <EntitySetMapping Name="VR_CajaDetalle">
             <EntityTypeMapping TypeName="BDDistBHFModel.VR_CajaDetalle">
               <MappingFragment StoreEntitySet="VR_CajaDetalle">
+                <ScalarProperty Name="ccnomfac" ColumnName="ccnomfac" />
+                <ScalarProperty Name="ccnit" ColumnName="ccnit" />
+                <ScalarProperty Name="cccod" ColumnName="cccod" />
+                <ScalarProperty Name="ccnumi" ColumnName="ccnumi" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="tcre" ColumnName="tcre" />
                 <ScalarProperty Name="credito" ColumnName="credito" />
@@ -10600,23 +10513,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_CajaGeneral">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_CajaGeneral">
-              <MappingFragment StoreEntitySet="VR_GO_CajaGeneral">
-                <ScalarProperty Name="Diferencia" ColumnName="Diferencia" />
-                <ScalarProperty Name="TotalGeneral" ColumnName="TotalGeneral" />
-                <ScalarProperty Name="TotalDeposito" ColumnName="TotalDeposito" />
-                <ScalarProperty Name="TotalCredito" ColumnName="TotalCredito" />
-                <ScalarProperty Name="TotalEfectivo" ColumnName="TotalEfectivo" />
-                <ScalarProperty Name="TotalConciliacion" ColumnName="TotalConciliacion" />
-                <ScalarProperty Name="Repartidor" ColumnName="Repartidor" />
-                <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
-                <ScalarProperty Name="Conciliacion" ColumnName="Conciliacion" />
-                <ScalarProperty Name="FechaCaja" ColumnName="FechaCaja" />
-                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vr_go_comprobanteSalidaItems">
             <EntityTypeMapping TypeName="BDDistBHFModel.vr_go_comprobanteSalidaItems">
               <MappingFragment StoreEntitySet="vr_go_comprobanteSalidaItems">
@@ -10753,41 +10649,6 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
                 <ScalarProperty Name="contacto" ColumnName="contacto" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
                 <ScalarProperty Name="codbd" ColumnName="codbd" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="VR_GO_Factura">
-            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_Factura">
-              <MappingFragment StoreEntitySet="VR_GO_Factura">
-                <ScalarProperty Name="oazona" ColumnName="oazona" />
-                <ScalarProperty Name="obtotal" ColumnName="obtotal" />
-                <ScalarProperty Name="obdesc" ColumnName="obdesc" />
-                <ScalarProperty Name="fvbprecio" ColumnName="fvbprecio" />
-                <ScalarProperty Name="fvbcant" ColumnName="fvbcant" />
-                <ScalarProperty Name="fvbdesprod" ColumnName="fvbdesprod" />
-                <ScalarProperty Name="fvbcprod" ColumnName="fvbcprod" />
-                <ScalarProperty Name="fvanumi2" ColumnName="fvanumi2" />
-                <ScalarProperty Name="fvaalm" ColumnName="fvaalm" />
-                <ScalarProperty Name="fvaimgqr" ColumnName="fvaimgqr" />
-                <ScalarProperty Name="fvaflim" ColumnName="fvaflim" />
-                <ScalarProperty Name="fvaccont" ColumnName="fvaccont" />
-                <ScalarProperty Name="fvadebfis" ColumnName="fvadebfis" />
-                <ScalarProperty Name="fvatotal" ColumnName="fvatotal" />
-                <ScalarProperty Name="fvadesc" ColumnName="fvadesc" />
-                <ScalarProperty Name="fvasubtotal" ColumnName="fvasubtotal" />
-                <ScalarProperty Name="fvaimptc" ColumnName="fvaimptc" />
-                <ScalarProperty Name="fvaimpeo" ColumnName="fvaimpeo" />
-                <ScalarProperty Name="fvaimpsi" ColumnName="fvaimpsi" />
-                <ScalarProperty Name="fvastot" ColumnName="fvastot" />
-                <ScalarProperty Name="fvadescli2" ColumnName="fvadescli2" />
-                <ScalarProperty Name="fvadescli1" ColumnName="fvadescli1" />
-                <ScalarProperty Name="fvacodcli" ColumnName="fvacodcli" />
-                <ScalarProperty Name="fvanitcli" ColumnName="fvanitcli" />
-                <ScalarProperty Name="fvaest" ColumnName="fvaest" />
-                <ScalarProperty Name="fvaautoriz" ColumnName="fvaautoriz" />
-                <ScalarProperty Name="fvanfac" ColumnName="fvanfac" />
-                <ScalarProperty Name="fvafec" ColumnName="fvafec" />
-                <ScalarProperty Name="fvanumi" ColumnName="fvanumi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -11689,6 +11550,22 @@ advertencia 6002: La tabla o vista 'BDDistBHF_Crex.dbo.VR_VistaPedido_PrecioCost
                 <ScalarProperty Name="oaccli" ColumnName="oaccli" />
                 <ScalarProperty Name="oafdoc" ColumnName="oafdoc" />
                 <ScalarProperty Name="oanumi" ColumnName="oanumi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VR_GO_CajaGeneral">
+            <EntityTypeMapping TypeName="BDDistBHFModel.VR_GO_CajaGeneral">
+              <MappingFragment StoreEntitySet="VR_GO_CajaGeneral">
+                <ScalarProperty Name="Diferencia" ColumnName="Diferencia" />
+                <ScalarProperty Name="TotalGeneral" ColumnName="TotalGeneral" />
+                <ScalarProperty Name="TotalDeposito" ColumnName="TotalDeposito" />
+                <ScalarProperty Name="TotalCredito" ColumnName="TotalCredito" />
+                <ScalarProperty Name="TotalEfectivo" ColumnName="TotalEfectivo" />
+                <ScalarProperty Name="TotalConciliacion" ColumnName="TotalConciliacion" />
+                <ScalarProperty Name="Repartidor" ColumnName="Repartidor" />
+                <ScalarProperty Name="Conciliacion" ColumnName="Conciliacion" />
+                <ScalarProperty Name="FechaCaja" ColumnName="FechaCaja" />
+                <ScalarProperty Name="IdCaja" ColumnName="IdCaja" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -241,8 +241,6 @@ Partial Public Class BDDistBHFEntities
 
     Public Overridable Property VR_FacturasChacaltaya() As DbSet(Of VR_FacturasChacaltaya)
 
-    Public Overridable Property VR_GO_CajaGeneral() As DbSet(Of VR_GO_CajaGeneral)
-
     Public Overridable Property vr_go_comprobanteSalidaItems() As DbSet(Of vr_go_comprobanteSalidaItems)
 
     Public Overridable Property vr_go_comprobanteVenta() As DbSet(Of vr_go_comprobanteVenta)
@@ -256,8 +254,6 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property VR_GO_EquipoPrestadoVsUltimaVenta() As DbSet(Of VR_GO_EquipoPrestadoVsUltimaVenta)
 
     Public Overridable Property VR_GO_EquiposPrestadoCliente() As DbSet(Of VR_GO_EquiposPrestadoCliente)
-
-    Public Overridable Property VR_GO_Factura() As DbSet(Of VR_GO_Factura)
 
     Public Overridable Property VR_GO_FacturaVsVenta() As DbSet(Of VR_GO_FacturaVsVenta)
 
@@ -350,6 +346,8 @@ Partial Public Class BDDistBHFEntities
     Public Overridable Property TFV0011Set() As DbSet(Of TFV0011)
 
     Public Overridable Property v_VentasDetalleDespacho() As DbSet(Of v_VentasDetalleDespacho)
+
+    Public Overridable Property VR_GO_CajaGeneral() As DbSet(Of VR_GO_CajaGeneral)
 
 
     Public Overridable Function PlanillaSueldo(fecha As Nullable(Of Date)) As Integer
@@ -2062,7 +2060,7 @@ Partial Public Class BDDistBHFEntities
     End Function
 
 
-    Public Overridable Function sp_Mam_TV00121Cheque(tipo As Nullable(Of Integer), tenumi As Nullable(Of Integer), tefdoc As Nullable(Of Date), tety4vend As Nullable(Of Integer), teobs As String, tdnumi As Nullable(Of Integer), teuact As String, credito As Nullable(Of Integer)) As Integer
+    Public Overridable Function sp_Mam_TV00121Cheque(tipo As Nullable(Of Integer), tenumi As Nullable(Of Integer), tefdoc As Nullable(Of Date), tety4vend As Nullable(Of Integer), teobs As String, tdnumi As Nullable(Of Integer), teuact As String, credito As Nullable(Of Integer), oanumi As Nullable(Of Integer)) As Integer
 
         Dim tipoParameter As ObjectParameter = If(tipo.HasValue, New ObjectParameter("tipo", tipo), New ObjectParameter("tipo", GetType(Integer)))
 
@@ -2088,7 +2086,10 @@ Partial Public Class BDDistBHFEntities
         Dim creditoParameter As ObjectParameter = If(credito.HasValue, New ObjectParameter("credito", credito), New ObjectParameter("credito", GetType(Integer)))
 
 
-        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TV00121Cheque", tipoParameter, tenumiParameter, tefdocParameter, tety4vendParameter, teobsParameter, tdnumiParameter, teuactParameter, creditoParameter)
+        Dim oanumiParameter As ObjectParameter = If(oanumi.HasValue, New ObjectParameter("oanumi", oanumi), New ObjectParameter("oanumi", GetType(Integer)))
+
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_Mam_TV00121Cheque", tipoParameter, tenumiParameter, tefdocParameter, tety4vendParameter, teobsParameter, tdnumiParameter, teuactParameter, creditoParameter, oanumiParameter)
     End Function
 
 

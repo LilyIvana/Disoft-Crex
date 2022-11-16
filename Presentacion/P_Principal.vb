@@ -1791,6 +1791,10 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btPendientesConciliacion_Click(sender As Object, e As EventArgs) Handles btPendientesConciliacion.Click
+
+    End Sub
+
 
 #End Region
 
