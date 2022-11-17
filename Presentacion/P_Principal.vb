@@ -1792,7 +1792,8 @@ Public Class P_Principal
     End Sub
 
     Private Sub btPendientesConciliacion_Click(sender As Object, e As EventArgs) Handles btPendientesConciliacion.Click
-
+        Dim frm As New R01_PendientesConciliacion
+        frm.ShowDialog()
     End Sub
 
 

@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class R_Proforma
+Public Class R_PendientesConciliacion
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class R_Proforma
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "R_Proforma.rpt"
+            Return "R_PendientesConciliacion.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class R_Proforma
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Presentacion.R_Proforma.rpt"
+            Return "Presentacion.R_PendientesConciliacion.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class R_Proforma
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Empresa() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Usuario() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(0)
         End Get
@@ -102,7 +102,7 @@ Public Class R_Proforma
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Logo() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Estado() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(1)
         End Get
@@ -110,7 +110,7 @@ Public Class R_Proforma
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Telefono() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_FechaI() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(2)
         End Get
@@ -118,7 +118,7 @@ Public Class R_Proforma
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Usuario() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_FechaF() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(3)
         End Get
@@ -126,7 +126,7 @@ Public Class R_Proforma
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedR_Proforma
+Public Class CachedR_PendientesConciliacion
     Inherits Component
     Implements ICachedReport
     
@@ -168,7 +168,7 @@ Public Class CachedR_Proforma
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As R_Proforma = New R_Proforma()
+        Dim rpt As R_PendientesConciliacion = New R_PendientesConciliacion()
         rpt.Site = Me.Site
         Return rpt
     End Function

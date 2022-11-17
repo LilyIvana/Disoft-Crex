@@ -1241,7 +1241,7 @@ Public Class AccesoLogica
         "oaest =" + _estado + ", " +
         "oafact = '" + Date.Now.Date.ToString("yyyy/MM/dd") + "', " +
         "oahact = '" + Now.Hour.ToString + ":" + Now.Minute.ToString + "', " +
-        "oauact = '" + "CARLOS" + "'"
+        "oauact = '" + L_Usuario + "'"
 
         _where = "oanumi = " + _numi
         _Err = D_Modificar_Datos("TO001", Sql, _where)
@@ -7436,6 +7436,21 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@tipo", 28))
         _listParam.Add(New Datos.DParametro("@canumi", _canumi))
         _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_prPendientesConciliacion(_fechaI As String, _FechaF As String, _estado As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 29))
+        _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@fechaI", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", _FechaF))
+        _listParam.Add(New Datos.DParametro("@estado", _estado))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)
 
         Return _Tabla

@@ -3172,8 +3172,8 @@ Public Class F02_PedidoNuevo
             End If
 
 
-            'grabar estado del pedido
-            L_PedidoEstados_Grabar(Tb_Id.Text, IIf(_nuevoBasePeriodico = True, "10", "1"), Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, gs_user)
+            'grabar estado del pedido 2
+            L_PedidoEstados_Grabar(Tb_Id.Text, "2", Date.Now.Date.ToString("yyyy/MM/dd"), Tb_Hora.Text, gs_user)
 
 
             If (gi_notiPed = 1) Then
@@ -3221,6 +3221,8 @@ Public Class F02_PedidoNuevo
                                    eToastPosition.TopCenter)
             End If
 
+            'grabar estado del pedido 3
+            L_PedidoEstados_Grabar(Tb_Id.Text, "3", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
 
 
             'Volver al foco para uno nuevo
