@@ -1363,14 +1363,14 @@ Public Class F01_Producto
             MEP.SetError(TbNombre, "")
         End If
 
-        If (TbNombreCorto.Text = String.Empty) Then
-            TbNombreCorto.BackColor = Color.Red
-            MEP.SetError(TbNombreCorto, "ingrese el nombre corto del producto!".ToUpper)
-            res = False
-        Else
-            TbNombreCorto.BackColor = Color.White
-            MEP.SetError(TbNombreCorto, "")
-        End If
+        'If (TbNombreCorto.Text = String.Empty) Then
+        '    TbNombreCorto.BackColor = Color.Red
+        '    MEP.SetError(TbNombreCorto, "ingrese el nombre corto del producto!".ToUpper)
+        '    res = False
+        'Else
+        '    TbNombreCorto.BackColor = Color.White
+        '    MEP.SetError(TbNombreCorto, "")
+        'End If
 
         If (Not IsNumeric(CbCategoria.Value)) Then
             CbCategoria.BackColor = Color.Red

@@ -793,6 +793,23 @@ Public Class F0_MCaja
                     .Width = 90
                     .Visible = False
                 End With
+                With Dgv_PedidoTotal.RootTable.Columns("ccnumi")
+                    .Width = 90
+                    .Visible = False
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("cccod")
+                    .Width = 90
+                    .Visible = False
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("ccnit")
+                    .Width = 90
+                    .Visible = False
+                End With
+                With Dgv_PedidoTotal.RootTable.Columns("ccnomfac")
+                    .Width = 250
+                    .Caption = "RAZÓN SOCIAL"
+                    .Visible = True
+                End With
                 With Dgv_PedidoTotal.RootTable.Columns("oaest")
                     .Width = 90
                     .Visible = False
@@ -805,7 +822,6 @@ Public Class F0_MCaja
                     .Width = 90
                     .Visible = False
                 End With
-
 
                 With Dgv_PedidoTotal.RootTable.Columns("oacnrofac")
                     .Width = 150
