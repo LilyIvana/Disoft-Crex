@@ -2012,6 +2012,7 @@ Public Class frmBillingDispatch
             Next
             Dim NumFactura As Integer
             Dim email As String
+            Dim CodMetPago As Integer
 
 
             If dtEncabezado.Rows(0).Item("ccemail").ToString = String.Empty Then
@@ -2019,7 +2020,11 @@ Public Class frmBillingDispatch
             Else
                 email = dtEncabezado.Rows(0).Item("ccemail").ToString
             End If
-
+            If dtEncabezado.Rows(0).Item("tipoventa") = 0 Then
+                CodMetPago = 6 'Credito
+            Else
+                CodMetPago = 1 'Contado
+            End If
             Dim dtmax = L_fnObtenerMaxFact(NPuntoVenta, Convert.ToInt32(Now.Date.Year))
             If dtmax.Rows.Count = 0 Then
                 NumFactura = 1
@@ -2034,7 +2039,7 @@ Public Class frmBillingDispatch
             Emenvio.numeroDocumento = dtEncabezado.Rows(0).Item("nit").ToString()
             Emenvio.complemento = "" '---------------------------------
             Emenvio.codigoCliente = "C-" + dtEncabezado.Rows(0).Item("codcli").ToString()
-            Emenvio.codigoMetodoPago = 1 'Contado
+            Emenvio.codigoMetodoPago = CodMetPago
             Emenvio.numeroTarjeta = ""
             Emenvio.codigoPuntoVenta = NPuntoVenta
             Emenvio.codigoDocumentoSector = 1 '-------------------

@@ -694,10 +694,10 @@ Public Class F02_PedidoNuevo
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
         End With
-        'With JGr_Productos.RootTable.Columns(9)
-        '    .Caption = "GrupoDesc"
-        '    .Visible = False
-        'End With
+        With JGr_Productos.RootTable.Columns(9)
+            .Caption = "GrupoDesc"
+            .Visible = False
+        End With
 
 
         'añadir columna de imagenes
@@ -3830,12 +3830,19 @@ Public Class F02_PedidoNuevo
             Next
             Dim NumFactura As Integer
             Dim email As String
+            Dim CodMetPago As Integer
 
 
             If dtEncabezado.Rows(0).Item("ccemail").ToString = String.Empty Then
                 email = "cliente@crex.com.bo"
             Else
                 email = dtEncabezado.Rows(0).Item("ccemail").ToString
+            End If
+
+            If swTipoVenta.Value = True Then
+                CodMetPago = 1
+            Else
+                CodMetPago = 6
             End If
 
             Dim dtmax = L_fnObtenerMaxFact(NPuntoVenta, Convert.ToInt32(Now.Date.Year))
@@ -3852,7 +3859,7 @@ Public Class F02_PedidoNuevo
             Emenvio.numeroDocumento = dtEncabezado.Rows(0).Item("nit").ToString()
             Emenvio.complemento = "" '---------------------------------
             Emenvio.codigoCliente = "C-" + dtEncabezado.Rows(0).Item("codcli").ToString()
-            Emenvio.codigoMetodoPago = 1 'Contado
+            Emenvio.codigoMetodoPago = CodMetPago
             Emenvio.numeroTarjeta = ""
             Emenvio.codigoPuntoVenta = NPuntoVenta
             Emenvio.codigoDocumentoSector = 1 '-------------------

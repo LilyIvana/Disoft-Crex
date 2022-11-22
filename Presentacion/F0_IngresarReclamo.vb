@@ -6,7 +6,7 @@ Imports Presentacion.RespMotivoAnulacion
 Imports Presentacion.AnulacionResp
 
 Public Class F0_IngresarReclamo
-#Region "Atributos prinvados"
+#Region "Atributos privados"
     Private numiPedido As String
     Private estadoPedido As String
     Private tipoReclamo As String
@@ -158,7 +158,7 @@ Public Class F0_IngresarReclamo
             .Refresh()
         End With
 
-        CbMotivoA.SelectedIndex = 0
+        CbMotivoA.SelectedIndex = 1
 
         Return ""
     End Function

@@ -1209,7 +1209,7 @@ Partial Class F02_PedidoNuevo
         Me.swTipoVenta.Location = New System.Drawing.Point(655, 26)
         Me.swTipoVenta.Name = "swTipoVenta"
         Me.swTipoVenta.OffBackColor = System.Drawing.Color.Cyan
-        Me.swTipoVenta.OffText = "CREDITO"
+        Me.swTipoVenta.OffText = "CRÉDITO"
         Me.swTipoVenta.OnBackColor = System.Drawing.Color.LawnGreen
         Me.swTipoVenta.OnText = "CONTADO"
         Me.swTipoVenta.Size = New System.Drawing.Size(109, 22)

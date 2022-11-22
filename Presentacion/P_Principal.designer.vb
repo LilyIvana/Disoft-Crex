@@ -275,9 +275,9 @@ Partial Class P_Principal
         'SideNav1
         '
         Me.SideNav1.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
-        Me.SideNav1.Controls.Add(Me.SideNavPanelLogistica)
-        Me.SideNav1.Controls.Add(Me.SideNavPanelVenta)
         Me.SideNav1.Controls.Add(Me.SideNavPanelInventario)
+        Me.SideNav1.Controls.Add(Me.SideNavPanelVenta)
+        Me.SideNav1.Controls.Add(Me.SideNavPanelLogistica)
         Me.SideNav1.Controls.Add(Me.SideNavPanelPedido)
         Me.SideNav1.Controls.Add(Me.SideNavPaenlConf)
         Me.SideNav1.Controls.Add(Me.SideNavPanel3)
@@ -304,6 +304,7 @@ Partial Class P_Principal
         Me.SideNavPanelLogistica.Name = "SideNavPanelLogistica"
         Me.SideNavPanelLogistica.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPanelLogistica.TabIndex = 164
+        Me.SideNavPanelLogistica.Visible = False
         '
         'PanelLogistica
         '
@@ -1252,7 +1253,6 @@ Partial Class P_Principal
         Me.SideNavPanelInventario.Name = "SideNavPanelInventario"
         Me.SideNavPanelInventario.Size = New System.Drawing.Size(875, 565)
         Me.SideNavPanelInventario.TabIndex = 87
-        Me.SideNavPanelInventario.Visible = False
         '
         'PanelInventario
         '
@@ -3273,7 +3273,6 @@ Partial Class P_Principal
         '
         'FP_Logistica
         '
-        Me.FP_Logistica.Checked = True
         Me.FP_Logistica.Name = "FP_Logistica"
         Me.FP_Logistica.Panel = Me.SideNavPanelLogistica
         Me.FP_Logistica.Symbol = ""
@@ -3288,6 +3287,7 @@ Partial Class P_Principal
         '
         'FP_Inventario
         '
+        Me.FP_Inventario.Checked = True
         Me.FP_Inventario.Name = "FP_Inventario"
         Me.FP_Inventario.Panel = Me.SideNavPanelInventario
         Me.FP_Inventario.Symbol = ""

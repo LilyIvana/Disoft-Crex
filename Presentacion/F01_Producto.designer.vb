@@ -240,7 +240,6 @@ Partial Class F01_Producto
         '
         'MBtGrabar
         '
-        Me.MBtGrabar.Visible = False
         '
         'MBtEliminar
         '
@@ -248,7 +247,7 @@ Partial Class F01_Producto
         '
         'MBtModificar
         '
-        Me.MBtModificar.Visible = False
+        Me.MBtModificar.Text = "PACK"
         '
         'MBtNuevo
         '
