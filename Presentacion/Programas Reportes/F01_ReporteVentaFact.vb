@@ -303,7 +303,7 @@ Public Class F01_ReporteVentaFact
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("Transportista")
-                .Caption = "Transportista"
+                .Caption = "Repartidor"
                 .FormatString = ""
                 .Visible = True
             End With
@@ -401,7 +401,7 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("Ganancia")
                 .Width = 100
                 .FormatString = "0.00"
-                .Visible = True
+                .Visible = False
 
             End With
             With grDatos.RootTable.Columns("PrecioCosto")

@@ -2493,6 +2493,7 @@ Partial Class F02_PedidoNuevo
         Me.swStock.TabIndex = 247
         Me.swStock.Value = True
         Me.swStock.ValueObject = "Y"
+        Me.swStock.Visible = False
         '
         'F02_PedidoNuevo
         '

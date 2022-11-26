@@ -260,7 +260,7 @@ Public Class F0_CreditosPedidos
             .Caption = "Factura"
             .Width = 100
             .TextAlignment = TextAlignment.Far
-            .Visible = True
+            .Visible = False
         End With
         With grfactura.RootTable.Columns("cliente")
             .Caption = "Cliente"
@@ -433,7 +433,7 @@ Public Class F0_CreditosPedidos
             .Caption = "Nro Factura"
             .Width = 95
             .TextAlignment = TextAlignment.Far
-            .Visible = True
+            .Visible = False
         End With
         With grPendiente.RootTable.Columns("cliente")
             .Caption = "Cliente"
@@ -1277,5 +1277,9 @@ Public Class F0_CreditosPedidos
         End If
         'Me.Opacity = 100
         'Timer1.Enabled = False
+    End Sub
+
+    Private Sub grPendiente_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grPendiente.EditingCell
+        e.Cancel = True
     End Sub
 End Class

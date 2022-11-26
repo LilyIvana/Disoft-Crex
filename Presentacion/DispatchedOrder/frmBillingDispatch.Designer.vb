@@ -381,6 +381,7 @@ Partial Class frmBillingDispatch
         Me.btnNotaVenta.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.btnNotaVenta.TabIndex = 4
         Me.btnNotaVenta.Text = "Nota de Venta"
+        Me.btnNotaVenta.Visible = False
         '
         'btReporteDespachoCliente
         '
