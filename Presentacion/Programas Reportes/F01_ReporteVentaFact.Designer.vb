@@ -112,7 +112,7 @@ Partial Class F01_ReporteVentaFact
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanelBuscador)
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.Panel1)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(2)
         Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(942, 455)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.Panel1, 0)
@@ -140,14 +140,14 @@ Partial Class F01_ReporteVentaFact
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(2)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 23)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtUltimo
         '
-        Me.MBtUltimo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.MBtUltimo.Margin = New System.Windows.Forms.Padding(2)
         '
         'MBtSalir
         '
@@ -240,7 +240,7 @@ Partial Class F01_ReporteVentaFact
         Me.Panel1.Controls.Add(Me.tbFechaI)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(942, 184)
         Me.Panel1.TabIndex = 29
@@ -388,6 +388,7 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX5.Size = New System.Drawing.Size(107, 23)
         Me.LabelX5.TabIndex = 268
         Me.LabelX5.Text = "Estado Factura:"
+        Me.LabelX5.Visible = False
         '
         'cbFactura
         '
@@ -403,6 +404,7 @@ Partial Class F01_ReporteVentaFact
         Me.cbFactura.SelectedItem = Nothing
         Me.cbFactura.Size = New System.Drawing.Size(179, 22)
         Me.cbFactura.TabIndex = 267
+        Me.cbFactura.Visible = False
         Me.cbFactura.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'LabelX2
@@ -573,15 +575,15 @@ Partial Class F01_ReporteVentaFact
         Me.ButtonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
         Me.ButtonX1.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ButtonX1.Image = Global.Presentacion.My.Resources.Resources.BT_ACTUALIZAR
-        Me.ButtonX1.ImageFixedSize = New System.Drawing.Size(45, 50)
+        Me.ButtonX1.ImageFixedSize = New System.Drawing.Size(50, 50)
         Me.ButtonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
         Me.ButtonX1.Location = New System.Drawing.Point(652, 18)
         Me.ButtonX1.Name = "ButtonX1"
         Me.ButtonX1.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
-        Me.ButtonX1.Size = New System.Drawing.Size(59, 72)
+        Me.ButtonX1.Size = New System.Drawing.Size(76, 72)
         Me.ButtonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014
         Me.ButtonX1.TabIndex = 241
-        Me.ButtonX1.Text = "Generar"
+        Me.ButtonX1.Text = "GENERAR"
         Me.ButtonX1.TextColor = System.Drawing.Color.Black
         '
         'btExcel
@@ -590,12 +592,12 @@ Partial Class F01_ReporteVentaFact
         Me.btExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
         Me.btExcel.Font = New System.Drawing.Font("Arial", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btExcel.Image = Global.Presentacion.My.Resources.Resources.EXCEL
-        Me.btExcel.ImageFixedSize = New System.Drawing.Size(45, 50)
+        Me.btExcel.ImageFixedSize = New System.Drawing.Size(45, 45)
         Me.btExcel.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btExcel.Location = New System.Drawing.Point(727, 18)
+        Me.btExcel.Location = New System.Drawing.Point(735, 20)
         Me.btExcel.Name = "btExcel"
         Me.btExcel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
-        Me.btExcel.Size = New System.Drawing.Size(59, 72)
+        Me.btExcel.Size = New System.Drawing.Size(86, 72)
         Me.btExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014
         Me.btExcel.TabIndex = 240
         Me.btExcel.Text = "EXPORTAR"
@@ -781,7 +783,7 @@ Partial Class F01_ReporteVentaFact
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(984, 561)
-        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "F01_ReporteVentaFact"
         Me.Text = "F01_ReporteVentaFact"
         Me.Controls.SetChildIndex(Me.MPnSuperior, 0)

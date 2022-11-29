@@ -2231,7 +2231,7 @@ Public Class F0_PedidosAsignacion
             Aenvio.cuf = NroAutorizacion
             Aenvio.codigoMotivo = MotivoAnulacion
 
-            Dim url = "https://www.pilotocrex.sifac.nwc.com.bo/api/v2/anular"
+            Dim url = "https://crex.sifac.nwc.com.bo/api/v2/anular"
 
             Dim headers = New List(Of Parametro) From {
                 New Parametro("Authorization", "Bearer " + tokenObtenido),

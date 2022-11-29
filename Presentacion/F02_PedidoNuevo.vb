@@ -3876,7 +3876,7 @@ Public Class F02_PedidoNuevo
             Emenvio.actividadEconomica = 471110 'Actividad económica una sola para todos los productos
             Emenvio.detalles = array
             Dim json = JsonConvert.SerializeObject(Emenvio)
-            Dim url = "https://www.pilotocrex.sifac.nwc.com.bo/api/v2/emision"
+            Dim url = "https://crex.sifac.nwc.com.bo/api/v2/emision"
 
             Dim headers = New List(Of Parametro) From {
                 New Parametro("Authorization", "Bearer " + tokenObtenido),

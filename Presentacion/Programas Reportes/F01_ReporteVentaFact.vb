@@ -274,7 +274,7 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("TipoPago")
                 .Caption = "TipoPago"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("Proveedor")
                 .Caption = "Proveedor"
