@@ -1174,4 +1174,8 @@ Public Class F0G_MovimientoChoferEntrada
         End Try
 
     End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        _IniciarTodo()
+    End Sub
 End Class

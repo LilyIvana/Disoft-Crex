@@ -1032,7 +1032,7 @@ Public Class AccesoLogica
         If _Modo = 0 Then
             _Where = "canumi=canumi"
         ElseIf Mayor0 = True Then
-            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0 and (iacant - ISNULL(( select SUM(obpcant) from TO001,TO0011 where obcprod= canumi and oanumi = obnumi AND oaap = 1 AND oaest IN (1, 2)), 0))> 0 "
+            _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0 and (iacant - ISNULL(( select SUM(obpcant) from TO001,TO0011 where obcprod= canumi and oanumi = obnumi AND oaap = 1 AND oaest IN (1, 2)), 0))> 0  and chprecio > 0"
         Else
             _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0"
         End If
@@ -9326,24 +9326,28 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
-    Public Shared Function L_prListaPedidosVendedores() As DataTable
+    Public Shared Function L_prListaPedidosVendedores(_fechaI As String, _FechaF As String) As DataTable
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
 
         _listParam.Add(New Datos.DParametro("@tipo", 33))
+        _listParam.Add(New Datos.DParametro("@fechai", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaf", _FechaF))
         _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
 
         Return _Tabla
     End Function
-    Public Shared Function L_prListaPedidosUnVendedor(codVendedor As String) As DataTable
+    Public Shared Function L_prListaPedidosUnVendedor(codVendedor As String, _fechaI As String, _FechaF As String) As DataTable
         Dim _Tabla As DataTable
 
         Dim _listParam As New List(Of Datos.DParametro)
 
         _listParam.Add(New Datos.DParametro("@tipo", 34))
         _listParam.Add(New Datos.DParametro("@vendedor", codVendedor))
+        _listParam.Add(New Datos.DParametro("@fechai", _fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaf", _FechaF))
         _listParam.Add(New Datos.DParametro("@oluact", L_Usuario))
         _Tabla = D_ProcedimientoConParam("sp_Mam_TO005", _listParam)
 

@@ -27,7 +27,8 @@ Public Class R01_ListaPedidos
         tbVendedor.ReadOnly = True
         tbVendedor.Enabled = False
         CheckTodosVendedor.CheckValue = True
-
+        tbFechaI.Value = Now.Date
+        tbFechaF.Value = Now.Date
     End Sub
 
 
@@ -35,11 +36,11 @@ Public Class R01_ListaPedidos
 
         titulo = "PRE VENDEDOR:"
         If (CheckTodosVendedor.Checked) Then
-            _dt = L_prListaPedidosVendedores()
+            _dt = L_prListaPedidosVendedores(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
             Return
         End If
         If (checkUnaVendedor.Checked) Then
-            _dt = L_prListaPedidosUnVendedor(tbCodigoVendedor.Text)
+            _dt = L_prListaPedidosUnVendedor(tbCodigoVendedor.Text, tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
             Return
         End If
 

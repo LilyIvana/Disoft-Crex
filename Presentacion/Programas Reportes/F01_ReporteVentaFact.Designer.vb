@@ -388,7 +388,6 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX5.Size = New System.Drawing.Size(107, 23)
         Me.LabelX5.TabIndex = 268
         Me.LabelX5.Text = "Estado Factura:"
-        Me.LabelX5.Visible = False
         '
         'cbFactura
         '
@@ -404,7 +403,6 @@ Partial Class F01_ReporteVentaFact
         Me.cbFactura.SelectedItem = Nothing
         Me.cbFactura.Size = New System.Drawing.Size(179, 22)
         Me.cbFactura.TabIndex = 267
-        Me.cbFactura.Visible = False
         Me.cbFactura.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'LabelX2

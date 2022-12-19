@@ -81,6 +81,8 @@ Public Class Login
             gi_userNumi = dtUsuario.Rows(0).Item("ydnumi")
             gi_userRol = dtUsuario.Rows(0).Item("ydrol")
 
+            P_Principal.tbUsuario.Text = gs_user
+
             _prDesvenecerPantalla()
             Close()
         End If
