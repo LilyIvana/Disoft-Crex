@@ -222,14 +222,14 @@ Public Class F0_PedidosAsignacion
         With objGrid.RootTable.Columns(0)
             .Caption = "Cod.Ped"
             .Key = "CodPedido"
-            .Width = 60
+            .Width = 70
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
         End With
         With objGrid.RootTable.Columns(1)
             .Caption = "Fecha"
-            .Width = 90
+            .Width = 80
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -238,7 +238,7 @@ Public Class F0_PedidosAsignacion
         With objGrid.RootTable.Columns(2)
             .Key = "hora"
             .Caption = "Hora"
-            .Width = 55
+            .Width = 40
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -256,21 +256,21 @@ Public Class F0_PedidosAsignacion
 
         With objGrid.RootTable.Columns(4)
             .Caption = "Nombre"
-            .Width = 250
+            .Width = 200
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
         End With
 
         With objGrid.RootTable.Columns(5)
             .Caption = "Direccion"
-            .Width = 200
+            .Width = 150
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
         End With
 
         With objGrid.RootTable.Columns(6)
             .Caption = "Telefono"
-            .Width = 70
+            .Width = 60
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -331,7 +331,7 @@ Public Class F0_PedidosAsignacion
 
         With objGrid.RootTable.Columns("ccultvent")
             .Caption = "Ult. Venta"
-            .Width = 90
+            .Width = 70
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
@@ -959,10 +959,24 @@ Public Class F0_PedidosAsignacion
             estado = JGr_Registros2.GetValue("Check")
             If estado = True Then
                 codPedido = JGr_Registros2.GetValue("CodPedido")
-                L_PedidoEstados_Grabar(codPedido, "3", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
-                L_PedidoCabacera_ModificarEstado(codPedido, "3")
-                L_PedidoCabacera_ModificarEntrega(codPedido, "1")
-                cant = cant + 1
+                Dim dt As DataTable = L_VerificarPedido(codPedido.ToString)
+                If dt.Rows(0).Item("oacnrofac") > 0 Then
+                    If dt.Rows(0).Item("oacnconc") > 0 Then
+                        L_PedidoEstados_Grabar(codPedido, "3", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
+                        L_PedidoCabacera_ModificarEstado(codPedido, "3")
+                        L_PedidoCabacera_ModificarEntrega(codPedido, "1")
+                        cant = cant + 1
+                    Else
+                        ToastNotification.Show(Me, " No se puede entregar el Pedido: ".ToUpper + codPedido.ToString + " porque no se grabó el Movimiento Chofer Salida".ToUpper,
+                                           My.Resources.WARNING, 4700, eToastGlowColor.Green, eToastPosition.TopCenter)
+                        Exit Sub
+                    End If
+                Else
+                    ToastNotification.Show(Me, " No se puede entregar el Pedido: ".ToUpper + codPedido.ToString + " porque no fue facturado".ToUpper,
+                                           My.Resources.WARNING, 4700, eToastGlowColor.Green, eToastPosition.TopCenter)
+                    Exit Sub
+                End If
+
             End If
         Next
 

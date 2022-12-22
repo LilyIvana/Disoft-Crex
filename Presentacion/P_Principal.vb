@@ -1796,6 +1796,11 @@ Public Class P_Principal
         frm.ShowDialog()
     End Sub
 
+    Private Sub btPedEstado2_Click(sender As Object, e As EventArgs) Handles btPedEstado2.Click
+        Dim frm As New F01_RepPedidosEstado2
+        frm.ShowDialog()
+    End Sub
+
 
 #End Region
 

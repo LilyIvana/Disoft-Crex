@@ -644,6 +644,12 @@
     <Compile Include="Programas Reportes\F01_ReporteVentaAdmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Programas Reportes\F01_RepPedidosEstado2.designer.vb">
+      <DependentUpon>F01_RepPedidosEstado2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Programas Reportes\F01_RepPedidosEstado2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Programas Reportes\F01_ReporteVentaFact.designer.vb">
       <DependentUpon>F01_ReporteVentaFact.vb</DependentUpon>
     </Compile>
@@ -1833,6 +1839,9 @@
     <EmbeddedResource Include="Programas Reportes\F01_ReporteVentaAdmin.resx">
       <DependentUpon>F01_ReporteVentaAdmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Programas Reportes\F01_RepPedidosEstado2.resx">
+      <DependentUpon>F01_RepPedidosEstado2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Programas Reportes\F01_ReporteVentaFact.resx">
       <DependentUpon>F01_ReporteVentaFact.vb</DependentUpon>
     </EmbeddedResource>
@@ -2571,6 +2580,7 @@
     <None Include="Resources\icons8_In_Transit_50px_3.png" />
     <None Include="Resources\icons8_In_Transit_100px.png" />
     <None Include="Resources\icons8_In_Transit_80px.png" />
+    <None Include="Resources\excel1.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

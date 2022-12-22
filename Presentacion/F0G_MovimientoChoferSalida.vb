@@ -1477,9 +1477,9 @@ salirIf:
             Dim listResult = L_ListaProductoDeChoferSalida(codChofer.ToString)
 
             If (listResult.Tables.Count > 0) Then
-                Dim info As New TaskDialogInfo("¿desea carga los producto de despacho del chofer?".ToUpper,
+                Dim info As New TaskDialogInfo("¿desea cargar los producto de despacho del chofer?".ToUpper,
                                        eTaskDialogIcon.Information, "pregunta".ToUpper,
-                                       "esta a punto de sobreescribir todo los productos".ToUpper _
+                                       "esta a punto de cargar los productos".ToUpper _
                                        + vbCrLf + "Desea continuar?".ToUpper,
                                        eTaskDialogButton.Yes Or eTaskDialogButton.Cancel,
                                        eTaskDialogBackgroundColor.Blue)

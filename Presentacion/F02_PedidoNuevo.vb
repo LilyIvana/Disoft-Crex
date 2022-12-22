@@ -396,7 +396,7 @@ Public Class F02_PedidoNuevo
             .Visible = False
         End With
         With JGr_DetallePedido.RootTable.Columns(2)
-            .Caption = "CodigoFlex"
+            .Caption = "CodigoDelta"
             .Key = "CodProd"
             .Width = 80
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -639,14 +639,14 @@ Public Class F02_PedidoNuevo
         With JGr_Productos.RootTable.Columns(0)
             .Caption = "Codigo"
             .Key = "Codigo"
-            .Width = 50
+            .Width = 60
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = False
+            .Visible = True
         End With
         With JGr_Productos.RootTable.Columns(1)
-            .Caption = "CodigoFlex"
+            .Caption = "CodDelta"
             .Key = "CodigoFlex"
             .Width = 70
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
