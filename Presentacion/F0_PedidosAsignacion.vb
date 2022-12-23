@@ -960,23 +960,28 @@ Public Class F0_PedidosAsignacion
             If estado = True Then
                 codPedido = JGr_Registros2.GetValue("CodPedido")
                 Dim dt As DataTable = L_VerificarPedido(codPedido.ToString)
-                If dt.Rows(0).Item("oacnrofac") > 0 Then
-                    If dt.Rows(0).Item("oacnconc") > 0 Then
-                        L_PedidoEstados_Grabar(codPedido, "3", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
-                        L_PedidoCabacera_ModificarEstado(codPedido, "3")
-                        L_PedidoCabacera_ModificarEntrega(codPedido, "1")
-                        cant = cant + 1
+                If dt.Rows.Count > 0 Then
+                    If dt.Rows(0).Item("oacnrofac") > 0 Then
+                        If dt.Rows(0).Item("oacnconc") > 0 Then
+                            L_PedidoEstados_Grabar(codPedido, "3", Date.Now.Date.ToString("yyyy/MM/dd"), Now.Hour.ToString + ":" + Now.Minute.ToString, gs_user)
+                            L_PedidoCabacera_ModificarEstado(codPedido, "3")
+                            L_PedidoCabacera_ModificarEntrega(codPedido, "1")
+                            cant = cant + 1
+                        Else
+                            ToastNotification.Show(Me, " No se puede entregar el Pedido: ".ToUpper + codPedido.ToString + " porque no se grabó el Movimiento Chofer Salida".ToUpper,
+                                           My.Resources.WARNING, 4700, eToastGlowColor.Green, eToastPosition.TopCenter)
+                            Exit Sub
+                        End If
                     Else
-                        ToastNotification.Show(Me, " No se puede entregar el Pedido: ".ToUpper + codPedido.ToString + " porque no se grabó el Movimiento Chofer Salida".ToUpper,
+                        ToastNotification.Show(Me, " No se puede entregar el Pedido: ".ToUpper + codPedido.ToString + " porque no fue facturado".ToUpper,
                                            My.Resources.WARNING, 4700, eToastGlowColor.Green, eToastPosition.TopCenter)
                         Exit Sub
                     End If
                 Else
-                    ToastNotification.Show(Me, " No se puede entregar el Pedido: ".ToUpper + codPedido.ToString + " porque no fue facturado".ToUpper,
-                                           My.Resources.WARNING, 4700, eToastGlowColor.Green, eToastPosition.TopCenter)
+                    ToastNotification.Show(Me, " El Pedido: ".ToUpper + codPedido.ToString + " no se encuentra asignado a un chofer:".ToUpper,
+                                          My.Resources.WARNING, 4700, eToastGlowColor.Green, eToastPosition.TopCenter)
                     Exit Sub
                 End If
-
             End If
         Next
 

@@ -90,7 +90,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
         Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
-        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1186, 455)
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1284, 585)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
@@ -105,7 +105,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel3)
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.GroupPanel1)
         Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1144, 455)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1242, 585)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.GroupPanel1, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.GroupPanel3, 0)
@@ -115,7 +115,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.MPnSuperior.Controls.Add(Me.swDevolucion)
         Me.MPnSuperior.Controls.Add(Me.tbTablet)
         Me.MPnSuperior.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPnSuperior.Size = New System.Drawing.Size(1186, 70)
+        Me.MPnSuperior.Size = New System.Drawing.Size(1284, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -131,8 +131,9 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPnInferior
         '
+        Me.MPnInferior.Location = New System.Drawing.Point(0, 655)
         Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPnInferior.Size = New System.Drawing.Size(1186, 36)
+        Me.MPnInferior.Size = New System.Drawing.Size(1284, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -143,7 +144,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(986, 0)
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1084, 0)
         Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
@@ -185,7 +186,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         Me.MPanelToolBarImprimir.Controls.Add(Me.btnConsolidado)
         Me.MPanelToolBarImprimir.Controls.Add(Me.btnActualizar)
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(946, 0)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1044, 0)
         Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
         Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(240, 70)
         Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.btnActualizar, 0)
@@ -243,7 +244,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.GroupPanel1.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel1.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel1.Name = "GroupPanel1"
-        Me.GroupPanel1.Size = New System.Drawing.Size(1144, 191)
+        Me.GroupPanel1.Size = New System.Drawing.Size(1242, 191)
         '
         '
         '
@@ -295,7 +296,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1138, 168)
+        Me.Panel1.Size = New System.Drawing.Size(1236, 168)
         Me.Panel1.TabIndex = 0
         '
         'rlEstado
@@ -553,7 +554,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.GroupPanel3.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel3.Location = New System.Drawing.Point(0, 191)
         Me.GroupPanel3.Name = "GroupPanel3"
-        Me.GroupPanel3.Size = New System.Drawing.Size(1144, 264)
+        Me.GroupPanel3.Size = New System.Drawing.Size(1242, 394)
         '
         '
         '
@@ -596,7 +597,7 @@ Partial Class F0G_MovimientoChoferEntrada
         Me.grdetalle.Name = "grdetalle"
         Me.grdetalle.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grdetalle.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grdetalle.Size = New System.Drawing.Size(1138, 241)
+        Me.grdetalle.Size = New System.Drawing.Size(1236, 371)
         Me.grdetalle.TabIndex = 0
         Me.grdetalle.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -752,7 +753,7 @@ Partial Class F0G_MovimientoChoferEntrada
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1186, 561)
+        Me.ClientSize = New System.Drawing.Size(1284, 691)
         Me.Location = New System.Drawing.Point(0, 0)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F0G_MovimientoChoferEntrada"

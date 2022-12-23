@@ -385,72 +385,89 @@ Public Class F0G_MovimientoChoferEntrada
     End Sub
 
     Private Sub _prGuardarModificado()
-        Dim res As Boolean = L_prMovimientoChoferModificarSalida(lbcodigo.Text, tbFecha.Value.ToString("yyyy/MM/dd"),
+        Dim info As New TaskDialogInfo("Advertencia".ToUpper,
+                                       eTaskDialogIcon.Information, "pregunta".ToUpper,
+                                       "esta seguro que entregó y/o anuló los pedidos que corresponden a este chofer?, verifique en Control de Pedidos".ToUpper _
+                                       + vbCrLf + "Desea continuar?".ToUpper,
+                                       eTaskDialogButton.Yes Or eTaskDialogButton.Cancel,
+                                       eTaskDialogBackgroundColor.Blue)
+        Dim result As eTaskDialogResult = TaskDialog.Show(info)
+        If result = eTaskDialogResult.Yes Then
+            Dim res As Boolean = L_prMovimientoChoferModificarSalida(lbcodigo.Text, tbFecha.Value.ToString("yyyy/MM/dd"),
                                                                  cbConcepto.Value, tbObservacion.Text, _codChofer,
                                                                  _prGuardarDetalleAbmConciliacion(0), _icibid)
-        If res Then
-            '----------Se lo comento para que no grabe los pedidos moviles en la conciliación
-            'Dim dt As DataTable = New DataTable
-            'With dt.Columns
-            '    .Add("idnumi", Type.GetType("System.Int32"))
-            '    .Add("idtm1id", Type.GetType("System.Int32"))
-            '    .Add("idto1numi", Type.GetType("System.Int32"))
-            '    .Add("idtipo", Type.GetType("System.Int32"))
-            '    .Add("estado", Type.GetType("System.Int32"))
-            'End With
+            If res Then
+                '----------Se lo comento para que no grabe los pedidos moviles en la conciliación
+                'Dim dt As DataTable = New DataTable
+                'With dt.Columns
+                '    .Add("idnumi", Type.GetType("System.Int32"))
+                '    .Add("idtm1id", Type.GetType("System.Int32"))
+                '    .Add("idto1numi", Type.GetType("System.Int32"))
+                '    .Add("idtipo", Type.GetType("System.Int32"))
+                '    .Add("estado", Type.GetType("System.Int32"))
+                'End With
 
-            'For Each fil As GridEXRow In grdetalle.GetRows
-            '    Dim cad As String() = fil.Cells("ID_TO1").Value.ToString.Split(",")
-            '    For Each i As String In cad
-            '        If (Not i = String.Empty) Then
-            '            If (dt.Select("idto1numi=" + i).Count = 0) Then
-            '                dt.Rows.Add({0, lbcodigo.Text, CInt(i), 1, 0})
-            '            End If
-            '        End If
-            '    Next
-            'Next
+                'For Each fil As GridEXRow In grdetalle.GetRows
+                '    Dim cad As String() = fil.Cells("ID_TO1").Value.ToString.Split(",")
+                '    For Each i As String In cad
+                '        If (Not i = String.Empty) Then
+                '            If (dt.Select("idto1numi=" + i).Count = 0) Then
+                '                dt.Rows.Add({0, lbcodigo.Text, CInt(i), 1, 0})
+                '            End If
+                '        End If
+                '    Next
+                'Next
 
-            'L_prMovimientoChoferInsertarEnlacePedidoMovil(lbcodigo.Text, dt)
+                'L_prMovimientoChoferInsertarEnlacePedidoMovil(lbcodigo.Text, dt)
 
-            Dim dt As DataTable = L_BuscarIdPedido2(_codChofer, lbcodigo.Text)
-            If dt.Rows.Count > 0 Then
-                For i = 0 To dt.Rows.Count - 1
-                    'Grabar Estado 7 de Movimiento Conciliacion en la TO001D
-                    L_GrabarTO001D(dt.Rows(i).Item("idpedido"), "7", "Movimiento Conciliación")
-                Next
-            End If
-
-            ''Filtrar los Pedidos que no han sido entregados y liberarlos para volver a asignarlos
-            If gs_LiberarPedido = 1 Then
-                Dim dt2 As DataTable = L_BuscarIdPedido3(_codChofer, lbcodigo.Text)
-                If dt2.Rows.Count > 0 Then
-                    For i = 0 To dt2.Rows.Count - 1
-                        L_EliminarTO001C(dt2.Rows(i).Item("idpedido"))
-                        L_EliminarTO001DEstado7(dt2.Rows(i).Item("idpedido"))
+                Dim dt As DataTable = L_BuscarIdPedido2(_codChofer, lbcodigo.Text)
+                If dt.Rows.Count > 0 Then
+                    For i = 0 To dt.Rows.Count - 1
+                        'Grabar Estado 7 de Movimiento Conciliacion en la TO001D
+                        L_GrabarTO001D(dt.Rows(i).Item("idpedido"), "7", "Movimiento Conciliación")
                     Next
                 End If
+
+                ''Filtrar los Pedidos que no han sido entregados y liberarlos para volver a asignarlos
+                If gs_LiberarPedido = 1 Then
+                    Dim dt2 As DataTable = L_BuscarIdPedido3(_codChofer, lbcodigo.Text)
+                    If dt2.Rows.Count > 0 Then
+                        For i = 0 To dt2.Rows.Count - 1
+                            L_EliminarTO001C(dt2.Rows(i).Item("idpedido"))
+                            L_EliminarTO001DEstado7(dt2.Rows(i).Item("idpedido"))
+                        Next
+                    End If
+                End If
+
+
+                _prCargarVenta()
+                _prSalir()
+
+                Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
+                ToastNotification.Show(Me,
+                                       "Código de Movimiento ".ToUpper + lbcodigo.Text + " Modificado con Exito.".ToUpper,
+                                       img,
+                                       2000,
+                                       eToastGlowColor.Green,
+                                       eToastPosition.TopCenter)
+            Else
+                Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                ToastNotification.Show(Me,
+                                       "La Venta no pudo ser Modificada".ToUpper,
+                                       img,
+                                       2000,
+                                       eToastGlowColor.Red,
+                                       eToastPosition.BottomCenter)
             End If
 
-
-            _prCargarVenta()
-            _prSalir()
-
-            Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
-            ToastNotification.Show(Me,
-                                   "Código de Movimiento ".ToUpper + lbcodigo.Text + " Modificado con Exito.".ToUpper,
-                                   img,
-                                   2000,
-                                   eToastGlowColor.Green,
-                                   eToastPosition.TopCenter)
         Else
-            Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
-            ToastNotification.Show(Me,
-                                   "La Venta no pudo ser Modificada".ToUpper,
-                                   img,
-                                   2000,
-                                   eToastGlowColor.Red,
-                                   eToastPosition.BottomCenter)
+            _prSalir()
+            Exit Sub
+
         End If
+
+
+
     End Sub
     Private Sub _prSalir()
         If MBtGrabar.Enabled = True Then

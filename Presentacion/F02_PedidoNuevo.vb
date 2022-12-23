@@ -1541,7 +1541,7 @@ Public Class F02_PedidoNuevo
                 End If
             Next
             If (swTipoVenta.Value = False) Then
-                If (tbMontoCredito.Text.Length > 0) Then
+                If (tbMontoCredito.Text > 0) Then
                     Dim MontoCredito As Double = Double.Parse(tbMontoCredito.Text)
 
                     If (MontoCredito > sumTotal) Then
@@ -1549,7 +1549,7 @@ Public Class F02_PedidoNuevo
                         _Error = True
                     End If
                 Else
-                    ToastNotification.Show(Me, "Debe Ingresar un Monto de Credito".ToUpper, My.Resources.WARNING, 3000, eToastGlowColor.Green, eToastPosition.BottomCenter)
+                    ToastNotification.Show(Me, "El Monto de Crédito debe ser mayor a 0, presione nuevamente el Switch para que agarre el Monto de Crédito".ToUpper, My.Resources.WARNING, 5000, eToastGlowColor.Green, eToastPosition.BottomCenter)
                     _Error = True
                 End If
 
