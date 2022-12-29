@@ -137,6 +137,7 @@ Partial Class F01_ReporteVentaFact
         Me.MPnInferior.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder
         Me.MPnInferior.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.MPnInferior.Style.GradientAngle = 90
+        Me.MPnInferior.Visible = False
         '
         'MTbUsuario
         '
@@ -260,6 +261,7 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX9.Size = New System.Drawing.Size(107, 23)
         Me.LabelX9.TabIndex = 276
         Me.LabelX9.Text = "Producto:"
+        Me.LabelX9.Visible = False
         '
         'cbProducto
         '
@@ -275,6 +277,7 @@ Partial Class F01_ReporteVentaFact
         Me.cbProducto.SelectedItem = Nothing
         Me.cbProducto.Size = New System.Drawing.Size(179, 22)
         Me.cbProducto.TabIndex = 275
+        Me.cbProducto.Visible = False
         Me.cbProducto.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'LabelX8

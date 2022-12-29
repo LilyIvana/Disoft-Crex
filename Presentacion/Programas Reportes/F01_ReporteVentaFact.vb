@@ -63,7 +63,7 @@ Public Class F01_ReporteVentaFact
     End Sub
     Private Sub P_prArmarComboRepartidor()
         Dim DtP As DataTable
-        DtP = L_fnObtenerPersonal(3)
+        DtP = L_fnObtenerPersonal(1)
         DtP.Rows.Add(0, "TODOS")
 
         g_prArmarCombo(cbRepartidor, DtP, 60, 200, "COD", "REPARTIDORES")
@@ -72,7 +72,7 @@ Public Class F01_ReporteVentaFact
     End Sub
     Private Sub P_prArmarComboVendedores()
         Dim DtP As DataTable
-        DtP = L_fnObtenerPersonal(1)
+        DtP = L_fnObtenerPersonal(3)
         DtP.Rows.Add(0, "TODOS")
 
         g_prArmarCombo(cbVendedor, DtP, 60, 200, "COD", "VENDEDORES")
