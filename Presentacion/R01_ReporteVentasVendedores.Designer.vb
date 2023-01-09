@@ -1,10 +1,10 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class R01_ReporteVentasVendedores
     Inherits Modelo.ModeloR01
 
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -21,7 +21,7 @@ Partial Class R01_ReporteVentasVendedores
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim tbAlmacen_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(R01_ReporteVentasVendedores))
@@ -47,6 +47,8 @@ Partial Class R01_ReporteVentasVendedores
         Me.tbFechaF = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
         Me.LabelX4 = New DevComponents.DotNetBar.LabelX()
         Me.tbFechaI = New DevComponents.Editors.DateTimeAdv.DateTimeInput()
+        Me.LabelX7 = New DevComponents.DotNetBar.LabelX()
+        Me.LabelX8 = New DevComponents.DotNetBar.LabelX()
         Me.MPnSuperior.SuspendLayout()
         Me.MPnInferior.SuspendLayout()
         Me.MPanelToolBarUsuario.SuspendLayout()
@@ -86,6 +88,9 @@ Partial Class R01_ReporteVentasVendedores
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Text = "DEFAULT"
         '
+        'MBtSalir
+        '
+        '
         'MBtGenerar
         '
         '
@@ -114,6 +119,8 @@ Partial Class R01_ReporteVentasVendedores
         '
         'MGpFiltro
         '
+        Me.MGpFiltro.Controls.Add(Me.LabelX8)
+        Me.MGpFiltro.Controls.Add(Me.LabelX7)
         Me.MGpFiltro.Controls.Add(Me.swFiltroVendedores)
         Me.MGpFiltro.Controls.Add(Me.swProducto)
         Me.MGpFiltro.Controls.Add(Me.LabelX2)
@@ -187,6 +194,8 @@ Partial Class R01_ReporteVentasVendedores
         Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX2, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.swProducto, 0)
         Me.MGpFiltro.Controls.SetChildIndex(Me.swFiltroVendedores, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX7, 0)
+        Me.MGpFiltro.Controls.SetChildIndex(Me.LabelX8, 0)
         '
         'MCrReporte
         '
@@ -209,8 +218,6 @@ Partial Class R01_ReporteVentasVendedores
         Me.swFiltroVendedores.Size = New System.Drawing.Size(170, 22)
         Me.swFiltroVendedores.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.swFiltroVendedores.TabIndex = 282
-        Me.swFiltroVendedores.Value = True
-        Me.swFiltroVendedores.ValueObject = "Y"
         '
         'swProducto
         '
@@ -410,6 +417,7 @@ Partial Class R01_ReporteVentasVendedores
         Me.tbAlmacen.SelectedItem = Nothing
         Me.tbAlmacen.Size = New System.Drawing.Size(164, 22)
         Me.tbAlmacen.TabIndex = 269
+        Me.tbAlmacen.Visible = False
         Me.tbAlmacen.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
         'CheckTodosAlmacen
@@ -424,6 +432,7 @@ Partial Class R01_ReporteVentasVendedores
         Me.CheckTodosAlmacen.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.CheckTodosAlmacen.TabIndex = 268
         Me.CheckTodosAlmacen.Text = "Todos"
+        Me.CheckTodosAlmacen.Visible = False
         '
         'CheckUnaALmacen
         '
@@ -437,6 +446,7 @@ Partial Class R01_ReporteVentasVendedores
         Me.CheckUnaALmacen.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.CheckUnaALmacen.TabIndex = 265
         Me.CheckUnaALmacen.Text = "Una"
+        Me.CheckUnaALmacen.Visible = False
         '
         'tbCodAlmacen
         '
@@ -596,6 +606,38 @@ Partial Class R01_ReporteVentasVendedores
         Me.tbFechaI.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.tbFechaI.TabIndex = 261
         '
+        'LabelX7
+        '
+        Me.LabelX7.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX7.Font = New System.Drawing.Font("Georgia", 6.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX7.Location = New System.Drawing.Point(123, 163)
+        Me.LabelX7.Name = "LabelX7"
+        Me.LabelX7.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX7.Size = New System.Drawing.Size(48, 12)
+        Me.LabelX7.TabIndex = 283
+        Me.LabelX7.Text = "Ctrl+Enter"
+        '
+        'LabelX8
+        '
+        Me.LabelX8.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX8.Font = New System.Drawing.Font("Georgia", 6.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX8.Location = New System.Drawing.Point(123, 221)
+        Me.LabelX8.Name = "LabelX8"
+        Me.LabelX8.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX8.Size = New System.Drawing.Size(48, 12)
+        Me.LabelX8.TabIndex = 284
+        Me.LabelX8.Text = "Ctrl+Enter"
+        '
         'R01_ReporteVentasVendedores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -645,4 +687,6 @@ Partial Class R01_ReporteVentasVendedores
     Friend WithEvents tbFechaF As DevComponents.Editors.DateTimeAdv.DateTimeInput
     Friend WithEvents LabelX4 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbFechaI As DevComponents.Editors.DateTimeAdv.DateTimeInput
+    Friend WithEvents LabelX8 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents LabelX7 As DevComponents.DotNetBar.LabelX
 End Class

@@ -1793,17 +1793,23 @@ Public Class P_Principal
 
     Private Sub btPendientesConciliacion_Click(sender As Object, e As EventArgs) Handles btPendientesConciliacion.Click
         Dim frm As New R01_PendientesConciliacion
-        frm.ShowDialog()
+        frm.Show()
     End Sub
 
     Private Sub btPedEstado2_Click(sender As Object, e As EventArgs) Handles btPedEstado2.Click
         Dim frm As New F01_RepPedidosEstado2
-        frm.ShowDialog()
+        frm.Show()
     End Sub
 
     Private Sub btnVendProvProd_Click(sender As Object, e As EventArgs) Handles btnVendProvProd.Click
         Dim frm As New R01_ReporteVentasVendedores
-        frm.ShowDialog()
+        frm._nameButton = btnVendProvProd.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+
+
+
+
     End Sub
 
 

@@ -29,7 +29,6 @@ Public Class F01_RepPedidosEstado2
         P_prArmarComboDescripcion(cbDescripcion)
         P_prArmarComboClientes()
         P_prArmarComboVendedores()
-        P_prArmarComboRepartidor()
         P_prArmarComboProducto()
 
     End Sub
@@ -61,15 +60,7 @@ Public Class F01_RepPedidosEstado2
         cbClientes.SelectedIndex = Convert.ToInt32(DtP.Rows.Count - 1)
 
     End Sub
-    Private Sub P_prArmarComboRepartidor()
-        Dim DtP As DataTable
-        DtP = L_fnObtenerPersonal(1)
-        DtP.Rows.Add(0, "TODOS")
 
-        g_prArmarCombo(cbRepartidor, DtP, 60, 200, "COD", "REPARTIDORES")
-        cbRepartidor.SelectedIndex = Convert.ToInt32(DtP.Rows.Count - 1)
-
-    End Sub
     Private Sub P_prArmarComboVendedores()
         Dim DtP As DataTable
         DtP = L_fnObtenerPersonal(3)
@@ -166,18 +157,7 @@ Public Class F01_RepPedidosEstado2
             Next
             _dt = table.Copy
         End If
-        If (cbRepartidor.Value <> 0) Then
-            table = _dt.Copy
-            table.Rows.Clear()
-            For i As Integer = 0 To _dt.Rows.Count - 1 Step 1
-                If (_dt.Rows(i).Item("RepartidorId") = cbRepartidor.Value) Then
-                    table.ImportRow(_dt.Rows(i))
 
-                End If
-
-            Next
-            _dt = table.Copy
-        End If
         If (cbProducto.Value <> 0) Then
             table = _dt.Copy
             table.Rows.Clear()

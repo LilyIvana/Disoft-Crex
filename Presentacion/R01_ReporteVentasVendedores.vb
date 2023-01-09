@@ -1,6 +1,12 @@
 ﻿Imports Logica.AccesoLogica
 Imports DevComponents.DotNetBar
+Imports DevComponents.DotNetBar.Controls
 Public Class R01_ReporteVentasVendedores
+    Dim _Inter As Integer = 0
+    Public _nameButton As String
+    Public _tab As SuperTabItem
+
+    Public _modulo As SideNavItem
 
     Public Sub _prIniciarTodo()
         tbFechaI.Value = Now.Date
@@ -281,4 +287,10 @@ Public Class R01_ReporteVentasVendedores
     Private Sub R01_ReporteVentasVendedores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         _prIniciarTodo()
     End Sub
+
+    Private Sub MBtSalir_Click(sender As Object, e As EventArgs) Handles MBtSalir.Click
+        Me.Close()
+    End Sub
+
+
 End Class
