@@ -1801,6 +1801,11 @@ Public Class P_Principal
         frm.ShowDialog()
     End Sub
 
+    Private Sub btnVendProvProd_Click(sender As Object, e As EventArgs) Handles btnVendProvProd.Click
+        Dim frm As New R01_ReporteVentasVendedores
+        frm.ShowDialog()
+    End Sub
+
 
 #End Region
 

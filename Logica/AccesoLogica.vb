@@ -9813,6 +9813,60 @@ Public Class AccesoLogica
         _Tabla = D_ProcedimientoConParam("sp_Mam_ReporteVentas", _listParam)
         Return _Tabla
     End Function
+
+    Public Shared Function L_BuscarVentasVendedorProveedoresProductos(fechaI As String, fechaF As String, idAlmacen As Integer, idVendedor As Integer, idProveedor As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 17))
+        _listParam.Add(New Datos.DParametro("@fechaI", fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", fechaF))
+        _listParam.Add(New Datos.DParametro("@vendedor", idVendedor))
+        _listParam.Add(New Datos.DParametro("@proveedor", idProveedor))
+        _listParam.Add(New Datos.DParametro("@almacen", idAlmacen))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("Sp_Mam_ReporteVentas", _listParam)
+        Return _Tabla
+    End Function
+    Public Shared Function L_BuscarVentasVendedoresProveedores(fechaI As String, fechaF As String, idAlmacen As Integer, idVendedor As Integer, idProveedor As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 18))
+        _listParam.Add(New Datos.DParametro("@fechaI", fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", fechaF))
+        _listParam.Add(New Datos.DParametro("@vendedor", idVendedor))
+        _listParam.Add(New Datos.DParametro("@proveedor", idProveedor))
+        _listParam.Add(New Datos.DParametro("@almacen", idAlmacen))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("Sp_Mam_ReporteVentas", _listParam)
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_BuscarVentasProveedoresProductosSinVendedor(fechaI As String, fechaF As String, idAlmacen As Integer, idProveedor As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 19))
+        _listParam.Add(New Datos.DParametro("@fechaI", fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", fechaF))
+        _listParam.Add(New Datos.DParametro("@proveedor", idProveedor))
+        _listParam.Add(New Datos.DParametro("@almacen", idAlmacen))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("Sp_Mam_ReporteVentas", _listParam)
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_BuscarVentasProveedoresSinVendedor(fechaI As String, fechaF As String, idAlmacen As Integer, idProveedor As Integer) As DataTable
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+        _listParam.Add(New Datos.DParametro("@tipo", 20))
+        _listParam.Add(New Datos.DParametro("@fechaI", fechaI))
+        _listParam.Add(New Datos.DParametro("@fechaF", fechaF))
+        _listParam.Add(New Datos.DParametro("@proveedor", idProveedor))
+        _listParam.Add(New Datos.DParametro("@almacen", idAlmacen))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _Tabla = D_ProcedimientoConParam("Sp_Mam_ReporteVentas", _listParam)
+        Return _Tabla
+    End Function
+
 #End Region
 
 #Region "VENTAS ESTADISTICOS"
