@@ -289,6 +289,7 @@ Public Class F0G_MovimientoChoferSalida
             .Visible = True
             .FormatString = "0.00"
             .Caption = "Total".ToUpper
+            .AggregateFunction = AggregateFunction.Sum
         End With
         With grdetalle.RootTable.Columns("cantidadPreVenta")
             .Width = 160
@@ -330,6 +331,9 @@ Public Class F0G_MovimientoChoferSalida
         With grdetalle
             .GroupByBoxVisible = False
             'diseño de la grilla
+            .TotalRow = InheritableBoolean.True
+            .TotalRowFormatStyle.BackColor = Color.Gold
+            .TotalRowPosition = TotalRowPosition.BottomFixed
             .VisualStyle = VisualStyle.Office2007
         End With
     End Sub
