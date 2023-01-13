@@ -84,8 +84,8 @@ Public Class F01_ReporteVentaFact
         Dim DtP As DataTable
         DtP = L_fnObtenerProveedor()
         DtP.Rows.Clear()
-        DtP.Rows.Add(0, "TODOS")
-        DtP.Rows.Add(1, "ACTIVOS")
+        'DtP.Rows.Add(0, "TODOS")
+        DtP.Rows.Add(1, "VIGENTE")
         DtP.Rows.Add(2, "ANULADOS")
         g_prArmarCombo(cbFactura, DtP, 60, 200, "COD", "ESTADO")
         cbFactura.SelectedIndex = Convert.ToInt32(0)
@@ -134,7 +134,7 @@ Public Class F01_ReporteVentaFact
     End Sub
 
     Private Sub F01_ReporteVentaFact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Text = "Ventas Facturadas"
+        Me.Text = "Ventas Detalladas Entregadas"
         tbFechaI.Value = Now.Date
         tbFechaF.Value = Now.Date
         P_prInicio()
@@ -148,7 +148,7 @@ Public Class F01_ReporteVentaFact
             table = _dt.Copy
             table.Rows.Clear()
             For i As Integer = 0 To _dt.Rows.Count - 1 Step 1
-                If (_dt.Rows(i).Item("EstadoFactura") = 1) Then
+                If (_dt.Rows(i).Item("EstadoFactura") = 1 And _dt.Rows(i).Item("oaest") = 3) Then
                     table.ImportRow(_dt.Rows(i))
 
                 End If
@@ -162,7 +162,6 @@ Public Class F01_ReporteVentaFact
             For i As Integer = 0 To _dt.Rows.Count - 1 Step 1
                 If (_dt.Rows(i).Item("EstadoFactura") = 0) Then
                     table.ImportRow(_dt.Rows(i))
-
                 End If
 
             Next
@@ -223,7 +222,6 @@ Public Class F01_ReporteVentaFact
         Filtrar(dt)
         If (dt.Rows.Count > 0) Then
 
-
             grDatos.DataSource = dt
             grDatos.RetrieveStructure()
             grDatos.AlternatingColors = True
@@ -245,19 +243,18 @@ Public Class F01_ReporteVentaFact
                 .Visible = False
             End With
             With grDatos.RootTable.Columns("Atributo")
-                .Caption = "Atributo"
+                .Caption = "Calibre/Gramaje"
                 .FormatString = ""
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("Descripcion")
-                .Caption = "Descripcion"
+                .Caption = "Descripcion Det."
                 .FormatString = ""
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("detalle")
-                .Caption = "Detalle"
+                .Caption = "Estado"
                 .FormatString = ""
-
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("Almacen")
@@ -265,7 +262,9 @@ Public Class F01_ReporteVentaFact
                 .FormatString = ""
                 .Visible = False
             End With
-
+            With grDatos.RootTable.Columns("IdUnidad")
+                .Visible = False
+            End With
             With grDatos.RootTable.Columns("Unidad")
                 .Caption = "Unidad"
                 .FormatString = ""
@@ -274,7 +273,7 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("TipoPago")
                 .Caption = "TipoPago"
                 .FormatString = ""
-                .Visible = False
+                .Visible = True
             End With
             With grDatos.RootTable.Columns("Proveedor")
                 .Caption = "Proveedor"
@@ -293,10 +292,16 @@ Public Class F01_ReporteVentaFact
             End With
 
             With grDatos.RootTable.Columns("Zona")
+                .Caption = "IdZona"
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("DescZona")
                 .Caption = "Zona"
                 .FormatString = ""
                 .Visible = True
             End With
+
             With grDatos.RootTable.Columns("Vendedor")
                 .Caption = "Vendedor"
                 .FormatString = ""
@@ -313,7 +318,7 @@ Public Class F01_ReporteVentaFact
                 .Visible = False
             End With
             With grDatos.RootTable.Columns("Codigo")
-                .Caption = "Cod. ZonaPed"
+                .Caption = "Cod. Pedido"
                 .FormatString = ""
                 .Visible = True
             End With
@@ -350,7 +355,7 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("CControl")
                 .Caption = "Código Control"
                 .FormatString = ""
-                .Visible = True
+                .Visible = False
             End With
             With grDatos.RootTable.Columns("Direccion")
                 .Caption = "Direccion"
@@ -358,12 +363,12 @@ Public Class F01_ReporteVentaFact
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("CodigoVendedor")
-                .Caption = "CodigoVendedor"
+                .Caption = "CodVendedorDynasys"
                 .FormatString = ""
                 .Visible = True
             End With
-            With grDatos.RootTable.Columns("CodigoVendedor")
-                .Caption = "CodigoVendedor"
+            With grDatos.RootTable.Columns("CodVend")
+                .Caption = "CodVendedorCrex"
                 .FormatString = ""
                 .Visible = True
             End With
@@ -379,12 +384,12 @@ Public Class F01_ReporteVentaFact
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("CodProducto")
-                .Caption = "CodProducto"
+                .Caption = "CodProdDynasys"
                 .FormatString = ""
-                .Visible = False
+                .Visible = True
             End With
             With grDatos.RootTable.Columns("CodPro")
-                .Caption = "CodProducto"
+                .Caption = "CodProdDelta"
                 .FormatString = ""
                 .Visible = True
             End With
@@ -393,18 +398,12 @@ Public Class F01_ReporteVentaFact
                 .Caption = "Producto"
                 .Visible = True
             End With
-            With grDatos.RootTable.Columns("CostoTotal")
+            With grDatos.RootTable.Columns("PrecioCosto")
                 .Width = 100
                 .FormatString = "0.00"
                 .Visible = True
             End With
-            With grDatos.RootTable.Columns("Ganancia")
-                .Width = 100
-                .FormatString = "0.00"
-                .Visible = False
-
-            End With
-            With grDatos.RootTable.Columns("PrecioCosto")
+            With grDatos.RootTable.Columns("CostoTotal")
                 .Width = 100
                 .FormatString = "0.00"
                 .Visible = True
@@ -414,6 +413,12 @@ Public Class F01_ReporteVentaFact
                 .FormatString = "0.00"
                 .Visible = True
             End With
+            With grDatos.RootTable.Columns("Ganancia")
+                .Width = 100
+                .FormatString = "0.00"
+                .Visible = True
+            End With
+
             With grDatos.RootTable.Columns("Cantidad")
                 .Width = 100
                 .FormatString = "0.00"
@@ -448,8 +453,9 @@ Public Class F01_ReporteVentaFact
                 .FormatString = "0.00"
                 .Visible = True
             End With
-
-
+            With grDatos.RootTable.Columns("oaest")
+                .Visible = False
+            End With
 
             With grDatos
                 .DefaultFilterRowComparison = FilterConditionOperator.Contains
@@ -526,7 +532,7 @@ Public Class F01_ReporteVentaFact
                 Dim _escritor As StreamWriter
                 Dim _fila As Integer = grDatos.GetRows.Length
                 Dim _columna As Integer = grDatos.RootTable.Columns.Count
-                Dim _archivo As String = _ubicacion & "\ListaDeProductos_" & Now.Date.Day &
+                Dim _archivo As String = _ubicacion & "\VentasDetalladas_" & Now.Date.Day &
                     "." & Now.Date.Month & "." & Now.Date.Year & "_" & Now.Hour & "." & Now.Minute & "." & Now.Second & ".csv"
                 Dim _linea As String = ""
                 Dim _filadata = 0, columndata As Int32 = 0

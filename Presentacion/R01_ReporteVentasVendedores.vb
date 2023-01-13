@@ -267,7 +267,7 @@ Public Class R01_ReporteVentasVendedores
         End If
     End Sub
 
-    Private Sub _prCargarComboLibreriaSucursal(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
+    Public Sub _prCargarComboLibreriaSucursal(mCombo As Janus.Windows.GridEX.EditControls.MultiColumnCombo)
         Dim dt As New DataTable
         dt = L_fnMovimientoListarSucursales()
 

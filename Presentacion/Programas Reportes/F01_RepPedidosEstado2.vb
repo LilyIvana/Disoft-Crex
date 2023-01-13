@@ -226,12 +226,12 @@ Public Class F01_RepPedidosEstado2
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("CodigoVendedor")
-                .Caption = "CodigoVendedor"
+                .Caption = "CodVendedorDynasys"
                 .FormatString = ""
                 .Visible = True
             End With
             With grDatos.RootTable.Columns("CodVend")
-                .Caption = "CodVend."
+                .Caption = "CodVendedorCrex"
                 .FormatString = ""
                 .Visible = True
             End With

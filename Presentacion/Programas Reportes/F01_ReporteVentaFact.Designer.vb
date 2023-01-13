@@ -255,7 +255,7 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX9.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX9.Location = New System.Drawing.Point(307, 141)
+        Me.LabelX9.Location = New System.Drawing.Point(329, 147)
         Me.LabelX9.Name = "LabelX9"
         Me.LabelX9.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX9.Size = New System.Drawing.Size(107, 23)
@@ -268,7 +268,7 @@ Partial Class F01_ReporteVentaFact
         cbProducto_DesignTimeLayout.LayoutString = resources.GetString("cbProducto_DesignTimeLayout.LayoutString")
         Me.cbProducto.DesignTimeLayout = cbProducto_DesignTimeLayout
         Me.cbProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbProducto.Location = New System.Drawing.Point(420, 141)
+        Me.cbProducto.Location = New System.Drawing.Point(442, 148)
         Me.cbProducto.MaxLength = 40
         Me.cbProducto.Name = "cbProducto"
         Me.cbProducto.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -289,7 +289,7 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX8.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX8.Location = New System.Drawing.Point(307, 116)
+        Me.LabelX8.Location = New System.Drawing.Point(329, 116)
         Me.LabelX8.Name = "LabelX8"
         Me.LabelX8.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX8.Size = New System.Drawing.Size(107, 23)
@@ -301,7 +301,7 @@ Partial Class F01_ReporteVentaFact
         cbRepartidor_DesignTimeLayout.LayoutString = resources.GetString("cbRepartidor_DesignTimeLayout.LayoutString")
         Me.cbRepartidor.DesignTimeLayout = cbRepartidor_DesignTimeLayout
         Me.cbRepartidor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbRepartidor.Location = New System.Drawing.Point(420, 116)
+        Me.cbRepartidor.Location = New System.Drawing.Point(442, 118)
         Me.cbRepartidor.MaxLength = 40
         Me.cbRepartidor.Name = "cbRepartidor"
         Me.cbRepartidor.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -321,7 +321,7 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX7.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX7.Location = New System.Drawing.Point(307, 89)
+        Me.LabelX7.Location = New System.Drawing.Point(329, 89)
         Me.LabelX7.Name = "LabelX7"
         Me.LabelX7.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX7.Size = New System.Drawing.Size(107, 23)
@@ -333,7 +333,7 @@ Partial Class F01_ReporteVentaFact
         cbVendedor_DesignTimeLayout.LayoutString = resources.GetString("cbVendedor_DesignTimeLayout.LayoutString")
         Me.cbVendedor.DesignTimeLayout = cbVendedor_DesignTimeLayout
         Me.cbVendedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbVendedor.Location = New System.Drawing.Point(420, 89)
+        Me.cbVendedor.Location = New System.Drawing.Point(442, 89)
         Me.cbVendedor.MaxLength = 40
         Me.cbVendedor.Name = "cbVendedor"
         Me.cbVendedor.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -353,7 +353,7 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX6.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX6.Location = New System.Drawing.Point(307, 61)
+        Me.LabelX6.Location = New System.Drawing.Point(329, 61)
         Me.LabelX6.Name = "LabelX6"
         Me.LabelX6.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX6.Size = New System.Drawing.Size(107, 23)
@@ -365,7 +365,7 @@ Partial Class F01_ReporteVentaFact
         cbClientes_DesignTimeLayout.LayoutString = resources.GetString("cbClientes_DesignTimeLayout.LayoutString")
         Me.cbClientes.DesignTimeLayout = cbClientes_DesignTimeLayout
         Me.cbClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbClientes.Location = New System.Drawing.Point(420, 61)
+        Me.cbClientes.Location = New System.Drawing.Point(442, 61)
         Me.cbClientes.MaxLength = 40
         Me.cbClientes.Name = "cbClientes"
         Me.cbClientes.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -385,7 +385,7 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX5.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX5.Location = New System.Drawing.Point(307, 33)
+        Me.LabelX5.Location = New System.Drawing.Point(329, 33)
         Me.LabelX5.Name = "LabelX5"
         Me.LabelX5.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX5.Size = New System.Drawing.Size(107, 23)
@@ -397,7 +397,7 @@ Partial Class F01_ReporteVentaFact
         cbFactura_DesignTimeLayout.LayoutString = resources.GetString("cbFactura_DesignTimeLayout.LayoutString")
         Me.cbFactura.DesignTimeLayout = cbFactura_DesignTimeLayout
         Me.cbFactura.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbFactura.Location = New System.Drawing.Point(420, 33)
+        Me.cbFactura.Location = New System.Drawing.Point(442, 33)
         Me.cbFactura.MaxLength = 40
         Me.cbFactura.Name = "cbFactura"
         Me.cbFactura.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -417,7 +417,7 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX2.Location = New System.Drawing.Point(307, 8)
+        Me.LabelX2.Location = New System.Drawing.Point(329, 8)
         Me.LabelX2.Name = "LabelX2"
         Me.LabelX2.SingleLineColor = System.Drawing.SystemColors.Control
         Me.LabelX2.Size = New System.Drawing.Size(88, 23)
@@ -429,7 +429,7 @@ Partial Class F01_ReporteVentaFact
         cbDescripcion_DesignTimeLayout.LayoutString = resources.GetString("cbDescripcion_DesignTimeLayout.LayoutString")
         Me.cbDescripcion.DesignTimeLayout = cbDescripcion_DesignTimeLayout
         Me.cbDescripcion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbDescripcion.Location = New System.Drawing.Point(420, 8)
+        Me.cbDescripcion.Location = New System.Drawing.Point(442, 8)
         Me.cbDescripcion.MaxLength = 40
         Me.cbDescripcion.Name = "cbDescripcion"
         Me.cbDescripcion.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -445,7 +445,7 @@ Partial Class F01_ReporteVentaFact
         cbCategoria_DesignTimeLayout.LayoutString = resources.GetString("cbCategoria_DesignTimeLayout.LayoutString")
         Me.cbCategoria.DesignTimeLayout = cbCategoria_DesignTimeLayout
         Me.cbCategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbCategoria.Location = New System.Drawing.Point(109, 90)
+        Me.cbCategoria.Location = New System.Drawing.Point(131, 90)
         Me.cbCategoria.MaxLength = 40
         Me.cbCategoria.Name = "cbCategoria"
         Me.cbCategoria.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -497,7 +497,7 @@ Partial Class F01_ReporteVentaFact
         Me.lbgrupo2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbgrupo2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbgrupo2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbgrupo2.Location = New System.Drawing.Point(13, 119)
+        Me.lbgrupo2.Location = New System.Drawing.Point(13, 117)
         Me.lbgrupo2.Name = "lbgrupo2"
         Me.lbgrupo2.SingleLineColor = System.Drawing.SystemColors.Control
         Me.lbgrupo2.Size = New System.Drawing.Size(76, 23)
@@ -513,12 +513,12 @@ Partial Class F01_ReporteVentaFact
         Me.lbgrupo3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.lbgrupo3.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbgrupo3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.lbgrupo3.Location = New System.Drawing.Point(13, 151)
+        Me.lbgrupo3.Location = New System.Drawing.Point(13, 147)
         Me.lbgrupo3.Name = "lbgrupo3"
         Me.lbgrupo3.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.lbgrupo3.Size = New System.Drawing.Size(76, 23)
+        Me.lbgrupo3.Size = New System.Drawing.Size(111, 23)
         Me.lbgrupo3.TabIndex = 262
-        Me.lbgrupo3.Text = "Atributo:"
+        Me.lbgrupo3.Text = "Calibre/Gramaje:"
         '
         'cbProveedor
         '
@@ -527,7 +527,7 @@ Partial Class F01_ReporteVentaFact
         cbProveedor_DesignTimeLayout.LayoutString = resources.GetString("cbProveedor_DesignTimeLayout.LayoutString")
         Me.cbProveedor.DesignTimeLayout = cbProveedor_DesignTimeLayout
         Me.cbProveedor.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbProveedor.Location = New System.Drawing.Point(109, 63)
+        Me.cbProveedor.Location = New System.Drawing.Point(131, 63)
         Me.cbProveedor.MaxLength = 40
         Me.cbProveedor.Name = "cbProveedor"
         Me.cbProveedor.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -543,7 +543,7 @@ Partial Class F01_ReporteVentaFact
         cbMarca_DesignTimeLayout.LayoutString = resources.GetString("cbMarca_DesignTimeLayout.LayoutString")
         Me.cbMarca.DesignTimeLayout = cbMarca_DesignTimeLayout
         Me.cbMarca.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbMarca.Location = New System.Drawing.Point(109, 119)
+        Me.cbMarca.Location = New System.Drawing.Point(131, 118)
         Me.cbMarca.MaxLength = 40
         Me.cbMarca.Name = "cbMarca"
         Me.cbMarca.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -559,7 +559,7 @@ Partial Class F01_ReporteVentaFact
         cbAtributo_DesignTimeLayout.LayoutString = resources.GetString("cbAtributo_DesignTimeLayout.LayoutString")
         Me.cbAtributo.DesignTimeLayout = cbAtributo_DesignTimeLayout
         Me.cbAtributo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbAtributo.Location = New System.Drawing.Point(109, 150)
+        Me.cbAtributo.Location = New System.Drawing.Point(131, 147)
         Me.cbAtributo.MaxLength = 40
         Me.cbAtributo.Name = "cbAtributo"
         Me.cbAtributo.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
@@ -578,7 +578,7 @@ Partial Class F01_ReporteVentaFact
         Me.ButtonX1.Image = Global.Presentacion.My.Resources.Resources.BT_ACTUALIZAR
         Me.ButtonX1.ImageFixedSize = New System.Drawing.Size(50, 50)
         Me.ButtonX1.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.ButtonX1.Location = New System.Drawing.Point(652, 18)
+        Me.ButtonX1.Location = New System.Drawing.Point(674, 18)
         Me.ButtonX1.Name = "ButtonX1"
         Me.ButtonX1.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
         Me.ButtonX1.Size = New System.Drawing.Size(76, 72)
@@ -595,7 +595,7 @@ Partial Class F01_ReporteVentaFact
         Me.btExcel.Image = Global.Presentacion.My.Resources.Resources.EXCEL
         Me.btExcel.ImageFixedSize = New System.Drawing.Size(45, 45)
         Me.btExcel.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.btExcel.Location = New System.Drawing.Point(735, 20)
+        Me.btExcel.Location = New System.Drawing.Point(757, 20)
         Me.btExcel.Name = "btExcel"
         Me.btExcel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
         Me.btExcel.Size = New System.Drawing.Size(86, 72)
@@ -613,12 +613,12 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX1.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX1.Location = New System.Drawing.Point(16, 34)
+        Me.LabelX1.Location = New System.Drawing.Point(13, 35)
         Me.LabelX1.Name = "LabelX1"
         Me.LabelX1.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX1.Size = New System.Drawing.Size(52, 23)
+        Me.LabelX1.Size = New System.Drawing.Size(89, 23)
         Me.LabelX1.TabIndex = 239
-        Me.LabelX1.Text = "Al:"
+        Me.LabelX1.Text = "Fecha Hasta:"
         '
         'tbFechaF
         '
@@ -631,7 +631,7 @@ Partial Class F01_ReporteVentaFact
         Me.tbFechaF.ButtonDropDown.Visible = True
         Me.tbFechaF.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaF.IsPopupCalendarOpen = False
-        Me.tbFechaF.Location = New System.Drawing.Point(109, 36)
+        Me.tbFechaF.Location = New System.Drawing.Point(131, 36)
         '
         '
         '
@@ -675,12 +675,12 @@ Partial Class F01_ReporteVentaFact
         Me.LabelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.LabelX4.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX4.Location = New System.Drawing.Point(16, 6)
+        Me.LabelX4.Location = New System.Drawing.Point(13, 6)
         Me.LabelX4.Name = "LabelX4"
         Me.LabelX4.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX4.Size = New System.Drawing.Size(74, 23)
+        Me.LabelX4.Size = New System.Drawing.Size(89, 23)
         Me.LabelX4.TabIndex = 237
-        Me.LabelX4.Text = "Fecha Del:"
+        Me.LabelX4.Text = "Fecha Desde:"
         '
         'tbFechaI
         '
@@ -693,7 +693,7 @@ Partial Class F01_ReporteVentaFact
         Me.tbFechaI.ButtonDropDown.Visible = True
         Me.tbFechaI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbFechaI.IsPopupCalendarOpen = False
-        Me.tbFechaI.Location = New System.Drawing.Point(109, 8)
+        Me.tbFechaI.Location = New System.Drawing.Point(131, 8)
         '
         '
         '
