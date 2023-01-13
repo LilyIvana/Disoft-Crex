@@ -10,8 +10,8 @@ Public Class R01_VentasProductos
     Dim titulo As String = ""
     Public _modulo As SideNavItem
 
-    Private idProveedor As Integer = 0
-    Private idProducto As Integer = 0
+    Private idProveedor As String = 0
+    Private idProducto As String = 0
 
 #End Region
 #Region "METODOS PRIVADOS"
@@ -54,7 +54,7 @@ Public Class R01_VentasProductos
         '_dt = L_prReporteVentasProductos(tbFechaI.Value.ToString("yyyy/MM/dd"), tbFechaF.Value.ToString("yyyy/MM/dd"))
         Dim fechaDesde As DateTime = tbFechaI.Value.ToString("yyyy/MM/dd")
         Dim fechaHasta As DateTime = tbFechaF.Value.ToString("yyyy/MM/dd")
-        Dim idAlmacen As Integer = 0
+        Dim idAlmacen As Integer = 0, idProducto = 0, idProveedor = 0
 
         If tbAlmacen.SelectedIndex <> 0 Then idAlmacen = tbAlmacen.Value
         If cbProducto.SelectedIndex <> -1 Then idProducto = cbProducto.Value
@@ -83,7 +83,7 @@ Public Class R01_VentasProductos
             ToastNotification.Show(Me, "NO HAY DATOS PARA LOS PARAMETROS SELECCIONADOS..!!!",
                                        My.Resources.INFORMATION, 2000,
                                        eToastGlowColor.Blue,
-                                       eToastPosition.BottomLeft)
+                                       eToastPosition.TopCenter)
             MCrReporte.ReportSource = Nothing
         End If
 
@@ -94,6 +94,16 @@ Public Class R01_VentasProductos
     End Sub
 
     Private Sub MBtGenerar_Click(sender As Object, e As EventArgs) Handles MBtGenerar.Click
+        If ckUnoProveedor.Checked Then
+            If tbProveedor.Text = String.Empty Then
+                ToastNotification.Show(Me, "DEBE SELECCIONAR UN PROVEEDOR..!!!",
+                                       My.Resources.INFORMATION, 2000,
+                                       eToastGlowColor.Blue,
+                                       eToastPosition.TopCenter)
+                Exit Sub
+            End If
+        End If
+
         _prCargarReporte()
     End Sub
 
@@ -165,6 +175,7 @@ Public Class R01_VentasProductos
             tbProveedor.BackColor = Color.Gainsboro
             tbProveedor.Clear()
             tbCodigoProveedor.Clear()
+            idProveedor = 0
         End If
     End Sub
 

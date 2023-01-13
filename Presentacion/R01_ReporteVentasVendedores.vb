@@ -31,6 +31,33 @@ Public Class R01_ReporteVentasVendedores
 
     End Sub
     Private Sub MBtGenerar_Click(sender As Object, e As EventArgs) Handles MBtGenerar.Click
+        If checkUnVendedor.Checked And swFiltroVendedores.Value = False Then
+            ToastNotification.Show(Me, "NO PUEDE ESCOGER UN VENDEDOR SI EL SWITCH ESTA SELECCIONADO SIN VENDEDORES..!!!",
+                                       My.Resources.INFORMATION, 2000,
+                                       eToastGlowColor.Blue,
+                                       eToastPosition.TopCenter)
+            Exit Sub
+        End If
+        If checkUnVendedor.Checked And swFiltroVendedores.Value = True Then
+            If tbVendedor.Text = String.Empty Then
+                ToastNotification.Show(Me, "DEBE SELECCIONAR UN VENDEDOR..!!!",
+                                       My.Resources.INFORMATION, 2000,
+                                       eToastGlowColor.Blue,
+                                       eToastPosition.TopCenter)
+                Exit Sub
+            End If
+        End If
+
+        If ckUnoProveedor.Checked Then
+            If tbProveedor.Text = String.Empty Then
+                ToastNotification.Show(Me, "DEBE SELECCIONAR UN PROVEEDOR..!!!",
+                                       My.Resources.INFORMATION, 2000,
+                                       eToastGlowColor.Blue,
+                                       eToastPosition.TopCenter)
+                Exit Sub
+            End If
+        End If
+
         _prCargarReporte()
     End Sub
     Private Sub _prCargarReporte()

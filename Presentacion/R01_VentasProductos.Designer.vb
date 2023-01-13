@@ -75,9 +75,8 @@ Partial Class R01_VentasProductos
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
+        Me.MPnInferior.Location = New System.Drawing.Point(300, 625)
         Me.MPnInferior.Margin = New System.Windows.Forms.Padding(2)
-        Me.MPnInferior.Size = New System.Drawing.Size(886, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -88,7 +87,6 @@ Partial Class R01_VentasProductos
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(686, 0)
         Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(2)
         '
         'MTbUsuario
@@ -131,7 +129,7 @@ Partial Class R01_VentasProductos
         '
         Me.MGpFiltro.Controls.Add(Me.GroupBox2)
         Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(2)
-        Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
+        Me.MGpFiltro.Size = New System.Drawing.Size(300, 591)
         '
         '
         '
@@ -165,7 +163,7 @@ Partial Class R01_VentasProductos
         'MCrReporte
         '
         Me.MCrReporte.Margin = New System.Windows.Forms.Padding(2)
-        Me.MCrReporte.Size = New System.Drawing.Size(886, 561)
+        Me.MCrReporte.Size = New System.Drawing.Size(984, 661)
         '
         'GroupBox2
         '
@@ -193,7 +191,7 @@ Partial Class R01_VentasProductos
         Me.GroupBox2.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(294, 399)
+        Me.GroupBox2.Size = New System.Drawing.Size(294, 499)
         Me.GroupBox2.TabIndex = 13
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos"
@@ -559,7 +557,7 @@ Partial Class R01_VentasProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1186, 561)
+        Me.ClientSize = New System.Drawing.Size(1284, 661)
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "R01_VentasProductos"
         Me.Opacity = 0.05R
