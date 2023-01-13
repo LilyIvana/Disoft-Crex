@@ -25,13 +25,13 @@ Partial Class F02_Cliente
         Me.components = New System.ComponentModel.Container()
         Dim CbFiltroResumenEquipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbTipoCredito_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F02_Cliente))
         Dim cbPrevendedor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbSupervisor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbCategoria_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbTipoDoc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbZona_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbFrecuencia_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F02_Cliente))
         Dim cbTipoAcuerdo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupPanelEquipos = New DevComponents.DotNetBar.Controls.GroupPanel()
@@ -2232,7 +2232,7 @@ Partial Class F02_Cliente
         Me.LabelX18.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX18.Location = New System.Drawing.Point(417, 9)
         Me.LabelX18.Name = "LabelX18"
-        Me.LabelX18.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX18.Size = New System.Drawing.Size(92, 23)
         Me.LabelX18.TabIndex = 35
         Me.LabelX18.Text = "Ultimo Pedido."
         '
@@ -2245,7 +2245,7 @@ Partial Class F02_Cliente
         Me.LabelX7.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX7.Location = New System.Drawing.Point(417, 41)
         Me.LabelX7.Name = "LabelX7"
-        Me.LabelX7.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX7.Size = New System.Drawing.Size(92, 23)
         Me.LabelX7.TabIndex = 16
         Me.LabelX7.Text = "Teléfono 1:"
         '
@@ -2258,9 +2258,9 @@ Partial Class F02_Cliente
         Me.LabelX8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX8.Location = New System.Drawing.Point(417, 70)
         Me.LabelX8.Name = "LabelX8"
-        Me.LabelX8.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX8.Size = New System.Drawing.Size(80, 23)
         Me.LabelX8.TabIndex = 17
-        Me.LabelX8.Text = "Teléfono 2:"
+        Me.LabelX8.Text = "Contacto:"
         '
         'LabelX9
         '
@@ -2271,7 +2271,7 @@ Partial Class F02_Cliente
         Me.LabelX9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelX9.Location = New System.Drawing.Point(417, 96)
         Me.LabelX9.Name = "LabelX9"
-        Me.LabelX9.Size = New System.Drawing.Size(100, 23)
+        Me.LabelX9.Size = New System.Drawing.Size(92, 23)
         Me.LabelX9.TabIndex = 18
         Me.LabelX9.Text = "Cat. Precio."
         '

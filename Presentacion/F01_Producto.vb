@@ -953,7 +953,7 @@ Public Class F01_Producto
 
         'dar formato a las columnas
         With DgjBusqueda.RootTable.Columns(0)
-            .Caption = "Código"
+            .Caption = "Cód. Dynasys"
             .Key = "numi"
             .Width = 80
             .HeaderStyle.Font = FtTitulo
@@ -963,7 +963,7 @@ Public Class F01_Producto
             .Visible = True
         End With
         With DgjBusqueda.RootTable.Columns(1)
-            .Caption = "Cod.Flex"
+            .Caption = "Cód.Delta"
             .Key = "cod"
             .Width = 80
             .HeaderStyle.Font = FtTitulo

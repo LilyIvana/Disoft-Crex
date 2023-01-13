@@ -134,7 +134,7 @@ Public Class F01_ReporteVentaFact
     End Sub
 
     Private Sub F01_ReporteVentaFact_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Text = "Ventas Detalladas Entregadas"
+        Me.Text = "Ventas Detalladas"
         tbFechaI.Value = Now.Date
         tbFechaF.Value = Now.Date
         P_prInicio()
@@ -440,7 +440,7 @@ Public Class F01_ReporteVentaFact
                 .Width = 100
                 .FormatString = "0.00"
                 .Visible = True
-
+                .AggregateFunction = AggregateFunction.Sum
             End With
             With grDatos.RootTable.Columns("IVA")
                 .Width = 100
@@ -464,6 +464,9 @@ Public Class F01_ReporteVentaFact
                 .GroupByBoxVisible = False
                 'diseño de la grilla
                 .VisualStyle = VisualStyle.Office2007
+                .TotalRow = InheritableBoolean.True
+                .TotalRowFormatStyle.BackColor = Color.Gold
+                .TotalRowPosition = TotalRowPosition.BottomFixed
             End With
         Else
             If (Not IsNothing(grDatos) And Not IsNothing(grDatos.DataSource)) Then

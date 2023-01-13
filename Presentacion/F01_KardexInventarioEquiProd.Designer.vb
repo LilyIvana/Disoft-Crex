@@ -81,25 +81,27 @@ Partial Class F01_KardexInventarioEquiProd
         Me.MSuperTabControlPrincipal.ControlBox.MenuBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.Name = ""
         Me.MSuperTabControlPrincipal.ControlBox.SubItems.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.MSuperTabControlPrincipal.ControlBox.MenuBox, Me.MSuperTabControlPrincipal.ControlBox.CloseBox})
+        Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1284, 575)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBusqueda)
-        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(942, 455)
         '
         'MSuperTabControlPanelRegistro
         '
         Me.MSuperTabControlPanelRegistro.Controls.Add(Me.TableLayoutPanelPrincipal)
-        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(942, 455)
+        Me.MSuperTabControlPanelRegistro.Margin = New System.Windows.Forms.Padding(4)
+        Me.MSuperTabControlPanelRegistro.Size = New System.Drawing.Size(1242, 575)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.MPnUsuario, 0)
         Me.MSuperTabControlPanelRegistro.Controls.SetChildIndex(Me.TableLayoutPanelPrincipal, 0)
         '
         'MPnSuperior
         '
+        Me.MPnSuperior.Size = New System.Drawing.Size(1284, 70)
         Me.MPnSuperior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnSuperior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnSuperior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -110,6 +112,8 @@ Partial Class F01_KardexInventarioEquiProd
         '
         'MPnInferior
         '
+        Me.MPnInferior.Location = New System.Drawing.Point(0, 645)
+        Me.MPnInferior.Size = New System.Drawing.Size(1284, 36)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -118,15 +122,23 @@ Partial Class F01_KardexInventarioEquiProd
         Me.MPnInferior.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText
         Me.MPnInferior.Style.GradientAngle = 90
         '
+        'MPanelToolBarUsuario
+        '
+        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(1084, 0)
+        '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
         '
         'MBtSalir
         '
+        '
+        'MPanelToolBarImprimir
+        '
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1204, 0)
         '
         'MBtImprimir
         '
@@ -167,7 +179,7 @@ Partial Class F01_KardexInventarioEquiProd
         '
         '
         Me.MRlAccion.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MRlAccion.Margin = New System.Windows.Forms.Padding(4)
         Me.MRlAccion.Size = New System.Drawing.Size(500, 60)
         '
         'TableLayoutPanelPrincipal
@@ -183,7 +195,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.TableLayoutPanelPrincipal.RowCount = 2
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
         Me.TableLayoutPanelPrincipal.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(942, 455)
+        Me.TableLayoutPanelPrincipal.Size = New System.Drawing.Size(1242, 575)
         Me.TableLayoutPanelPrincipal.TabIndex = 30
         '
         'GroupPanelKardex
@@ -195,7 +207,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.GroupPanelKardex.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelKardex.Location = New System.Drawing.Point(3, 153)
         Me.GroupPanelKardex.Name = "GroupPanelKardex"
-        Me.GroupPanelKardex.Size = New System.Drawing.Size(936, 299)
+        Me.GroupPanelKardex.Size = New System.Drawing.Size(1236, 419)
         '
         '
         '
@@ -232,7 +244,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.Dgj1Datos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dgj1Datos.Location = New System.Drawing.Point(0, 0)
         Me.Dgj1Datos.Name = "Dgj1Datos"
-        Me.Dgj1Datos.Size = New System.Drawing.Size(930, 277)
+        Me.Dgj1Datos.Size = New System.Drawing.Size(1230, 397)
         Me.Dgj1Datos.TabIndex = 0
         '
         'GroupPanelDatosGenerales
@@ -244,7 +256,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.GroupPanelDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelDatosGenerales.Location = New System.Drawing.Point(3, 3)
         Me.GroupPanelDatosGenerales.Name = "GroupPanelDatosGenerales"
-        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(936, 144)
+        Me.GroupPanelDatosGenerales.Size = New System.Drawing.Size(1236, 144)
         '
         '
         '
@@ -296,7 +308,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.PanelExDatosGenerales.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelExDatosGenerales.Location = New System.Drawing.Point(0, 0)
         Me.PanelExDatosGenerales.Name = "PanelExDatosGenerales"
-        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(930, 122)
+        Me.PanelExDatosGenerales.Size = New System.Drawing.Size(1230, 122)
         Me.PanelExDatosGenerales.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.PanelExDatosGenerales.Style.BackColor1.Color = System.Drawing.SystemColors.Control
         Me.PanelExDatosGenerales.Style.BackColor2.Color = System.Drawing.SystemColors.Control
@@ -525,7 +537,7 @@ Partial Class F01_KardexInventarioEquiProd
         Me.GroupPanelBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupPanelBusqueda.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelBusqueda.Name = "GroupPanelBusqueda"
-        Me.GroupPanelBusqueda.Padding = New System.Windows.Forms.Padding(5, 5, 5, 5)
+        Me.GroupPanelBusqueda.Padding = New System.Windows.Forms.Padding(5)
         Me.GroupPanelBusqueda.Size = New System.Drawing.Size(942, 455)
         '
         '
@@ -575,9 +587,9 @@ Partial Class F01_KardexInventarioEquiProd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(984, 561)
+        Me.ClientSize = New System.Drawing.Size(1284, 681)
         Me.Location = New System.Drawing.Point(0, 0)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "F01_KardexInventarioEquiProd"
         Me.Text = "F01_KardexInventarioEquiProd"
         Me.Controls.SetChildIndex(Me.MPnSuperior, 0)

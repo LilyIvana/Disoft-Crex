@@ -357,7 +357,7 @@ Public Class F01_KardexInventarioEquiProd
         'canumi, cacod, cadesc, cadesc2, cacat, TC0051.cedesc, caimg, castc, caest, caserie
         'dar formato a las columnas
         With Dgj2Busqueda.RootTable.Columns(0)
-            .Caption = "Código"
+            .Caption = "Cód. Dynasys"
             .Key = "canumi"
             .Width = 100
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -368,20 +368,20 @@ Public Class F01_KardexInventarioEquiProd
         End With
 
         With Dgj2Busqueda.RootTable.Columns(1)
-            .Caption = ""
+            .Caption = "Cód. Delta"
             .Key = "cacod"
-            .Width = 10
+            .Width = 100
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = False
+            .Visible = True
             '.CellStyle.BackColor = Color.AliceBlue
         End With
 
         With Dgj2Busqueda.RootTable.Columns(2)
-            .Caption = "Descripción"
+            .Caption = "Producto"
             .Key = "cadesc"
-            .Width = 250
+            .Width = 450
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
@@ -390,9 +390,9 @@ Public Class F01_KardexInventarioEquiProd
         End With
 
         With Dgj2Busqueda.RootTable.Columns(3)
-            .Caption = "Descripción Corta"
+            .Caption = "Descripción"
             .Key = "cadesc2"
-            .Width = 150
+            .Width = 300
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
@@ -461,7 +461,31 @@ Public Class F01_KardexInventarioEquiProd
             .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
         End With
+        'capcom, cafing, a.cafact, a.cahact, a.cauact
+        With Dgj2Busqueda.RootTable.Columns(10)
+            .Visible = False
 
+        End With
+        With Dgj2Busqueda.RootTable.Columns(10)
+            .Visible = False
+
+        End With
+        With Dgj2Busqueda.RootTable.Columns(11)
+            .Visible = False
+
+        End With
+        With Dgj2Busqueda.RootTable.Columns(12)
+            .Visible = False
+
+        End With
+        With Dgj2Busqueda.RootTable.Columns(13)
+            .Visible = False
+
+        End With
+        With Dgj2Busqueda.RootTable.Columns(14)
+            .Visible = False
+
+        End With
         'Habilitar Filtradores
         With Dgj2Busqueda
             .GroupByBoxVisible = False
