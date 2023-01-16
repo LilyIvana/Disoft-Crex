@@ -482,7 +482,7 @@ Public Class P_Principal
         'SideNav1.IsMenuExpanded = False
         'FP_Ventana.Select()
         F02_Precio.AllowTransparency = True
-        Dim frm As New F0_PreciosAlterno
+        Dim frm As New F0_PrecioNuevo
         frm._nameButton = btConfPrecio.Name
         'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)
         'frm._tab = tab3

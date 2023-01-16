@@ -551,6 +551,12 @@
     <Compile Include="F0_PagosCreditoCompraUlt.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="F0_PrecioNuevo.Designer.vb">
+      <DependentUpon>F0_PrecioNuevo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F0_PrecioNuevo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="F0_Ventas.designer.vb">
       <DependentUpon>F0_Ventas.vb</DependentUpon>
     </Compile>
@@ -1832,6 +1838,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F0_PagosCreditoCompraUlt.resx">
       <DependentUpon>F0_PagosCreditoCompraUlt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F0_PrecioNuevo.resx">
+      <DependentUpon>F0_PrecioNuevo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F0_Ventas.resx">
       <DependentUpon>F0_Ventas.vb</DependentUpon>
