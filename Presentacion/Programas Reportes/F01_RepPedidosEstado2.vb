@@ -304,6 +304,7 @@ Public Class F01_RepPedidosEstado2
                 .Width = 100
                 .FormatString = "0.00"
                 .Visible = True
+                .AggregateFunction = AggregateFunction.Sum
             End With
             With grDatos.RootTable.Columns("PrecioCosto")
                 .Width = 100
@@ -359,6 +360,9 @@ Public Class F01_RepPedidosEstado2
                 .GroupByBoxVisible = False
                 'diseño de la grilla
                 .VisualStyle = VisualStyle.Office2007
+                .TotalRow = InheritableBoolean.True
+                .TotalRowFormatStyle.BackColor = Color.Gold
+                .TotalRowPosition = TotalRowPosition.BottomFixed
             End With
         Else
             If (Not IsNothing(grDatos) And Not IsNothing(grDatos.DataSource)) Then

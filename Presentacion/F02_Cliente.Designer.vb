@@ -25,13 +25,13 @@ Partial Class F02_Cliente
         Me.components = New System.ComponentModel.Container()
         Dim CbFiltroResumenEquipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbTipoCredito_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F02_Cliente))
         Dim cbPrevendedor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbSupervisor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbCategoria_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbTipoDoc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbZona_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbFrecuencia_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F02_Cliente))
         Dim cbTipoAcuerdo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupPanelEquipos = New DevComponents.DotNetBar.Controls.GroupPanel()
@@ -1503,6 +1503,7 @@ Partial Class F02_Cliente
         Me.GroupPanelEncargados.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.GroupPanelEncargados.TabIndex = 42
         Me.GroupPanelEncargados.Text = "DATOS DE ENCARGADOS"
+        Me.GroupPanelEncargados.Visible = False
         '
         'cbPrevendedor
         '

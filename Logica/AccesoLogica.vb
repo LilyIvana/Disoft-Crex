@@ -7455,6 +7455,19 @@ Public Class AccesoLogica
 
         Return _Tabla
     End Function
+    Public Shared Function L_prChoferConciliacionEstado(_IdChofer As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 30))
+        _listParam.Add(New Datos.DParametro("@chofer", _IdChofer))
+        _listParam.Add(New Datos.DParametro("@ibuact", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("sp_Mam_TM001SalidaChofer", _listParam)
+
+        Return _Tabla
+    End Function
     Public Shared Function L_ListaProductoDeChoferSalida(_Chofer As String) As DataSet
         Dim _Tabla As DataTable
         Dim _Ds As New DataSet

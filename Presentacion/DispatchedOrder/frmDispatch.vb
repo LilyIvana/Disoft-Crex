@@ -4,6 +4,7 @@ Imports ENTITY
 Imports Janus.Windows.GridEX
 Imports LOGIC
 Imports UTILITIES
+Imports Logica.AccesoLogica
 
 Public Class frmDispatch
     Dim _Inter As Integer = 0
@@ -326,6 +327,10 @@ Public Class frmDispatch
             End If
             If (Convert.ToInt32(idChofer) = ENCombo.ID_SELECCIONAR) Then
                 Throw New Exception("Debe seleccionar un chofer.")
+            End If
+            Dim dt As DataTable = L_prChoferConciliacionEstado(cbChoferes.Value.ToString)
+            If dt.Rows.Count > 0 Then
+                Throw New Exception("No se puede asignar los pedidos a este chofer porque tiene conciliaciones accesibles")
             End If
 
             Dim result = New LPedido().GuardarPedidoDeChofer(listIdPedido, idChofer, gs_user)
