@@ -1542,10 +1542,6 @@ Public Class P_Principal
         End If
     End Sub
 
-    Private Sub SideNav1_Click(sender As Object, e As EventArgs) Handles SideNav1.Click
-
-    End Sub
-
     Private Sub SideNav1_KeyDown(sender As Object, e As KeyEventArgs) Handles SideNav1.KeyDown
         If (e.KeyData = Keys.Control + Keys.Enter) Then
             Dim frm As New Parametros

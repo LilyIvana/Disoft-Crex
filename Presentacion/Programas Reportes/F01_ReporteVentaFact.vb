@@ -456,7 +456,26 @@ Public Class F01_ReporteVentaFact
             With grDatos.RootTable.Columns("oaest")
                 .Visible = False
             End With
-
+            With grDatos.RootTable.Columns("FechaFactura")
+                .Caption = "Fecha Factura"
+                .FormatString = "dd/MM/yyyy"
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("NroConciliacion")
+                .Caption = "Nro. Conciliación"
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("EstadoCierre")
+                .Caption = "Estado Cierre"
+                .FormatString = ""
+                .Visible = True
+            End With
+            With grDatos.RootTable.Columns("FechaCierre")
+                .Caption = "Fecha Cierre"
+                .FormatString = "dd/MM/yyyy"
+                .Visible = True
+            End With
             With grDatos
                 .DefaultFilterRowComparison = FilterConditionOperator.Contains
                 .FilterMode = FilterMode.Automatic
