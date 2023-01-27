@@ -161,8 +161,8 @@ Public Class F02_Movimiento
                                       and b.iaalm = " + Str(cbAlmacenOrigen.Value) + "order by a.canumi asc")
 
                 Dim listEstCeldas As New List(Of Modelo.MCelda)
-                listEstCeldas.Add(New Modelo.MCelda("numi,", True, "Código", 80))
-                listEstCeldas.Add(New Modelo.MCelda("desc", True, "Descripción", 270))
+                listEstCeldas.Add(New Modelo.MCelda("numi,", True, "Código", 100))
+                listEstCeldas.Add(New Modelo.MCelda("desc", True, "Descripción", 350))
                 listEstCeldas.Add(New Modelo.MCelda("stock", True, "Stock", 120))
 
                 Dim ef = New Efecto
@@ -812,7 +812,8 @@ Public Class F02_Movimiento
         'from TCI001 a
         'where a.cptipo=2
         Dt = L_fnObtenerTabla("a.cpnumi as numi, ROW_NUMBER() OVER(ORDER BY a.cpnumi ASC) AS [row], a.cpdesc as [desc]",
-                              "TCI001 a", "a.cptipo=" + IIf(tipo = 1, "2", "3"))
+                              "TCI001 a", " a.cpmostrar=1 and a.cptipo=" + IIf(tipo = 1, "2", "3"))
+
 
         With cbConcepto.DropDownList
             .Columns.Add(Dt.Columns("numi").ToString)
@@ -956,7 +957,7 @@ Public Class F02_Movimiento
 
         With dgjDetalle.RootTable.Columns("ncprod")
             .Caption = "Descripción"
-            .Width = 200
+            .Width = 350
             .HeaderStyle.Font = FtTitulo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal

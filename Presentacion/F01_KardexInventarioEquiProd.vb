@@ -169,7 +169,7 @@ Public Class F01_KardexInventarioEquiProd
         With Dgj1Datos.RootTable.Columns(4)
             .Caption = "Observación"
             .Key = "obs"
-            .Width = 200
+            .Width = 500
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.FontSize = gi_fuenteTamano
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near

@@ -481,7 +481,8 @@ Public Class P_Principal
     Private Sub btConfPrecio_Click(sender As Object, e As EventArgs) Handles btConfPrecio.Click
         'SideNav1.IsMenuExpanded = False
         'FP_Ventana.Select()
-        F02_Precio.AllowTransparency = True
+        'F02_Precio.AllowTransparency = True
+        F0_PrecioNuevo.AllowTransparency = True
         Dim frm As New F0_PrecioNuevo
         frm._nameButton = btConfPrecio.Name
         'Dim tab3 As SuperTabItem = superTabControlVentana.CreateTab(frm.Text)

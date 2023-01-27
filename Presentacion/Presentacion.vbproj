@@ -575,6 +575,12 @@
     <Compile Include="F1_Empresas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="F1_ExcelMixto.designer.vb">
+      <DependentUpon>F1_ExcelMixto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F1_ExcelMixto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -1850,6 +1856,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F1_Empresas.resx">
       <DependentUpon>F1_Empresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F1_ExcelMixto.resx">
+      <DependentUpon>F1_ExcelMixto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
