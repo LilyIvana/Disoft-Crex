@@ -29,7 +29,7 @@ Public Class F0_PrecioNuevo
 
         _prCargarTablaCategorias()
 
-        P_prArmarComboCategoria()
+        'P_prArmarComboCategoria()
 
         _prAsignarPermisos()
         Me.Text = "PRECIOS"
@@ -71,8 +71,8 @@ Public Class F0_PrecioNuevo
         precio = L_fnListarProductosConPrecios(cbAlmacen.Value)
     End Sub
     Public Sub _prCargarTablaPrecios(bandera As Boolean) ''Bandera = true si es que haiq cargar denuevo la tabla de Precio Bandera =false si solo cargar datos al Janus con el precio antepuesto
-        If (cbAlmacen.SelectedIndex >= 0) Then
-            Dim productos As DataTable = L_fnListarProductos()
+        'If (cbAlmacen.SelectedIndex >= 0) Then
+        Dim productos As DataTable = L_fnListarProductos()
             'Dim dtProd As DataTable = productos.Copy
             'dtProd.Clear()
 
@@ -183,7 +183,7 @@ Public Class F0_PrecioNuevo
                 .SelectionMode = SelectionMode.SingleSelection
                 .AlternatingColors = True
             End With
-        End If
+        'End If
     End Sub
 
     Private Sub _prInhabiliitar()
