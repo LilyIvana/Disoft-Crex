@@ -1809,6 +1809,14 @@ Public Class P_Principal
 
     End Sub
 
+    Private Sub btnVendMixtoDet_Click(sender As Object, e As EventArgs) Handles btnVendMixtoDet.Click
+        Dim frm As New F1_ExcelMixto
+        frm._nameButton = btnVendMixtoDet.Name
+        frm._modulo = FP_Venta
+        frm.Show()
+
+    End Sub
+
 
 #End Region
 

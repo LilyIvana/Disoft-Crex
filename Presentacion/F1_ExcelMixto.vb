@@ -89,7 +89,7 @@ Public Class F1_ExcelMixto
     Private Sub _prCargarMixto()
         Dim fechaDesde As DateTime = tbFechaI.Value.ToString("yyyy/MM/dd")
         Dim fechaHasta As DateTime = tbFechaF.Value.ToString("yyyy/MM/dd")
-        Dim dt As DataTable '= L_RepMixto(fechaDesde, fechaHasta)
+        Dim dt As DataTable = L_RepMixto(fechaDesde, fechaHasta)
 
         If dt.Rows.Count > 0 Then
             JGrM_Buscador.DataSource = dt
@@ -162,12 +162,12 @@ Public Class F1_ExcelMixto
             End With
             With JGrM_Buscador.RootTable.Columns("Cod")
                 .Width = 100
-                .Caption = "COD. ORIGINAL"
+                .Caption = "COD. DYNASYS"
                 .Visible = True
             End With
             With JGrM_Buscador.RootTable.Columns("CodProd")
                 .Width = 100
-                .Caption = "COD. PRODUCTO"
+                .Caption = "COD. DELTA"
                 .Visible = True
             End With
             With JGrM_Buscador.RootTable.Columns("Descripcion")
@@ -337,6 +337,41 @@ Public Class F1_ExcelMixto
             With JGrM_Buscador.RootTable.Columns("Obs")
                 .Width = 200
                 .Caption = "OBSERVACIÓN"
+                .Visible = True
+            End With
+            With JGrM_Buscador.RootTable.Columns("CodVendedor")
+                .Width = 100
+                .Caption = "COD. VEND.DYNASYS"
+                .Visible = True
+            End With
+            With JGrM_Buscador.RootTable.Columns("CodVend")
+                .Width = 100
+                .Caption = "COD. VEND.CREX"
+                .Visible = True
+            End With
+            With JGrM_Buscador.RootTable.Columns("CodRepartidor")
+                .Width = 100
+                .Caption = "COD. REPARTIDOR"
+                .Visible = True
+            End With
+            With JGrM_Buscador.RootTable.Columns("Repartidor")
+                .Width = 200
+                .Caption = "REPARTIDOR"
+                .Visible = True
+            End With
+            With JGrM_Buscador.RootTable.Columns("Zona")
+                .Width = 100
+                .Caption = "ID ZONA"
+                .Visible = False
+            End With
+            With JGrM_Buscador.RootTable.Columns("DescZona")
+                .Width = 200
+                .Caption = "ZONA"
+                .Visible = True
+            End With
+            With JGrM_Buscador.RootTable.Columns("NroConci")
+                .Width = 100
+                .Caption = "NRO. CONCILIACIÓN"
                 .Visible = True
             End With
             With JGrM_Buscador
