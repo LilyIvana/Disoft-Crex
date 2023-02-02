@@ -55,9 +55,8 @@ Partial Class R01_SaldoProducto
         '
         'MPnInferior
         '
-        Me.MPnInferior.Location = New System.Drawing.Point(300, 525)
-        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.MPnInferior.Size = New System.Drawing.Size(886, 36)
+        Me.MPnInferior.Location = New System.Drawing.Point(300, 625)
+        Me.MPnInferior.Margin = New System.Windows.Forms.Padding(4)
         Me.MPnInferior.Style.Alignment = System.Drawing.StringAlignment.Center
         Me.MPnInferior.Style.BackColor1.Color = System.Drawing.Color.Gray
         Me.MPnInferior.Style.BackColor2.Color = System.Drawing.SystemColors.ActiveCaption
@@ -68,12 +67,11 @@ Partial Class R01_SaldoProducto
         '
         'MPanelToolBarUsuario
         '
-        Me.MPanelToolBarUsuario.Location = New System.Drawing.Point(686, 0)
-        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MPanelToolBarUsuario.Margin = New System.Windows.Forms.Padding(4)
         '
         'MTbUsuario
         '
-        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.MTbUsuario.Margin = New System.Windows.Forms.Padding(4)
         Me.MTbUsuario.ReadOnly = True
         Me.MTbUsuario.Size = New System.Drawing.Size(135, 32)
         Me.MTbUsuario.Text = "DEFAULT"
@@ -115,8 +113,8 @@ Partial Class R01_SaldoProducto
         Me.MGpFiltro.Controls.Add(Me.lbDepositoOrigen)
         Me.MGpFiltro.Controls.Add(Me.LabelX5)
         Me.MGpFiltro.Controls.Add(Me.swTipo)
-        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.MGpFiltro.Size = New System.Drawing.Size(300, 491)
+        Me.MGpFiltro.Margin = New System.Windows.Forms.Padding(4)
+        Me.MGpFiltro.Size = New System.Drawing.Size(300, 591)
         '
         '
         '
@@ -154,8 +152,8 @@ Partial Class R01_SaldoProducto
         '
         'MCrReporte
         '
-        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.MCrReporte.Size = New System.Drawing.Size(886, 561)
+        Me.MCrReporte.Margin = New System.Windows.Forms.Padding(4)
+        Me.MCrReporte.Size = New System.Drawing.Size(984, 661)
         '
         'Timer1
         '
@@ -194,8 +192,6 @@ Partial Class R01_SaldoProducto
         Me.swTipo.Size = New System.Drawing.Size(128, 22)
         Me.swTipo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled
         Me.swTipo.TabIndex = 375
-        Me.swTipo.Value = True
-        Me.swTipo.ValueObject = "Y"
         '
         'cbAlmacen
         '
@@ -258,8 +254,8 @@ Partial Class R01_SaldoProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1186, 561)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.ClientSize = New System.Drawing.Size(1284, 661)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "R01_SaldoProducto"
         Me.Opacity = 0.05R
         Me.Text = "R01_SaldoProducto"

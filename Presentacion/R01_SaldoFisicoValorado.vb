@@ -61,7 +61,7 @@ Public Class R01_SaldoFisicoValorado
             .Columns.Add(Dt.Columns(1).ToString).Width = 70
             .Columns(1).Caption = "Abreviatura"
 
-            .Columns.Add(Dt.Columns(2).ToString).Width = 120
+            .Columns.Add(Dt.Columns(2).ToString).Width = 170
             .Columns(2).Caption = "Descripción"
         End With
 
@@ -73,42 +73,29 @@ Public Class R01_SaldoFisicoValorado
     End Sub
     Private Sub P_prCargarReporte()
         Dim _dt As New DataTable
-        If swTipo.Value Then
-            Dim objrep As New R_SaldosFisicoValorado()
+        Dim objrep As New R_SaldosFisicoValoradoSinAgrupacion()
+        If checkFechaAl.Checked Then
 
-            If (cbAlmacen.Value >= 0) Then
-
-                _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString() + " and iaalm=" + Str(cbAlmacen.Value))
-                objrep.SetDataSource(_dt)
-                objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
-                MCrReporte.ReportSource = objrep
+            If (cbAlmacen.Value > 0) Then
+                _dt = L_prReporteSaldosValoradosAFecha(cbAlmacen.Value, cbCategoria.Value, date1.Value.ToString("dd/MM/yyyy"))
             Else
-                _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
-                objrep.SetDataSource(_dt)
-                objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
-                MCrReporte.ReportSource = objrep
+                _dt = L_prReporteSaldosValoradosAFecha(0, cbCategoria.Value, date1.Value.ToString("dd/MM/yyyy"))
             End If
-
-
 
         Else
-            Dim objrep As New R_SaldosFisicoValoradoSinAgrupacion()
-            If (cbAlmacen.Value >= 0) Then
 
-                _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString() + " and iaalm=" + Str(cbAlmacen.Value))
-                objrep.SetDataSource(_dt)
-                objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
-                MCrReporte.ReportSource = objrep
+            If (cbAlmacen.Value > 0) Then
+                ''_dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString() + " and iaalm=" + Str(cbAlmacen.Value))
+                _dt = L_prReporteSaldosValorados(cbAlmacen.Value, cbCategoria.Value)
             Else
-                _dt = L_VistaSaldoFisicoValorado("cenum=0 AND chcatcl=" + cbCategoria.Value.ToString())
-                objrep.SetDataSource(_dt)
-                objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
-                MCrReporte.ReportSource = objrep
+                _dt = L_prReporteSaldosValorados(0, cbCategoria.Value)
             End If
 
-
-
         End If
+
+        objrep.SetDataSource(_dt)
+        objrep.SetParameterValue("TipoPrecio", cbCategoria.Text)
+        MCrReporte.ReportSource = objrep
     End Sub
 
 #End Region
@@ -143,6 +130,14 @@ Public Class R01_SaldoFisicoValorado
         'mCombo.Value = -1
         If (dt.Rows.Count > 0) Then
             mCombo.SelectedIndex = 0
+        End If
+    End Sub
+
+    Private Sub checkFechaAl_CheckedChanged(sender As Object, e As EventArgs) Handles checkFechaAl.CheckedChanged
+        If (checkFechaAl.Checked = True) Then
+            date1.Enabled = True
+        Else
+            date1.Enabled = False
         End If
     End Sub
 End Class

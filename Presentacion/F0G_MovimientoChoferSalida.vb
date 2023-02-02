@@ -452,6 +452,10 @@ Public Class F0G_MovimientoChoferSalida
             .Width = 90
             .Visible = False
         End With
+        With grmovimiento.RootTable.Columns("AlmacenDestino")
+            .Visible = False
+        End With
+
         With grmovimiento
             .DefaultFilterRowComparison = FilterConditionOperator.Contains
             .FilterMode = FilterMode.Automatic

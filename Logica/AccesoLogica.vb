@@ -12331,4 +12331,35 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 #End Region
+
+#Region "SALDOS"
+    Public Shared Function L_prReporteSaldosValoradosAFecha(_codAlmacen As Integer, _codCat As Integer, _date1 As String) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@almacen", _codAlmacen))
+        _listParam.Add(New Datos.DParametro("@catPrecio", _codCat))
+        _listParam.Add(New Datos.DParametro("@fechaF", _date1))
+        _Tabla = D_ProcedimientoConParam("Mam_ReporteSaldos", _listParam)
+
+        Return _Tabla
+    End Function
+
+    Public Shared Function L_prReporteSaldosValorados(_codAlmacen As Integer, _codCat As Integer) As DataTable
+        Dim _Tabla As DataTable
+
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 2))
+        _listParam.Add(New Datos.DParametro("@uact", L_Usuario))
+        _listParam.Add(New Datos.DParametro("@almacen", _codAlmacen))
+        _listParam.Add(New Datos.DParametro("@catPrecio", _codCat))
+        _Tabla = D_ProcedimientoConParam("Mam_ReporteSaldos", _listParam)
+
+        Return _Tabla
+    End Function
+#End Region
 End Class

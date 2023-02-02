@@ -250,7 +250,7 @@ Partial Class F0_PrecioNuevo
         Me.GroupPanel4.Controls.Add(Me.Panel5)
         Me.GroupPanel4.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanel4.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupPanel4.Font = New System.Drawing.Font("Georgia", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel4.Location = New System.Drawing.Point(0, 62)
         Me.GroupPanel4.Name = "GroupPanel4"
         Me.GroupPanel4.Size = New System.Drawing.Size(832, 493)
@@ -292,19 +292,19 @@ Partial Class F0_PrecioNuevo
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(826, 470)
+        Me.Panel5.Size = New System.Drawing.Size(826, 472)
         Me.Panel5.TabIndex = 0
         '
         'grprecio
         '
         Me.grprecio.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grprecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grprecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grprecio.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grprecio.Location = New System.Drawing.Point(0, 0)
         Me.grprecio.Name = "grprecio"
         Me.grprecio.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grprecio.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grprecio.Size = New System.Drawing.Size(826, 470)
+        Me.grprecio.Size = New System.Drawing.Size(826, 472)
         Me.grprecio.TabIndex = 0
         Me.grprecio.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '
@@ -315,7 +315,7 @@ Partial Class F0_PrecioNuevo
         Me.GroupPanel3.Controls.Add(Me.Panel4)
         Me.GroupPanel3.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.GroupPanel3.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupPanel3.Font = New System.Drawing.Font("Georgia", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel3.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanel3.Name = "GroupPanel3"
         Me.GroupPanel3.Size = New System.Drawing.Size(832, 62)
@@ -359,7 +359,7 @@ Partial Class F0_PrecioNuevo
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(826, 39)
+        Me.Panel4.Size = New System.Drawing.Size(826, 41)
         Me.Panel4.TabIndex = 0
         '
         'TableLayoutPanel1
@@ -374,7 +374,7 @@ Partial Class F0_PrecioNuevo
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(826, 39)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(826, 41)
         Me.TableLayoutPanel1.TabIndex = 236
         '
         'Panel6
@@ -386,7 +386,7 @@ Partial Class F0_PrecioNuevo
         Me.Panel6.Location = New System.Drawing.Point(250, 3)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Padding = New System.Windows.Forms.Padding(0, 20, 0, 0)
-        Me.Panel6.Size = New System.Drawing.Size(324, 33)
+        Me.Panel6.Size = New System.Drawing.Size(324, 35)
         Me.Panel6.TabIndex = 34
         '
         'cbAlmacen
@@ -442,7 +442,7 @@ Partial Class F0_PrecioNuevo
         Me.GroupPanel2.Controls.Add(Me.Panel3)
         Me.GroupPanel2.DisabledBackColor = System.Drawing.Color.Empty
         Me.GroupPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupPanel2.Font = New System.Drawing.Font("Georgia", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanel2.Location = New System.Drawing.Point(0, 147)
         Me.GroupPanel2.Name = "GroupPanel2"
         Me.GroupPanel2.Size = New System.Drawing.Size(410, 408)
@@ -485,21 +485,21 @@ Partial Class F0_PrecioNuevo
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(404, 385)
+        Me.Panel3.Size = New System.Drawing.Size(404, 387)
         Me.Panel3.TabIndex = 0
         '
         'grcategoria
         '
         Me.grcategoria.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.[False]
         Me.grcategoria.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.grcategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grcategoria.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grcategoria.HeaderFormatStyle.Font = New System.Drawing.Font("Georgia", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.grcategoria.HeaderFormatStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(59, Byte), Integer), CType(CType(66, Byte), Integer))
         Me.grcategoria.Location = New System.Drawing.Point(0, 0)
         Me.grcategoria.Name = "grcategoria"
         Me.grcategoria.Office2007ColorScheme = Janus.Windows.GridEX.Office2007ColorScheme.Custom
         Me.grcategoria.Office2007CustomColor = System.Drawing.Color.DodgerBlue
-        Me.grcategoria.Size = New System.Drawing.Size(404, 385)
+        Me.grcategoria.Size = New System.Drawing.Size(404, 387)
         Me.grcategoria.TabIndex = 0
         Me.grcategoria.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007
         '

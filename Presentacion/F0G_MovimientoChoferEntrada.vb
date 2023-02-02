@@ -311,7 +311,11 @@ Public Class F0G_MovimientoChoferEntrada
             .Width = 90
             .Visible = False
         End With
-
+        With grmovimiento.RootTable.Columns("ESTADO")
+            .Width = 120
+            .Visible = True
+            .Caption = "ESTADO"
+        End With
         With grmovimiento
             .DefaultFilterRowComparison = FilterConditionOperator.Contains
             .FilterMode = FilterMode.Automatic

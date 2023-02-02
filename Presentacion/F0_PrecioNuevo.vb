@@ -136,9 +136,9 @@ Public Class F0_PrecioNuevo
 
             'a.yfcprod ,a.yfnumi ,a.yfcdprod1,gr3.ycdes3 as Laboratorio,gr4.ycdes3 as Presentacion 
             With grprecio.RootTable.Columns("yfcprod")
-                .Caption = "COD"
-                .Width = 60
-                .Visible = True
+            .Caption = "COD DYNASYS"
+            .Width = 80
+            .Visible = True
             End With
             With grprecio.RootTable.Columns("yfnumi")
                 .Caption = "COD PROD"
@@ -146,10 +146,10 @@ Public Class F0_PrecioNuevo
                 .Visible = False
             End With
             With grprecio.RootTable.Columns("yfCodProd")
-                .Caption = "COD PROD"
-                .Width = 70
-                .Visible = True
-            End With
+            .Caption = "COD DELTA"
+            .Width = 80
+            .Visible = True
+        End With
             With grprecio.RootTable.Columns("cacat")
                 .Caption = "Cod P"
                 .Width = 70
@@ -697,7 +697,7 @@ Public Class F0_PrecioNuevo
                                        eToastGlowColor.Green,
                                        eToastPosition.BottomCenter)
         Else
-            ToastNotification.Show(Me, "FALLO AL EXPORTACIÓN DE LISTA DE PRODUCTOS..!!!",
+            ToastNotification.Show(Me, "FALLÓ AL EXPORTACIÓN DE LISTA DE PRODUCTOS..!!!",
                                        My.Resources.WARNING, 2000,
                                        eToastGlowColor.Red,
                                        eToastPosition.BottomLeft)
