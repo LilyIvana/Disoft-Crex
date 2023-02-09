@@ -155,15 +155,32 @@ Public Class F02_Movimiento
         If (BoNuevo Or BoModificar) Then
             If (e.KeyData = Keys.Control + Keys.Enter) Then
                 Dim dt As DataTable
-                dt = L_fnObtenerTabla("a.canumi as numi, a.cadesc as [desc],b.iacant as stock",
-                                      "TC001 a,TI001 as b",
-                                      "a.caserie=" + IIf(tipo = 1, "1", "0") + " and caest=1 and a.canumi=b.iacprod 
-                                      and b.iaalm = " + Str(cbAlmacenOrigen.Value) + "order by a.canumi asc")
+                'dt = L_fnObtenerTabla("a.canumi as numi, a.cadesc as [desc],b.iacant as stock",
+                '                      "TC001 a,TI001 as b",
+                '                      "a.caserie=" + IIf(tipo = 1, "1", "0") + " and caest=1 and a.canumi=b.iacprod 
+                '                      and b.iaalm = " + Str(cbAlmacenOrigen.Value) + "order by a.canumi asc")
+                If cbConcepto.Value = 10 Then
+                    dt = L_fnObtenerTabla("a.canumi as numi, a.cacod as cod, a.cadesc as [desc], c.cmdesc as prov,  b.iacant as stock",
+                                     "TC001 a,TI001 as b, TC010 as c",
+                                     "a.caserie=" + IIf(tipo = 1, "1", "0") + " and caest=1 and a.canumi=b.iacprod 
+                                      and a.cagr1=c.cmnumi and b.iaalm = " + Str(cbAlmacenOrigen.Value) +
+                                      " order by a.canumi asc")
+                Else
+                    dt = L_fnObtenerTabla("a.canumi as numi, a.cacod as cod, a.cadesc as [desc], c.cmdesc as prov,  b.iacant as stock",
+                                     "TC001 a,TI001 as b, TC010 as c",
+                                     "a.caserie=" + IIf(tipo = 1, "1", "0") + " and caest=1 and a.canumi=b.iacprod 
+                                      and a.cagr1=c.cmnumi and b.iacant>0 and b.iaalm = " + Str(cbAlmacenOrigen.Value) +
+                                      " order by a.canumi asc")
+                End If
+
 
                 Dim listEstCeldas As New List(Of Modelo.MCelda)
-                listEstCeldas.Add(New Modelo.MCelda("numi,", True, "Código", 100))
+                listEstCeldas.Add(New Modelo.MCelda("numi,", True, "CódDynasys", 100))
+                listEstCeldas.Add(New Modelo.MCelda("cod,", True, "CódDelta", 100, TextAlignment.Far))
                 listEstCeldas.Add(New Modelo.MCelda("desc", True, "Descripción", 350))
+                listEstCeldas.Add(New Modelo.MCelda("prov", True, "Proveedor", 150))
                 listEstCeldas.Add(New Modelo.MCelda("stock", True, "Stock", 120))
+
 
                 Dim ef = New Efecto
                 ef.tipo = 3
@@ -177,6 +194,10 @@ Public Class F02_Movimiento
                 ef.StartPosition = FormStartPosition.CenterScreen
                 Dim bandera As Boolean = False
                 bandera = ef.band
+
+
+
+
                 If (bandera = True) Then
                     Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
                     If (Not ExisteProducto(Row.Cells("numi").Value)) Then
@@ -189,6 +210,7 @@ Public Class F02_Movimiento
                         DtDetalle.Rows(dgjDetalle.Row).Item("iccprod") = Row.Cells("numi").Value
                         DtDetalle.Rows(dgjDetalle.Row).Item("ncprod") = Row.Cells("desc").Value
                         DtDetalle.Rows(dgjDetalle.Row).Item("stock") = Row.Cells("stock").Value
+
                     Else
                         Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
                         ToastNotification.Show(Me, "El producto ya existe en el Detalle",
@@ -1020,7 +1042,7 @@ Public Class F02_Movimiento
     Private Sub P_prAddFilaDetalle()
         Dim fil As DataRow
         fil = DtDetalle.NewRow
-        fil.Item("icid") = 0
+        fil.Item("icid") = _fnSiguienteNumi() + 1
         fil.Item("icibid") = 0
         fil.Item("iccprod") = 0
         fil.Item("ncprod") = "Nuevo"
@@ -1029,6 +1051,18 @@ Public Class F02_Movimiento
         fil.Item("stock") = 0
         DtDetalle.Rows.Add(fil)
     End Sub
+    Public Function _fnSiguienteNumi()
+        Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable)
+        Dim mayor As Integer = 0
+        For i As Integer = 0 To dt.Rows.Count - 1 Step 1
+            Dim data As Integer = IIf(IsDBNull(CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("icid")), 0, CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("icid"))
+            If (data > mayor) Then
+                mayor = data
+
+            End If
+        Next
+        Return mayor
+    End Function
     Public Function _fnAccesible()
         Return tbObs.ReadOnly = False
     End Function
@@ -1108,7 +1142,7 @@ Public Class F02_Movimiento
                 If (dgjDetalle.GetValue("iccant") > 0) Then
 
                     Dim stock As Double = dgjDetalle.GetValue("stock")
-                    If (dgjDetalle.GetValue("iccant") > stock And cbConcepto.Value = 60) Then
+                    If (dgjDetalle.GetValue("iccant") > stock And cbConcepto.Value = 14) Then
                         Dim lin As Integer = dgjDetalle.GetValue("icid")
                         Dim pos As Integer = -1
                         _fnObtenerFilaDetalle(pos, lin)
@@ -1148,6 +1182,8 @@ Public Class F02_Movimiento
             End If
         End If
     End Sub
+
+
 
 #End Region
 
