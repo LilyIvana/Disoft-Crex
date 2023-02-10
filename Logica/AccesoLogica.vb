@@ -1036,7 +1036,7 @@ Public Class AccesoLogica
         Else
             _Where = "cast(canumi as nvarchar(10))=chcprod AND chcatcl=" + _CatClie + " AND iaalm=" + _alm + " AND caest=1 AND iacprod=canumi AND caserie=0"
         End If
-        _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, iacant, caumed", "TC001,TC003, TI001", _Where + " order by canumi")
+        _Tabla = D_Datos_Tabla("canumi,cacod,cadesc,chprecio,caimg,castc,cagr4,cagr3, (iacant - ISNULL(( select SUM(obpcant) from TO001,TO0011 where obcprod= canumi and oanumi = obnumi AND oaap = 1 AND oaest IN (1, 2)), 0)) as iacant, caumed", "TC001,TC003, TI001", _Where + " order by canumi")
 
         Return _Tabla
     End Function

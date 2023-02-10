@@ -195,19 +195,15 @@ Public Class F02_Movimiento
                 Dim bandera As Boolean = False
                 bandera = ef.band
 
-
-
-
                 If (bandera = True) Then
                     Dim Row As Janus.Windows.GridEX.GridEXRow = ef.Row
                     If (Not ExisteProducto(Row.Cells("numi").Value)) Then
-
-
 
                         'dgjDetalle.SetValue("cprod", Row.Cells("numi").Value)
                         'dgjDetalle.SetValue("ncprod", Row.Cells("desc").Value)
                         dgjDetalle.Col = dgjDetalle.RootTable.Columns("iccant").Index
                         DtDetalle.Rows(dgjDetalle.Row).Item("iccprod") = Row.Cells("numi").Value
+                        DtDetalle.Rows(dgjDetalle.Row).Item("cacod") = Row.Cells("cod").Value
                         DtDetalle.Rows(dgjDetalle.Row).Item("ncprod") = Row.Cells("desc").Value
                         DtDetalle.Rows(dgjDetalle.Row).Item("stock") = Row.Cells("stock").Value
 
@@ -221,7 +217,7 @@ Public Class F02_Movimiento
                     End If
 
                 End If
-                ElseIf (e.KeyData = Keys.Enter And dgjDetalle.Col = dgjDetalle.RootTable.Columns("iccant").Index) Then
+            ElseIf (e.KeyData = Keys.Enter And dgjDetalle.Col = dgjDetalle.RootTable.Columns("iccant").Index) Then
                 Dim filIndex As Integer = dgjDetalle.Row
                 If (filIndex = dgjDetalle.RowCount - 1) Then
                     P_prAddFilaDetalle()
@@ -967,7 +963,17 @@ Public Class F02_Movimiento
         End With
 
         With dgjDetalle.RootTable.Columns("iccprod")
-            .Caption = "Código"
+            .Caption = "CódDynasys"
+            .Width = 100
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
+            .Visible = True
+            '.CellStyle.BackColor = Color.AliceBlue
+        End With
+        With dgjDetalle.RootTable.Columns("cacod")
+            .Caption = "CódDelta"
             .Width = 100
             .HeaderStyle.Font = FtTitulo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
@@ -1035,6 +1041,23 @@ Public Class F02_Movimiento
             cbConcepto.BackColor = Color.White
             MEP.SetError(cbConcepto, "")
         End If
+
+        If tbObs.Text = String.Empty Then
+            tbObs.BackColor = Color.Red
+            MEP.SetError(tbObs, "Debe poner obligatoriamente una observación.".ToUpper)
+            res = False
+        Else
+            tbObs.BackColor = Color.White
+            MEP.SetError(tbObs, "")
+        End If
+
+        If dgjDetalle.CurrentRow.Cells("iccprod").Text = 0 Then
+            Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+            ToastNotification.Show(Me, "Por Favor Inserte un Detalle de Productos".ToUpper, img, 3500, eToastGlowColor.Red, eToastPosition.BottomCenter)
+            res = False
+
+        End If
+
 
         Return res
     End Function

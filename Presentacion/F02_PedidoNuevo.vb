@@ -1513,8 +1513,8 @@ Public Class F02_PedidoNuevo
             Dim i As Integer
             For i = 0 To JGr_DetallePedido.RowCount - 1
                 JGr_DetallePedido.Row = i
-                If IsNumeric(JGr_DetallePedido.CurrentRow.Cells("Cantidad").Value) = False Then
-                    ToastNotification.Show(Me, "falta cantidad en algun producto del detalle".ToUpper, My.Resources.WARNING, 4000, eToastGlowColor.Green, eToastPosition.BottomCenter)
+                If (JGr_DetallePedido.CurrentRow.Cells("Cantidad").Text) = 0 Then
+                    ToastNotification.Show(Me, "Los productos no  pueden tener cantidad 0, verifique".ToUpper, My.Resources.WARNING, 4000, eToastGlowColor.Green, eToastPosition.BottomCenter)
                     _Error = True
                 End If
             Next
@@ -2414,39 +2414,41 @@ Public Class F02_PedidoNuevo
             'If JGr_DetallePedido.RowCount < 20 Then
             If JGr_Productos.CurrentRow.Cells("iacant").Value > 0 Then
 
-                    If (Not existe) Then
-                        'agregar al detalle producto seleccionado
-                        Dim codProd, codProd1, descrip, precio, familia, atributo, stock, grupdesc As String
+                If (Not existe) Then
+                    'agregar al detalle producto seleccionado
+                    Dim codProd, codProd1, descrip, precio, familia, atributo, stock, grupdesc As String
 
-                        codProd = Convert.ToString(JGr_Productos.CurrentRow.Cells("Codigo").Value)
-                        codProd1 = Convert.ToString(JGr_Productos.CurrentRow.Cells("CodigoFlex").Value)
-                        descrip = Convert.ToString(JGr_Productos.CurrentRow.Cells("Descripcion").Value)
-                        precio = Convert.ToString(JGr_Productos.CurrentRow.Cells("Precio").Value)
-                        familia = Convert.ToString(JGr_Productos.CurrentRow.Cells("cagr4").Value)
-                        atributo = Convert.ToString(JGr_Productos.CurrentRow.Cells("cagr3").Value)
-                        stock = Convert.ToString(JGr_Productos.CurrentRow.Cells("iacant").Value)
-                        'grupdesc = Convert.ToString(JGr_Productos.CurrentRow.Cells("caumed").Value)
+                    codProd = Convert.ToString(JGr_Productos.CurrentRow.Cells("Codigo").Value)
+                    codProd1 = Convert.ToString(JGr_Productos.CurrentRow.Cells("CodigoFlex").Value)
+                    descrip = Convert.ToString(JGr_Productos.CurrentRow.Cells("Descripcion").Value)
+                    precio = Convert.ToString(JGr_Productos.CurrentRow.Cells("Precio").Value)
+                    familia = Convert.ToString(JGr_Productos.CurrentRow.Cells("cagr4").Value)
+                    atributo = Convert.ToString(JGr_Productos.CurrentRow.Cells("cagr3").Value)
+                    stock = Convert.ToString(JGr_Productos.CurrentRow.Cells("iacant").Value)
+                    'grupdesc = Convert.ToString(JGr_Productos.CurrentRow.Cells("caumed").Value)
 
-                        Dim nuevaFila As DataRow = CType(JGr_DetallePedido.DataSource, DataTable).NewRow()
+                    Dim nuevaFila As DataRow = CType(JGr_DetallePedido.DataSource, DataTable).NewRow()
 
-                        nuevaFila(1) = codProd
-                        nuevaFila(2) = codProd1
-                        nuevaFila(3) = descrip
-                        nuevaFila(5) = precio
-                        nuevaFila(7) = 0
-                        nuevaFila(9) = familia
-                        nuevaFila(10) = atributo
-                        nuevaFila(11) = stock
-                        'nuevaFila(12) = grupdesc
+                    nuevaFila(1) = codProd
+                    nuevaFila(2) = codProd1
+                    nuevaFila(3) = descrip
+                    nuevaFila(4) = 1
+                    nuevaFila(5) = precio
+                    nuevaFila(6) = precio * 1
+                    nuevaFila(7) = 0
+                    nuevaFila(9) = familia
+                    nuevaFila(10) = atributo
+                    nuevaFila(11) = stock
+                    'nuevaFila(12) = grupdesc
 
 
-                        CType(JGr_DetallePedido.DataSource, DataTable).Rows.Add(nuevaFila)
+                    CType(JGr_DetallePedido.DataSource, DataTable).Rows.Add(nuevaFila)
 
-                        'poner el foco en cantidad
-                        Tb_CantProd.Text = "1"
-                        Tb_CantProd.Focus()
-                    Else
-                        If (existe) Then
+                    'poner el foco en cantidad
+                    Tb_CantProd.Text = "1"
+                    Tb_CantProd.Focus()
+                Else
+                    If (existe) Then
                             Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
                             ToastNotification.Show(Me, "El producto ya existe en el detalle, favor modificar la cantidad".ToUpper, img, 3500, eToastGlowColor.Red, eToastPosition.BottomCenter)
                         End If
