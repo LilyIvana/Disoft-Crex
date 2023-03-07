@@ -1025,7 +1025,7 @@ Partial Class F0_PedidosAsignacion
         Me.ConMenu_Opciones2.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.ConMenu_Opciones2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AñadirObsToolStripMenuItem, Me.GRABARRECLAMOToolStripMenuItem1, Me.GRABARRECLAMOREPARTIDORToolStripMenuItem1, Me.VERHISTORIALToolStripMenuItem1, Me.ANULARPEDIDOToolStripMenuItem1, Me.IMPRIMIRPEDIDOToolStripMenuItem})
         Me.ConMenu_Opciones2.Name = "ConMenu_Opciones"
-        Me.ConMenu_Opciones2.Size = New System.Drawing.Size(266, 160)
+        Me.ConMenu_Opciones2.Size = New System.Drawing.Size(266, 182)
         '
         'AñadirObsToolStripMenuItem
         '

@@ -223,14 +223,16 @@ Public Class F02_Movimiento
                     P_prAddFilaDetalle()
 
                     Dim dt As DataTable
-                    dt = L_fnObtenerTabla("a.canumi as numi, a.cadesc as [desc],b.iacant as stock",
-                                      "TC001 a,TI001 as b",
+                    dt = L_fnObtenerTabla("a.canumi as numi, a.cacod as cod, a.cadesc as [desc], c.cmdesc as prov, b.iacant as stock",
+                                      "TC001 a,TI001 as b, TC010 as c",
                                       "a.caserie=" + IIf(tipo = 1, "1", "0") + " and caest=1 and a.canumi=b.iacprod 
-                                      and b.iaalm = " + Str(cbAlmacenOrigen.Value) + "order by a.canumi asc")
+                                      and a.cagr1=c.cmnumi and b.iaalm = " + Str(cbAlmacenOrigen.Value) + "order by a.canumi asc")
 
                     Dim listEstCeldas As New List(Of Modelo.MCelda)
                     listEstCeldas.Add(New Modelo.MCelda("numi,", True, "Código", 80))
+                    listEstCeldas.Add(New Modelo.MCelda("cod,", True, "CódDelta", 100, TextAlignment.Far))
                     listEstCeldas.Add(New Modelo.MCelda("desc", True, "Descripción", 270))
+                    listEstCeldas.Add(New Modelo.MCelda("prov", True, "Proveedor", 150))
                     listEstCeldas.Add(New Modelo.MCelda("stock", True, "Stock", 120))
 
                     Dim ef = New Efecto
@@ -1051,12 +1053,21 @@ Public Class F02_Movimiento
             MEP.SetError(tbObs, "")
         End If
 
-        If dgjDetalle.CurrentRow.Cells("iccprod").Text = 0 Then
+        If dgjDetalle.RowCount <= 0 Then
             Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
             ToastNotification.Show(Me, "Por Favor Inserte un Detalle de Productos".ToUpper, img, 3500, eToastGlowColor.Red, eToastPosition.BottomCenter)
             res = False
-
         End If
+
+        If dgjDetalle.RowCount = 1 Then
+            If dgjDetalle.CurrentRow.Cells("iccprod").Text = 0 Then
+                Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                ToastNotification.Show(Me, "Por Favor Inserte un Detalle de Productos".ToUpper, img, 3500, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                res = False
+
+            End If
+        End If
+
 
 
         Return res
