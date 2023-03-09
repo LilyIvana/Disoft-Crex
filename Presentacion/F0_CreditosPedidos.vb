@@ -1282,4 +1282,6 @@ Public Class F0_CreditosPedidos
     Private Sub grPendiente_EditingCell(sender As Object, e As EditingCellEventArgs) Handles grPendiente.EditingCell
         e.Cancel = True
     End Sub
+
+
 End Class

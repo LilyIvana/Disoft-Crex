@@ -2000,8 +2000,8 @@ Public Class frmBillingDispatch
                 EmenvioDetalle.precioUnitario = (row("obpbase"))
                 EmenvioDetalle.montoDescuento = (row("obdesc"))
                 EmenvioDetalle.subTotal = (row("obtotal"))
-                EmenvioDetalle.numeroSerie = "0"
-                EmenvioDetalle.numeroImei = "0"
+                EmenvioDetalle.numeroSerie = ""
+                EmenvioDetalle.numeroImei = ""
 
                 PrecioTot = PrecioTot + (row("obtotal")) 'total
 

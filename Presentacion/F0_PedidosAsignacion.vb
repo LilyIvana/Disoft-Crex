@@ -1785,73 +1785,10 @@ Public Class F0_PedidosAsignacion
             If dtVerificar.Rows.Count > 0 Then
 
                 If dtVerificar.Rows(0).Item("oacnconc") > 0 Then
+                    P_prAnularFacturaVenta(codPedido)
 
-                    If (MessageBox.Show("Esta seguro de ANULAR la Factura con Nro de Pedido: " + Convert.ToString(codPedido) + "?", "PREGUNTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes) Then
-
-                        Dim frm As New F0_IngresarReclamo(codPedido, "2", "3")
-                        frm.GroupPanel2.Text = "INGRESE EL MOTIVO DE LA ANULACION DEL PEDIDO"
-                        frm.ShowDialog()
-                        If frm.respuesta = True Then
-                            'L_PedidoCabacera_ModificarEstado(codPedido, "8")
-                            tokenSifac = frm.token
-                            MotivoAnulacion = frm.CbMotivoA.Value
-
-                            Dim dt = L_fnMostrarDatosFactura(codPedido)
-                            If dt.Rows.Count > 0 Then
-
-                                NroFactura = dt.Rows(0).Item("fvanfac").ToString
-                                NroAutorizacion = dt.Rows(0).Item("fvaautoriz").ToString
-                                Dim Conexion = frmBillingDispatch.VerifConexion(tokenSifac)
-                                If Conexion = 200 Then
-                                    Dim Succes As Integer = AnularFactura(tokenSifac)
-                                    If Succes = 200 Then
-                                        'Primero modifica factura correspondiente a la venta
-                                        L_ActualizaTFV001(codPedido, NroFactura, NroAutorizacion, "0")
-                                        'updateTO001C(codPedido, "0")
-                                        Dim mensajeError As String = ""
-                                        Dim res As Boolean = L_fnEliminarVenta(codPedido, mensajeError)
-
-
-                                        'Luego modifica a pasivo el pedidp
-                                        L_PedidoCabacera_ModificarActivoPasivo(codPedido, "2")
-
-                                        'actualizar la grilla
-                                        Dim idRegZona As Integer
-                                        If _soloRepartidor = 0 Then
-                                            idRegZona = JGr_Zonas2.CurrentRow.Cells(2).Value
-                                            _PCargarGridRegistrosPedidos(JGr_Registros2, "2", Str(idRegZona), Tb_CodRep2.Text)
-                                        Else
-                                            _PCargarGridRegistrosPedidos(JGr_Registros2, "2", , Tb_CodRep2.Text)
-                                        End If
-                                    Else
-                                        ToastNotification.Show(Me, "No hay conexión con SIAT, vuelva a intentarlo más tarde.".ToUpper,
-                                                      img, 4000,
-                                                      eToastGlowColor.Green,
-                                                      eToastPosition.TopCenter)
-                                    End If
-                                Else
-                                    ToastNotification.Show(Me, "No hay conexión con SIAT, vuelva a intentarlo más tarde.".ToUpper,
-                                           img, 4000,
-                                           eToastGlowColor.Green,
-                                           eToastPosition.TopCenter)
-                                End If
-
-                            Else
-                                'Luego modifica a pasivo el pedidp
-                                L_PedidoCabacera_ModificarActivoPasivo(codPedido, "2")
-
-                                'actualizar la grilla
-                                Dim idRegZona As Integer
-                                If _soloRepartidor = 0 Then
-                                    idRegZona = JGr_Zonas2.CurrentRow.Cells(2).Value
-                                    _PCargarGridRegistrosPedidos(JGr_Registros2, "2", Str(idRegZona), Tb_CodRep2.Text)
-                                Else
-                                    _PCargarGridRegistrosPedidos(JGr_Registros2, "2", , Tb_CodRep2.Text)
-                                End If
-                            End If
-
-                        End If
-                    End If
+                ElseIf dtVerificar.Rows(0).Item("oacnconc") = 0 And dtVerificar.Rows(0).Item("oaccbnumi") = 4 Then '4 porque ese es el repartidor por defecto para venta/cierres directos 
+                    P_prAnularFacturaVenta(codPedido)
 
                 Else
                     ToastNotification.Show(Me, " No se puede anular el Pedido: ".ToUpper + codPedido.ToString + " porque no se grabó el Movimiento Chofer Salida".ToUpper,
@@ -1908,6 +1845,76 @@ Public Class F0_PedidosAsignacion
             MostrarMensajeError(ex.Message)
             Exit Sub
         End Try
+    End Sub
+
+    Private Sub P_prAnularFacturaVenta(codPedido As Integer)
+        Dim img As Bitmap = New Bitmap(My.Resources.WARNING, 50, 50)
+        If (MessageBox.Show("Esta seguro de ANULAR la Factura con Nro de Pedido: " + Convert.ToString(codPedido) + "?", "PREGUNTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes) Then
+
+            Dim frm As New F0_IngresarReclamo(codPedido, "2", "3")
+            frm.GroupPanel2.Text = "INGRESE EL MOTIVO DE LA ANULACION DEL PEDIDO"
+            frm.ShowDialog()
+            If frm.respuesta = True Then
+                'L_PedidoCabacera_ModificarEstado(codPedido, "8")
+                tokenSifac = frm.token
+                MotivoAnulacion = frm.CbMotivoA.Value
+
+                Dim dt = L_fnMostrarDatosFactura(codPedido)
+                If dt.Rows.Count > 0 Then
+
+                    NroFactura = dt.Rows(0).Item("fvanfac").ToString
+                    NroAutorizacion = dt.Rows(0).Item("fvaautoriz").ToString
+                    Dim Conexion = frmBillingDispatch.VerifConexion(tokenSifac)
+                    If Conexion = 200 Then
+                        Dim Succes As Integer = AnularFactura(tokenSifac)
+                        If Succes = 200 Then
+                            'Primero modifica factura correspondiente a la venta
+                            L_ActualizaTFV001(codPedido, NroFactura, NroAutorizacion, "0")
+                            'updateTO001C(codPedido, "0")
+                            Dim mensajeError As String = ""
+                            Dim res As Boolean = L_fnEliminarVenta(codPedido, mensajeError)
+
+
+                            'Luego modifica a pasivo el pedidp
+                            L_PedidoCabacera_ModificarActivoPasivo(codPedido, "2")
+
+                            'actualizar la grilla
+                            Dim idRegZona As Integer
+                            If _soloRepartidor = 0 Then
+                                idRegZona = JGr_Zonas2.CurrentRow.Cells(2).Value
+                                _PCargarGridRegistrosPedidos(JGr_Registros2, "2", Str(idRegZona), Tb_CodRep2.Text)
+                            Else
+                                _PCargarGridRegistrosPedidos(JGr_Registros2, "2", , Tb_CodRep2.Text)
+                            End If
+                        Else
+                            ToastNotification.Show(Me, "No hay conexión con SIAT, vuelva a intentarlo más tarde.".ToUpper,
+                                                      img, 4000,
+                                                      eToastGlowColor.Green,
+                                                      eToastPosition.TopCenter)
+                        End If
+                    Else
+                        ToastNotification.Show(Me, "No hay conexión con SIAT, vuelva a intentarlo más tarde.".ToUpper,
+                                           img, 4000,
+                                           eToastGlowColor.Green,
+                                           eToastPosition.TopCenter)
+                    End If
+
+                Else
+                    'Luego modifica a pasivo el pedidp
+                    L_PedidoCabacera_ModificarActivoPasivo(codPedido, "2")
+
+                    'actualizar la grilla
+                    Dim idRegZona As Integer
+                    If _soloRepartidor = 0 Then
+                        idRegZona = JGr_Zonas2.CurrentRow.Cells(2).Value
+                        _PCargarGridRegistrosPedidos(JGr_Registros2, "2", Str(idRegZona), Tb_CodRep2.Text)
+                    Else
+                        _PCargarGridRegistrosPedidos(JGr_Registros2, "2", , Tb_CodRep2.Text)
+                    End If
+                End If
+
+            End If
+        End If
     End Sub
 
     Private Sub Btn_Actualizar_Click(sender As Object, e As EventArgs) Handles Btn_Actualizar1.Click
