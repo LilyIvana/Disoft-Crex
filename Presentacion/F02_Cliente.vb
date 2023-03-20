@@ -32,6 +32,7 @@ Public Class F02_Cliente
 
     Dim DtBusqueda As DataTable
     Dim DtDetalle As DataTable
+    Dim RutaGlobal As String = gs_CarpetaRaiz
     Dim StRutaDocumentos As String = gs_CarpetaRaiz + "\Documentos\Cliente\"
     Dim InDuracion As Byte = 5
 
@@ -1200,19 +1201,19 @@ Public Class F02_Cliente
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With DgjBusqueda.RootTable.Columns(4)
-            .Caption = "Teléfono 2"
+            .Caption = "Teléfono 1"
             .Key = "telf1"
             .Width = 100
             .HeaderStyle.Font = FtTitulo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = False
+            .Visible = True
             '.CellStyle.BackColor = Color.AliceBlue
         End With
 
         With DgjBusqueda.RootTable.Columns(5)
-            .Caption = "Teléfono 1"
+            .Caption = "Contacto"
             .Key = "telf2"
             .Width = 100
             .HeaderStyle.Font = FtTitulo
@@ -1320,7 +1321,7 @@ Public Class F02_Cliente
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
             '.CellStyle.BackColor = Color.AliceBlue
-            .FormatString = "0.00000000000000"
+            .FormatString = "0.00000"
         End With
         With DgjBusqueda.RootTable.Columns(15)
             .Caption = "Longitud"
@@ -1332,7 +1333,7 @@ Public Class F02_Cliente
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
             '.CellStyle.BackColor = Color.AliceBlue
-            .FormatString = "0.00000000000000"
+            .FormatString = "0.00000"
         End With
         With DgjBusqueda.RootTable.Columns(16)
             .Caption = "Eventual"
@@ -1342,7 +1343,7 @@ Public Class F02_Cliente
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = True
+            .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With DgjBusqueda.RootTable.Columns(17)
@@ -1364,7 +1365,7 @@ Public Class F02_Cliente
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = True
+            .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With DgjBusqueda.RootTable.Columns(19)
@@ -1379,7 +1380,7 @@ Public Class F02_Cliente
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With DgjBusqueda.RootTable.Columns(20)
-            .Caption = "NIT"
+            .Caption = "Nit"
             .Key = "nit"
             .Width = 100
             .HeaderStyle.Font = FtTitulo
@@ -1408,7 +1409,7 @@ Public Class F02_Cliente
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = True
+            .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With DgjBusqueda.RootTable.Columns(23)
@@ -1429,7 +1430,7 @@ Public Class F02_Cliente
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
-            .Visible = True
+            .Visible = False
         End With
         With DgjBusqueda.RootTable.Columns(25)
             .Caption = ""
@@ -1449,7 +1450,7 @@ Public Class F02_Cliente
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .Visible = True
+            .Visible = False
         End With
         With DgjBusqueda.RootTable.Columns(27)
             .Caption = ""
@@ -1469,7 +1470,7 @@ Public Class F02_Cliente
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .Visible = True
+            .Visible = False
         End With
         With DgjBusqueda.RootTable.Columns(29)
             .Caption = "Tipo Crédito"
@@ -1479,7 +1480,7 @@ Public Class F02_Cliente
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .Visible = True
+            .Visible = false
         End With
         With DgjBusqueda.RootTable.Columns(30)
             .Caption = ""
@@ -1514,18 +1515,18 @@ Public Class F02_Cliente
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With DgjBusqueda.RootTable.Columns(33)
-            .Caption = ""
+            .Caption = "Usuario"
             .Key = "uact"
             .Width = 100
             .HeaderStyle.Font = FtTitulo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
-            .Visible = True
+            .Visible = False
             '.CellStyle.BackColor = Color.AliceBlue
         End With
         With DgjBusqueda.RootTable.Columns(34)
-            .Caption = ""
+            .Caption = "Email"
             .Key = "ccemail"
             .Width = 100
             .HeaderStyle.Font = FtTitulo
@@ -3191,5 +3192,114 @@ Public Class F02_Cliente
         P_prPonerResumenEquipo()
     End Sub
 
+    Private Sub btExcel_Click(sender As Object, e As EventArgs) Handles btExcel.Click
+        _prCrearCarpetaReportes()
+        Dim img As Bitmap = New Bitmap(My.Resources.checked, 50, 50)
+        If (P_ExportarExcel(RutaGlobal + "\Reporte\Reporte Clientes")) Then
+            ToastNotification.Show(Me, "EXPORTACIÓN DE LISTA DE CLIENTES EXITOSA..!!!",
+                                       img, 2000,
+                                       eToastGlowColor.Green,
+                                       eToastPosition.BottomCenter)
+        Else
+            ToastNotification.Show(Me, "FALLO AL EXPORTACIÓN DE LISTA DE CLIENTES..!!!",
+                                       My.Resources.WARNING, 2000,
+                                       eToastGlowColor.Red,
+                                       eToastPosition.BottomLeft)
+        End If
+    End Sub
+    Private Sub _prCrearCarpetaReportes()
+        Dim rutaDestino As String = RutaGlobal + "\Reporte\Reporte Clientes\"
 
+        If System.IO.Directory.Exists(RutaGlobal + "\Reporte\Reporte Clientes\") = False Then
+            If System.IO.Directory.Exists(RutaGlobal + "\Reporte") = False Then
+                System.IO.Directory.CreateDirectory(RutaGlobal + "\Reporte")
+                If System.IO.Directory.Exists(RutaGlobal + "\Reporte\Reporte Clientes") = False Then
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Reporte\Reporte Clientes")
+                End If
+            Else
+                If System.IO.Directory.Exists(RutaGlobal + "\Reporte\Reporte Clientes") = False Then
+                    System.IO.Directory.CreateDirectory(RutaGlobal + "\Reporte\Reporte Clientes")
+
+                End If
+            End If
+        End If
+    End Sub
+    Public Function P_ExportarExcel(_ruta As String) As Boolean
+        Dim _ubicacion As String
+        'Dim _directorio As New FolderBrowserDialog
+
+        If (1 = 1) Then 'If(_directorio.ShowDialog = Windows.Forms.DialogResult.OK) Then
+            '_ubicacion = _directorio.SelectedPath
+            _ubicacion = _ruta
+            Try
+                Dim _stream As Stream
+                Dim _escritor As StreamWriter
+                Dim _fila As Integer = DgjBusqueda.GetRows.Length
+                Dim _columna As Integer = DgjBusqueda.RootTable.Columns.Count
+                Dim _archivo As String = _ubicacion & "\ListaDeClientes_" & Now.Date.Day &
+                    "." & Now.Date.Month & "." & Now.Date.Year & "_" & Now.Hour & "." & Now.Minute & "." & Now.Second & ".csv"
+                Dim _linea As String = ""
+                Dim _filadata = 0, columndata As Int32 = 0
+                File.Delete(_archivo)
+                _stream = File.OpenWrite(_archivo)
+                _escritor = New StreamWriter(_stream, System.Text.Encoding.UTF8)
+
+                For Each _col As GridEXColumn In DgjBusqueda.RootTable.Columns
+                    If (_col.Visible) Then
+                        _linea = _linea & _col.Caption & ";"
+                    End If
+                Next
+                _linea = Mid(CStr(_linea), 1, _linea.Length - 1)
+                _escritor.WriteLine(_linea)
+                _linea = Nothing
+
+                'Pbx_Precios.Visible = True
+                'Pbx_Precios.Minimum = 1
+                'Pbx_Precios.Maximum = Dgv_Precios.RowCount
+                'Pbx_Precios.Value = 1
+
+                For Each _fil As GridEXRow In DgjBusqueda.GetRows
+                    For Each _col As GridEXColumn In DgjBusqueda.RootTable.Columns
+                        If (_col.Visible) Then
+                            Dim data As String = CStr(_fil.Cells(_col.Key).Value)
+                            data = data.Replace(";", ",")
+                            _linea = _linea & data & ";"
+                        End If
+                    Next
+                    _linea = Mid(CStr(_linea), 1, _linea.Length - 1)
+                    _escritor.WriteLine(_linea)
+                    _linea = Nothing
+                    'Pbx_Precios.Value += 1
+                Next
+                _escritor.Close()
+                'Pbx_Precios.Visible = False
+                Try
+                    Dim ef = New Efecto
+                    ef._archivo = _archivo
+
+                    ef.tipo = 1
+                    ef.Context = "Su archivo ha sido Guardado en la ruta: " + _archivo + vbLf + "DESEA ABRIR EL ARCHIVO?"
+                    ef.Header = "PREGUNTA"
+                    ef.ShowDialog()
+                    Dim bandera As Boolean = False
+                    bandera = ef.band
+                    If (bandera = True) Then
+                        Process.Start(_archivo)
+                    End If
+
+                    'If (MessageBox.Show("Su archivo ha sido Guardado en la ruta: " + _archivo + vbLf + "DESEA ABRIR EL ARCHIVO?", "PREGUNTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = Windows.Forms.DialogResult.Yes) Then
+                    '    Process.Start(_archivo)
+                    'End If
+                    Return True
+                Catch ex As Exception
+                    MsgBox(ex.Message)
+                    Return False
+                End Try
+            Catch ex As Exception
+                MsgBox(ex.Message)
+                Return False
+            End Try
+        End If
+        Return False
+    End Function
 End Class

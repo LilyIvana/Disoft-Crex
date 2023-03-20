@@ -24,6 +24,7 @@ Partial Class F02_Cliente
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim CbFiltroResumenEquipo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F02_Cliente))
         Dim cbTipoCredito_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbPrevendedor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbSupervisor_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -31,7 +32,6 @@ Partial Class F02_Cliente
         Dim CbTipoDoc_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbZona_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbFrecuencia_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F02_Cliente))
         Dim cbTipoAcuerdo_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupPanelEquipos = New DevComponents.DotNetBar.Controls.GroupPanel()
@@ -177,6 +177,7 @@ Partial Class F02_Cliente
         Me.ToolStripMenuItemEliminarProducto = New System.Windows.Forms.ToolStripMenuItem()
         Me.btActualizar = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btExcel = New DevComponents.DotNetBar.ButtonX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -274,14 +275,14 @@ Partial Class F02_Cliente
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1284, 585)
         Me.MSuperTabControlPrincipal.Tabs.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.SuperTabItemAcuerdo})
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.SuperTabControlPanel5, 0)
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBusquedaDatos)
         Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1107, 496)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1242, 585)
         '
         'MSuperTabControlPanelRegistro
         '
@@ -358,16 +359,18 @@ Partial Class F02_Cliente
         '
         'MPanelToolBarImprimir
         '
+        Me.MPanelToolBarImprimir.Controls.Add(Me.btExcel)
         Me.MPanelToolBarImprimir.Controls.Add(Me.btActualizar)
-        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1124, 0)
+        Me.MPanelToolBarImprimir.Location = New System.Drawing.Point(1044, 0)
         Me.MPanelToolBarImprimir.Margin = New System.Windows.Forms.Padding(4)
-        Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(160, 70)
+        Me.MPanelToolBarImprimir.Size = New System.Drawing.Size(240, 70)
         Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.MBtImprimir, 0)
         Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.btActualizar, 0)
+        Me.MPanelToolBarImprimir.Controls.SetChildIndex(Me.btExcel, 0)
         '
         'MBtImprimir
         '
-        Me.MBtImprimir.Location = New System.Drawing.Point(80, 0)
+        Me.MBtImprimir.Location = New System.Drawing.Point(160, 0)
         Me.MBtImprimir.Margin = New System.Windows.Forms.Padding(2)
         Me.MBtImprimir.Size = New System.Drawing.Size(80, 70)
         '
@@ -2339,7 +2342,7 @@ Partial Class F02_Cliente
         Me.GroupPanelBusquedaDatos.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelBusquedaDatos.Name = "GroupPanelBusquedaDatos"
         Me.GroupPanelBusquedaDatos.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupPanelBusquedaDatos.Size = New System.Drawing.Size(1107, 496)
+        Me.GroupPanelBusquedaDatos.Size = New System.Drawing.Size(1242, 585)
         '
         '
         '
@@ -2378,7 +2381,7 @@ Partial Class F02_Cliente
         Me.DgjBusqueda.GroupTotals = Janus.Windows.GridEX.GroupTotals.ExpandedGroup
         Me.DgjBusqueda.Location = New System.Drawing.Point(5, 5)
         Me.DgjBusqueda.Name = "DgjBusqueda"
-        Me.DgjBusqueda.Size = New System.Drawing.Size(1091, 462)
+        Me.DgjBusqueda.Size = New System.Drawing.Size(1226, 551)
         Me.DgjBusqueda.TabIndex = 0
         Me.DgjBusqueda.TableHeaders = Janus.Windows.GridEX.InheritableBoolean.[True]
         Me.DgjBusqueda.TotalRow = Janus.Windows.GridEX.InheritableBoolean.[True]
@@ -2943,6 +2946,25 @@ Partial Class F02_Cliente
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 500
         '
+        'btExcel
+        '
+        Me.btExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton
+        Me.btExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat
+        Me.btExcel.Dock = System.Windows.Forms.DockStyle.Right
+        Me.btExcel.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.btExcel.Image = Global.Presentacion.My.Resources.Resources.sheets
+        Me.btExcel.ImageFixedSize = New System.Drawing.Size(42, 47)
+        Me.btExcel.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.btExcel.Location = New System.Drawing.Point(85, 0)
+        Me.btExcel.Margin = New System.Windows.Forms.Padding(2)
+        Me.btExcel.Name = "btExcel"
+        Me.btExcel.Padding = New System.Windows.Forms.Padding(0, 0, 0, 20)
+        Me.btExcel.Size = New System.Drawing.Size(75, 70)
+        Me.btExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeMobile2014
+        Me.btExcel.TabIndex = 13
+        Me.btExcel.Text = "EXPORTAR"
+        Me.btExcel.TextColor = System.Drawing.Color.Black
+        '
         'F02_Cliente
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -3184,4 +3206,5 @@ Partial Class F02_Cliente
     Friend WithEvents chbLunes As DevComponents.DotNetBar.Controls.CheckBoxX
     Friend WithEvents TbEmail As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents LabelX37 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents btExcel As DevComponents.DotNetBar.ButtonX
 End Class
