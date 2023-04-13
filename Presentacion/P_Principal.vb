@@ -1817,6 +1817,13 @@ Public Class P_Principal
 
     End Sub
 
+    Private Sub btnConfImpresoras_Click(sender As Object, e As EventArgs) Handles btnConfImpresoras.Click
+        Dim frm As New F1_Impresoras
+        frm._nameButton = btnConfImpresoras.Name
+        frm._modulo = FP_Configuracion
+        frm.Show()
+    End Sub
+
 
 #End Region
 
