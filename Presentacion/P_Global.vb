@@ -63,6 +63,13 @@ Module P_Global
 
     Public gb_cufSifac As String = ""
 
+
+    ''Parámetros para facturación
+    Public gb_email As String = ""
+    Public gb_password As String = ""
+    Public gb_url As String = ""
+
+
 #Region "Variables"
 
     Public gs_separadorDecimal As Char = Application.CurrentCulture.NumberFormat.NumberDecimalSeparator

@@ -632,6 +632,7 @@
     <Compile Include="modelosApi\EmisorResp.vb" />
     <Compile Include="modelosApi\HomologEnvio.vb" />
     <Compile Include="modelosApi\HomologResp.vb" />
+    <Compile Include="modelosApi\ListarFacturas.vb" />
     <Compile Include="modelosApi\ListarPServResp.vb" />
     <Compile Include="modelosApi\LoginEnvio.vb" />
     <Compile Include="modelosApi\LoginResp.vb" />

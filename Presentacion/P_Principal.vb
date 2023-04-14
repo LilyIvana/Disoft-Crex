@@ -184,6 +184,7 @@ Public Class P_Principal
         Else
             _PCargarPrivilegios()
             _prCargarConfiguracionSistema()
+            P_prCargarParametrosFacturacion()
             SideNav1.Enabled = True
         End If
     End Sub
@@ -231,7 +232,13 @@ Public Class P_Principal
         End Try
 
     End Sub
+    Private Sub P_prCargarParametrosFacturacion()
+        Dim dtFact As DataTable = L_fnConfParametrosFacturacion()
 
+        gb_email = dtFact.Rows(0).Item("email")
+        gb_password = dtFact.Rows(0).Item("password")
+        gb_url = dtFact.Rows(0).Item("url")
+    End Sub
     Private Sub _PCargarPrivilegios()
         Dim listaTabs As New List(Of DevComponents.DotNetBar.Metro.MetroTilePanel)
         listaTabs.Add(MetroTilePanelConf)
