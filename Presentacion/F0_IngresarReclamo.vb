@@ -129,7 +129,7 @@ Public Class F0_IngresarReclamo
 
         Dim api = New DBApi()
 
-        Dim url = "https://crex.sifac.nwc.com.bo/api/v2/motivo-anulacion"
+        Dim url = gb_url + "/api/v2/motivo-anulacion"
 
         Dim headers = New List(Of Parametro) From {
             New Parametro("Authorization", "Bearer " + tokenObtenido),

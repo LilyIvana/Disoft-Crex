@@ -2139,20 +2139,20 @@ Public Class frmBillingDispatch
                     Dim FechaI = Date.Today.AddDays(-1).ToString("yyyy-MM-dd")
                     Dim FechaF = (Now.Date.ToString("yyyy-MM-dd"))
 
-                    Dim dt = ListarFacturas(tokenObtenido, gs_NroCaja.ToString, FechaI, FechaF)
+                    Dim dt = ListarFacturas(tokenObtenido, 9.ToString, FechaI, FechaF)
                     If dt.Count > 0 Then
                         Dim Conteo As Integer = dt.Count
                         Dim NAutorizacion = dt(Conteo - 1).cuf
                         Dim NroFactAnulada = dt(Conteo - 1).numeroFactura
 
-                        Dim Succes As Integer = F0_AnularFactura.AnularFactura(tokenObtenido, NAutorizacion, 3, False)
+                        Dim Succes As Integer = F0_PedidosAsignacion.AnularFactura(tokenObtenido, NAutorizacion, 3, False)
                         If Succes = 200 Then
-                            L_fnInsertarFacturaAnuladaSifac((Now.Date.ToString("yyyy-MM-dd")), gs_NroCaja, NroFactAnulada, NAutorizacion, "ANULADA")
+                            L_fnInsertarFacturaAnuladaSifac((Now.Date.ToString("yyyy-MM-dd")), 9, NroFactAnulada, NAutorizacion, "ANULADA")
                         Else
-                            L_fnInsertarFacturaAnuladaSifac((Now.Date.ToString("yyyy-MM-dd")), gs_NroCaja, NroFactAnulada, NAutorizacion, "NO ANULADA")
+                            L_fnInsertarFacturaAnuladaSifac((Now.Date.ToString("yyyy-MM-dd")), 9, NroFactAnulada, NAutorizacion, "NO ANULADA")
                         End If
                     Else
-                        L_fnInsertarFacturaAnuladaSifac((Now.Date.ToString("yyyy-MM-dd")), gs_NroCaja, (NumFactura - 1), 0, "NO ANULADA")
+                        L_fnInsertarFacturaAnuladaSifac((Now.Date.ToString("yyyy-MM-dd")), 9, (NumFactura - 1), 0, "NO ANULADA")
                     End If
 
                     Emenvio.numeroFactura = NumFactura
