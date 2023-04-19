@@ -3868,9 +3868,9 @@ Public Class F02_PedidoNuevo
             Emenvio.codigoMoneda = 1 'falta
             Emenvio.tipoCambio = 1 'CDbl(cbCambioDolar.Text) '--------------------
             Emenvio.descuentoAdicional = 0 '-------------------
-            Emenvio.montoTotal = Math.Round((PrecioTot - Emenvio.descuentoAdicional), 2)
-            Emenvio.montoTotalSujetoIva = Math.Round((PrecioTot - Emenvio.descuentoAdicional), 2)
-            Emenvio.montoTotalMoneda = Math.Round((PrecioTot - Emenvio.descuentoAdicional), 2)
+            Emenvio.montoTotal = Format((PrecioTot - Emenvio.descuentoAdicional), "#.#0")
+            Emenvio.montoTotalSujetoIva = Format((PrecioTot - Emenvio.descuentoAdicional), "#.#0")
+            Emenvio.montoTotalMoneda = Format((PrecioTot - Emenvio.descuentoAdicional), "#.#0")
             Emenvio.montoGiftCard = 0 '----------------
             Emenvio.codigoExcepcion = 0 '---------------
             Emenvio.usuario = gs_user
