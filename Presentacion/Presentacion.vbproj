@@ -485,6 +485,12 @@
     <Compile Include="F02ZonaAsignacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="F02_CompraNueva.Designer.vb">
+      <DependentUpon>F02_CompraNueva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F02_CompraNueva.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="F02_Compra.Designer.vb">
       <DependentUpon>F02_Compra.vb</DependentUpon>
     </Compile>
@@ -1818,6 +1824,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="F02ZonaAsignacion.resx">
       <DependentUpon>F02ZonaAsignacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F02_CompraNueva.resx">
+      <DependentUpon>F02_CompraNueva.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F02_Compra.resx">
       <DependentUpon>F02_Compra.vb</DependentUpon>

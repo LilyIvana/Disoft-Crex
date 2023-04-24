@@ -1509,7 +1509,7 @@ Public Class P_Principal
         F02_Compra.AllowTransparency = True
         Dim frm
         If gs_VentanaCompra = 1 Then
-            frm = New F02_Compra
+            frm = New F02_CompraNueva
         Else
             frm = New F02_Compra2
         End If
