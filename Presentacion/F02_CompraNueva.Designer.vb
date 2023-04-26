@@ -1242,7 +1242,6 @@ Partial Class F02_CompraNueva
         Me.LabelX15.Size = New System.Drawing.Size(38, 18)
         Me.LabelX15.TabIndex = 50
         Me.LabelX15.Text = "ICE:"
-        Me.LabelX15.Visible = False
         '
         'tbDescuentoPro1
         '
@@ -1318,7 +1317,6 @@ Partial Class F02_CompraNueva
         '
         '
         '
-        Me.tbMdesc.BackgroundStyle.BackColor = System.Drawing.Color.SteelBlue
         Me.tbMdesc.BackgroundStyle.Class = "DateTimeInputBackground"
         Me.tbMdesc.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
         Me.tbMdesc.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
