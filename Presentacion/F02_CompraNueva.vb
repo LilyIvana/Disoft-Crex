@@ -166,10 +166,7 @@ Public Class F02_CompraNueva
                 dgjDetalle.Row = f
                 dgjDetalle.Col = c + 1
             End If
-            If (c = dgjDetalle.RootTable.Columns("cabcantcj").Index) Then
-                dgjDetalle.Row = f
-                dgjDetalle.Col = c + 1
-            End If
+
             If (c = dgjDetalle.RootTable.Columns("cabcantun").Index) Then
                 dgjDetalle.Row = f
                 dgjDetalle.Col = c + 1
@@ -178,7 +175,7 @@ Public Class F02_CompraNueva
                 dgjDetalle.Row = f
                 dgjDetalle.Col = c + 5
             End If
-            If (c = dgjDetalle.RootTable.Columns("cabdesccj").Index) Then
+            If (c = dgjDetalle.RootTable.Columns("cabdescun").Index) Then
                 If (dgjDetalle.Row = dgjDetalle.RowCount - 1) Then
                     P_prAddFilaDetalle()
                 End If
@@ -1512,8 +1509,8 @@ Public Class F02_CompraNueva
     Private Sub P_prArmarAyudaProducto()
         Dim frmAyuda As Modelo.ModeloAyuda
 
-        'Dim dt As DataTable = L_ProductosGeneral(1, "caest=1 and caserie=0").Tables(0)
-        Dim dt As DataTable = L_ProductosGeneral(1, "caest=1 and caserie=0 and cagr1= " + tbCodProveedor.Text + " ").Tables(0)
+        'Dim dt As DataTable = L_ProductosGeneral(1, "caest=1 and caserie=0 and cagr1= " + tbCodProveedor.Text + " ").Tables(0)
+        Dim dt As DataTable = L_ProductosGeneralNueva(1, "cecon=106 and cenum=cauventa and chcprod=canumi and chcatcl=1 and caest=1 and caserie=0 and cagr1= " + tbCodProveedor.Text + " ").Tables(0)
 
         Dim listEstCeldas As New List(Of Modelo.MCelda)
         listEstCeldas.Add(New Modelo.MCelda("canumi", True, "Código", 80))
@@ -1521,6 +1518,9 @@ Public Class F02_CompraNueva
         listEstCeldas.Add(New Modelo.MCelda("cadesc", True, "Producto", 300))
         listEstCeldas.Add(New Modelo.MCelda("cadesc2", True, "Desc", 150))
         listEstCeldas.Add(New Modelo.MCelda("caconv", True, "Conversion", 150))
+        listEstCeldas.Add(New Modelo.MCelda("cedesc", True, "Unidad", 70))
+        listEstCeldas.Add(New Modelo.MCelda("chprecio", True, "Precio Costo", 100))
+
 
         frmAyuda = New Modelo.ModeloAyuda(600, 540, dt, "Seleccione Producto".ToUpper, listEstCeldas)
         frmAyuda.StartPosition = FormStartPosition.CenterScreen
@@ -1531,12 +1531,15 @@ Public Class F02_CompraNueva
             Dim cod As String = frmAyuda.filaSelect.Cells("cacod").Value
             Dim desc As String = frmAyuda.filaSelect.Cells("cadesc").Value
             conv = frmAyuda.filaSelect.Cells("caconv").Value
+            Dim uni As String = frmAyuda.filaSelect.Cells("cedesc").Value
+            Dim preciocosto As String = frmAyuda.filaSelect.Cells("chprecio").Value
 
-
-            dgjDetalle.Col = dgjDetalle.RootTable.Columns("cabcantcj").Index
+            dgjDetalle.Col = dgjDetalle.RootTable.Columns("cabcantun").Index
             dgjDetalle.SetValue(1, id)
             dgjDetalle.SetValue(2, cod)
             dgjDetalle.SetValue(3, desc)
+            dgjDetalle.SetValue(4, uni)
+            dgjDetalle.SetValue(6, preciocosto)
             '_prCalcularPrecioTotal()
         End If
     End Sub
@@ -1649,35 +1652,22 @@ Public Class F02_CompraNueva
                 dtconv = L_fnConversionProd(codprod)
                 conv = dtconv.Rows(0).Item("caconv")
 
-                If (Not IsNumeric(dgjDetalle.GetValue("cabcantcj")) Or dgjDetalle.GetValue("cabcantcj").ToString = String.Empty) Then
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantcj") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantcj")
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot")
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabtot")
 
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabdescpro1cj") = 0
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabdescpro1un") = 0
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabdescpro2cj") = 0
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabdescpro2un") = 0
-
-                Else
-                    If (e.Column.Key.Equals("cabcantcj")) Then
-                        dgjDetalle.SetValue("cabcantun", dgjDetalle.GetValue("cabcantcj") * conv)
-                        dgjDetalle.SetValue("cabpcomcj", dgjDetalle.GetValue("cabsubtot") / dgjDetalle.GetValue("cabcantcj"))
-                        CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantcj") = dgjDetalle.GetValue("cabcantcj")
-                        Dim descuento As Double = tbDescuentoPro1.Value
-                        Dim TotalBruto As Double = tbSubtotalC.Value
-                        CalcularDescuento01(TotalBruto, descuento)
-                        'CalcularDescuento02(TotalBruto, tvDescuento02.Value)
-                    End If
-                End If
                 If (Not IsNumeric(dgjDetalle.GetValue("cabcantun")) Or dgjDetalle.GetValue("cabcantun").ToString = String.Empty) Then
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantun") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantun")
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot")
-                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabtot")
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantun") = 1
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabpcomun")
+                    CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabpcomun")
                 Else
-                    If (e.Column.Key.Equals("cabcantun")) Then
-                        dgjDetalle.SetValue("cabcantcj", dgjDetalle.GetValue("cabcantun") / conv)
-                        dgjDetalle.SetValue("cabpcomcj", dgjDetalle.GetValue("cabsubtot") / dgjDetalle.GetValue("cabcantcj"))
+                    If (dgjDetalle.GetValue("cabcantun") > 0) Then
+                        Dim rowIndex As Integer = dgjDetalle.Row
+                        P_PonerTotal(rowIndex)
+
+                    Else
+                        CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabcantun") = 1
+                        CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabpcomun")
+                        CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabtot") = CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabpcomun")
+
+                        _prCalcularPrecioTotal()
                     End If
                 End If
 

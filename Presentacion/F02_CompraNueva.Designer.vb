@@ -70,6 +70,7 @@ Partial Class F02_CompraNueva
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX8 = New DevComponents.DotNetBar.LabelX()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.tbIce = New DevComponents.Editors.DoubleInput()
         Me.LabelX15 = New DevComponents.DotNetBar.LabelX()
         Me.tbDescuentoPro1 = New DevComponents.Editors.DoubleInput()
         Me.LabelX14 = New DevComponents.DotNetBar.LabelX()
@@ -83,7 +84,6 @@ Partial Class F02_CompraNueva
         Me.dgjBusqueda = New Janus.Windows.GridEX.GridEX()
         Me.btnContabilizar = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.tbIce = New DevComponents.Editors.DoubleInput()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -108,13 +108,13 @@ Partial Class F02_CompraNueva
         CType(Me.tbFechaVenc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtiFechaCompra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.tbIce, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbDescuentoPro1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbtotal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbMdesc, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tbSubtotalC, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupPanelBuscador.SuspendLayout()
         CType(Me.dgjBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tbIce, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MSuperTabControlPrincipal
@@ -1210,6 +1210,23 @@ Partial Class F02_CompraNueva
         Me.Panel1.Size = New System.Drawing.Size(1236, 44)
         Me.Panel1.TabIndex = 2
         '
+        'tbIce
+        '
+        '
+        '
+        '
+        Me.tbIce.BackgroundStyle.Class = "DateTimeInputBackground"
+        Me.tbIce.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbIce.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
+        Me.tbIce.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbIce.Increment = 1.0R
+        Me.tbIce.Location = New System.Drawing.Point(733, 14)
+        Me.tbIce.MinValue = 0R
+        Me.tbIce.Name = "tbIce"
+        Me.tbIce.Size = New System.Drawing.Size(111, 21)
+        Me.tbIce.TabIndex = 51
+        Me.tbIce.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
+        '
         'LabelX15
         '
         Me.LabelX15.BackColor = System.Drawing.Color.Transparent
@@ -1440,23 +1457,6 @@ Partial Class F02_CompraNueva
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'tbIce
-        '
-        '
-        '
-        '
-        Me.tbIce.BackgroundStyle.Class = "DateTimeInputBackground"
-        Me.tbIce.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbIce.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2
-        Me.tbIce.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbIce.Increment = 1.0R
-        Me.tbIce.Location = New System.Drawing.Point(733, 14)
-        Me.tbIce.MinValue = 0R
-        Me.tbIce.Name = "tbIce"
-        Me.tbIce.Size = New System.Drawing.Size(111, 21)
-        Me.tbIce.TabIndex = 51
-        Me.tbIce.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
-        '
         'F02_CompraNueva
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1495,13 +1495,13 @@ Partial Class F02_CompraNueva
         CType(Me.tbFechaVenc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtiFechaCompra, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.tbIce, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbDescuentoPro1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbtotal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbMdesc, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tbSubtotalC, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupPanelBuscador.ResumeLayout(False)
         CType(Me.dgjBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tbIce, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
