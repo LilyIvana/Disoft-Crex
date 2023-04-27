@@ -71,7 +71,6 @@ Partial Class F02_CompraNueva
         Me.LabelX8 = New DevComponents.DotNetBar.LabelX()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.tbIce = New DevComponents.Editors.DoubleInput()
-        Me.LabelX15 = New DevComponents.DotNetBar.LabelX()
         Me.tbDescuentoPro1 = New DevComponents.Editors.DoubleInput()
         Me.LabelX14 = New DevComponents.DotNetBar.LabelX()
         Me.tbtotal = New DevComponents.Editors.DoubleInput()
@@ -84,6 +83,7 @@ Partial Class F02_CompraNueva
         Me.dgjBusqueda = New Janus.Windows.GridEX.GridEX()
         Me.btnContabilizar = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.LabelX15 = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -1194,8 +1194,8 @@ Partial Class F02_CompraNueva
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.SystemColors.Highlight
-        Me.Panel1.Controls.Add(Me.tbIce)
         Me.Panel1.Controls.Add(Me.LabelX15)
+        Me.Panel1.Controls.Add(Me.tbIce)
         Me.Panel1.Controls.Add(Me.tbDescuentoPro1)
         Me.Panel1.Controls.Add(Me.LabelX14)
         Me.Panel1.Controls.Add(Me.tbtotal)
@@ -1226,22 +1226,6 @@ Partial Class F02_CompraNueva
         Me.tbIce.Size = New System.Drawing.Size(111, 21)
         Me.tbIce.TabIndex = 51
         Me.tbIce.WatermarkAlignment = DevComponents.Editors.eTextAlignment.Right
-        '
-        'LabelX15
-        '
-        Me.LabelX15.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX15.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX15.ForeColor = System.Drawing.Color.White
-        Me.LabelX15.Location = New System.Drawing.Point(689, 15)
-        Me.LabelX15.Name = "LabelX15"
-        Me.LabelX15.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX15.Size = New System.Drawing.Size(38, 18)
-        Me.LabelX15.TabIndex = 50
-        Me.LabelX15.Text = "ICE:"
         '
         'tbDescuentoPro1
         '
@@ -1455,6 +1439,22 @@ Partial Class F02_CompraNueva
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
+        'LabelX15
+        '
+        Me.LabelX15.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX15.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX15.ForeColor = System.Drawing.Color.White
+        Me.LabelX15.Location = New System.Drawing.Point(697, 15)
+        Me.LabelX15.Name = "LabelX15"
+        Me.LabelX15.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX15.Size = New System.Drawing.Size(30, 18)
+        Me.LabelX15.TabIndex = 52
+        Me.LabelX15.Text = "ICE:"
+        '
         'F02_CompraNueva
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1557,11 +1557,11 @@ Partial Class F02_CompraNueva
     Protected WithEvents btnContabilizar As DevComponents.DotNetBar.ButtonX
     Friend WithEvents LabelX7 As DevComponents.DotNetBar.LabelX
     Friend WithEvents dtiFfactura As DevComponents.Editors.DateTimeAdv.DateTimeInput
-    Friend WithEvents LabelX15 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbDescuentoPro1 As DevComponents.Editors.DoubleInput
     Friend WithEvents LabelX14 As DevComponents.DotNetBar.LabelX
     Friend WithEvents Timer1 As Timer
     Friend WithEvents tbRazonSocial As DevComponents.DotNetBar.Controls.TextBoxX
     Friend WithEvents LabelX17 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbIce As DevComponents.Editors.DoubleInput
+    Friend WithEvents LabelX15 As DevComponents.DotNetBar.LabelX
 End Class

@@ -168,14 +168,8 @@ Public Class F02_CompraNueva
             End If
 
             If (c = dgjDetalle.RootTable.Columns("cabcantun").Index) Then
-                dgjDetalle.Row = f
-                dgjDetalle.Col = c + 1
-            End If
-            If (c = dgjDetalle.RootTable.Columns("cabsubtot").Index) Then
-                dgjDetalle.Row = f
-                dgjDetalle.Col = c + 5
-            End If
-            If (c = dgjDetalle.RootTable.Columns("cabdescun").Index) Then
+                'dgjDetalle.Row = f
+                'dgjDetalle.Col = c + 1
                 If (dgjDetalle.Row = dgjDetalle.RowCount - 1) Then
                     P_prAddFilaDetalle()
                 End If
@@ -183,6 +177,11 @@ Public Class F02_CompraNueva
                 dgjDetalle.Col = dgjDetalle.RootTable.Columns("ntc1numi").Index
                 P_prArmarAyudaProducto()
             End If
+            If (c = dgjDetalle.RootTable.Columns("cabsubtot").Index) Then
+                dgjDetalle.Row = f
+                dgjDetalle.Col = c + 5
+            End If
+
         End If
     End Sub
     Public Sub _prCalcularPrecioTotal()
@@ -301,7 +300,7 @@ Public Class F02_CompraNueva
         swAsiento.Visible = gs_Parametros(0).Item("sycompraasiento")
         LabelX14.Visible = gs_Parametros(0).Item("sycompradescpr1")
         tbDescuentoPro1.Visible = gs_Parametros(0).Item("sycompradescpr1")
-        LabelX15.Visible = gs_Parametros(0).Item("sycompradescpr2")
+
 
     End Sub
     Private Function P_fnValidarRequisitos() As String
@@ -1053,7 +1052,6 @@ Public Class F02_CompraNueva
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
-            '.CellStyle.BackColor = Color.AliceBlue
         End With
 
         With dgjBusqueda.RootTable.Columns("caaobs")
@@ -1262,7 +1260,7 @@ Public Class F02_CompraNueva
             .Visible = True
             .CellStyle.BackColor = Color.SteelBlue
             .FormatString = "0.00"
-            .AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
+            '.AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
             .TotalFormatString = "0.00"
         End With
 
@@ -1276,7 +1274,7 @@ Public Class F02_CompraNueva
             .Visible = True
             .CellStyle.BackColor = Color.SteelBlue
             .FormatString = "0.00"
-            .AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
+            '.AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
             .TotalFormatString = "0.00"
         End With
 
@@ -1290,7 +1288,7 @@ Public Class F02_CompraNueva
             .Visible = gs_Parametros(0).Item("sycompradescpr1")
             .CellStyle.BackColor = Color.AliceBlue
             .FormatString = "0.00"
-            .AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
+            '.AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
             .TotalFormatString = "0.00"
         End With
         With dgjDetalle.RootTable.Columns("cabice")
@@ -1313,7 +1311,7 @@ Public Class F02_CompraNueva
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
             .FormatString = "0.00"
-            .AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
+            '.AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
             .TotalFormatString = "0.00"
         End With
 
@@ -1327,7 +1325,7 @@ Public Class F02_CompraNueva
             .CellStyle.Font = FtNormal
             .Visible = True
             .FormatString = "0.00"
-            .AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
+            '.AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
             .TotalFormatString = "0.00"
         End With
         With dgjDetalle.RootTable.Columns("cabputi")
@@ -1338,7 +1336,6 @@ Public Class F02_CompraNueva
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = False
-            '.CellStyle.BackColor = Color.AliceBlue
             .FormatString = "0.00"
         End With
         With dgjDetalle.RootTable.Columns("cabpven")
@@ -1349,7 +1346,6 @@ Public Class F02_CompraNueva
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = False
-            '.CellStyle.BackColor = Color.AliceBlue
             .FormatString = "0.00"
         End With
 
@@ -1361,7 +1357,6 @@ Public Class F02_CompraNueva
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = False
-            '.CellStyle.BackColor = Color.AliceBlue
             .FormatString = "0"
         End With
 
@@ -1373,7 +1368,6 @@ Public Class F02_CompraNueva
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = False
-            '.CellStyle.BackColor = Color.AliceBlue
             .FormatString = "0.00"
         End With
 
@@ -1385,7 +1379,6 @@ Public Class F02_CompraNueva
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = False
-            '.CellStyle.BackColor = Color.AliceBlue
             .FormatString = "0.00"
         End With
         With dgjDetalle.RootTable.Columns("cabtca1numi")
@@ -1399,9 +1392,8 @@ Public Class F02_CompraNueva
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = False
-            '.CellStyle.BackColor = Color.AliceBlue
             .FormatString = "0.00"
-            .AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
+            '.AggregateFunction = Janus.Windows.GridEX.AggregateFunction.Sum
             .TotalFormatString = "0.00"
         End With
         With dgjDetalle.RootTable.Columns("estado")
@@ -1420,9 +1412,9 @@ Public Class F02_CompraNueva
             .SelectionMode = SelectionMode.MultipleSelection
             .AlternatingColors = True
             .RecordNavigator = True
-            .TotalRow = Janus.Windows.GridEX.InheritableBoolean.True
-            .TotalRowPosition = TotalRowPosition.BottomFixed
-            .TotalRowFormatStyle.BackColor = Color.Yellow
+            '.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True
+            '.TotalRowPosition = TotalRowPosition.BottomFixed
+            '.TotalRowFormatStyle.BackColor = Color.Yellow
 
         End With
     End Sub
