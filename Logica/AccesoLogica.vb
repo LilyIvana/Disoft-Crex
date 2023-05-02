@@ -8632,7 +8632,8 @@ Public Class AccesoLogica
 
     Public Shared Function L_fnCompraGrabar(ByRef numi As String, fdoc As String, prov As String, nfac As String,
                                             obs As String, TCA0011 As DataTable, tven As Integer, fvcr As String,
-                                            mon As Integer, desc As Double, descpro1 As Double, descpro2 As Double, desctot As Double, total As Double, emision As Integer,
+                                            mon As Integer, subtotal As Double, desc As Double, descpro1 As Double,
+                                            ice As Double, total As Double, emision As Integer,
                                             consigna As Integer, retencion As Integer, asiento As Integer, ffactura As String, FacturaCompra As DataTable) As Boolean
         '@tven, @fvcred, @mon, @est, @desc, @total, @emision, @consigna
         Dim _resultado As Boolean
@@ -8651,10 +8652,10 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@fvcred", fvcr))
         _listParam.Add(New Datos.DParametro("@mon", mon))
         _listParam.Add(New Datos.DParametro("@est", 1))
+        _listParam.Add(New Datos.DParametro("@subtot", subtotal))
         _listParam.Add(New Datos.DParametro("@desc", desc))
         _listParam.Add(New Datos.DParametro("@descpro1", descpro1))
-        _listParam.Add(New Datos.DParametro("@descpro2", descpro2))
-        _listParam.Add(New Datos.DParametro("@desctot", desctot))
+        _listParam.Add(New Datos.DParametro("@ice", ice))
         _listParam.Add(New Datos.DParametro("@total", total))
         _listParam.Add(New Datos.DParametro("@emision", emision))
         _listParam.Add(New Datos.DParametro("@consigna", consigna))
@@ -8691,8 +8692,9 @@ Public Class AccesoLogica
 
     Public Shared Function L_fnCompraModificar(ByRef numi As String, fdoc As String, prov As String, nfac As String,
                                                obs As String, TCA0011 As DataTable, tven As Integer, fvcr As String,
-                                               mon As Integer, desc As Double, descpro1 As Double, descpro2 As Double, desctot As Double, total As Double, emision As Integer,
-                                               consigna As Integer, retencion As Integer, asiento As Integer, ffactura As String, FacturaCompra As DataTable) As Boolean
+                                               mon As Integer, subtotal As Double, desc As Double, descpro1 As Double,
+                                               ice As Double, total As Double, emision As Integer, consigna As Integer,
+                                               retencion As Integer, asiento As Integer, ffactura As String, FacturaCompra As DataTable) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -8708,10 +8710,10 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@tven", tven))
         _listParam.Add(New Datos.DParametro("@fvcred", fvcr))
         _listParam.Add(New Datos.DParametro("@mon", mon))
+        _listParam.Add(New Datos.DParametro("@subtot", subtotal))
         _listParam.Add(New Datos.DParametro("@desc", desc))
         _listParam.Add(New Datos.DParametro("@descpro1", descpro1))
-        _listParam.Add(New Datos.DParametro("@descpro2", descpro2))
-        _listParam.Add(New Datos.DParametro("@desctot", desctot))
+        _listParam.Add(New Datos.DParametro("@ice", ice))
         _listParam.Add(New Datos.DParametro("@total", total))
         _listParam.Add(New Datos.DParametro("@emision", emision))
         _listParam.Add(New Datos.DParametro("@consigna", consigna))

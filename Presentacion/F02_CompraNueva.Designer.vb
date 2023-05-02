@@ -70,6 +70,7 @@ Partial Class F02_CompraNueva
         Me.LabelX1 = New DevComponents.DotNetBar.LabelX()
         Me.LabelX8 = New DevComponents.DotNetBar.LabelX()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.LabelX15 = New DevComponents.DotNetBar.LabelX()
         Me.tbIce = New DevComponents.Editors.DoubleInput()
         Me.tbDescuentoPro1 = New DevComponents.Editors.DoubleInput()
         Me.LabelX14 = New DevComponents.DotNetBar.LabelX()
@@ -83,7 +84,7 @@ Partial Class F02_CompraNueva
         Me.dgjBusqueda = New Janus.Windows.GridEX.GridEX()
         Me.btnContabilizar = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.LabelX15 = New DevComponents.DotNetBar.LabelX()
+        Me.InsertarFilaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -349,16 +350,16 @@ Partial Class F02_CompraNueva
         'cmDetalle
         '
         Me.cmDetalle.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmDetalle.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tsmiEliminarFilaDetalle})
+        Me.cmDetalle.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertarFilaToolStripMenuItem, Me.tsmiEliminarFilaDetalle})
         Me.cmDetalle.Name = "Cms1Equipos"
-        Me.cmDetalle.Size = New System.Drawing.Size(148, 36)
+        Me.cmDetalle.Size = New System.Drawing.Size(190, 90)
         '
         'tsmiEliminarFilaDetalle
         '
         Me.tsmiEliminarFilaDetalle.Image = Global.Presentacion.My.Resources.Resources.eliminar
         Me.tsmiEliminarFilaDetalle.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.tsmiEliminarFilaDetalle.Name = "tsmiEliminarFilaDetalle"
-        Me.tsmiEliminarFilaDetalle.Size = New System.Drawing.Size(147, 32)
+        Me.tsmiEliminarFilaDetalle.Size = New System.Drawing.Size(189, 32)
         Me.tsmiEliminarFilaDetalle.Text = "Eliminar Fila"
         '
         'GroupPanelDatosGenerales
@@ -1210,6 +1211,22 @@ Partial Class F02_CompraNueva
         Me.Panel1.Size = New System.Drawing.Size(1236, 44)
         Me.Panel1.TabIndex = 2
         '
+        'LabelX15
+        '
+        Me.LabelX15.BackColor = System.Drawing.Color.Transparent
+        '
+        '
+        '
+        Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX15.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX15.ForeColor = System.Drawing.Color.White
+        Me.LabelX15.Location = New System.Drawing.Point(697, 15)
+        Me.LabelX15.Name = "LabelX15"
+        Me.LabelX15.SingleLineColor = System.Drawing.SystemColors.Control
+        Me.LabelX15.Size = New System.Drawing.Size(30, 18)
+        Me.LabelX15.TabIndex = 52
+        Me.LabelX15.Text = "ICE:"
+        '
         'tbIce
         '
         '
@@ -1439,21 +1456,12 @@ Partial Class F02_CompraNueva
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
         '
-        'LabelX15
+        'InsertarFilaToolStripMenuItem
         '
-        Me.LabelX15.BackColor = System.Drawing.Color.Transparent
-        '
-        '
-        '
-        Me.LabelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX15.Font = New System.Drawing.Font("Georgia", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX15.ForeColor = System.Drawing.Color.White
-        Me.LabelX15.Location = New System.Drawing.Point(697, 15)
-        Me.LabelX15.Name = "LabelX15"
-        Me.LabelX15.SingleLineColor = System.Drawing.SystemColors.Control
-        Me.LabelX15.Size = New System.Drawing.Size(30, 18)
-        Me.LabelX15.TabIndex = 52
-        Me.LabelX15.Text = "ICE:"
+        Me.InsertarFilaToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.add21
+        Me.InsertarFilaToolStripMenuItem.Name = "InsertarFilaToolStripMenuItem"
+        Me.InsertarFilaToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
+        Me.InsertarFilaToolStripMenuItem.Text = "Insertar Fila"
         '
         'F02_CompraNueva
         '
@@ -1564,4 +1572,5 @@ Partial Class F02_CompraNueva
     Friend WithEvents LabelX17 As DevComponents.DotNetBar.LabelX
     Friend WithEvents tbIce As DevComponents.Editors.DoubleInput
     Friend WithEvents LabelX15 As DevComponents.DotNetBar.LabelX
+    Friend WithEvents InsertarFilaToolStripMenuItem As ToolStripMenuItem
 End Class

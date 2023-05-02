@@ -153,34 +153,55 @@ Public Class F02_CompraNueva
         If (e.KeyData = Keys.Control + Keys.Enter) Then
             P_prArmarAyudaProducto()
         ElseIf (e.KeyData = Keys.Enter) Then
-            Dim f, c As Integer
-            c = dgjDetalle.Col
-            f = dgjDetalle.Row
+            Try
 
-            'Pasar el foco a peso
-            If (c = dgjDetalle.RootTable.Columns("cabtc1numi").Index) Then
-                dgjDetalle.Row = f
-                dgjDetalle.Col = c + 2
-            End If
-            If (c = dgjDetalle.RootTable.Columns("ntc1numi").Index) Then
-                dgjDetalle.Row = f
-                dgjDetalle.Col = c + 1
-            End If
+                Dim f, c As Integer
+                c = dgjDetalle.Col
+                f = dgjDetalle.Row
 
-            If (c = dgjDetalle.RootTable.Columns("cabcantun").Index) Then
-                'dgjDetalle.Row = f
-                'dgjDetalle.Col = c + 1
-                If (dgjDetalle.Row = dgjDetalle.RowCount - 1) Then
-                    P_prAddFilaDetalle()
+                'Pasar el foco a peso
+                If (c = dgjDetalle.RootTable.Columns("cabtc1numi").Index) Then
+                    dgjDetalle.Row = f
+                    dgjDetalle.Col = c + 2
                 End If
-                dgjDetalle.Row = f + 1
-                dgjDetalle.Col = dgjDetalle.RootTable.Columns("ntc1numi").Index
-                P_prArmarAyudaProducto()
-            End If
-            If (c = dgjDetalle.RootTable.Columns("cabsubtot").Index) Then
-                dgjDetalle.Row = f
-                dgjDetalle.Col = c + 5
-            End If
+                If (c = dgjDetalle.RootTable.Columns("ntc1numi").Index) Then
+                    'dgjDetalle.Row = f
+                    'dgjDetalle.Col = c + 1
+                    If (dgjDetalle.Row = dgjDetalle.RowCount - 1 And (dgjDetalle.GetValue("ntc1numi") <> String.Empty)) Then
+                        P_prAddFilaDetalle()
+                    End If
+                    dgjDetalle.Row = f + 1
+                    dgjDetalle.Col = dgjDetalle.RootTable.Columns("ntc1numi").Index
+                    P_prArmarAyudaProducto()
+                End If
+
+                If (c = dgjDetalle.RootTable.Columns("cabcantun").Index) Then
+                    'dgjDetalle.Row = f
+                    'dgjDetalle.Col = c + 1
+
+                    If (dgjDetalle.Row = dgjDetalle.RowCount - 1 And (dgjDetalle.GetValue("ntc1numi") <> String.Empty)) Then
+                        P_prAddFilaDetalle()
+                    End If
+                    dgjDetalle.Row = f + 1
+                    dgjDetalle.Col = dgjDetalle.RootTable.Columns("ntc1numi").Index
+                    P_prArmarAyudaProducto()
+
+
+                End If
+                If (c = dgjDetalle.RootTable.Columns("cabsubtot").Index) Then
+                    dgjDetalle.Row = f
+                    dgjDetalle.Col = c + 5
+                End If
+
+            Catch
+                Dim img As Bitmap = New Bitmap(My.Resources.cancel, 50, 50)
+                ToastNotification.Show(Me, "Debe presionar Ctrl+Enter en Descripción del producto".ToUpper,
+                                       img, 4000, eToastGlowColor.Red, eToastPosition.BottomCenter)
+
+            End Try
+
+
+
 
         End If
     End Sub
@@ -414,11 +435,14 @@ Public Class F02_CompraNueva
             tbSubtotalC.IsInputReadOnly = Not flat
             tbtotal.IsInputReadOnly = Not flat
             tbMdesc.IsInputReadOnly = Not flat
+            tbDescuentoPro1.IsInputReadOnly = Not flat
+            tbIce.IsInputReadOnly = Not flat
         Else
             tbSubtotalC.IsInputReadOnly = flat
             tbtotal.IsInputReadOnly = flat
             tbMdesc.IsInputReadOnly = flat
-            'tbNitProv.ReadOnly = flat
+            tbDescuentoPro1.IsInputReadOnly = flat
+            tbIce.IsInputReadOnly = flat
         End If
 
         'ComboBox
@@ -428,7 +452,10 @@ Public Class F02_CompraNueva
         dtiFechaCompra.ButtonDropDown.Enabled = flat
 
         dtiFfactura.IsInputReadOnly = Not flat
+        dtiFfactura.ButtonDropDown.Enabled = flat
 
+        tbFechaVenc.IsInputReadOnly = Not flat
+        tbFechaVenc.ButtonDropDown.Enabled = flat
         'Button
         btBuscarProveedor.Enabled = flat
 
@@ -451,6 +478,7 @@ Public Class F02_CompraNueva
         tbNroFactura.Text = "0"
         tbObs.Clear()
         tbNitProv.Clear()
+        tbRazonSocial.Clear()
         swEmision.Value = True
         swConsigna.Value = False
         swRetencion.Value = False
@@ -699,10 +727,10 @@ Public Class F02_CompraNueva
         Dim tven As String
         Dim fvcred As String
         Dim mon As String
+        Dim subTotal As Double
         Dim desc As Double
         Dim descpro1 As Double
         Dim ice As Double
-        Dim desctot As Double
         Dim total As Double
         Dim emision As String
         Dim consigna As String
@@ -722,10 +750,10 @@ Public Class F02_CompraNueva
                 tven = IIf(swTipoVenta.Value = True, 1, 0)
                 fvcred = IIf(swTipoVenta.Value = True, Now.Date.ToString("yyyy/MM/dd"), tbFechaVenc.Value.ToString("yyyy/MM/dd"))
                 mon = 1
+                subTotal = tbSubtotalC.Value
                 desc = tbMdesc.Value
                 descpro1 = tbDescuentoPro1.Value
                 ice = tbIce.Value
-                desctot = desc + descpro1 + ice
                 total = tbtotal.Value
                 emision = IIf(swEmision.Value = True, 1, 0)
                 consigna = IIf(swConsigna.Value = True, 1, 0)
@@ -735,14 +763,14 @@ Public Class F02_CompraNueva
 
                 dtiFechaCompra.Select()
 
-                Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcantcj", "cabcantun", "cabsubtot", "cabpcomcj", "cabpcomun", "cabporc", "cabdesccj", "cabdescun", "cabdescpro1cj", "cabdescpro1un", "cabdescpro2cj", "cabdescpro2un", "cabtot", "cabpcostocj", "cabpcostoun", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado")
+                Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcantun", "cabpcomun", "cabsubtot", "cabdescun", "cabdescpro1un", "cabice", "cabtot", "cabpcostoun", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado")
 
                 RecuperarDatosTFC001()  'Recupera datos para grabar en la BDDiconCF en la Tabla TFC001
-                If ValidarDescuentos() = False Then
-                    Exit Sub
-                End If
+                'If ValidarDescuentos() = False Then
+                '    Exit Sub
+                'End If
                 'Grabar
-                Dim res As Boolean = L_fnCompraGrabar(numi, fdoc, prov, nfac, obs, dt, tven, fvcred, mon, desc, descpro1, ice, desctot, total, emision, consigna, retencion, asiento, ffactura, _detalleCompras)
+                Dim res As Boolean = L_fnCompraGrabar(numi, fdoc, prov, nfac, obs, dt, tven, fvcred, mon, subTotal, desc, descpro1, ice, total, emision, consigna, retencion, asiento, ffactura, _detalleCompras)
 
 
                 If (res) Then
@@ -776,10 +804,10 @@ Public Class F02_CompraNueva
                 tven = IIf(swTipoVenta.Value = True, 1, 0)
                 fvcred = IIf(swTipoVenta.Value = True, Now.Date.ToString("yyyy/MM/dd"), tbFechaVenc.Value.ToString("yyyy/MM/dd"))
                 mon = 1
+                subTotal = tbSubtotalC.Value
                 desc = tbMdesc.Value
                 descpro1 = tbDescuentoPro1.Value
                 ice = tbIce.Value
-                desctot = desc + descpro1 + ice
                 total = tbtotal.Value
                 emision = IIf(swEmision.Value = True, 1, 0)
                 consigna = IIf(swConsigna.Value = True, 1, 0)
@@ -789,12 +817,11 @@ Public Class F02_CompraNueva
 
                 dtiFechaCompra.Select()
 
-                'Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcant", "cabpcom", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado")
-                Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcantcj", "cabcantun", "cabsubtot", "cabpcomcj", "cabpcomun", "cabporc", "cabdesccj", "cabdescun", "cabdescpro1cj", "cabdescpro1un", "cabdescpro2cj", "cabdescpro2un", "cabtot", "cabpcostocj", "cabpcostoun", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado")
+                Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable).DefaultView.ToTable(False, "cabnumi", "cabtc1numi", "cabcantun", "cabpcomun", "cabsubtot", "cabdescun", "cabdescpro1un", "cabice", "cabtot", "cabpcostoun", "cabputi", "cabpven", "cabnfr", "cabstocka", "cabstockf", "cabtca1numi", "estado")
 
                 RecuperarDatosTFC001()  'Recupera datos para grabar en la BDDiconCF en la Tabla TFC001
                 'Grabar
-                Dim res As Boolean = L_fnCompraModificar(numi, fdoc, prov, nfac, obs, dt, tven, fvcred, mon, desc, descpro1, ice, desctot, total, emision, consigna, retencion, asiento, ffactura, _detalleCompras)
+                Dim res As Boolean = L_fnCompraModificar(numi, fdoc, prov, nfac, obs, dt, tven, fvcred, mon, subTotal, desc, descpro1, ice, total, emision, consigna, retencion, asiento, ffactura, _detalleCompras)
 
                 If (res) Then
 
@@ -833,13 +860,17 @@ Public Class F02_CompraNueva
         Dim fndui As String
         Dim fautoriz As String
         Dim fmonto As String
+        Dim fmonto2 As String
         Dim fccont As String
         Dim sujetoCreditoFiscal As String
         Dim nosujetoCreditoFiscal As String
         Dim subTotal As String
+        Dim subTotal2 As String
         Dim fdesc As String
         Dim importeBaseCreditoFiscal As String
         Dim creditoFiscal As String
+        Dim importeBaseCreditoFiscal2 As String
+        Dim creditoFiscal2 As String
 
         If swEmision.Value = True Then
             ffec = dtiFechaCompra.Value.ToString("yyyy/MM/dd")
@@ -852,37 +883,44 @@ Public Class F02_CompraNueva
             fndui = tbNDui.Text
 
             fautoriz = tbNAutorizacion.Text
-            fmonto = tbtotal.Value.ToString + tbMdesc.Value + tbDescuentoPro1.Value + tbIce.Value
+            fmonto = tbSubtotalC.Value
+            fmonto2 = tbSubtotalC.Value + tbIce.Value
             sujetoCreditoFiscal = tbSACF.Text
             nosujetoCreditoFiscal = tbtotal.Value.ToString - sujetoCreditoFiscal
-            subTotal = fmonto - nosujetoCreditoFiscal
+            subTotal = (fmonto + tbIce.Value) - nosujetoCreditoFiscal
+            subTotal2 = (fmonto2 - tbIce.Value) - nosujetoCreditoFiscal
+
             fdesc = tbMdesc.Value + tbDescuentoPro1.Value
-            'tbImporteBaseCreditoFiscal.Value = TbSubTotal.Value - TbdDescuento.Value
-            importeBaseCreditoFiscal = fmonto - fdesc
+
+            importeBaseCreditoFiscal = subTotal - fdesc
             creditoFiscal = importeBaseCreditoFiscal * 0.13
+            importeBaseCreditoFiscal2 = subTotal2 - fdesc
+            creditoFiscal2 = importeBaseCreditoFiscal2 * 0.13
             fccont = tbCodControl.Text
             Dim numi As String = ""
 
-            _detalleCompras.Rows.Add(1, ffec, fnit, frsocial, fnro, fndui, fautoriz, fmonto, nosujetoCreditoFiscal, subTotal, fdesc, importeBaseCreditoFiscal, creditoFiscal, fccont, 1, 0, 0)
+            _detalleCompras.Rows.Add(1, ffec, fnit, frsocial, fnro, fndui, fautoriz, fmonto, fmonto2, tbIce.Value, 0, 0, 0, nosujetoCreditoFiscal, 0, 0, subTotal,
+                                      subTotal2, fdesc, 0, importeBaseCreditoFiscal, creditoFiscal, importeBaseCreditoFiscal2, creditoFiscal2, "INTERNO/ACTIVIDADES GRAVADAS",
+                                      fccont, "SI", "CONSOLIDADO", 0)
 
         Else
-            ffec = dtiFechaCompra.Value.ToString("yyyy/MM/dd")
-            fnit = tbNitProv.Text
-            frsocial = tbRazonSocial.Text
-            fnro = tbNroFactura.Text
-            fndui = 0
-            fautoriz = 0
-            fmonto = tbtotal.Value.ToString
-            sujetoCreditoFiscal = tbSACF.Text
-            nosujetoCreditoFiscal = 0
-            subTotal = fmonto
-            fdesc = tbMdesc.Value.ToString
-            importeBaseCreditoFiscal = fmonto - fdesc
-            creditoFiscal = 0
-            fccont = 0
-            Dim numi As String = ""
+            'ffec = dtiFechaCompra.Value.ToString("yyyy/MM/dd")
+            'fnit = tbNitProv.Text
+            'frsocial = tbRazonSocial.Text
+            'fnro = tbNroFactura.Text
+            'fndui = 0
+            'fautoriz = 0
+            'fmonto = tbtotal.Value.ToString
+            'sujetoCreditoFiscal = tbSACF.Text
+            'nosujetoCreditoFiscal = 0
+            'subTotal = fmonto
+            'fdesc = tbMdesc.Value.ToString
+            'importeBaseCreditoFiscal = fmonto - fdesc
+            'creditoFiscal = 0
+            'fccont = 0
+            'Dim numi As String = ""
 
-            _detalleCompras.Rows.Add(1, ffec, fnit, frsocial, fnro, fndui, fautoriz, fmonto, nosujetoCreditoFiscal, subTotal, fdesc, importeBaseCreditoFiscal, creditoFiscal, fccont, 1, 0, 0)
+            '_detalleCompras.Rows.Add(1, ffec, fnit, frsocial, fnro, fndui, fautoriz, fmonto, nosujetoCreditoFiscal, subTotal, fdesc, importeBaseCreditoFiscal, creditoFiscal, fccont, 1, 0, 0)
 
         End If
 
@@ -1220,11 +1258,11 @@ Public Class F02_CompraNueva
         End With
         With dgjDetalle.RootTable.Columns("cedesc")
             .Caption = "Unidad"
-            .Width = 80
+            .Width = 60
             .HeaderStyle.Font = FtTitulo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
-            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Far
             .Visible = True
         End With
 
@@ -1527,30 +1565,50 @@ Public Class F02_CompraNueva
         frmAyuda.ShowDialog()
 
         If frmAyuda.seleccionado = True Then
-            Dim id As String = frmAyuda.filaSelect.Cells("canumi").Value
-            Dim cod As String = frmAyuda.filaSelect.Cells("cacod").Value
-            Dim desc As String = frmAyuda.filaSelect.Cells("cadesc").Value
-            conv = frmAyuda.filaSelect.Cells("caconv").Value
-            Dim uni As String = frmAyuda.filaSelect.Cells("cedesc").Value
-            Dim preciocosto As String = frmAyuda.filaSelect.Cells("chprecio").Value
+            Dim existe As Boolean = _fnExisteProducto(frmAyuda.filaSelect.Cells("canumi").Value)
+            If (Not existe) Then
 
-            dgjDetalle.Col = dgjDetalle.RootTable.Columns("cabcantun").Index
-            dgjDetalle.SetValue(1, id)
-            dgjDetalle.SetValue(2, cod)
-            dgjDetalle.SetValue(3, desc)
-            dgjDetalle.SetValue(4, uni)
-            dgjDetalle.SetValue(5, 1)
-            dgjDetalle.SetValue(6, preciocosto)
-            dgjDetalle.SetValue(7, preciocosto)
-            dgjDetalle.SetValue(11, preciocosto)
-            dgjDetalle.SetValue(12, preciocosto)
+                Dim id As String = frmAyuda.filaSelect.Cells("canumi").Value
+                Dim cod As String = frmAyuda.filaSelect.Cells("cacod").Value
+                Dim desc As String = frmAyuda.filaSelect.Cells("cadesc").Value
+                conv = frmAyuda.filaSelect.Cells("caconv").Value
+                Dim uni As String = frmAyuda.filaSelect.Cells("cedesc").Value
+                Dim preciocosto As String = frmAyuda.filaSelect.Cells("chprecio").Value
 
-            CType(dgjDetalle.DataSource, DataTable).AcceptChanges()
+                dgjDetalle.Col = dgjDetalle.RootTable.Columns("cabcantun").Index
+                dgjDetalle.SetValue(1, id)
+                dgjDetalle.SetValue(2, cod)
+                dgjDetalle.SetValue(3, desc)
+                dgjDetalle.SetValue(4, uni)
+                dgjDetalle.SetValue(5, 1)
+                dgjDetalle.SetValue(6, preciocosto)
+                dgjDetalle.SetValue(7, preciocosto)
+                dgjDetalle.SetValue(11, preciocosto)
+                dgjDetalle.SetValue(12, preciocosto)
 
-            _prCalcularPrecioTotal()
+                CType(dgjDetalle.DataSource, DataTable).AcceptChanges()
+
+                _prCalcularPrecioTotal()
+
+            Else
+                If (existe) Then
+                    Dim img As Bitmap = New Bitmap(My.Resources.Mensaje, 50, 50)
+                    ToastNotification.Show(Me, "El producto ya existe en el detalle, modifique su cantidad".ToUpper, img, 2200, eToastGlowColor.Red, eToastPosition.BottomCenter)
+                End If
+            End If
         End If
     End Sub
+    Public Function _fnExisteProducto(idprod As Integer) As Boolean
+        For i As Integer = 0 To CType(dgjDetalle.DataSource, DataTable).Rows.Count - 1 Step 1
+            Dim _idprod As Integer = CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("cabtc1numi")
+            Dim estado As Integer = CType(dgjDetalle.DataSource, DataTable).Rows(i).Item("estado")
+            If (_idprod = idprod And estado >= 0) Then
 
+                Return True
+            End If
+        Next
+        Return False
+    End Function
     Private Sub P_prAddFilaDetalle()
         Dim f As DataRow
         f = DtDetalle.NewRow
@@ -1579,6 +1637,40 @@ Public Class F02_CompraNueva
         DtDetalle.Rows.Add(f)
     End Sub
 
+
+    Private Sub P_prAddFilaDetalleNueva()
+        If dgjDetalle.Row >= 0 Then
+            Dim dt As DataTable = CType(dgjDetalle.DataSource, DataTable)
+
+
+            Dim f As DataRow
+            f = dt.NewRow
+
+            f.Item("cabnumi") = DtDetalle.Rows.Count + 1
+            f.Item("cabtc1numi") = 0
+            f.Item("ntc1numi") = ""
+            f.Item("cedesc") = ""
+            f.Item("cabcantun") = 0
+            f.Item("cabpcomun") = 0
+            f.Item("cabsubtot") = 0
+            f.Item("cabdescun") = 0
+            f.Item("cabdescpro1un") = 0
+            f.Item("cabice") = 0
+            f.Item("cabtot") = 0
+            f.Item("cabpcostoun") = 0
+            f.Item("cabputi") = 0
+            f.Item("cabpven") = 0
+            f.Item("cabnfr") = "0"
+            f.Item("cabstocka") = 0
+            f.Item("cabstockf") = 0
+            f.Item("cabtca1numi") = 0
+            f.Item("total") = 0
+            f.Item("estado") = 0
+
+            dt.Rows.InsertAt(f, dgjDetalle.Row)
+            dgjDetalle.MovePrevious()
+        End If
+    End Sub
     Private Sub tbNroFactura_KeyPress_1(sender As Object, e As KeyPressEventArgs) Handles tbNroFactura.KeyPress
         g_prValidarTextBox(1, e)
     End Sub
@@ -1651,6 +1743,9 @@ Public Class F02_CompraNueva
             Dim lin As Integer = dgjDetalle.GetValue("cabnumi")
             Dim pos As Integer = -1
             _fnObtenerFilaDetalle(pos, lin)
+            tbMdesc.IsInputReadOnly = False
+            tbDescuentoPro1.IsInputReadOnly = False
+            tbIce.IsInputReadOnly = False
 
             If (e.Column.Key.Equals("cabcantun")) Then
 
@@ -1865,7 +1960,10 @@ Public Class F02_CompraNueva
             _fnObtenerFilaDetalle(pos, lin)
             Dim cant As Double = dgjDetalle.GetValue("cabcantun")
 
+
             If (pos >= 0) Then
+                CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabsubtot") = dgjDetalle.GetValue("cabsubtot")
+                dgjDetalle.SetValue("cabsubtot", dgjDetalle.GetValue("cabsubtot"))
 
                 CType(dgjDetalle.DataSource, DataTable).Rows(pos).Item("cabpcomun") = dgjDetalle.GetValue("cabsubtot") / dgjDetalle.GetValue("cabcantun")
                 dgjDetalle.SetValue("cabpcomun", dgjDetalle.GetValue("cabsubtot") / dgjDetalle.GetValue("cabcantun"))
@@ -2437,6 +2535,10 @@ Public Class F02_CompraNueva
             tbtotal.Value = (tbSubtotalC.Value - (tbMdesc.Value + tbDescuentoPro1.Value)) + tbIce.Value
 
         End If
+    End Sub
+
+    Private Sub InsertarFilaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles InsertarFilaToolStripMenuItem.Click
+        P_prAddFilaDetalleNueva()
     End Sub
 
 #End Region
