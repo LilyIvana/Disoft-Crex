@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class R_NotaCompra
+Public Class R_NotaCompraAntigua
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class R_NotaCompra
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "R_NotaCompra.rpt"
+            Return "R_NotaCompraAntigua.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class R_NotaCompra
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Presentacion.R_NotaCompra.rpt"
+            Return "Presentacion.R_NotaCompraAntigua.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class R_NotaCompra
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Direccion() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_usuario() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(0)
         End Get
@@ -102,7 +102,7 @@ Public Class R_NotaCompra
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Telefono() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Direccion() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(1)
         End Get
@@ -110,7 +110,7 @@ Public Class R_NotaCompra
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Nit() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Telefono() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(2)
         End Get
@@ -118,7 +118,7 @@ Public Class R_NotaCompra
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Empresa() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Nit() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(3)
         End Get
@@ -126,15 +126,23 @@ Public Class R_NotaCompra
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
-    Public ReadOnly Property Parameter_Literal() As CrystalDecisions.[Shared].IParameterField
+    Public ReadOnly Property Parameter_Empresa() As CrystalDecisions.[Shared].IParameterField
         Get
             Return Me.DataDefinition.ParameterFields(4)
+        End Get
+    End Property
+    
+    <Browsable(false),  _
+     DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+    Public ReadOnly Property Parameter_Literal() As CrystalDecisions.[Shared].IParameterField
+        Get
+            Return Me.DataDefinition.ParameterFields(5)
         End Get
     End Property
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedR_NotaCompra
+Public Class CachedR_NotaCompraAntigua
     Inherits Component
     Implements ICachedReport
     
@@ -176,7 +184,7 @@ Public Class CachedR_NotaCompra
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As R_NotaCompra = New R_NotaCompra()
+        Dim rpt As R_NotaCompraAntigua = New R_NotaCompraAntigua()
         rpt.Site = Me.Site
         Return rpt
     End Function
