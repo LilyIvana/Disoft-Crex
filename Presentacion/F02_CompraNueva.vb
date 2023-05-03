@@ -2364,6 +2364,7 @@ Public Class F02_CompraNueva
         objrep.SetParameterValue("Telefono", dt2.Tables(0).Rows(0).Item("sctelf").ToString)
         objrep.SetParameterValue("Nit", dt2.Tables(0).Rows(0).Item("scnit").ToString)
         objrep.SetParameterValue("Literal", _Literal)
+        objrep.SetParameterValue("Emision", IIf(swEmision.Value = True, "NRO. FACTURA:", "NRO. DOCUMENTO:"))
 
         P_Global.Visualizador.CRV1.ReportSource = objrep
         P_Global.Visualizador.Show()

@@ -27,6 +27,7 @@ Partial Class F02_CompraNueva
         Me.GroupPanelDetalle = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.dgjDetalle = New Janus.Windows.GridEX.GridEX()
         Me.cmDetalle = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.InsertarFilaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.tsmiEliminarFilaDetalle = New System.Windows.Forms.ToolStripMenuItem()
         Me.GroupPanelDatosGenerales = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelExDatosGenerales = New DevComponents.DotNetBar.PanelEx()
@@ -84,7 +85,6 @@ Partial Class F02_CompraNueva
         Me.dgjBusqueda = New Janus.Windows.GridEX.GridEX()
         Me.btnContabilizar = New DevComponents.DotNetBar.ButtonX()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.InsertarFilaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelBusqueda.SuspendLayout()
@@ -352,14 +352,21 @@ Partial Class F02_CompraNueva
         Me.cmDetalle.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.cmDetalle.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertarFilaToolStripMenuItem, Me.tsmiEliminarFilaDetalle})
         Me.cmDetalle.Name = "Cms1Equipos"
-        Me.cmDetalle.Size = New System.Drawing.Size(190, 90)
+        Me.cmDetalle.Size = New System.Drawing.Size(148, 68)
+        '
+        'InsertarFilaToolStripMenuItem
+        '
+        Me.InsertarFilaToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.add21
+        Me.InsertarFilaToolStripMenuItem.Name = "InsertarFilaToolStripMenuItem"
+        Me.InsertarFilaToolStripMenuItem.Size = New System.Drawing.Size(147, 32)
+        Me.InsertarFilaToolStripMenuItem.Text = "Insertar Fila"
         '
         'tsmiEliminarFilaDetalle
         '
         Me.tsmiEliminarFilaDetalle.Image = Global.Presentacion.My.Resources.Resources.eliminar
         Me.tsmiEliminarFilaDetalle.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.tsmiEliminarFilaDetalle.Name = "tsmiEliminarFilaDetalle"
-        Me.tsmiEliminarFilaDetalle.Size = New System.Drawing.Size(189, 32)
+        Me.tsmiEliminarFilaDetalle.Size = New System.Drawing.Size(147, 32)
         Me.tsmiEliminarFilaDetalle.Text = "Eliminar Fila"
         '
         'GroupPanelDatosGenerales
@@ -1455,13 +1462,6 @@ Partial Class F02_CompraNueva
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
-        '
-        'InsertarFilaToolStripMenuItem
-        '
-        Me.InsertarFilaToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.add21
-        Me.InsertarFilaToolStripMenuItem.Name = "InsertarFilaToolStripMenuItem"
-        Me.InsertarFilaToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
-        Me.InsertarFilaToolStripMenuItem.Text = "Insertar Fila"
         '
         'F02_CompraNueva
         '
