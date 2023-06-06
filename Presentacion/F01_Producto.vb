@@ -293,7 +293,8 @@ Public Class F01_Producto
         cbUMed.ReadOnly = Not flat
         CbUnidVenta.ReadOnly = Not flat
         CbUnidMax.ReadOnly = Not flat
-        TbConversion.IsInputReadOnly = Not flat
+        TbConversion1.IsInputReadOnly = Not flat
+        tbConversion2.IsInputReadOnly = Not flat
 
         swPack.IsReadOnly = Not flat
         JGProdPack.Enabled = flat
@@ -324,7 +325,8 @@ Public Class F01_Producto
             _prSeleccionarCombo(CbUnidMax)
             _prSeleccionarCombo(CbUnidVenta)
 
-            TbConversion.Value = 1
+            TbConversion1.Value = 1
+            tbConversion2.Value = 1
             tbStockMinimo.Value = 0
         End If
 
@@ -398,7 +400,8 @@ Public Class F01_Producto
                     Me.cbUMed.Value = .GetValue("caumed")
                     Me.CbUnidVenta.Value = .GetValue("cauventa")
                     Me.CbUnidMax.Value = .GetValue("caumax")
-                    Me.TbConversion.Value = .GetValue("caconv")
+                    Me.TbConversion1.Value = .GetValue("caconv")
+                    Me.tbConversion2.Value = .GetValue("cacampo2")
                     Me.swPack.Value = .GetValue("capack")
                     Me.tbPeso.Value = .GetValue("capeso")
 
@@ -524,7 +527,8 @@ Public Class F01_Producto
         Dim umed As String
         Dim umin As String
         Dim umax As String
-        Dim conv As Integer
+        Dim conv As Decimal
+        Dim conv2 As Decimal
         Dim pack As Integer
 
 
@@ -553,10 +557,15 @@ Public Class F01_Producto
                 umin = CbUnidVenta.Value
                 umax = CbUnidMax.Value
                 pack = IIf(swPack.Value, "1", "0")
-                If (TbConversion.Text.Trim = "") Then
-                    conv = 0
+                If (TbConversion1.Text.Trim = "") Then
+                    conv = 1
                 Else
-                    conv = TbConversion.Text.Trim
+                    conv = TbConversion1.Text.Trim
+                End If
+                If (tbConversion2.Text.Trim = "") Then
+                    conv2 = 1
+                Else
+                    conv2 = tbConversion2.Text.Trim
                 End If
 
                 If (IsNothing(vlImagen) = True) Then
@@ -566,8 +575,9 @@ Public Class F01_Producto
                 End If
 
                 'Grabar
-                Dim res As Boolean = L_fnProductoGrabar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed, umin,
-                                                        umax, conv, pack, CType(JGProdPack.DataSource, DataTable), tbPeso.Value)
+                Dim res As Boolean = L_fnProductoGrabar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp,
+                                                        barra, smin, gr1, gr2, gr3, gr4, umed, umin, umax, conv, pack,
+                                                       CType(JGProdPack.DataSource, DataTable), tbPeso.Value, conv2)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -624,10 +634,15 @@ Public Class F01_Producto
                 umax = CbUnidMax.Value
                 pack = IIf(swPack.Value, "1", "0")
 
-                If (TbConversion.Text.Trim = "") Then
-                    conv = 0
+                If (TbConversion1.Text.Trim = "") Then
+                    conv = 1
                 Else
-                    conv = TbConversion.Text.Trim
+                    conv = TbConversion1.Text.Trim
+                End If
+                If (tbConversion2.Text.Trim = "") Then
+                    conv2 = 1
+                Else
+                    conv2 = tbConversion2.Text.Trim
                 End If
 
                 If (IsNothing(vlImagen) = True) Then
@@ -646,8 +661,9 @@ Public Class F01_Producto
 
 
                 'Grabar
-                Dim res As Boolean = L_fnProductoModificar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp, barra, smin, gr1, gr2, gr3, gr4, umed,
-                                                           umin, umax, conv, pack, dt, tbPeso.Value)
+                Dim res As Boolean = L_fnProductoModificar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing,
+                                                           cemp, barra, smin, gr1, gr2, gr3, gr4, umed, umin, umax, conv,
+                                                           pack, dt, tbPeso.Value, conv2)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -1040,7 +1056,7 @@ Public Class F01_Producto
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
             .CellStyle.Font = FtNormal
             .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center
-            .Visible = True
+            .Visible = False
         End With
         With DgjBusqueda.RootTable.Columns(9)
             .Caption = "Estado"
@@ -1223,7 +1239,7 @@ Public Class F01_Producto
             .Visible = False
         End With
         With DgjBusqueda.RootTable.Columns(27)
-            .Caption = ""
+            .Caption = "Conv. DS-UN"
             .Key = "caconv"
             .Width = 0
             .HeaderStyle.Font = FtTitulo
@@ -1245,6 +1261,36 @@ Public Class F01_Producto
         With DgjBusqueda.RootTable.Columns(29)
             .Caption = ""
             .Key = "capeso"
+            .Width = 0
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
+        With DgjBusqueda.RootTable.Columns(30)
+            .Caption = ""
+            .Key = "cacampo1"
+            .Width = 0
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
+        With DgjBusqueda.RootTable.Columns(31)
+            .Caption = "Conv. CJ-DS"
+            .Key = "cacampo2"
+            .Width = 0
+            .HeaderStyle.Font = FtTitulo
+            .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center
+            .CellStyle.Font = FtNormal
+            .CellStyle.TextAlignment = Janus.Windows.GridEX.TextAlignment.Near
+            .Visible = False
+        End With
+        With DgjBusqueda.RootTable.Columns(32)
+            .Caption = ""
+            .Key = "cacampo3"
             .Width = 0
             .HeaderStyle.Font = FtTitulo
             .HeaderAlignment = Janus.Windows.GridEX.TextAlignment.Center

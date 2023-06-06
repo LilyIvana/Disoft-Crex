@@ -2565,8 +2565,8 @@ Public Class AccesoLogica
                                               serie As String, pcom As String, fing As String, cemp As String,
                                               barra As String, smin As String, gr1 As String, gr2 As String,
                                               gr3 As String, gr4 As String, umed As String, umin As String,
-                                              umax As String, conv As Integer, pack As Integer, _TC0013 As DataTable,
-                                              peso As Integer) As Boolean
+                                              umax As String, conv As Decimal, pack As Integer, _TC0013 As DataTable,
+                                              peso As Integer, conv2 As Decimal) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -2598,6 +2598,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@conv", conv))
         _listParam.Add(New Datos.DParametro("@pack", pack))
         _listParam.Add(New Datos.DParametro("@peso", peso))
+        _listParam.Add(New Datos.DParametro("@campo2", conv2))
         _listParam.Add(New Datos.DParametro("@TC0013", "", _TC0013))
 
         _Tabla = D_ProcedimientoConParam("sp_go_TC001", _listParam)
@@ -2618,8 +2619,8 @@ Public Class AccesoLogica
                                                  serie As String, pcom As String, fing As String, cemp As String,
                                                  barra As String, smin As String, gr1 As String, gr2 As String,
                                                  gr3 As String, gr4 As String, umed As String, umin As String,
-                                                 umax As String, conv As Integer, pack As Integer, _TC0013 As DataTable,
-                                                 peso As Integer) As Boolean
+                                                 umax As String, conv As Decimal, pack As Integer, _TC0013 As DataTable,
+                                                 peso As Integer, conv2 As Decimal) As Boolean
         Dim _resultado As Boolean
 
         Dim _Tabla As DataTable
@@ -2651,6 +2652,7 @@ Public Class AccesoLogica
         _listParam.Add(New Datos.DParametro("@conv", conv))
         _listParam.Add(New Datos.DParametro("@pack", pack))
         _listParam.Add(New Datos.DParametro("@peso", peso))
+        _listParam.Add(New Datos.DParametro("@campo2", conv2))
         _listParam.Add(New Datos.DParametro("@TC0013", "", _TC0013))
 
         _Tabla = D_ProcedimientoConParam("sp_go_TC001", _listParam)
