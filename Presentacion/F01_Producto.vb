@@ -275,6 +275,7 @@ Public Class F01_Producto
     End Sub
 
     Private Sub P_prHDComponentes(ByVal flat As Boolean)
+        tbPrefijo.ReadOnly = Not flat
         TbNombre.ReadOnly = Not flat
         TbNombreCorto.ReadOnly = Not flat
         CbCategoria.ReadOnly = Not flat
@@ -305,6 +306,7 @@ Public Class F01_Producto
         TbCodigo.Clear()
         TbCodFlex.Clear()
         tbCodBarra.Clear()
+        tbPrefijo.Clear()
         TbNombre.Clear()
         TbNombreCorto.Clear()
         CbCategoria.SelectedIndex = 0
@@ -382,6 +384,7 @@ Public Class F01_Producto
                     Me.TbCodigo.Text = .GetValue("numi").ToString
                     Me.stCod = .GetValue("cod").ToString
                     Me.TbCodFlex.Text = .GetValue("cod").ToString
+                    Me.tbPrefijo.Text = .GetValue("cacampo1").ToString
                     Me.TbNombre.Text = .GetValue("desc").ToString
                     Me.TbNombreCorto.Text = .GetValue("desc2").ToString
                     Me.CbCategoria.Value = .GetValue("cat")
@@ -528,6 +531,7 @@ Public Class F01_Producto
         Dim umin As String
         Dim umax As String
         Dim conv As Decimal
+        Dim prefijo As String
         Dim conv2 As Decimal
         Dim pack As Integer
 
@@ -536,6 +540,7 @@ Public Class F01_Producto
             If (P_fnValidarGrabacion()) Then
                 numi = TbCodigo.Text.Trim
                 cod = TbCodFlex.Text.Trim
+                prefijo = tbPrefijo.Text.Trim
                 desc = TbNombre.Text.Trim
                 desc2 = IIf(TbNombreCorto.Text.Trim.Equals(""), "", TbNombreCorto.Text.Trim)
                 cat = CbCategoria.Value
@@ -577,7 +582,7 @@ Public Class F01_Producto
                 'Grabar
                 Dim res As Boolean = L_fnProductoGrabar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing, cemp,
                                                         barra, smin, gr1, gr2, gr3, gr4, umed, umin, umax, conv, pack,
-                                                       CType(JGProdPack.DataSource, DataTable), tbPeso.Value, conv2)
+                                                       CType(JGProdPack.DataSource, DataTable), tbPeso.Value, prefijo, conv2)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -612,6 +617,7 @@ Public Class F01_Producto
             If (P_fnValidarGrabacion()) Then
                 numi = TbCodigo.Text.Trim
                 cod = TbCodFlex.Text
+                prefijo = tbPrefijo.Text.Trim
                 desc = TbNombre.Text.Trim
                 desc2 = IIf(TbNombreCorto.Text.Trim.Equals(""), "", TbNombreCorto.Text.Trim)
                 cat = CbCategoria.Value
@@ -663,7 +669,7 @@ Public Class F01_Producto
                 'Grabar
                 Dim res As Boolean = L_fnProductoModificar(numi, cod, desc, desc2, cat, img, stc, est, serie, pcom, fing,
                                                            cemp, barra, smin, gr1, gr2, gr3, gr4, umed, umin, umax, conv,
-                                                           pack, dt, tbPeso.Value, conv2)
+                                                           pack, dt, tbPeso.Value, prefijo, conv2)
 
                 If (res) Then
                     If (IsNothing(vlImagen) = False) Then
@@ -1269,7 +1275,7 @@ Public Class F01_Producto
             .Visible = False
         End With
         With DgjBusqueda.RootTable.Columns(30)
-            .Caption = ""
+            .Caption = "Prefijo"
             .Key = "cacampo1"
             .Width = 0
             .HeaderStyle.Font = FtTitulo
