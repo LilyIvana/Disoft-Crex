@@ -24,6 +24,7 @@ Partial Class F01_Producto
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim CbUnidVenta_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_Producto))
         Dim CbUnidMax_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbgrupo1_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbUMed_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
@@ -31,7 +32,6 @@ Partial Class F01_Producto
         Dim cbgrupo4_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim cbgrupo3_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Dim CbEmpresa_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(F01_Producto))
         Dim CbCategoria_DesignTimeLayout As Janus.Windows.GridEX.GridEXLayout = New Janus.Windows.GridEX.GridEXLayout()
         Me.TableLayoutPanelPrincipal = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanelDatos = New System.Windows.Forms.TableLayoutPanel()
@@ -82,6 +82,8 @@ Partial Class F01_Producto
         Me.btUMedida = New DevComponents.DotNetBar.ButtonX()
         Me.GroupPanelDatos = New DevComponents.DotNetBar.Controls.GroupPanel()
         Me.PanelExDatosGenerales = New DevComponents.DotNetBar.PanelEx()
+        Me.tbPrefijo = New DevComponents.DotNetBar.Controls.TextBoxX()
+        Me.LabelX19 = New DevComponents.DotNetBar.LabelX()
         Me.tbPeso = New DevComponents.Editors.IntegerInput()
         Me.LabelX16 = New DevComponents.DotNetBar.LabelX()
         Me.tbStockMinimo = New DevComponents.Editors.IntegerInput()
@@ -112,8 +114,6 @@ Partial Class F01_Producto
         Me.CmDetalle = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.QuitarProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.tbPrefijo = New DevComponents.DotNetBar.Controls.TextBoxX()
-        Me.LabelX19 = New DevComponents.DotNetBar.LabelX()
         CType(Me.MSuperTabControlPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MSuperTabControlPrincipal.SuspendLayout()
         Me.MSuperTabControlPanelRegistro.SuspendLayout()
@@ -1186,6 +1186,34 @@ Partial Class F01_Producto
         Me.PanelExDatosGenerales.StyleMouseOver.ForeColor.Color = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.PanelExDatosGenerales.TabIndex = 18
         '
+        'tbPrefijo
+        '
+        '
+        '
+        '
+        Me.tbPrefijo.Border.Class = "TextBoxBorder"
+        Me.tbPrefijo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.tbPrefijo.Location = New System.Drawing.Point(117, 56)
+        Me.tbPrefijo.MaxLength = 50
+        Me.tbPrefijo.Multiline = True
+        Me.tbPrefijo.Name = "tbPrefijo"
+        Me.tbPrefijo.Size = New System.Drawing.Size(300, 23)
+        Me.tbPrefijo.TabIndex = 31
+        '
+        'LabelX19
+        '
+        '
+        '
+        '
+        Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
+        Me.LabelX19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.3!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelX19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
+        Me.LabelX19.Location = New System.Drawing.Point(9, 55)
+        Me.LabelX19.Name = "LabelX19"
+        Me.LabelX19.Size = New System.Drawing.Size(90, 23)
+        Me.LabelX19.TabIndex = 32
+        Me.LabelX19.Text = "Prefijo:"
+        '
         'tbPeso
         '
         '
@@ -1600,34 +1628,6 @@ Partial Class F01_Producto
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 1000
-        '
-        'tbPrefijo
-        '
-        '
-        '
-        '
-        Me.tbPrefijo.Border.Class = "TextBoxBorder"
-        Me.tbPrefijo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.tbPrefijo.Location = New System.Drawing.Point(117, 56)
-        Me.tbPrefijo.MaxLength = 50
-        Me.tbPrefijo.Multiline = True
-        Me.tbPrefijo.Name = "tbPrefijo"
-        Me.tbPrefijo.Size = New System.Drawing.Size(300, 23)
-        Me.tbPrefijo.TabIndex = 31
-        '
-        'LabelX19
-        '
-        '
-        '
-        '
-        Me.LabelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square
-        Me.LabelX19.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.3!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelX19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(85, Byte), Integer), CType(CType(139, Byte), Integer))
-        Me.LabelX19.Location = New System.Drawing.Point(9, 55)
-        Me.LabelX19.Name = "LabelX19"
-        Me.LabelX19.Size = New System.Drawing.Size(90, 23)
-        Me.LabelX19.TabIndex = 32
-        Me.LabelX19.Text = "Prefijo:"
         '
         'F01_Producto
         '
