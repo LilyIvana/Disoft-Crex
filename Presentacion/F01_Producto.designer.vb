@@ -1212,7 +1212,7 @@ Partial Class F01_Producto
         Me.LabelX19.Name = "LabelX19"
         Me.LabelX19.Size = New System.Drawing.Size(90, 23)
         Me.LabelX19.TabIndex = 32
-        Me.LabelX19.Text = "Prefijo:"
+        Me.LabelX19.Text = "Rotación:"
         '
         'tbPeso
         '
