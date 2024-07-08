@@ -477,9 +477,9 @@ Partial Class F01_Producto
         '
         Me.SuperTabControlPanel2.Controls.Add(Me.Panel2)
         Me.SuperTabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 25)
+        Me.SuperTabControlPanel2.Location = New System.Drawing.Point(0, 27)
         Me.SuperTabControlPanel2.Name = "SuperTabControlPanel2"
-        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(328, 207)
+        Me.SuperTabControlPanel2.Size = New System.Drawing.Size(361, 240)
         Me.SuperTabControlPanel2.TabIndex = 2
         Me.SuperTabControlPanel2.TabItem = Me.SuperTabItem_Pack
         '
@@ -492,7 +492,7 @@ Partial Class F01_Producto
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(328, 207)
+        Me.Panel2.Size = New System.Drawing.Size(361, 240)
         Me.Panel2.TabIndex = 223
         '
         'GroupPanelProdPack
@@ -507,7 +507,7 @@ Partial Class F01_Producto
         Me.GroupPanelProdPack.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelProdPack.Name = "GroupPanelProdPack"
         Me.GroupPanelProdPack.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupPanelProdPack.Size = New System.Drawing.Size(328, 207)
+        Me.GroupPanelProdPack.Size = New System.Drawing.Size(361, 240)
         '
         '
         '
@@ -545,7 +545,7 @@ Partial Class F01_Producto
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(5, 5)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(312, 173)
+        Me.Panel3.Size = New System.Drawing.Size(345, 206)
         Me.Panel3.TabIndex = 0
         '
         'JGProdPack
@@ -553,7 +553,7 @@ Partial Class F01_Producto
         Me.JGProdPack.Dock = System.Windows.Forms.DockStyle.Fill
         Me.JGProdPack.Location = New System.Drawing.Point(0, 0)
         Me.JGProdPack.Name = "JGProdPack"
-        Me.JGProdPack.Size = New System.Drawing.Size(312, 173)
+        Me.JGProdPack.Size = New System.Drawing.Size(345, 206)
         Me.JGProdPack.TabIndex = 2
         '
         'SuperTabItem_Pack
@@ -1627,7 +1627,7 @@ Partial Class F01_Producto
         'Timer1
         '
         Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1000
+        Me.Timer1.Interval = 500
         '
         'F01_Producto
         '

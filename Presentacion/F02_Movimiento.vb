@@ -294,6 +294,9 @@ Public Class F02_Movimiento
             dgjDetalle.CurrentRow.Delete()
             dgjDetalle.Refetch()
             dgjDetalle.Refresh()
+            Dim dtt As DataTable = CType(dgjDetalle.DataSource, DataTable)
+            dtt.AcceptChanges()
+            CType(dgjDetalle.DataSource, DataTable).Equals(dtt)
         Catch ex As Exception
             'sms
             'MsgBox(ex)

@@ -7,7 +7,7 @@ Imports Logica.AccesoLogica
 Public Class F01_Producto
     Private Declare Sub Sleep Lib "kernel32" (ByVal dwMilliseconds As Long)
 #Region "Atributos generales"
-
+    Dim _Inter As Integer = 0
     Dim StTitulo As String = "P R O D U C T O"
     Dim InTipoForm As Byte = 1
     Dim DtPack As DataTable
@@ -1659,6 +1659,7 @@ Public Class F01_Producto
                 DtPack.Rows(JGProdPack.Row).Item("cbtccanumi1") = Row.Cells("numi").Value
                 DtPack.Rows(JGProdPack.Row).Item("cadesc") = Row.Cells("desc").Value
             End If
+
         ElseIf (e.KeyData = Keys.Enter And JGProdPack.Col = JGProdPack.RootTable.Columns("cbcant").Index) Then
             Dim filIndex As Integer = JGProdPack.Row
             If (filIndex = JGProdPack.RowCount - 1) Then
@@ -1715,11 +1716,15 @@ Public Class F01_Producto
             JGProdPack.CurrentRow.Delete()
             JGProdPack.Refetch()
             JGProdPack.Refresh()
+            Dim dtt As DataTable = CType(JGProdPack.DataSource, DataTable)
+            dtt.AcceptChanges()
+            CType(JGProdPack.DataSource, DataTable).Equals(dtt)
         Catch ex As Exception
             'sms
             'MsgBox(ex)
         End Try
     End Sub
+
     Private Sub JGProdPack_EditingCell(sender As Object, e As EditingCellEventArgs) Handles JGProdPack.EditingCell
         If (e.Column.Key.Equals("cbcant")) Then
             e.Cancel = False
@@ -1733,8 +1738,19 @@ Public Class F01_Producto
         '    Sleep(5)
         '    Me.Opacity = i
         'Next
-        Me.Opacity = 100
-        Timer1.Enabled = False
+
+        'Me.Opacity = 100
+        'Timer1.Enabled = False
+
+
+        _Inter = _Inter + 1
+        If _Inter = 1 Then
+            Me.WindowState = FormWindowState.Normal
+
+        Else
+            Me.Opacity = 100
+            Timer1.Enabled = False
+        End If
     End Sub
 
 #End Region

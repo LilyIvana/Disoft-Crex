@@ -240,6 +240,9 @@ Public Class F02_MovimientoPack
             dgjDetalle.CurrentRow.Delete()
             dgjDetalle.Refetch()
             dgjDetalle.Refresh()
+            Dim dtt As DataTable = CType(dgjDetalle.DataSource, DataTable)
+            dtt.AcceptChanges()
+            CType(dgjDetalle.DataSource, DataTable).Equals(dtt)
         Catch ex As Exception
             'sms
             'MsgBox(ex)
@@ -312,7 +315,7 @@ Public Class F02_MovimientoPack
 
         'Grid Busqueda
         dgjBusqueda.AllowEdit = Janus.Data.InheritableBoolean.False
-        dgjDetalle.ContextMenuStrip = CmDetalle
+        'dgjDetalle.ContextMenuStrip = CmDetalle
 
         'Botones
 
