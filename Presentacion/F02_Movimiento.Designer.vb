@@ -95,14 +95,14 @@ Partial Class F02_Movimiento
         Me.MSuperTabControlPrincipal.Margin = New System.Windows.Forms.Padding(4)
         Me.MSuperTabControlPrincipal.SelectedTabIndex = 1
         Me.MSuperTabControlPrincipal.Size = New System.Drawing.Size(1284, 555)
-        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelRegistro, 0)
+        Me.MSuperTabControlPrincipal.Controls.SetChildIndex(Me.MSuperTabControlPanelBusqueda, 0)
         '
         'MSuperTabControlPanelBusqueda
         '
         Me.MSuperTabControlPanelBusqueda.Controls.Add(Me.GroupPanelBusqueda)
         Me.MSuperTabControlPanelBusqueda.Margin = New System.Windows.Forms.Padding(4)
-        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(642, 455)
+        Me.MSuperTabControlPanelBusqueda.Size = New System.Drawing.Size(1242, 555)
         '
         'MSuperTabControlPanelRegistro
         '
@@ -581,7 +581,7 @@ Partial Class F02_Movimiento
         Me.GroupPanelBusqueda.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupPanelBusqueda.Location = New System.Drawing.Point(0, 0)
         Me.GroupPanelBusqueda.Name = "GroupPanelBusqueda"
-        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(642, 455)
+        Me.GroupPanelBusqueda.Size = New System.Drawing.Size(1242, 555)
         '
         '
         '
@@ -618,7 +618,7 @@ Partial Class F02_Movimiento
         Me.dgjBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgjBusqueda.Location = New System.Drawing.Point(0, 0)
         Me.dgjBusqueda.Name = "dgjBusqueda"
-        Me.dgjBusqueda.Size = New System.Drawing.Size(636, 431)
+        Me.dgjBusqueda.Size = New System.Drawing.Size(1236, 531)
         Me.dgjBusqueda.TabIndex = 0
         '
         'CmDetalle
@@ -626,14 +626,14 @@ Partial Class F02_Movimiento
         Me.CmDetalle.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.CmDetalle.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.QuitarProductoToolStripMenuItem})
         Me.CmDetalle.Name = "CmDetalle"
-        Me.CmDetalle.Size = New System.Drawing.Size(190, 58)
+        Me.CmDetalle.Size = New System.Drawing.Size(169, 36)
         '
         'QuitarProductoToolStripMenuItem
         '
         Me.QuitarProductoToolStripMenuItem.Image = Global.Presentacion.My.Resources.Resources.eliminar
         Me.QuitarProductoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.QuitarProductoToolStripMenuItem.Name = "QuitarProductoToolStripMenuItem"
-        Me.QuitarProductoToolStripMenuItem.Size = New System.Drawing.Size(189, 32)
+        Me.QuitarProductoToolStripMenuItem.Size = New System.Drawing.Size(168, 32)
         Me.QuitarProductoToolStripMenuItem.Text = "Quitar Producto"
         '
         'Timer1

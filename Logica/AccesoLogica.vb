@@ -12446,4 +12446,46 @@ Public Class AccesoLogica
         Return _Tabla
     End Function
 #End Region
+
+#Region "SOPORTE"
+
+    Public Shared Function L_GrabarSoporte(ByRef numi As String, fecha As String, BD As String, empresa As String, modulo As String, desc As String) As Boolean
+        Dim _resultado As Boolean
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 1))
+        _listParam.Add(New Datos.DParametro("@numi", numi))
+        _listParam.Add(New Datos.DParametro("@fecha", fecha))
+        _listParam.Add(New Datos.DParametro("@nomBD", BD))
+        _listParam.Add(New Datos.DParametro("@nomEmpresa", empresa))
+        _listParam.Add(New Datos.DParametro("@nombModulo", modulo))
+        _listParam.Add(New Datos.DParametro("@descrip", desc))
+        _listParam.Add(New Datos.DParametro("@usuario", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("ProcSoporte", _listParam)
+
+        If _Tabla.Rows.Count > 0 Then
+            numi = _Tabla.Rows(0).Item(0)
+            _resultado = True
+        Else
+            _resultado = False
+        End If
+
+        Return _resultado
+    End Function
+    Public Shared Function L_CargarSoporte() As DataTable
+
+        Dim _Tabla As DataTable
+        Dim _listParam As New List(Of Datos.DParametro)
+
+        _listParam.Add(New Datos.DParametro("@tipo", 3))
+        _listParam.Add(New Datos.DParametro("@usuario", L_Usuario))
+
+        _Tabla = D_ProcedimientoConParam("ProcSoporte", _listParam)
+
+        Return _Tabla
+    End Function
+#End Region
 End Class

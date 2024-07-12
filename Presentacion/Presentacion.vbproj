@@ -1427,6 +1427,12 @@
       <DependentUpon>R_VisitasDiarias.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Soporte.Designer.vb">
+      <DependentUpon>Soporte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Soporte.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UserControl\UCImagen.Designer.vb">
       <DependentUpon>UCImagen.vb</DependentUpon>
     </Compile>
@@ -2357,6 +2363,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>R_VisitasDiarias.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Soporte.resx">
+      <DependentUpon>Soporte.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\UCImagen.resx">
       <DependentUpon>UCImagen.vb</DependentUpon>
     </EmbeddedResource>
@@ -2680,6 +2689,7 @@
     <None Include="Resources\icons8_In_Transit_100px.png" />
     <None Include="Resources\icons8_In_Transit_80px.png" />
     <None Include="Resources\excel1.png" />
+    <None Include="Resources\soporte.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

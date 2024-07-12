@@ -1821,7 +1821,6 @@ Public Class P_Principal
         frm._nameButton = btnVendMixtoDet.Name
         frm._modulo = FP_Venta
         frm.Show()
-
     End Sub
 
     Private Sub btnConfImpresoras_Click(sender As Object, e As EventArgs) Handles btnConfImpresoras.Click
@@ -1831,6 +1830,12 @@ Public Class P_Principal
         frm.Show()
     End Sub
 
+    Private Sub btnSoporte_Click(sender As Object, e As EventArgs) Handles btnSoporte.Click
+        Dim frm As New Soporte
+        frm._nameButton = btnSoporte.Name
+        frm._modulo = FP_Configuracion
+        frm.Show()
+    End Sub
 
 #End Region
 

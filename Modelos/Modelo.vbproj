@@ -287,6 +287,12 @@
     <Compile Include="ModeloF0.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ModeloSoporte.designer.vb">
+      <DependentUpon>ModeloSoporte.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModeloSoporte.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -340,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ModeloF0.resx">
       <DependentUpon>ModeloF0.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModeloSoporte.resx">
+      <DependentUpon>ModeloSoporte.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
